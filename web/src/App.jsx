@@ -83,7 +83,9 @@ export default function App() {
   return (
     <>
       {/* top nav — full-width sticky bar (logo · primary tabs · market clock · settings) */}
-      <header className="sticky top-0 z-30 border-b border-zinc-800/80 bg-zinc-950/85 backdrop-blur">
+      {/* z-30 on mobile (chat slide-over covers it); above the docked rail on desktop
+          so the settings menu opens over the chat instead of behind it */}
+      <header className="sticky top-0 z-30 border-b border-zinc-800/80 bg-zinc-950/85 backdrop-blur lg:z-50">
         <div className="flex items-center gap-1.5 px-3 py-2 sm:px-4">
           <span className="mr-1 shrink-0 font-bold tracking-tight">
             <span className="hidden sm:inline">Trading Hub</span><span className="sm:hidden">Hub</span>
