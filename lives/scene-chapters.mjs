@@ -14,9 +14,10 @@ export function ocrSymbolHeader(framePath, tmpDir) {
   const pre = path.join(tmpDir, 'hdr.png')
   const outBase = path.join(tmpDir, 'hdr_out')
   try {
-    // header band: left 1100px, y 80..240 — covers toolbar (search ticker) + title row.
+    // header band: top-left 60% width, top 22% height — resolution-relative so it
+    // catches the title row across layouts (1920x1080 title ~y176; 1280x528 ~y50).
     execFileSync('ffmpeg', ['-y', '-i', framePath, '-frames:v', '1', '-vf',
-      'crop=1100:160:0:80,format=gray,scale=iw*2:ih*2', pre], { stdio: 'ignore' })
+      'crop=iw*0.6:ih*0.22:0:0,format=gray,scale=iw*2:ih*2', pre], { stdio: 'ignore' })
     execFileSync('tesseract', [pre, outBase, '--psm', '6'], { stdio: 'ignore' })
     const raw = fs.readFileSync(outBase + '.txt', 'utf8')
     fs.rmSync(pre, { force: true }); fs.rmSync(outBase + '.txt', { force: true })

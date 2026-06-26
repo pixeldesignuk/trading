@@ -1,7 +1,16 @@
 import { query } from './db.js'
 import { classify } from './portfolio/classify.js'
 
+// Canonical symbol: US class shares arrive as both "BRK.B" (TradingView) and
+// "BRK-B" (Yahoo/broker). The quote provider + Yahoo use the dash form, so fold a
+// single trailing ".<letter>" to "-<letter>" — keeping one row per security.
+// Leaves crypto (BTC/USDT), multi-letter suffixes (ISWD.GB) and =F futures alone.
+export function canonicalSymbol(sym) {
+  return String(sym || '').trim().replace(/^([A-Za-z0-9]+)\.([A-Za-z])$/, '$1-$2')
+}
+
 export async function upsertTicker(symbol, { name = null, asset_class = null } = {}) {
+  symbol = canonicalSymbol(symbol)
   // `(xmax = 0) AS inserted` distinguishes a fresh INSERT from an ON CONFLICT
   // UPDATE: a plain insert leaves the system column xmax at 0, an update sets it.
   const r = await query(
@@ -18,7 +27,7 @@ export async function upsertTicker(symbol, { name = null, asset_class = null } =
 }
 
 export async function getTicker(symbol) {
-  const r = await query('SELECT * FROM tickers WHERE symbol = $1', [symbol])
+  const r = await query('SELECT * FROM tickers WHERE symbol = $1', [canonicalSymbol(symbol)])
   return r.rows[0] || null
 }
 
