@@ -149,6 +149,9 @@ export default function ChatCore({
         className={[
           'chat-rail flex h-screen w-full max-w-[30rem] flex-col border-l border-zinc-800/80 fixed inset-y-0 right-0 z-40 lg:w-[27rem] lg:max-w-none',
           inline ? 'lg:static lg:z-auto lg:shrink-0' : '',
+          // Docked rail (portfolio) clears the 49px top nav on desktop so it never
+          // covers the menu; on mobile it stays a full-height slide-over.
+          inline ? '' : 'lg:top-[49px] lg:h-[calc(100vh-49px)]',
           open ? 'flex rail-in' : 'hidden lg:flex',
         ].join(' ')}
       >
