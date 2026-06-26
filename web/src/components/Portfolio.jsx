@@ -201,13 +201,22 @@ function HoldPosture({ t }) {
 }
 
 // Per-row alert toggle — arms/disarms the plan-derived alert set (entry · stop ·
-// targets). Only meaningful for a TRADE with levels; hidden for holds.
+// targets). Icon-only, sits at the row start. Only meaningful for a TRADE with
+// levels; holds render an empty slot so rows stay aligned.
+function BellIcon({ filled }) {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+      <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+    </svg>
+  )
+}
 function AlertToggle({ armed, busy, onToggle }) {
   return (
     <button onClick={(e) => { e.stopPropagation(); onToggle() }} disabled={busy}
       title={armed ? 'Plan alerts armed — click to disarm' : 'Arm alerts from this plan (entry · stop · targets)'}
-      className={`flex h-5 items-center gap-1 rounded border px-1.5 text-[9px] font-semibold uppercase tracking-wider transition-colors disabled:opacity-40 ${armed ? 'border-emerald-500/40 bg-emerald-500/15 text-emerald-300' : 'border-zinc-700/70 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'}`}>
-      <span className="text-[10px] leading-none">{armed ? '🔔' : '🔕'}</span>{busy ? '…' : armed ? 'Armed' : 'Arm'}
+      className={`flex h-6 w-6 items-center justify-center rounded transition-colors disabled:opacity-40 ${armed ? 'text-emerald-400 hover:text-emerald-300' : 'text-zinc-600 hover:text-zinc-300'} ${busy ? 'animate-pulse' : ''}`}>
+      <BellIcon filled={armed} />
     </button>
   )
 }
@@ -226,7 +235,9 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
     <div draggable={draggable} onDragStart={draggable ? onDragStart : undefined} onDragEnd={onDragEnd}
       onDragOver={onDragOver} onDrop={onDrop}
       onClick={() => onOpen(t.symbol)}
-      className={`row-in group relative grid min-h-[48px] grid-cols-[minmax(150px,1.2fr)_minmax(150px,1.7fr)_minmax(78px,0.8fr)_minmax(96px,1fr)_auto] items-center gap-3 border-b border-zinc-900 px-3 py-1.5 text-left transition-colors last:border-b-0 hover:bg-white/[0.025] ${draggable ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'} ${dropEdge ? 'before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-emerald-400' : ''}`}>
+      className={`row-in group relative grid min-h-[48px] grid-cols-[24px_minmax(150px,1fr)_minmax(120px,1.6fr)_92px_160px_104px] items-center gap-x-3 border-b border-zinc-900 px-3 py-1.5 text-left transition-colors last:border-b-0 hover:bg-white/[0.025] ${draggable ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'} ${dropEdge ? 'before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-emerald-400' : ''}`}>
+      {/* alert bell (trades only) — leading slot, empty for holds to keep alignment */}
+      <div className="flex justify-center">{!isHold && <AlertToggle armed={armed} busy={alertBusy} onToggle={() => onToggleAlert(t.symbol, armed)} />}</div>
       {/* identity */}
       <div className="flex min-w-0 items-center gap-2">
         <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: dot }} />
@@ -251,25 +262,24 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
         )}
       </div>
       {/* price */}
-      <div className="text-right font-mono tabular">
+      <div className="whitespace-nowrap text-right font-mono tabular">
         <span className="text-[13px] text-zinc-100">{fmtPrice(price)}</span>
         {change != null && <span className="ml-1.5 text-[10px]" style={{ color: change >= 0 ? '#34d399' : '#f87171' }}>{change >= 0 ? '+' : ''}{change.toFixed(1)}%</span>}
       </div>
       {/* holding */}
-      <div className="text-right font-mono text-[11px] tabular text-zinc-400">
+      <div className="whitespace-nowrap text-right font-mono text-[11px] tabular text-zinc-400">
         {holding ? (
           <span className="flex items-center justify-end gap-x-2.5">
+            {pctOfBook != null && <span className="hidden text-zinc-600 sm:inline">{pct0(pctOfBook)}</span>}
             <span className="text-zinc-200">{fmtMoney(holding.value, holding.currency)}</span>
             <span style={{ color: (holding.pnl ?? 0) >= 0 ? '#34d399' : '#f87171' }}>{(holding.pnl ?? 0) >= 0 ? '+' : ''}{fmtMoney(holding.pnl, holding.currency)}</span>
-            {pctOfBook != null && <span className="hidden w-10 text-zinc-600 sm:inline">{pct0(pctOfBook)}</span>}
           </span>
         ) : (
           <span className="text-zinc-700">—</span>
         )}
       </div>
-      {/* alerts (trades only) + sharia + grade */}
+      {/* sharia + grade */}
       <div className="flex items-center justify-end gap-2">
-        {!isHold && <AlertToggle armed={armed} busy={alertBusy} onToggle={() => onToggleAlert(t.symbol, armed)} />}
         <span className={`rounded border px-1.5 py-0.5 text-[9px] font-medium ${SHARIA[sharia] || SHARIA.unknown}`}>{SHARIA_LABEL[sharia] || 'Unscreened'}</span>
         <span className="w-4 text-right font-mono text-[11px]" style={t.top_grade != null ? { color: t.top_grade >= 7 ? '#34d399' : t.top_grade >= 5 ? '#fbbf24' : '#f87171' } : undefined} title="§20 grade">{t.top_grade ?? ''}</span>
       </div>
