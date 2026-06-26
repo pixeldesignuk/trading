@@ -180,7 +180,7 @@ function assignLanes(markers) {
 // Label ABOVE the bar, amount(s) BELOW; amount colour matches the label. `tall`
 // draws a full line through the bar (entry). `lane` lifts the label/amount out
 // to its row, with a faint stem keeping it tied to the tick.
-function Marker({ pct, color, value, label, sub, tall, lane = 0 }) {
+function Marker({ pct, color, value, label, sub, subColor, tall, lane = 0 }) {
   if (pct == null) return null
   const clamped = Math.max(2, Math.min(98, pct))
   const align = clamped < 18 ? 'left-0 text-left' : clamped > 82 ? 'right-0 text-right' : 'left-1/2 -translate-x-1/2 text-center'
@@ -199,7 +199,7 @@ function Marker({ pct, color, value, label, sub, tall, lane = 0 }) {
       {/* amount below, colour coordinated with the label */}
       <div className={`absolute whitespace-nowrap ${align}`} style={{ top: down + 1 }}>
         <div className="font-mono text-[11px] tabular" style={{ color }}>{fmtPrice(value)}</div>
-        {sub && <div className="font-mono text-[10px] tabular text-emerald-400">{sub}</div>}
+        {sub && <div className="font-mono text-[10px] tabular" style={{ color: subColor || '#34d399' }}>{sub}</div>}
       </div>
     </div>
   )
@@ -207,13 +207,21 @@ function Marker({ pct, color, value, label, sub, tall, lane = 0 }) {
 // Minimal price-level model for the gauge — targets/stop only, no account
 // config (the allocation engine now owns sizing; config.js is no longer in the
 // per-ticker risk path).
-function gaugeModel(s) {
+function gaugeModel(s, costBasis = null) {
   const entry = s?.entry
   const stop = s?.inval
   const hasStop = stop != null && entry != null && stop < entry
-  const targets = (s?.targets || []).map((x) => ({ p: x.p, profitPct: entry ? ((x.p - entry) / entry) * 100 : null }))
-  return { targets, hasStop, stop }
+  // When a position is held, profit % is measured from your ACTUAL average cost
+  // (the broker cost basis), not the plan's suggested entry — otherwise the
+  // "+X%" badges imply gains relative to a price you never paid. Falls back to
+  // the plan entry when flat.
+  const cost = costBasis != null && costBasis > 0 ? costBasis : null
+  const basis = cost ?? entry
+  const targets = (s?.targets || []).map((x) => ({ p: x.p, profitPct: basis ? ((x.p - basis) / basis) * 100 : null }))
+  return { targets, hasStop, stop, costBasis: cost }
 }
+// Signed percentage, e.g. +12% / -4% (a target below your cost is a loss).
+const fmtSignedPct = (n) => (n == null ? null : `${n >= 0 ? '+' : ''}${n.toFixed(0)}%`)
 function SetupGauge({ s, rm, divider }) {
   const edge = divider ? 'border-t border-zinc-900' : ''
   if (!s.hasPlan || s.pricePct == null) {
@@ -221,12 +229,16 @@ function SetupGauge({ s, rm, divider }) {
   }
   const stateC = STATE[s.state].c
   const pricePos = Math.max(2, Math.min(98, s.pricePct))
+  const clampPct = (v) => Math.max(0, Math.min(100, v))
   const markers = [
     ...s.targets.map((x, i) => {
       const tp = rm.targets.find((r) => r.p === x.p)
-      return { key: `t${i}`, pct: s.pct(x.p), color: '#34d399', label: `TP${i + 1}`, value: x.p, sub: tp?.profitPct != null ? `+${tp.profitPct.toFixed(0)}%` : null }
+      return { key: `t${i}`, pct: s.pct(x.p), color: '#34d399', label: `TP${i + 1}`, value: x.p, sub: fmtSignedPct(tp?.profitPct), subColor: (tp?.profitPct ?? 0) >= 0 ? '#34d399' : '#f87171' }
     }),
-    { key: 'entry', pct: s.entryPct, color: '#f87171', label: 'Entry', value: s.entry, tall: true },
+    { key: 'entry', pct: s.entryPct, color: '#f87171', label: rm.costBasis != null ? 'Setup' : 'Entry', value: s.entry, tall: true },
+    // Your actual average cost — only when held, so the +X% badges and this
+    // marker line up against the price you really paid.
+    ...(rm.costBasis != null ? [{ key: 'cost', pct: clampPct(s.pct(rm.costBasis)), color: '#fbbf24', label: 'You', value: rm.costBasis, tall: true }] : []),
     ...(rm.hasStop ? [{ key: 'stop', pct: s.invalPct, color: '#fb923c', label: 'Stop', value: rm.stop }] : []),
   ]
   const laid = assignLanes(markers)
@@ -248,15 +260,16 @@ function SetupGauge({ s, rm, divider }) {
           <div className="dot-live absolute top-1/2 z-10 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-black" style={{ left: `${pricePos}%`, background: stateC, color: stateC }} />
         </div>
       </div>
-      <GaugeLegend hasStop={rm.hasStop} hasTargets={s.targets.length > 0} priceColor={stateC} priceState={STATE[s.state].label} />
+      <GaugeLegend hasStop={rm.hasStop} hasTargets={s.targets.length > 0} hasCost={rm.costBasis != null} priceColor={stateC} priceState={STATE[s.state].label} />
     </>
   )
 }
 
 // Acronym legend for the gauge markers (kept short so labels never overlap).
-function GaugeLegend({ hasStop, hasTargets, priceColor, priceState }) {
+function GaugeLegend({ hasStop, hasTargets, hasCost, priceColor, priceState }) {
   const items = [
-    { c: '#f87171', k: 'Entry', v: 'buy / entry level' },
+    { c: '#f87171', k: hasCost ? 'Setup' : 'Entry', v: hasCost ? 'planned entry level' : 'buy / entry level' },
+    ...(hasCost ? [{ c: '#fbbf24', k: 'You', v: 'your avg cost · profit % is from here' }] : []),
     ...(hasStop ? [{ c: '#fb923c', k: 'Stop', v: 'stop-loss · structure-based' }] : []),
     ...(hasTargets ? [{ c: '#34d399', k: 'TP1·2·3', v: 'take-profit targets' }] : []),
   ]
@@ -864,7 +877,11 @@ export default function TickerDetail({ symbol, onBack }) {
   const s = scaleSetup(s0, scale)
   const priceView = price == null ? null : price * scale
   const historyView = scale === 1 || !history ? history : history.map((p) => ({ ...p, c: p.c * scale }))
-  const rm = gaugeModel(s)
+  // Held cost basis drives the gauge's profit %, but only when levels aren't
+  // being re-scaled by the commodity CFD/ETC toggle (where broker terms and plan
+  // terms diverge) — there we keep the plan basis to avoid a unit mismatch.
+  const costBasis = holding?.avgPrice != null && !canToggle ? holding.avgPrice : null
+  const rm = gaugeModel(s, costBasis)
   const sharia = SHARIA[t.sharia_status] || SHARIA.unknown
   const charts = data.events.filter((e) => e.kind === 'chart')
   const notes = data.events.filter((e) => e.kind !== 'chart')
