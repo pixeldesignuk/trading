@@ -1,0 +1,39 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 4.0,
+    "entry_basis": "zero_hub grade entry (4.0). NOTE: price has since fallen to ~3.30 on the chart (live 3.49), BELOW this level, so it is a pending reclaim trigger, not a live buy — wait for price to get back above 4.0 and hold.",
+    "targets": [
+      { "price": 4.6, "basis": "zero_hub grade TP1 (4.6); matches the 4.62 chart line" },
+      { "price": 5.4, "basis": "zero_hub grade TP2 (5.4); matches the ~5.33-5.40 fib zone on chart" },
+      { "price": 6.3, "basis": "zero_hub grade TP3 (6.3); matches the 6.25 supply-area box on chart" },
+      { "price": 7.0, "basis": "zero_hub grade TP4 (7.0); matches the 7.009 marked resistance level on chart" },
+      { "price": 10.0, "basis": "zero_hub grade TP5 (10); matches the ~10.50 resistance band at the top of the chart" }
+    ],
+    "invalidation": 3.2,
+    "stop_basis": "No stop stated by any source. The chart's green support zone (~4.0) has ALREADY broken. Estimated stop below the recent swing low ~3.20 (estimated) — note that with price at 3.49 and entry at 4.0, the original setup's risk/reward is currently broken."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Graded long ladder: buy 4.0, scale out 4.6 / 5.4 / 6.3 / 7 / 10 — but only scored 6/10 with a 'partial' verdict."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Weekly chart shows price dropped to ~3.30, breaking down through the marked buy/support zone and falling sharply at the current candle."
+    }
+  ],
+  "conflicts": [
+    "The grade says buy at 4.0, but the same-day weekly chart shows price has already fallen to ~3.30 (live 3.49) — below the entry — so the long setup never triggered cleanly and the buy zone's support has broken.",
+    "Even the bullish grade was only scored 6/10 with a 'partial' verdict, so the upside ladder was never high-conviction to begin with."
+  ],
+  "plain_english": "Zero's plan was to buy this around 4.00 and ride it up toward 4.60, 5.40, 6.30, 7.00 and eventually 10 — and those upside targets do line up with real levels on the chart. The problem is the chart itself: as of the same date the price had already dropped to about 3.30 (now 3.49), falling through the buy zone instead of bouncing from it, and the plan was only rated a cautious 'partial' to start with. The buy never confirmed, so don't chase it here. Wait — only consider the long if price climbs back above 4.00 and holds; below the recent low near 3.20 the idea is dead for now."
+}

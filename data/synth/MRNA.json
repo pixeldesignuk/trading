@@ -1,0 +1,38 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 42,
+    "entry_basis": "No fresh entry stated. Only stated buy was zero_hub entry 25 (Sep–Nov 2025), now stale at +193%. A retest of the broken range high near ~42 (estimated from the prior consolidation on both charts) is the only lower-risk re-entry; otherwise stand aside.",
+    "targets": [
+      { "price": 68, "basis": "zero_hub grade TP1 68 — also a labelled supply line on the 2026-06-09 chart; near-term, price already approaching" },
+      { "price": 83, "basis": "zero_live scale-out 83 (2026-06-22) + zero_hub grade TP2 83" },
+      { "price": 95, "basis": "zero_live scale-out 95 + zero_hub grade TP3 95 — labelled band on chart" },
+      { "price": 105, "basis": "zero_live scale-out 105 + zero_hub grade TP4 105 — top labelled band (~105–110) on chart" }
+    ],
+    "invalidation": 38,
+    "stop_basis": "Weekly close back inside the prior consolidation range (~high-30s on both charts) — would void the weekly breakout. (estimated; no explicit stop given, holder is deep in profit)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-22",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Confirmed weekly breakout, +193% from lows; holding his shares, took a partial, scaling out into 83 / 85 / 95 / 105 (more profit the higher it climbs)."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-09",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Graded partial (6/10): bought near 25 in Sep–Nov 2025, targets stacked at 68 / 83 / 95 / 105; chart shows accumulation boxes ~25–40 and labelled supply bands above."
+    }
+  ],
+  "conflicts": [
+    "Minor: the 2026-06-22 update lists targets 83/85/95/105 and omits the 68 level, but the 2026-06-09 chart and grade both mark 68 as the first target — price has simply already climbed near it, so 68 is the closest live target, not a contradiction.",
+    "The only explicit entry (25, Sep–Nov 2025) is stale — price is ~+193% above it, so it cannot be used as a fresh buy; there is no current low-risk entry on offer."
+  ],
+  "plain_english": "Moderna has already shot up about 193% from where Zero bought it near $25, and on the weekly chart it has confirmed a genuine breakout above its long base. He is holding his shares and selling small amounts into $83, $85, $95 and $105 — taking more off the higher it goes. The two reads are the same trader and fully agree, so direction isn't in doubt; the problem is there's no fresh, low-risk place to buy after a near-triple. If you don't already own it, wait for a real pullback (a dip back toward the low-40s breakout area) rather than chasing; if you already hold, just hold and trim into those higher prices."
+}

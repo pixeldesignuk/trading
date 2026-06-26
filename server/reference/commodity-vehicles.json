@@ -1,0 +1,77 @@
+{
+  "_note": "Curated reference of physically-backed, allocated ETCs for compliant commodity exposure. Zero charts CFD/spot (XPD/USD etc.) which are NOT investable (leverage + overnight interest). TER / broker / ISA values are best-effort — VERIFY on each broker's instrument search before relying. Maintained by hand; small, slow-moving universe.",
+  "palladium": {
+    "label": "Palladium",
+    "ribawi": false,
+    "reference_symbol": "PA=F",
+    "compliance_note": "Palladium is not ribawi (only gold & silver are). Spot/physically-backed ownership is permissible. Own it via a physically-backed allocated ETC — avoid CFDs/futures, leverage, margin and securities-lending. Subject to your own scholarly guidance (the ETC is legally a debt security, fully collateralised by allocated metal).",
+    "vehicles": [
+      { "ticker": "SPAL", "yahoo": "SPAL.L", "name": "Invesco Physical Palladium", "issuer": "Invesco", "exchange": "LSE", "currency": "GBP", "ter": 0.19, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } },
+      { "ticker": "SPDM", "yahoo": "SPDM.L", "name": "iShares Physical Palladium ETC", "issuer": "iShares", "exchange": "LSE", "currency": "GBX", "ter": 0.20, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } },
+      { "ticker": "PHPD", "yahoo": "PHPD.L", "name": "WisdomTree Physical Palladium", "issuer": "WisdomTree", "exchange": "LSE", "currency": "USD", "ter": 0.49, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } }
+    ]
+  },
+  "platinum": {
+    "label": "Platinum",
+    "ribawi": false,
+    "reference_symbol": "PL=F",
+    "compliance_note": "Platinum is not ribawi. Spot/physically-backed ownership is permissible via an allocated ETC — avoid CFDs/futures, leverage and margin. Subject to your own scholarly guidance.",
+    "vehicles": [
+      { "ticker": "SPLT", "yahoo": "SPLT.L", "name": "iShares Physical Platinum ETC", "issuer": "iShares", "exchange": "LSE", "currency": "GBX", "ter": 0.20, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } },
+      { "ticker": "PHPT", "yahoo": "PHPT.L", "name": "WisdomTree Physical Platinum", "issuer": "WisdomTree", "exchange": "LSE", "currency": "USD", "ter": 0.49, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } }
+    ]
+  },
+  "gold": {
+    "label": "Gold",
+    "ribawi": true,
+    "reference_symbol": "GC=F",
+    "compliance_note": "Gold is ribawi — trade spot, fully allocated, with immediate possession. Use a physically-backed, allocated gold ETC only. Avoid CFDs, spread bets, futures, and ETFs holding gold futures (e.g. DBP/DGL) or any unallocated 'paper gold'.",
+    "vehicles": [
+      { "ticker": "SGLN", "yahoo": "SGLN.L", "name": "iShares Physical Gold ETC", "issuer": "iShares", "exchange": "LSE", "currency": "USD", "ter": 0.12, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } },
+      { "ticker": "SGLP", "yahoo": "SGLP.L", "name": "Invesco Physical Gold", "issuer": "Invesco", "exchange": "LSE", "currency": "USD", "ter": 0.12, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } },
+      { "ticker": "PHGP", "yahoo": "PHGP.L", "name": "WisdomTree Physical Gold (GBP)", "issuer": "WisdomTree", "exchange": "LSE", "currency": "GBP", "ter": 0.39, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } }
+    ]
+  },
+  "silver": {
+    "label": "Silver",
+    "ribawi": true,
+    "reference_symbol": "SI=F",
+    "compliance_note": "Silver is ribawi — trade spot, fully allocated, with immediate possession. Use a physically-backed, allocated silver ETC only. Avoid CFDs, futures, and unallocated 'paper silver'.",
+    "vehicles": [
+      { "ticker": "SSLN", "yahoo": "SSLN.L", "name": "iShares Physical Silver ETC", "issuer": "iShares", "exchange": "LSE", "currency": "USD", "ter": 0.20, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } },
+      { "ticker": "PHAG", "yahoo": "PHAG.L", "name": "WisdomTree Physical Silver", "issuer": "WisdomTree", "exchange": "LSE", "currency": "USD", "ter": 0.49, "isa_eligible": true, "brokers": { "hl": true, "t212": true, "ajbell": true } }
+    ]
+  },
+  "usoil": {
+    "label": "Crude Oil (WTI)",
+    "ribawi": false,
+    "investable": false,
+    "reference_symbol": "CL=F",
+    "no_vehicle_note": "Crude oil can't be owned spot or physically by a retail investor — barrels aren't deliverable to you. Every retail vehicle (USO, CRUD, oil CFDs) holds rolling futures with financing/leverage, so it is both non-physical and non-Sharia-compliant (riba + gharar). There is no compliant way for you to hold crude oil. Chart & levels are reference/educational only.",
+    "vehicles": []
+  },
+  "wheat": {
+    "label": "Wheat",
+    "ribawi": false,
+    "investable": false,
+    "reference_symbol": "ZW=F",
+    "no_vehicle_note": "Agricultural commodities have no physically-backed retail vehicle — the ETCs/ETFs hold rolling futures (financing + leverage), which are non-physical and non-Sharia-compliant. No compliant way to hold it; chart & levels are reference only.",
+    "vehicles": []
+  },
+  "corn": {
+    "label": "Corn",
+    "ribawi": false,
+    "investable": false,
+    "reference_symbol": "ZC=F",
+    "no_vehicle_note": "Agricultural commodities have no physically-backed retail vehicle — the ETCs/ETFs hold rolling futures (financing + leverage), which are non-physical and non-Sharia-compliant. No compliant way to hold it; chart & levels are reference only.",
+    "vehicles": []
+  },
+  "copper": {
+    "label": "Copper",
+    "ribawi": false,
+    "investable": false,
+    "reference_symbol": "HG=F",
+    "no_vehicle_note": "Base-metal exposure for retail is via futures-based ETCs (financing + leverage), not allocated physical bars — non-physical and non-Sharia-compliant. No compliant retail vehicle; chart & levels are reference only.",
+    "vehicles": []
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 42,
+    "entry_basis": "zero_hub chart + grade — the 0.705 level (~$42) labelled 'I've set a buy here' in the monthly-discount zone; a deeper add sits at the 0.79 level (~$38). NOT the ~$50 figure from the extracted text, which sat near current price, not the buy.",
+    "targets": [
+      { "price": 86.45, "basis": "zero_hub chart — 0.79 level, labelled '2nd TP in range'" },
+      { "price": 91, "basis": "zero_hub chart — range high / 100% ($91.00); a weekly close above exits the multi-year range and flips it macro-bullish" },
+      { "price": 122, "basis": "zero_hub chart — 'HTF TARGET' band; note says cut at least a partial if reached" }
+    ],
+    "invalidation": 29.79,
+    "stop_basis": "A weekly close below the multi-year range low at $29.79 (0% level) — the structure the whole long thesis sits on. Both sources agree (manual: '<$30 wk close')."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Long-term buy is set in the cheap zone near $42 (deeper add ~$38), aiming for $86, then the $91 range top, and up to ~$122; he also flags the price could dip a little lower first."
+    },
+    {
+      "source": "manual",
+      "as_of": null,
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Logged as a holding ('In') with the same break-point: a weekly close below ~$30."
+    }
+  ],
+  "conflicts": [
+    "The earlier text extraction floated a ~$50 buy near the current price, but the chart and Zero's own note place the real buy down in the cheap zone around $42 (with a deeper add near $38) — $50 is not the buy, it just sat close to where price is now. Image wins.",
+    "Zero notes the current price (~$55) could be pushed a little lower and offers an optional small short there — but that is a short-term tactical aside that is sequenced before the buy, not a reversal of the longer-term plan to buy cheaper.",
+    "The manual note logs the position as already 'In', while Zero's intended buy sits lower at ~$42 — if held near today's price, that is above his planned entry."
+  ],
+  "plain_english": "The plan here is patient, not urgent: wait for CRISPR to fall back into its cheap zone near $42 (and add more if it drops toward $38) before buying — don't chase it at today's ~$56. If you get filled down there, the upside targets are roughly $86, then $91, then as high as $122, where you'd take some profit off. The whole idea only breaks if the stock closes a week below about $30. For now the action is to wait for that lower price, not to enter."
+}

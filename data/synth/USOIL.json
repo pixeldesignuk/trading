@@ -1,0 +1,59 @@
+{
+  "conviction": 7,
+  "contested": false,
+  "action": "enter",
+  "safest_plan": {
+    "entry": 72,
+    "entry_basis": "zero_tg + zero_live: $70-74 discount buy zone = weekly breaker + breakout origin + point-of-control (high-volume node). Mid-zone 72; price has fallen into this area (2026-06-18 chart ~74.46). Zero (2026-06-22) says 'appealing even from here'.",
+    "targets": [
+      { "price": 83, "basis": "zero_live TP1 = gap fill; matches the 'GAP' label ~83-84 on the 2026-06-18 daily chart" },
+      { "price": 89, "basis": "zero_live TP2 = value-at-high (~89); VAH zone ~88-90 on charts and monthly main target 0.886 (~88-90)" },
+      { "price": 96, "basis": "POC on 2026-06-18 daily chart (~96) — stretch target if momentum continues (estimated as next structural level above 89)" }
+    ],
+    "invalidation": 70,
+    "stop_basis": "Daily close below 70 (weekly breaker / discount low). Price may wick down to fill the monthly gap ~66-68 first, but Zero does not expect lower; a daily close under 70 breaks the setup."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-22",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Inside the weekly breaker with a possible re-accumulation; long still valid, buy ~70 (stop = monthly gap just below), first target the gap ~83 then ~89 — appealing even at current price."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-18",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Daily chart with price ~74.46 sitting right on the discount/breakout-origin zone; targets above are the gap ~83-84, then point-of-control ~96 and value-area-high ~100-104; monthly gap ~66-68 below as the floor."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Earlier daily chart with price ~91; same map — supply ~104-108 above, value-area-high ~100, demand/discount ~76-80 below where price has since fallen into."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Monthly macro view: accumulate in the discounted 50s-70s, partial target ~70, value-area-high ~80, main target ~88-90, with an extended move toward ~110 the longer-run scenario."
+    },
+    {
+      "source": "zero_tg",
+      "as_of": null,
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy $70-74 (discount + weekly breaker + point-of-control); invalidated on a close below $70, may wick to fill the monthly gap first. Flags this as 2x-leverage CFD (non-spot) — the halal version is the oil-company share COP."
+    }
+  ],
+  "conflicts": [
+    "No directional disagreement — every source is bullish and points to the same 70-74 buy area and ~83 / ~89 targets, so this is genuinely aligned rather than contested.",
+    "Instrument caveat (not a directional conflict): Zero trades oil here as a leveraged CFD, which is not spot-owned and is the haram route; his clean/halal expression of this same view is buying the oil-company equity COP instead of the oil contract.",
+    "The June 10 charts showed price at ~91 and the June 18 chart at ~74 — this is the price falling INTO the intended discount buy zone, i.e. confirmation of the plan, not a contradiction."
+  ],
+  "plain_english": "Every source here is on the same side: this is a buy. Oil has dropped into the 70-74 area that Zero flagged as his preferred buy zone — a long-term discount level where buyers stepped in before — and he says he'd add even at today's roughly 74 price. The plan only fails if oil closes below 70 (it might briefly dip toward a price gap around 66-68 first, but a daily close under 70 means step out); the first target is the price gap near 83, then the 88-90 area. One important caveat: Zero is trading oil here as a leveraged contract, which isn't actually owning the asset and isn't the halal route — his clean version of this trade is buying the oil-company share COP instead. If you can only trade spot/halal, treat this as a directional read and use COP, not the oil contract; otherwise the buy zone is 70-74 with a stop on a daily close below 70."
+}

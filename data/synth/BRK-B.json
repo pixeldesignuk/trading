@@ -1,0 +1,33 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 6580,
+    "entry_basis": "Zero (zero_live, 5 Jun): 're-accumulate ~20% lower into a sensible demand area'. ~20% below the 8,228 MXN price ≈ 6,580 MXN, which lands in the 0.786-fib blue demand zone (~6,400–6,800 MXN) drawn on the weekly chart (estimated; midpoint of that zone, BMV price in MXN).",
+    "targets": [
+      {
+        "price": 9200,
+        "basis": "Lower edge of the overhead supply band drawn on the chart (~9,200–9,573 MXN). Zero gave no explicit target (estimated)."
+      }
+    ],
+    "invalidation": 5900,
+    "stop_basis": "Below the deepest demand band on the weekly chart (~5,900–6,100 MXN). Zero stated only 'no bullish structure break yet; supply overhead' with no price, so this is structure-based and estimated."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-05",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Weekly downtrend with lower highs and lower lows and supply overhead; nothing to trade yet — would only buy spot ~20% lower into a deeper demand area if the fall continues."
+    }
+  ],
+  "conflicts": [
+    "Single source only (Zero, 5 Jun) — no cross-source disagreement, but Zero himself says it is not tradeable now, which is why conviction is low and the action is wait.",
+    "Chart correction: the prices are quoted in Mexican pesos (MXN) on the BMV exchange, not US dollars — treat all levels as MXN.",
+    "Chart adds a level the text omits: a shallow demand band sits just under the current price (~8,000–8,400 MXN); Zero is choosing to ignore it and wait for the much deeper ~20%-lower zone instead.",
+    "Chart clarifies the vague '~20% lower' in the text: it corresponds to the 0.786-fib blue demand zone at roughly 6,400–6,800 MXN."
+  ],
+  "plain_english": "Berkshire B (shown here in Mexican pesos on the Mexican exchange) is in a steady downtrend — each bounce is making a lower high and there is selling pressure sitting above the price, with no sign yet that the trend has turned up. Zero is clear this is one to watch, not buy: he would only step in to buy and hold the shares if it drops roughly 20% further into a much deeper support area around 6,400–6,800 pesos. There is no clean trade right now, so do nothing and just keep it on the watchlist; only consider buying if it falls into that deeper zone and shows signs of steadying."
+}

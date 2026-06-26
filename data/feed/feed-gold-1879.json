@@ -1,0 +1,29 @@
+{
+  "signals": [
+    {
+      "symbol": "GOLD",
+      "name": "Gold (spot)",
+      "asset_class": "commodity",
+      "source": "zero_tg",
+      "kind": "grade",
+      "occurred_at": "2026-06-05T15:09:01+00:00",
+      "native_id": "tg-zerodojo-1879-gold",
+      "payload": {
+        "entry": "Confirmation entry (Zero's two scenarios): (1) SAFER — break of the 'flip-high' (the value-area high it was rejected from) with a body close ABOVE, then a retest → long; (2) AGGRESSIVE — a sweep of the Value-Area-Low ~4,300, then reclaim/acceptance back above, push into demand, break the high, retest. If neither sets up cleanly: skip.",
+        "targets": [
+          "4,800",
+          "5,000"
+        ],
+        "invalidation": "An accepted close BELOW the HTF demand zone (price has held above it — 'we also didn't close below this demand, very important; not even below the EQ'). A sweep of the VAL 4,300 that RECLAIMS keeps it valid; an accepted close below demand kills the long thesis.",
+        "grade_score": 8,
+        "grade_verdict": "partial",
+        "sharia_status": "compliant",
+        "sharia_note": "Gold is halal (a precious metal). Take SPOT via a PHYSICALLY-BACKED ETC — SGLN (iShares Physical Gold, GBP, no FX) / SGLD / IGLG (GBP-hedged). Zero's XAUUSD framing is a CFD — avoid gold CFDs / futures / leverage; own the physical-backed unit.",
+        "note": "Spot via physical ETC. HTF demand test he'd been waiting for held with a strong impulse + reaction; 4H reads accumulatory (not distributive). COT: non-commercial longs reducing but net skew still long → favours the setup. Metals complex accumulatory with 3 macro lows tapped — a healthy backdrop. Setup VALID but untriggered — awaiting the break+retest or the VAL-sweep+reclaim.",
+        "caption": "Gold — HTF demand reclaim; long on break+retest of the flip-high OR a VAL ~4,300 sweep+reclaim. Targets 4,800 / 5,000.",
+        "url": "https://t.me/c/2039653167/1879",
+        "text": "Zero, mini market update (5 Jun, gold @19:31): demand test he'd flagged last update held with a strong impulse/reaction; price did NOT close below demand, not even below EQ. 4H = accumulatory. Setup valid. Two paths: (1) break the rejected value-area high with a body close above + retest → 4,800/5,000 ('easiest setup'); (2) given the accumulation, a sweep of the lows is possible — sweep VAL 4,300, reclaim, acceptance back, then long. Else skip. COT: non-commercial long contracts reducing but skew still long. All metals showing an accumulatory environment (3 macro lows tapped) — far healthier than distribution."
+      }
+    }
+  ]
+}

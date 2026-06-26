@@ -1,0 +1,23 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 26,
+    "entry_basis": "community (2026-06-22) — Zero replied he's watching CWCO and pointed to ~$26 as 'the level'; whether this is a buy zone or just a watch marker was not stated, so treat as a level to watch, not a confirmed entry (estimated intent)",
+    "targets": [],
+    "invalidation": null,
+    "stop_basis": "no structural invalidation was given by any source"
+  },
+  "stance_by_source": [
+    {
+      "source": "community",
+      "as_of": "2026-06-22",
+      "stance": "neutral",
+      "timeframe": "watch",
+      "summary": "A member raised the water-scarcity theme; Zero said he's watching Consolidated Water (the stock, not an ETF) around the $26 area."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one thin mention exists: in the chat, Zero said he is watching Consolidated Water and flagged roughly $26 as the price he cares about. Nobody gave a confirmed buy point, a profit target, or a price that would prove the idea wrong, so there is nothing solid to act on yet. This is a name to keep on a watchlist, not a trade to take. Wait for a clearer setup or for Zero to confirm what he wants to do at $26 before risking money."
+}

@@ -1,0 +1,26 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "Zero (zero_tg, 5 Jun): no precise number — entry is a confirmation trigger, not a level. SAFER: a body close ABOVE the value-area high it was rejected from, then a successful retest → long. AGGRESSIVE: a sweep of the value-area low ~4,300 that reclaims and gets acceptance back above, then breaks the high. The exact flip-high price was not stated, so no number is given.",
+    "targets": [
+      { "price": 4800, "basis": "Zero (zero_tg, 5 Jun) — first target" },
+      { "price": 5000, "basis": "Zero (zero_tg, 5 Jun) — second target" }
+    ],
+    "invalidation": 4300,
+    "stop_basis": "Zero (zero_tg, 5 Jun): an ACCEPTED close below the higher-timeframe demand zone. Price has held above demand (no close below it, not even below the mid/equilibrium). The 4,300 value-area-low is the line in the sand — a sweep that RECLAIMS keeps the long valid; an accepted close that stays below ~4,300 / the demand below it kills the thesis. 4,300 is the explicit VAL; the demand floor itself sits just under it (estimated)."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_tg",
+      "as_of": "2026-06-05",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Higher-timeframe demand test held with a strong reaction and no close below demand; 4-hour chart looks like accumulation, not topping. Setup is valid but has NOT triggered — wait for either a confirmed break-and-retest of the rejected high, or a dip that sweeps ~4,300 and reclaims, before going long toward 4,800/5,000."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one source covers gold here (Zero, from early June), and it leans bullish: the support area he was watching held firmly and the bigger-picture structure looks like buyers quietly building positions rather than a top forming. But the trade has not actually started — he wants to see either a confirmed push above the level price was recently rejected at (then a successful pullback to it), OR a quick dip that grabs the ~4,300 floor and then snaps back above it. If price instead settles and stays below that ~4,300 area, the idea is dead. The call is also about three weeks old and gives no exact entry price, so treat it as a setup to watch, not one to chase. Action: WAIT for one of those two confirmations before buying; do nothing until then."
+}

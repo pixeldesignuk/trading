@@ -1,0 +1,29 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 43,
+    "entry_basis": "zero_live 5-Jun: wait for absorption in the low $40s multi-month demand (price now ~43.62); only go long AFTER buyers hold AND a breakout-retest confirms — number is the $40s zone (estimated mid-point).",
+    "targets": [
+      { "price": 50, "basis": "zero_live 5-Jun: value-area-low / ~$50 psychological — first hurdle and also the risk level where it may bounce then 'melt'." },
+      { "price": 130, "basis": "Chart long-term target band ~$130-138, labelled '? Long term target ?' — explicitly unconfirmed (estimated)." }
+    ],
+    "invalidation": 38,
+    "stop_basis": "Below the multi-month demand zone in the $40s (zero_live); a clean break targets the ~$20 macro point-of-control / heavy-volume node (estimated stop just under the demand zone)."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-05",
+      "stance": "neutral",
+      "timeframe": "macro/weekly",
+      "summary": "Down ~77% from 2021 and now at a multi-month buying zone in the discount, but bearish China/tariff news is intensifying — wait for buyers to hold and a breakout-retest before going long; if the zone breaks, next real support is ~$20."
+    }
+  ],
+  "conflicts": [
+    "The single call is two-sided: price sits at a multi-month buying zone (constructive) yet bearish China-sales and tariff news is intensifying and Zero flags it could bounce to ~$50 then 'melt' lower toward ~$20 (bearish) — so there is no confirmed entry, only a wait-for-proof rule.",
+    "The chart's long-term recovery target (~$130-138) is far above the current ~$44 and is labelled with question marks / unconfirmed, so it cannot be treated as a reliable objective."
+  ],
+  "plain_english": "Nike has fallen roughly 77% from its 2021 peak and is now sitting in the low $40s, a price area where heavy buying has occurred before. Zero is not saying buy yet: bad news on China sales and tariffs keeps piling up, so the rule is to wait until buyers clearly step in and hold this area, then wait for the price to push up and successfully retest before going long. If this zone gives way instead, the next real support is much lower, around $20. For now, stand back and wait for proof that buyers are defending the $40s."
+}

@@ -1,0 +1,30 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 78,
+    "entry_basis": "zero_live (5 Jun) — mid of the IVB re-accumulation/entry zone drawn on the chart ($76–$80); the trade is already triggered, so this is the zone to wait for on a pullback, not a fresh signal at current price (~$88).",
+    "targets": [
+      { "price": 96, "basis": "zero_live chart — low-volume node above / 'Remains TP, partial' zone (~$96), the next stated objective." },
+      { "price": 107, "basis": "zero_live chart — 'Second potential TP' line (chart only; not in extracted text)." },
+      { "price": 117, "basis": "zero_live chart — 'Third potential TP' line (chart only; not in extracted text)." }
+    ],
+    "invalidation": 74,
+    "stop_basis": "Below the 0.618 fib at 74.14 and the base of the $76–$80 entry zone (the structure the re-accumulation sits on). Zero's own guidance is a break-even stop below the point of control."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-05",
+      "stance": "bullish",
+      "timeframe": "swing (daily)",
+      "summary": "Trade already up ~24% from the re-accumulation zone and working; take partial profit and move stop to break-even, aim for the low-volume node above — do not chase."
+    }
+  ],
+  "conflicts": [
+    "Chart vs text: the image shows two further upside targets ($107 'Second potential TP' and $117 'Third potential TP') and a structural floor at the 0.618 fib (74.14) that the extracted text omitted — these are added from the chart.",
+    "The single source frames this as an already-triggered trade to manage ('do not chase'), so there is no fresh entry for a new buyer at the current ~$88 price; the clean $76–$80 zone is below the market."
+  ],
+  "plain_english": "Only one source weighed in — Zero's 5 June live session — and it was bullish, but it described a trade that was already up about 24% and working. Its advice was to take some profit and move the stop to break-even, not to buy more. The clean buy zone it drew sits lower at roughly $76–$80, and the trade only fails if price falls back below about $74. With price already near $88, buying now means chasing a move that has already run, so the sensible play is to wait for a pullback into the $76–$80 zone rather than enter here."
+}

@@ -1,0 +1,36 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 75,
+    "entry_basis": "Deeper spot zone: Moneytaur 0.786 band (~$75, range-low/0.618 at ~$110 above it). Zero's newer (2026-06-22) read says the ~$110 area gets lost into a full rebalance of the March-2024 impulse — so the safest accumulation is this deeper zone, not the $110 rung. (~$75 estimated off the 0.786 band.)",
+    "targets": [
+      { "price": 190, "basis": "Moneytaur range high (RH, ~$190)" },
+      { "price": null, "basis": "Moneytaur: 100–200% on spot from the deep lows, conditional on the broad market not entering a Depression (no fixed level)" }
+    ],
+    "invalidation": 65,
+    "stop_basis": "Below the deep 0.786 / March-2024 rebalance zone (~$70). Losing it — or a broad-market Depression — voids the spot-accumulation thesis entirely (Moneytaur's structural void; Zero's 'full rebalance lost'). (~$65 estimated.)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-22",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Grinding down since mid-2025; expects the ~$110 area to be lost into a full rebalance lower, where spot/longs sit. No appealing trade here — lean avoid this leveraged-Bitcoin proxy."
+    },
+    {
+      "source": "moneytaur",
+      "as_of": "2026-06-08",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Expects a drop first — accumulate spot on a ladder at ~$110 then the deeper ~$75 zone, aiming for ~$190 and 100–200% returns, provided the market avoids a Depression."
+    }
+  ],
+  "conflicts": [
+    "The newer Zero read (Jun 22) expects the ~$110 range low to be LOST, which overrides Moneytaur's older (Jun 8) plan to begin buying at ~$110 — the genuine spot zone is the deeper ~$75 (0.786), not $110.",
+    "Direction lower is agreed, but engagement is not: Zero leans AVOID (no setup, a leveraged-Bitcoin vehicle) while Moneytaur sees an active spot-accumulation opportunity into the lows."
+  ],
+  "plain_english": "Both people who covered this stock think it is heading lower from here — the price (~$109) is sitting right on a level both expect to break. The more recent view (Zero, June 22) says that ~$110 floor will give way and the stock will fall further, into roughly the $75 area, before it is worth buying for the long term; he otherwise says there is no good trade here and would rather avoid it. The earlier view (Moneytaur, June 8) agrees a drop is coming and would slowly buy and hold the actual shares down in that lower zone, hoping for a move back toward $190 and beyond. They disagree on whether to bother at all, so the honest move is to do nothing now — wait for the deeper ~$75 zone before considering any small spot purchase."
+}

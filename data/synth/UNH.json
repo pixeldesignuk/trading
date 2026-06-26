@@ -1,0 +1,45 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 320,
+    "entry_basis": "Zero's stated buy: $320 (zero_hub grade + zero_tg) = the 'compound/accumulation area' on the weekly chart. NOTE: this level is now stale — live price is ~406, well above it — so it is only valid on a pullback into the 320–340 demand zone, not at current price.",
+    "targets": [
+      { "price": 381, "basis": "TP1 — 'TP LEVEL' on the weekly chart (zero_hub grade). Already hit per zero_tg." },
+      { "price": 412, "basis": "TP2 — the 412/0.5 cluster at current price (zero_hub grade). Already hit/tagged per zero_tg." },
+      { "price": 490, "basis": "TP3 — 0.786 fib / lower edge of the HTF supply band (zero_hub chart + grade). Remaining upside." },
+      { "price": 514, "basis": "TP4 — 517.42 line inside the HTF supply zone (zero_hub chart + grade). Remaining upside; chart marks a sell/short reaction here." }
+    ],
+    "invalidation": 277,
+    "stop_basis": "Below 277.69 — the floor of the compound/accumulation area on the weekly chart. A weekly close under it breaks the HTF discount thesis (next supports 255.79, then ~195)."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Weekly chart: buy the discounted compound zone (~320) aiming up through the 381/412 levels toward the 490–517 supply band."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Graded setup, score 7 (partial): entry 320 on HTF discount + defensive-sector thesis; targets 381 / 412 / 490 / 514."
+    },
+    {
+      "source": "zero_tg",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Trade is working — first two targets (381, 412) hit, running to 490. But flags: avoid the underlying as a conventional health insurer (not Sharia-clean) despite the trade's performance."
+    }
+  ],
+  "conflicts": [
+    "Timing, not direction: the stated buy at 320 has already played out — price is now ~406, so the planned entry is stale and buying here means chasing into the next resistance rather than entering at the discount.",
+    "Sharia caveat from the source itself: Zero notes the trade is performing but says to AVOID owning UnitedHealth because a conventional health insurer is not Sharia-clean — so the working chart setup and the ownership decision point opposite ways."
+  ],
+  "plain_english": "Everything here comes from one source (Zero) and it all points the same way: this was a longer-term buy from around $320, aiming up toward $490 and then $514. The first two profit targets ($381 and $412) have already been hit, so the trade has done its job — but the price is now about $406, far above the original $320 buy area, so jumping in here means chasing rather than buying the discount. On top of that, Zero himself flags that UnitedHealth is a conventional health insurer and not Sharia-compliant to own. Wait for a pullback into the $320–340 zone before considering anything, treat a weekly close below ~$277 as the point the idea is wrong, and given the Sharia flag, lean toward leaving this one alone."
+}

@@ -1,0 +1,23 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No fresh entry. The only cited level was a member's livestream level (Studentoffew) that has already held and run ~+40% — entering now is chasing, not a clean setup.",
+    "targets": [],
+    "invalidation": null,
+    "stop_basis": "The source ran a break-even stop after the move; no structural invalidation level was given for a new entry, so none can be cited."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_tg",
+      "as_of": null,
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "A member's trade (not a Hub call) off a livestream level that held and is now up about 40%; flagged as questionable on Sharia grounds because it's telehealth."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one mention here, and it's a member's own trade — not an official call — that already worked: it bought a level that held and is now up about 40%. There's no fresh entry, no stated targets, and no clear level to risk against, so buying now would just be chasing a move that already happened. On top of that the business needs a Sharia check before you'd own it. Wait — let it come back to a defined level and pull up real chart structure before doing anything."
+}

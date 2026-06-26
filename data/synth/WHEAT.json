@@ -1,0 +1,41 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 515,
+    "entry_basis": "zero_hub grade buy level 515, which sits inside the chart's green 'HISTORICAL LEVEL IN DISCOUNT' zone (~480-560). Note: current price ~592 is already above this, so it is not fillable now without a pullback.",
+    "targets": [
+      { "price": 638, "basis": "zero_hub grade TP1; matches red resistance line ~640 on chart" },
+      { "price": 655, "basis": "zero_hub grade TP2" },
+      { "price": 720, "basis": "zero_hub grade TP3; chart note 'evaluation of higher when closing above 720'" },
+      { "price": 780, "basis": "zero_hub grade TP4" },
+      { "price": 800, "basis": "zero_hub grade TP5; chart 'TP ZONE' band ~800" },
+      { "price": 1063, "basis": "zero_hub grade TP6; chart 1.272 extension zone ~1080" },
+      { "price": 1075, "basis": "zero_hub grade TP7; chart 1.272 extension zone ~1080" }
+    ],
+    "invalidation": 478,
+    "stop_basis": "No source gave an explicit stop. Placed just below the chart's 'historical level in discount' zone floor (~480) — losing that zone breaks the accumulation thesis (estimated)."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-15",
+      "stance": "bullish",
+      "timeframe": "tactical",
+      "summary": "Buy slowly and patiently; price is sitting inside the value zone, accumulating via the ETF."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Big-picture discount with signs of quiet accumulation; buy near 515 for a long ladder of targets up toward 800 and beyond."
+    }
+  ],
+  "conflicts": [
+    "The grade's buy level (515) is below the current price (~592), so the deepest discount entry has already passed — chasing here gives worse risk/reward than waiting for a pullback.",
+    "No source stated a stop; the stop level shown is inferred from the chart's discount-zone floor near 480 (estimated)."
+  ],
+  "plain_english": "Every source agrees wheat is a patient buy down in its cheap zone, and there's no disagreement about direction. The problem is the best buy price (around 515) sits below where wheat trades now (about 592), so the ideal entry has already gone — and the newest note literally says 'accumulate patiently', meaning don't chase. Wait for a dip back into the cheap zone (roughly 480-560) to start buying; first upside targets are around 638-655, then 720-800 if it keeps climbing. The idea is wrong if price falls back below about 480."
+}

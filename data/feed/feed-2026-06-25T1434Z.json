@@ -1,0 +1,207 @@
+{
+  "discussion": {
+    "slug": "feed-2026-06-25T1434Z",
+    "date": "2026-06-25",
+    "generated": "2026-06-25T14:34:02Z",
+    "since": "since last check · 06-24→06-25",
+    "tldr": "The Discussion area was dominated by a debate over the new Trading Hub \"terminal\" and what a \"verifiable track record\" actually means — Barncore/mgm828 pressed Zero on third-party verification vs a self-hosted DB, while rkrd_crypto and Zero defended documenting every trade at $10/mo (with some subscription-cancellation drama and repeated calls to keep it civil). Trade-wise: DOGE spot holders nursed ~50% drawdowns and debated DCA vs cutting (eyeing 0.06), broad interest in OIL/USOIL monthly-gap longs (66–70) + CONOCO, silver (XAG) ran near full TP, and Zero shared a manual NFLX short. ORCL was flagged as a fresh HTF IVB. Members floated MU, PLTR and LYFT; Wendy's pumped ~50%.",
+    "stats": {
+      "messages": 199,
+      "channels": [
+        {
+          "title": "Discussion area",
+          "count": 199
+        },
+        {
+          "title": "Stock trades",
+          "count": 0
+        },
+        {
+          "title": "Zero's Dojo",
+          "count": 0
+        }
+      ],
+      "ideas": 4,
+      "signals": 1
+    },
+    "topics": [
+      {
+        "group": "Discussion area",
+        "topic": "What 'verifiable track record' means for the new terminal",
+        "summary": "Long debate: Barncore/mgm828 argued a self-hosted DB isn't third-party-verifiable; rkrd_crypto and Zero countered that every entry/exit is documented and screenshot-checkable for $10/mo. Some cancellation drama; members asked to keep it respectful.",
+        "participants": [
+          "@Barncore",
+          "@mgm828",
+          "@rkrd_crypto",
+          "@ZeroIkaa",
+          "@F1717171717",
+          "@Dheerane"
+        ],
+        "tickers": []
+      },
+      {
+        "group": "Discussion area",
+        "topic": "DOGE drawdown — DCA or cut?",
+        "summary": "Spot holders down ~50% (buy-ins ~0.102) debated infinite-DCA vs capitulating; some cut at -50%, others wait for 0.06. Zero: spot crypto setups come when BTC hits its levels.",
+        "participants": [
+          "@dindoobs",
+          "@mackisback31",
+          "@zzizz13",
+          "@wnsehfdl",
+          "@Dheerane",
+          "@Roza3330"
+        ],
+        "tickers": [
+          "DOGE"
+        ]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "OIL / USOIL monthly-gap longs + CONOCO",
+        "summary": "Multiple members building low-leverage/spot oil longs into the monthly gap (66–70 area, USO confluence); Zero says the setups he's watching are US OIL + CONOCO in the terminal.",
+        "participants": [
+          "@drjohnkeyphd",
+          "@ZeroIkaa",
+          "@Studentoffew",
+          "01",
+          "@alaa2108",
+          "@tomsuchanek"
+        ],
+        "tickers": [
+          "USOIL",
+          "COP"
+        ]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "Silver (XAG) near full TP",
+        "summary": "XAG ran close to full TP; Zero flagged 55/50 as a good HTF discount area for spot.",
+        "participants": [
+          "@ZeroIkaa",
+          "@Oakensoul"
+        ],
+        "tickers": [
+          "XAG"
+        ]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "ORCL — HTF IVB at VAH/POC",
+        "summary": "Zero flagged Oracle as a potential HTF IVB; the Hub published an ORCL LONG approaching the VAH/POC of a prior fair value after a -38% correction.",
+        "participants": [
+          "@ZeroIkaa"
+        ],
+        "tickers": [
+          "ORCL"
+        ]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "Zero shares a manual NFLX short",
+        "summary": "Zero shared a manual NFLX short setup (2D level respected, 1:3) outside the terminal; SL below demand, TPs evaluated step by step.",
+        "participants": [
+          "@ZeroIkaa",
+          "@AlexBThomsen",
+          "@Ubzym"
+        ],
+        "tickers": [
+          "NFLX"
+        ]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "Wendy's ~50% pump",
+        "summary": "WEN spiked ~50% in a day; members who had it as a priority/momentum play discussed the move and pullback.",
+        "participants": [
+          "@tomsuchanek",
+          "@KonigNeit",
+          "@Mcshowtime"
+        ],
+        "tickers": [
+          "WEN"
+        ]
+      }
+    ]
+  },
+  "ideas": [
+    {
+      "symbol": "MU",
+      "name": "Micron Technology",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-24T15:18:08+00:00",
+      "native_id": "tg-disc-336596",
+      "author": {
+        "handle": "@Iwwa24k",
+        "name": "Iwwa24k"
+      },
+      "note": "Posted a MU chart — floated Micron (semiconductors) as an idea.",
+      "url": ""
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir Technologies",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-24T18:55:15+00:00",
+      "native_id": "tg-disc-336657",
+      "author": {
+        "handle": "@AlexBThomsen",
+        "name": "Alex B Thomsen"
+      },
+      "note": "Asked Zero if PLTR 'might be getting interesting'.",
+      "url": ""
+    },
+    {
+      "symbol": "LYFT",
+      "name": "Lyft Inc",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-25T11:47:58+00:00",
+      "native_id": "tg-disc-336712",
+      "author": {
+        "handle": "01",
+        "name": "01"
+      },
+      "note": "Suggested LYFT as a similar play to Zero's Uber chart (HTF BB).",
+      "url": ""
+    },
+    {
+      "symbol": "WEN",
+      "name": "The Wendy's Company",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-24T14:39:20+00:00",
+      "native_id": "tg-disc-336577",
+      "author": {
+        "handle": "@tomsuchanek",
+        "name": "tomsuchanek"
+      },
+      "note": "Flagged Wendy's ~50% one-day pump; members had it as a momentum play.",
+      "url": ""
+    }
+  ],
+  "signals": [
+    {
+      "symbol": "ORCL",
+      "name": "Oracle Corp",
+      "asset_class": "stock",
+      "source": "zero_hub",
+      "kind": "grade",
+      "occurred_at": "2026-06-25T08:28:50.840Z",
+      "native_id": "6a3ce4dd00df2a3c2f85fdc0",
+      "payload": {
+        "entry": "Approaching the VAH and POC of the prior fair value after a -38% correction (HTF IVB); 3W/6W demand sits just below the POC as coverage.",
+        "targets": [
+          "TP1 200",
+          "TP2 253"
+        ],
+        "invalidation": "Performing badly / melting the demands and closing below the VAL.",
+        "grade_score": 7,
+        "grade_verdict": "partial",
+        "sharia_status": "questionable",
+        "sharia_note": "Large-cap software; Oracle carries high interest-bearing debt — verify the debt ratio (likely fails the 33% screen) on Zoya/Musaffa.",
+        "note": "LONG but leverage 1x = a spot-compatible cash stock buy. Strong HTF method (IVB + supply/demand) with clear invalidation, but no numeric entry/stop and it's a pre-confirmation knife-catch (-38% off highs).",
+        "caption": "ORCL LONG — HTF IVB at VAH/POC after a -38% correction",
+        "url": "https://dojo-trading.com/hub/6a3ce4dd00df2a3c2f85fdc0",
+        "text": "Oracle exited a 70-day fair value and after another 70 days (and a -38% correction) is approaching the VAH and the POC of the previous fair value. Based on the setup this is a valid HTF IVB. Exit: trailing and taking most at the $200 psychological level + WFVG rebalancement + 0.5 fib. Strategies: IVB, Supply/Demand."
+      }
+    }
+  ]
+}

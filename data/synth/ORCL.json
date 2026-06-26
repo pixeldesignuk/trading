@@ -1,0 +1,26 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "zero_hub (2026-06-25): price is 'approaching the VAH and POC of the prior fair value' after a -38% correction — a zone, not a stated number; no numeric entry given and live price is null, so no level can be cited or responsibly estimated.",
+    "targets": [
+      { "price": 200, "basis": "zero_hub TP1 — $200 psychological level (trail and take most here, aligns with the weekly fair-value-gap rebalance and the 0.5 fib)" },
+      { "price": 253, "basis": "zero_hub TP2 — extended target" }
+    ],
+    "invalidation": null,
+    "stop_basis": "zero_hub: a daily/structural close below the Value Area Low (VAL) of the prior fair-value range, or price 'melting the demands' that sit just below the point of control — no numeric VAL was stated, so no figure can be cited."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-25",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "After a -38% drop, Oracle is dropping back into a heavily-traded prior support area and this is a valid longer-term buy-the-dip setup; take most profit near $200, then $253; bail if it closes below the bottom of that area."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one source covers Oracle, and it likes it: after a roughly 38% fall from the highs, the stock is sliding back into an area where a lot of buying happened before, which it reads as a solid longer-term dip-buy. But it gives no actual buy price, no stop number, and admits this is a 'catch the falling knife' setup with no confirmation yet that the drop has stopped. Aim to take most profit around $200 and the rest near $253, and abandon it if Oracle closes below the bottom of that support area. Don't chase it here — wait for price to reach the zone and show signs of holding before buying."
+}

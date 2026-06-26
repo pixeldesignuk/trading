@@ -1,0 +1,57 @@
+{
+  "discussion": {
+    "slug": "feed-2026-06-24T0809Z",
+    "date": "2026-06-24",
+    "generated": "2026-06-24T08:09:00Z",
+    "since": "since last check · 06-23→06-24",
+    "tldr": "Quiet, upbeat session in the Discussion area. Zero shipped a new Palladium spot setup to the terminal (HTF demand ~$1,000–1,200, calls it potentially massive), opened a Netflix position off a 2D level after the close, and flagged his silver short is printing (tempted to take profit). A member posted a +31% leveraged TAO long win; others discussed BTC sitting on the weekly 200MA, the pros/cons of prop firms, and the new dojo-trading terminal's journaling/multi-wallet features — plus Zero's new side-channel for terminal notifications.",
+    "stats": {
+      "messages": 30,
+      "channels": [
+        {"title": "Discussion area", "count": 30},
+        {"title": "Stock trades", "count": 0},
+        {"title": "Zero's Dojo", "count": 0}
+      ],
+      "ideas": 2,
+      "signals": 1
+    },
+    "topics": [
+      {"group": "Discussion area", "topic": "Zero ships a Palladium spot setup", "summary": "Zero published a new Palladium (XPD) spot setup to the terminal — HTF demand ~$1,000–1,200, which he calls a potentially massive one. Sparked by @Oakensoul flagging palladium/platinum.", "participants": ["@ZeroIkaa", "@Oakensoul"], "tickers": ["PALLADIUM"]},
+      {"group": "Discussion area", "topic": "Zero opens Netflix off a 2D level", "summary": "Zero opened a Netflix position from a 2D level after the closure, 'giving it a try'.", "participants": ["@ZeroIkaa", "@AlexBThomsen"], "tickers": ["NFLX"]},
+      {"group": "Discussion area", "topic": "Silver short printing", "summary": "Zero's XAG (silver) short is printing well; he's tempted to close the majority. (Short — non-spot.)", "participants": ["@ZeroIkaa"], "tickers": ["SILVER"]},
+      {"group": "Discussion area", "topic": "Member +31% TAO long", "summary": "@GuybrushThreepwoodSan shared a +31.1% TAO/USDT 20x long on Bitunix; Zero congratulated and reminded him to journal it. Leveraged — non-spot.", "participants": ["@GuybrushThreepwoodSan", "@ZeroIkaa"], "tickers": ["TAO"]},
+      {"group": "Discussion area", "topic": "Members entering MOS & XPeng", "summary": "@Dheerane said he entered MOS and XPeng, following Zero's existing spot setups.", "participants": ["@Dheerane"], "tickers": ["MOS", "XPEV"]},
+      {"group": "Discussion area", "topic": "BTC on the weekly 200MA", "summary": "@FruitCake16 noted BTC is sitting on its weekly 200-period moving average.", "participants": ["@FruitCake16"], "tickers": ["BTC"]},
+      {"group": "Discussion area", "topic": "Support-retest concept question", "summary": "@Dheerane asked Zero to reconcile the 'repeated touches weaken a level' idea against a chart (Transrail Lighting, NSE) that keeps holding its support line.", "participants": ["@Dheerane", "@ZeroIkaa"], "tickers": []},
+      {"group": "Discussion area", "topic": "Prop firms — worth it?", "summary": "@Jejinhoo gave a candid take on prop firms: plenty are scammy, diversify and mind the rules, but profitable traders can scale funded capital over time.", "participants": ["@Jejinhoo"], "tickers": []},
+      {"group": "Discussion area", "topic": "Terminal journaling + new side channel", "summary": "Members asked about multi-wallet journaling and confluence stats in the new dojo-trading terminal; Zero created a dedicated side channel for terminal notifications.", "participants": ["@inacryptoworld", "@ZeroIkaa", "@LaurensL1994"], "tickers": []}
+    ]
+  },
+  "ideas": [
+    {"symbol": "XPEV", "name": "XPeng Inc.", "asset_class": "stock", "occurred_at": "2026-06-23T21:14:00Z", "native_id": "tg-disc-336505-XPEV", "author": {"handle": "@Dheerane", "name": "Dheerane"}, "note": "Entered XPeng, following Zero's spot setup.", "url": ""},
+    {"symbol": "MOS", "name": "Mosaic Co", "asset_class": "stock", "occurred_at": "2026-06-23T21:14:00Z", "native_id": "tg-disc-336505-MOS", "author": {"handle": "@Dheerane", "name": "Dheerane"}, "note": "Entered MOS, following Zero's spot setup.", "url": ""}
+  ],
+  "signals": [
+    {
+      "symbol": "PALLADIUM",
+      "name": "Palladium (XPD/USD spot)",
+      "asset_class": "commodity",
+      "source": "zero_hub",
+      "kind": "grade",
+      "occurred_at": "2026-06-24T07:32:50.233Z",
+      "native_id": "6a3b8642e087ba152f72f1ce",
+      "payload": {
+        "entry": "$1,000–1,200 (optimal ~$1,000: M FVG + 11M BB + M VAH + psychological level)",
+        "targets": ["TP1 1500", "TP2 1727"],
+        "invalidation": "HTF closure below the 11M BB",
+        "grade_score": 7,
+        "grade_verdict": "partial",
+        "sharia_status": "compliant",
+        "sharia_note": "Palladium is not ribawi (only gold/silver are), so spot/physically-backed ownership is permissible. Express it via a physically-backed palladium ETC (UK: PHPD WisdomTree Physical Palladium; US: PALL abrdn Physical Palladium) — NOT a leveraged XPD/USD CFD.",
+        "note": "spot · HTF discount demand after an MMXM model completion + a -45/50% drop. PLANNED — price is still approaching the zone; awaiting the discount tap + HTF confirmation. R:R ~2.6:1 to TP1, ~4:1 to TP2. Strategies: supply/demand + breaker.",
+        "url": "https://dojo-trading.com/hub/6a3b8642e087ba152f72f1ce",
+        "text": "Palladium (XPD) long from HTF M demand $1,000–1,200, optimal ~$1,000 (M FVG + 11M BB + M VAH, psychological level). Exit: secure BE when it moves in favour + take partials. Invalidation: HTF closure below the 11M BB."
+      }
+    }
+  ]
+}

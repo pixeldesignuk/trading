@@ -1,0 +1,36 @@
+{
+  "conviction": 2,
+  "contested": true,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": 1.10,
+    "entry_basis": "Lower buy zone (5-minute reversal area) drawn on the 2026-06-17 zero_hub chart, where price currently sits (~1.1045); only valid IF the major coins / USDT dominance confirm — which per zero_tg has NOT happened (estimated zone midpoint)",
+    "targets": [
+      { "price": 1.245, "basis": "0.5 / 0.618 retracement zone marked on the zero_hub chart (estimated midpoint of the 1.24–1.26 band)" },
+      { "price": 1.31, "basis": "Upper band / range-high zone on the zero_hub chart (estimated)" }
+    ],
+    "invalidation": 1.16,
+    "stop_basis": "zero_tg stop: a 15-minute close below 1.1603 already triggered — this stop has ALREADY been hit, and price (~1.1045) is now below it, so the long structure is broken"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-17",
+      "stance": "bullish",
+      "timeframe": "MTF",
+      "summary": "Wants to long XRP on a pullback after price broke above the 1.18 level; buy zones drawn near 1.16-1.17 and near 1.10, aiming up toward roughly 1.24 then 1.31 — but the dominance chart shows the confirmation level for that long is still unmet."
+    },
+    {
+      "source": "zero_tg",
+      "as_of": null,
+      "stance": "neutral",
+      "timeframe": "LTF",
+      "summary": "Reports the 1.1726 long is dead — the safety stop at about 1.16 was hit because the major coins never reached the levels needed to confirm the move."
+    }
+  ],
+  "conflicts": [
+    "The 2026-06-17 chart frames XRP as a buy-the-pullback long toward ~1.17, but the newer chat update says that exact trade already failed — the stop near 1.16 was hit because the major coins never confirmed — so the chart's long is now stale/invalidated.",
+    "Price is now ~1.10, below the ~1.16 stop, so the only long still on the chart (the lower ~1.10 zone) depends on the same major-coin / dominance confirmation that has not yet happened."
+  ],
+  "plain_english": "Zero marked XRP as a possible buy on a pullback, planning to go long around 1.17 (a re-test of the 1.18 level it had broken above) and aim toward roughly 1.24 and 1.31. That trade has since failed: the chat confirmed the safety stop near 1.16 was hit because the major coins never reached the levels needed to confirm the move, and price has since dropped further to about 1.10. A lower buy area near 1.10 is still drawn on the chart, but it needs that same confirmation from the broader market, which still hasn't come. Stand aside and wait for the major coins to actually confirm a bounce rather than chasing a long that has already stopped out."
+}

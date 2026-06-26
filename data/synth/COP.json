@@ -1,0 +1,33 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 102.5,
+    "entry_basis": "zero_hub/zero_tg — the 3M breaker-block 0.5 retrace at $102.50, stacked with the higher-timeframe 0.618 fib, the $100 round-number level and the 2-week demand at $99.50 just below; chart confirms the blue breaker zone and pink $100 marker. Buy zone is really 99.50–102.50.",
+    "targets": [
+      { "price": 120, "basis": "zero_hub TP1 — matches the ~120 line labelled 4D on the chart" },
+      { "price": 130, "basis": "zero_hub TP2 — matches the ~130 line labelled 6D on the chart" }
+    ],
+    "invalidation": 94,
+    "stop_basis": "Below the 3M demand at $94. Zero's stated invalidation is a 3-month close below the breaker block (~$99.50); that confirms a slide to the $94 demand, so the stop sits beneath $94 to give the swing room rather than at the zone edge."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-19",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Spot buy at the 3-month breaker-block retrace near $102.50, targeting $120 then $130; invalidated on a 3-month close below the breaker block."
+    },
+    {
+      "source": "zero_tg",
+      "as_of": "2026-06-19",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Same clean spot setup carried over unchanged — buy the $99.50–$102.50 confluence zone, stop on a close below the breaker block."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Every source agrees on the same plan, so the read is consistent: this is a buy-the-dip idea on ConocoPhillips, treated as a long-term spot holding. The plan is to buy in the $99.50–$102.50 area, where several support markers line up, aiming for roughly $120 then $130, and to abandon it if a 3-month candle closes below about $94. The catch is that the stock is currently around $110 — above the buy zone — so nothing should be bought yet. Wait for a pullback into the buy zone before entering."
+}

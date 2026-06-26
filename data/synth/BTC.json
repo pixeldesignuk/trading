@@ -1,0 +1,80 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 66600,
+    "entry_basis": "zero_tg short entry $66,619 at the 12H supply; reaffirmed zero_live 2026-06-22 as the key reload level (~66.3 flip). Higher/aggressive reload short = 69,000 ('69k = the level to short if reached'). Price is currently BELOW this zone, so this is a sell-the-rally entry, not live.",
+    "targets": [
+      { "price": 61700, "basis": "zero_live 2026-06-22: 1D demand ~61.7 (first downside objective / lows to be swept)" },
+      { "price": 60000, "basis": "zero_live 2026-06-15: 'spot 60k -> 59k, deeper into summer'" },
+      { "price": 58800, "basis": "1D demand/accumulation zone on 06-15 charts (~58,823), near production-cost floor (estimated)" }
+    ],
+    "invalidation": 67000,
+    "stop_basis": "A 1H close back above the 12H supply (~66,758, zero_hub charts; zero_tg invalidation = 'close above the 12H supply') negates the bearish rejection."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-22",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Bigger-picture trend down, sellers in control; shorted the 12H supply to a 1H breaker and closed ~7% in profit. Reload short on a flip of ~66.3; short 69k if it gets there; small tactical long 65.8->69 only if conditions allow. Lows being built to be swept. Not a spot idea."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-17",
+      "stance": "bearish",
+      "timeframe": "LTF",
+      "summary": "1H short from the 12H supply (~66.8k) down toward the 0.788 fib (~64.3k); the 10x short card shows roughly +28% in profit, avg close ~64,843."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-16",
+      "stance": "bearish",
+      "timeframe": "LTF",
+      "summary": "12H supply ~66.8k caps price; 0.788 fib ~64.3k and a demand pocket 64.75-65.25k sit below. Bias to fade the supply."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-16",
+      "stance": "neutral",
+      "timeframe": "LTF",
+      "summary": "USDT dominance chart flags a 'confluence for BTC LONG' if dominance drops into the 12H + order-block zone — a counter-condition that would favour a bounce, not the short."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-16",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "BTC perp marks a long idea off the 6H demand + lower-timeframe breaker around 64.1-64.5k — a tactical buy-the-dip, opposite to the short."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-15",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Spot stance: wait / accumulate lower, looking for 60k -> 59k deeper into summer rather than chasing here."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-15",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Daily trend bearish, momentum with sellers; production-cost / demand floor sits down near ~58k."
+    },
+    {
+      "source": "zero_tg",
+      "as_of": null,
+      "stance": "bearish",
+      "timeframe": "LTF",
+      "summary": "Short triggered at $66,619 off the 12H supply, invalidation a close above the 12H supply; closed in profit, well-managed (10x instrument, context only)."
+    }
+  ],
+  "conflicts": [
+    "The actionable short level (~66.6k 12H supply) is now well above the current price (62,313) — the short already played out and closed in profit, so there is no fresh short to take at current price; it is a sell-the-rally setup only.",
+    "Same trader marks both a short (fade the 66.6-69k supply) and a tactical long (buy the 6H demand ~64k, plus a USDT.D 'confluence for BTC long'), so intraday this is a two-sided range, not a clean one-way short.",
+    "Spot guidance (wait / accumulate 59-60k for the longer term) sits alongside the tactical short — consistent on direction (down) but different in intent and timeframe."
+  ],
+  "plain_english": "Zero's bigger-picture read on Bitcoin is bearish: the longer-term trend is down and sellers are in control. He already shorted from a resistance zone around $66,600 and closed it in profit as price dropped to about $62,300 today, so there is no fresh short to take right now — price has already fallen below his sell zone. He would only short again if Bitcoin rallies back up into roughly $66,600 to $69,000, and he also flags a possible small bounce-buy near $64,000, so the market is really chopping in a range. Wait for a rally into the $66,600-$69,000 sell zone before shorting; do not chase it lower from here."
+}

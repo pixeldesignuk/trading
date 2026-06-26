@@ -1,0 +1,45 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 4.55,
+    "entry_basis": "zero_hub grade entry 4.55, confirmed by manual trade-list ($4.55); sits inside the chart's blue 'demand as coverage' zone (~3.5–4.5, 0.786 fib ~4.0)",
+    "targets": [
+      { "price": 8.20, "basis": "manual target $8.20 and chart 'TP + BE' marker ~8.20 (grade TP1 8.13)" },
+      { "price": 11, "basis": "zero_hub grade TP2; chart HTF order-block / TP red line ~11–12" },
+      { "price": 16.18, "basis": "zero_hub grade TP3; chart 'still liquidity to be taken' zone ~16" },
+      { "price": 19, "basis": "zero_hub grade TP4; chart 'optimistic target' ~19.56" }
+    ],
+    "invalidation": 2.70,
+    "stop_basis": "manual <$2.70; sits below the chart's demand zone, the 0.886 retracement (~3.49) and the KSL key-stop marker (~3), above the macro-discount floor (~2.2)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "macro",
+      "summary": "Chart marks NIO as a long-term-discount buy: enter into the lower demand zone and target a recovery up toward 8.20, then 11+."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-10",
+      "stance": "bullish",
+      "timeframe": "macro",
+      "summary": "Graded the setup: buy at 4.55, targets 8.13 / 11 / 16.18 / 19 — but only a partial 5/10 ('HTF discount + automotive')."
+    },
+    {
+      "source": "manual",
+      "as_of": null,
+      "stance": "bullish",
+      "timeframe": "macro",
+      "summary": "Imported trade marked already 'In': entry $4.55, first target $8.20, wrong below $2.70."
+    }
+  ],
+  "conflicts": [
+    "No directional disagreement — all sources are bullish on the same $4.55 entry. Caveat: the live price (5.05) has already risen above that ideal entry, so the buy zone hasn't filled at current levels — chasing here worsens the risk:reward.",
+    "Zero's own grade rates this only a partial setup (5/10), and the chart shows a lot of unfilled liquidity above plus a deep macro-discount floor below — so conviction is capped despite the agreement."
+  ],
+  "plain_english": "Every source agrees NIO is a long-term bargain-buy, not a quick trade. The plan is to buy near $4.55 — a price the chart marks as a strong buying zone — and ride a recovery toward $8.20 first, then potentially $11 and higher; the idea is wrong if price falls under about $2.70. Right now the price is $5.05, already above that $4.55 buy zone, so don't chase it. Wait for a dip back into the ~$4.55 demand area before entering."
+}

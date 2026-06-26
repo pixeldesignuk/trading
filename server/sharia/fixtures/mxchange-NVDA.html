@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="profile" href="http://gmpg.org/xfn/11">
+		<script type="text/html" id="tmpl-bb-link-preview">
+<% if ( link_scrapping ) { %>
+	<% if ( link_loading ) { %>
+		<span class="bb-url-scrapper-loading bb-ajax-loader"><i class="bb-icon-l bb-icon-spinner animate-spin"></i>Loading preview...</span>
+	<% } %>
+	<% if ( link_success || link_error ) { %>
+		<a title="Cancel Preview" href="#" id="bb-close-link-suggestion">Remove Preview</a>
+		<div class="bb-link-preview-container">
+
+			<% if ( link_images && link_images.length && link_success && ! link_error && '' !== link_image_index ) { %>
+				<div id="bb-url-scrapper-img-holder">
+					<div class="bb-link-preview-image">
+						<div class="bb-link-preview-image-cover">
+							<img src="<%= link_images[link_image_index] %>"/>
+						</div>
+						<div class="bb-link-preview-icons">
+							<%
+							if ( link_images.length > 1 ) { %>
+								<a data-bp-tooltip-pos="up" data-bp-tooltip="Change image" href="#" class="icon-exchange toolbar-button bp-tooltip" id="icon-exchange"><i class="bb-icon-l bb-icon-exchange"></i></a>
+							<% } %>
+							<% if ( link_images.length ) { %>
+								<a data-bp-tooltip-pos="up" data-bp-tooltip="Remove image" href="#" class="icon-image-slash toolbar-button bp-tooltip" id="bb-link-preview-remove-image"><i class="bb-icon-l bb-icon-image-slash"></i></a>
+							<% } %>
+							<a data-bp-tooltip-pos="up" data-bp-tooltip="Confirm" class="toolbar-button bp-tooltip" href="#" id="bb-link-preview-select-image">
+								<i class="bb-icon-check bb-icon-l"></i>
+							</a>
+						</div>
+					</div>
+					<% if ( link_images.length > 1 ) { %>
+						<div class="bb-url-thumb-nav">
+							<button type="button" id="bb-url-prevPicButton"><span class="bb-icon-l bb-icon-angle-left"></span></button>
+							<button type="button" id="bb-url-nextPicButton"><span class="bb-icon-l bb-icon-angle-right"></span></button>
+							<div id="bb-url-scrapper-img-count">
+								Image <%= link_image_index + 1 %>&nbsp;of&nbsp;<%= link_images.length %>
+							</div>
+						</div>
+					<% } %>
+				</div>
+			<% } %>
+
+			<% if ( link_success && ! link_error && link_url ) { %>
+				<div class="bb-link-preview-info">
+					<% var a = document.createElement('a');
+						a.href = link_url;
+						var hostname = a.hostname;
+						var domainName = hostname.replace('www.', '' );
+					%>
+
+					<% if ( 'undefined' !== typeof link_title && link_title.trim() && link_description ) { %>
+						<p class="bb-link-preview-link-name"><%= domainName %></p>
+					<% } %>
+
+					<% if ( link_success && ! link_error ) { %>
+						<p class="bb-link-preview-title"><%= link_title %></p>
+					<% } %>
+
+					<% if ( link_success && ! link_error ) { %>
+						<div class="bb-link-preview-excerpt"><p><%= link_description %></p></div>
+					<% } %>
+				</div>
+			<% } %>
+			<% if ( link_error && ! link_success ) { %>
+				<div id="bb-url-error" class="bb-url-error"><%= link_error_msg %></div>
+			<% } %>
+		</div>
+	<% } %>
+<% } %>
+</script>
+<script type="text/html" id="tmpl-profile-card-popup">
+	<div id="profile-card" class="bb-profile-card bb-popup-card" data-bp-item-id="" data-bp-item-component="members">
+
+		<div class="skeleton-card">
+			<div class="skeleton-card-body">
+				<div class="skeleton-card-avatar bb-loading-bg"></div>
+				<div class="skeleton-card-entity">
+					<div class="skeleton-card-type bb-loading-bg"></div>
+					<div class="skeleton-card-heading bb-loading-bg"></div>
+					<div class="skeleton-card-meta bb-loading-bg"></div>
+				</div>
+			</div>
+						<div class="skeleton-card-footer skeleton-footer-plain">
+				<div class="skeleton-card-button bb-loading-bg"></div>
+				<div class="skeleton-card-button bb-loading-bg"></div>
+				<div class="skeleton-card-button bb-loading-bg"></div>
+			</div>
+		</div>
+
+		<div class="bb-card-content">
+			<div class="bb-card-body">
+				<div class="bb-card-avatar">
+					<span class="card-profile-status"></span>
+					<img src="" alt="">
+				</div>
+				<div class="bb-card-entity">
+					<div class="bb-card-profile-type"></div>
+					<h4 class="bb-card-heading"></h4>
+					<div class="bb-card-meta">
+						<span class="card-meta-item card-meta-joined">Joined <span></span></span>
+						<span class="card-meta-item card-meta-last-active"></span>
+													<span class="card-meta-item card-meta-followers"></span>
+												</div>
+				</div>
+			</div>
+			<div class="bb-card-footer">
+								<div class="bb-card-action bb-card-action-outline">
+					<a href="" class="card-button card-button-profile">View Profile</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</script>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.9 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Is NVDA - NVIDIA Corp Halal and Shariah Compliant to Invest?</title>
+	<meta name="description" content="Unlock the Shariah compliance report for NVDA - NVIDIA Corp. Screened by AAOIFI Certified Shariah Advisor based on 5 major standards." />
+	<link rel="canonical" href="https://muslimxchange.com/ticker/nvda-nvidia-corp/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Is NVDA - NVIDIA Corp Halal and Shariah Compliant to Invest?" />
+	<meta property="og:description" content="Unlock the Shariah compliance report for NVDA - NVIDIA Corp. Screened by AAOIFI Certified Shariah Advisor based on 5 major standards." />
+	<meta property="og:url" content="https://muslimxchange.com/ticker/nvda-nvidia-corp/" />
+	<meta property="og:site_name" content="Muslim Xchange" />
+	<meta property="article:publisher" content="https://www.facebook.com/muslimxchange" />
+	<meta property="article:modified_time" content="2026-06-19T16:27:49+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@muslimxchange" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/muslimxchange.com\/ticker\/nvda-nvidia-corp\/","url":"https:\/\/muslimxchange.com\/ticker\/nvda-nvidia-corp\/","name":"Is NVDA - NVIDIA Corp Halal and Shariah Compliant to Invest?","isPartOf":{"@id":"https:\/\/muslimxchange.com\/#website"},"datePublished":"2026-06-18T23:34:58+00:00","dateModified":"2026-06-19T16:27:49+00:00","description":"Unlock the Shariah compliance report for NVDA - NVIDIA Corp. Screened by AAOIFI Certified Shariah Advisor based on 5 major standards.","breadcrumb":{"@id":"https:\/\/muslimxchange.com\/ticker\/nvda-nvidia-corp\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/muslimxchange.com\/ticker\/nvda-nvidia-corp\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/muslimxchange.com\/ticker\/nvda-nvidia-corp\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/muslimxchange.com\/"},{"@type":"ListItem","position":2,"name":"NVDA &#8211; NVIDIA Corp"}]},{"@type":"WebSite","@id":"https:\/\/muslimxchange.com\/#website","url":"https:\/\/muslimxchange.com\/","name":"Muslim Xchange","description":"Helping Muslims invest in the stock market in a halal manner","publisher":{"@id":"https:\/\/muslimxchange.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/muslimxchange.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/muslimxchange.com\/#organization","name":"Muslim Xchange","url":"https:\/\/muslimxchange.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/muslimxchange.com\/#\/schema\/logo\/image\/","url":"https:\/\/muslimxchange.com\/wp-content\/uploads\/2021\/03\/cropped-siteicon.jpg","contentUrl":"https:\/\/muslimxchange.com\/wp-content\/uploads\/2021\/03\/cropped-siteicon.jpg","width":512,"height":512,"caption":"Muslim Xchange"},"image":{"@id":"https:\/\/muslimxchange.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/muslimxchange","https:\/\/x.com\/muslimxchange"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//unpkg.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link rel="alternate" type="application/rss+xml" title="Muslim Xchange &raquo; Feed" href="https://muslimxchange.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Muslim Xchange &raquo; Comments Feed" href="https://muslimxchange.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Muslim Xchange &raquo; NVDA &#8211; NVIDIA Corp Comments Feed" href="https://muslimxchange.com/ticker/nvda-nvidia-corp/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://muslimxchange.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmuslimxchange.com%2Fticker%2Fnvda-nvidia-corp%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://muslimxchange.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmuslimxchange.com%2Fticker%2Fnvda-nvidia-corp%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='formidable-css' href='https://muslimxchange.com/wp-content/plugins/formidable/css/formidableforms.css?ver=6231500' media='all' />
+<link rel='stylesheet' id='snaptrade-plugin-css-css' href='https://muslimxchange.com/wp-content/plugins/snaptrade-plugin/css/style.css?ver=20260623160234' media='all' />
+<link rel='stylesheet' id='bp-nouveau-icons-map-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/icons-map.min.css?ver=3.0.5' media='all' />
+<link rel='stylesheet' id='bp-nouveau-bb-icons-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/icons/css/bb-icons.min.css?ver=1.0.11' media='all' />
+<link rel='stylesheet' id='dashicons-css' href='https://muslimxchange.com/wp-includes/css/dashicons.min.css?ver=7.0' media='all' />
+<link rel='stylesheet' id='bp-nouveau-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/css/buddypress.min.css?ver=3.0.5' media='all' />
+<style id="bp-nouveau-inline-css">
+.list-wrap .bs-group-cover a:before{ background:unset; }
+/*# sourceURL=bp-nouveau-inline-css */
+</style>
+<link rel='stylesheet' id='buddyboss_legacy-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/inc/plugins/buddyboss-menu-icons/vendor/kucrut/icon-picker/css/types/buddyboss_legacy.css?ver=1.0' media='all' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://muslimxchange.com/wp-includes/css/dist/block-library/style.min.css?ver=7.0' media='all' />
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="jetpack-search-active-filters-style-inline-css">
+.wp-block-jetpack-search-active-filters{align-items:center;display:flex;flex-wrap:wrap;gap:.5rem}.wp-block-jetpack-search-active-filters[hidden]{display:none}.wp-block-jetpack-search-active-filters .jetpack-search-active-filters__heading{color:inherit;font-size:.8rem;font-weight:600;opacity:.8}.wp-block-jetpack-search-active-filters .jetpack-search-active-filters__pills{display:flex;flex-wrap:wrap;gap:.25rem;list-style:none;margin:0;padding:0}.wp-block-jetpack-search-active-filters .jetpack-search-active-filters__pill{align-items:center;background:#0000;border:1px solid;border-radius:12px;color:inherit;cursor:pointer;display:inline-flex;font:inherit;font-size:.8rem;gap:.25rem;letter-spacing:normal;line-height:1.2;padding:.2rem .6rem;text-transform:none;transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease}@supports(border-color:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-active-filters .jetpack-search-active-filters__pill{background:color-mix(in sRGB,currentColor 14%,#0000);border-color:color-mix(in sRGB,currentColor 38%,#0000)}}.wp-block-jetpack-search-active-filters :is(.jetpack-search-active-filters__pill:focus-visible,.jetpack-search-active-filters__pill:hover){background:#0000;border-color:currentColor}@supports(background:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-active-filters :is(.jetpack-search-active-filters__pill:focus-visible,.jetpack-search-active-filters__pill:hover){background:color-mix(in sRGB,currentColor 24%,#0000);border-color:color-mix(in sRGB,currentColor 52%,#0000)}}.wp-block-jetpack-search-active-filters .jetpack-search-active-filters__pill:focus-visible{box-shadow:0 0 0 2px currentColor;outline:none}@supports(box-shadow:0 0 0 2px color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-active-filters .jetpack-search-active-filters__pill:focus-visible{box-shadow:0 0 0 2px color-mix(in sRGB,currentColor 28%,#0000)}}.wp-block-jetpack-search-active-filters .jetpack-search-active-filters__pill-remove{font-weight:700;line-height:1}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/active-filters.css */
+</style>
+<style id="jetpack-search-ai-answer-style-inline-css">
+.wp-block-jetpack-search-ai-answer{border-inline-start:3px solid color-mix(in sRGB,currentColor 30%,#0000);margin-block:0 1.5rem;margin-block:0 var(--wp--preset--spacing--40,1.5rem);padding-block:.75rem;padding-block:var(--wp--preset--spacing--30,.75rem);padding-inline-start:1rem;padding-inline-start:var(--wp--preset--spacing--30,1rem)}.wp-block-jetpack-search-ai-answer[hidden]{display:none}.jp-search-answers-panel__heading{font-size:.75em;font-weight:600;letter-spacing:.06em;margin:0 0 .5em;opacity:.7;text-transform:uppercase}.jp-search-answers-panel__loading,.jp-search-answers-panel__loading-hint{align-items:center;color:inherit;display:flex;font-size:.75em;gap:.5em;margin:.5em 0 0;opacity:.7}.jp-search-answers-panel__loading-hint[hidden],.jp-search-answers-panel__loading[hidden]{display:none}.jp-search-answers-panel__loading-hint{font-style:italic}.jp-search-answers-panel__error{margin:0}.jp-search-answers-panel__error-message{margin:0 0 .25em}.jp-search-answers-panel__error-detail{font-size:.875em;margin:0;opacity:.7}.jp-search-answers-panel__content{margin:0}.jp-search-answers-panel__text{font-size:.875em;line-height:1.6}.jp-search-answers-panel__text :is(h2,h3,h4){font-size:1em;font-weight:700;margin:.8em 0 .3em}.jp-search-answers-panel__text p{margin:0 0 .6em}.jp-search-answers-panel__text ul{list-style:disc;margin:0 0 .6em 1.2em;padding:0}.jp-search-answers-panel__text li{margin-bottom:.2em}.jp-search-answers-panel__text strong{font-weight:700}.jp-search-answers-panel__text em{font-style:italic}.jp-search-answers-panel__toggle{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:inline-flex;font:inherit;font-size:.75em;gap:.4em;margin-top:.5em;padding:0;text-decoration:underline}.jp-search-answers-panel__toggle[hidden]{display:none}.jp-search-answers-panel__toggle:hover{opacity:.7}.jp-search-answers-panel__toggle-icon{border-bottom:1.5px solid;border-right:1.5px solid;display:inline-block;height:.4em;transform:rotate(45deg);width:.4em}.jp-search-answers-panel__citations{display:flex;flex-wrap:wrap;font-size:.75em;gap:.5em 1em;list-style:none;margin:.75em 0 0;padding:0}.jp-search-answers-panel__citations[hidden]{display:none}.jp-search-answers-panel__citations li{margin:0}.jp-search-answers-panel__citations a{align-items:center;display:inline-flex;gap:.25em}.jp-search-answers-panel__citation-icon{flex-shrink:0}@keyframes jp-search-animated-ellipsis-bounce{0%,80%,to{opacity:.2}40%{opacity:1}}.jp-search-animated-ellipsis{display:inline-flex;gap:2px}.jp-search-animated-ellipsis span{animation:jp-search-animated-ellipsis-bounce 1.4s infinite both;background:currentColor;border-radius:50%;display:inline-block;height:3px;width:3px}.jp-search-animated-ellipsis span:nth-child(2){animation-delay:.16s}.jp-search-animated-ellipsis span:nth-child(3){animation-delay:.32s}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/ai-answer.css */
+</style>
+<style id="jetpack-search-clear-filters-style-inline-css">
+.jetpack-search-clear-filters[hidden]{display:none}.jetpack-search-clear-filters__button{cursor:pointer}.jetpack-search-clear-filters.is-style-compact .jetpack-search-clear-filters__button{font-size:.8125rem;line-height:1.5;min-width:0;padding:.25em .75em;width:auto}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/clear-filters.css */
+</style>
+<style id="jetpack-search-filter-checkbox-style-inline-css">
+.wp-block-jetpack-search-filter-checkbox[hidden]{display:none}@keyframes jetpack-search-skeleton-shimmer{0%{background-position:-200% 0}to{background-position:200% 0}}.wp-block-jetpack-search-filter-checkbox .jetpack-search-skeleton{animation:jetpack-search-skeleton-shimmer 1.5s linear infinite;background:color-mix(in sRGB,currentColor 8%,#0000) linear-gradient(90deg,#0000,color-mix(in sRGB,currentColor 6%,#0000) 50%,#0000) repeat;background-size:200% 100%;border-radius:4px;display:block}@media(prefers-reduced-motion:reduce){.wp-block-jetpack-search-filter-checkbox .jetpack-search-skeleton{animation:none}}.wp-block-jetpack-search-filter-checkbox .jetpack-search-skeleton--filter-row{height:1rem;width:80%}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__list--skeleton{list-style:none;margin:0;padding:0}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__list--skeleton[hidden]{display:none}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__item--skeleton{padding:.25rem 0}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__title{color:inherit;font-size:.85rem;font-weight:700;letter-spacing:.05em;margin:0 0 .5rem;text-transform:uppercase}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__list{list-style:none;margin:0;padding:0}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__item{padding:.25rem 0}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__item label{align-items:center;cursor:pointer;display:flex;gap:.5rem}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__label{flex:1}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__count{background:color-mix(in sRGB,currentColor 12%,#0000);border-radius:10px;color:inherit;font-size:.8rem;padding:0 .4rem}.wp-block-jetpack-search-filter-checkbox .jetpack-search-filter__count[hidden]{display:none}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__list{display:flex;flex-wrap:wrap;gap:.5rem}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item{padding:0}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item label{align-items:center;border:1px solid;border-radius:9999px;cursor:pointer;display:inline-flex;gap:.35rem;padding:.35rem .7rem;position:relative;transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease}@supports(border-color:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item label{border-color:color-mix(in sRGB,currentColor 24%,#0000)}}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item label:hover{background:#0000;border-color:currentColor}@supports(background:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item label:hover{background:color-mix(in sRGB,currentColor 8%,#0000);border-color:color-mix(in sRGB,currentColor 32%,#0000)}}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item label:focus-within{box-shadow:0 0 0 2px currentColor}@supports(box-shadow:0 0 0 2px color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item label:focus-within{box-shadow:0 0 0 2px color-mix(in sRGB,currentColor 28%,#0000)}}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item label:has(input:checked){background:#0000;border-color:currentColor}@supports(background:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item label:has(input:checked){background:color-mix(in sRGB,currentColor 14%,#0000);border-color:color-mix(in sRGB,currentColor 38%,#0000)}}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__item input[type=checkbox]{block-size:1px;border:0;clip-path:inset(50%);inline-size:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__label{flex:0 1 auto}.wp-block-jetpack-search-filter-checkbox[data-display-style=chips] .jetpack-search-filter__count{font-size:.72rem;line-height:1.2;padding:.1rem .4rem}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/filter-checkbox.css */
+</style>
+<style id="jetpack-search-filter-date-style-inline-css">
+.wp-block-jetpack-search-filter-date[hidden]{display:none}@keyframes jetpack-search-skeleton-shimmer{0%{background-position:-200% 0}to{background-position:200% 0}}.wp-block-jetpack-search-filter-date .jetpack-search-skeleton{animation:jetpack-search-skeleton-shimmer 1.5s linear infinite;background:color-mix(in sRGB,currentColor 8%,#0000) linear-gradient(90deg,#0000,color-mix(in sRGB,currentColor 6%,#0000) 50%,#0000) repeat;background-size:200% 100%;border-radius:4px;display:block}@media(prefers-reduced-motion:reduce){.wp-block-jetpack-search-filter-date .jetpack-search-skeleton{animation:none}}.wp-block-jetpack-search-filter-date .jetpack-search-skeleton--filter-row{height:1rem;width:80%}.wp-block-jetpack-search-filter-date .jetpack-search-filter__list--skeleton{list-style:none;margin:0;padding:0}.wp-block-jetpack-search-filter-date .jetpack-search-filter__list--skeleton[hidden]{display:none}.wp-block-jetpack-search-filter-date .jetpack-search-filter__item--skeleton{padding:.25rem 0}.wp-block-jetpack-search-filter-date .jetpack-search-filter__title{color:inherit;font-size:.85rem;font-weight:700;letter-spacing:.05em;margin:0 0 .5rem;text-transform:uppercase}.wp-block-jetpack-search-filter-date .jetpack-search-filter__list{list-style:none;margin:0;padding:0}.wp-block-jetpack-search-filter-date .jetpack-search-filter__item{padding:.25rem 0}.wp-block-jetpack-search-filter-date .jetpack-search-filter__item label{align-items:center;cursor:pointer;display:flex;gap:.5rem}.wp-block-jetpack-search-filter-date .jetpack-search-filter__label{flex:1}.wp-block-jetpack-search-filter-date .jetpack-search-filter__count{background:color-mix(in sRGB,currentColor 12%,#0000);border-radius:10px;color:inherit;font-size:.8rem;padding:0 .4rem}.wp-block-jetpack-search-filter-date .jetpack-search-filter__count[hidden]{display:none}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__list{display:flex;flex-wrap:wrap;gap:.5rem}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item{padding:0}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item label{align-items:center;border:1px solid;border-radius:9999px;cursor:pointer;display:inline-flex;gap:.35rem;padding:.35rem .7rem;position:relative;transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease}@supports(border-color:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item label{border-color:color-mix(in sRGB,currentColor 24%,#0000)}}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item label:hover{background:#0000;border-color:currentColor}@supports(background:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item label:hover{background:color-mix(in sRGB,currentColor 8%,#0000);border-color:color-mix(in sRGB,currentColor 32%,#0000)}}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item label:focus-within{box-shadow:0 0 0 2px currentColor}@supports(box-shadow:0 0 0 2px color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item label:focus-within{box-shadow:0 0 0 2px color-mix(in sRGB,currentColor 28%,#0000)}}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item label:has(input:checked){background:#0000;border-color:currentColor}@supports(background:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item label:has(input:checked){background:color-mix(in sRGB,currentColor 14%,#0000);border-color:color-mix(in sRGB,currentColor 38%,#0000)}}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__item input[type=checkbox]{block-size:1px;border:0;clip-path:inset(50%);inline-size:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__label{flex:0 1 auto}.wp-block-jetpack-search-filter-date[data-display-style=chips] .jetpack-search-filter__count{font-size:.72rem;line-height:1.2;padding:.1rem .4rem}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/filter-date.css */
+</style>
+<style id="jetpack-search-filters-style-inline-css">
+.jetpack-search-filters{display:flex;flex-direction:column;gap:1rem;gap:var(--wp--style--block-gap,1rem)}.jetpack-search-filters__empty{font-size:.875rem;line-height:1.5;margin:0;opacity:.6}.jetpack-search-filters__empty[hidden]{display:none}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/filters.css */
+</style>
+<style id="jetpack-search-filters-popover-style-inline-css">
+.jetpack-search-filters-popover{display:inline-block;position:relative}.jetpack-search-filters-popover__trigger{align-items:center;background:#0000;border:1px solid color-mix(in srgb,currentcolor 20%,#0000);border-radius:4px;color:inherit;cursor:pointer;display:inline-flex;gap:4px;height:2rem;justify-content:center;padding:0;position:relative;width:2rem}.jetpack-search-filters-popover__trigger:hover:not(:disabled),.jetpack-search-filters-popover__trigger[aria-expanded=true]{background:color-mix(in sRGB,currentColor 6%,#0000)}.jetpack-search-filters-popover__trigger:disabled{cursor:not-allowed;opacity:.4}.jetpack-search-filters-popover__badge{background:color-mix(in sRGB,currentColor 85%,#0000);border-radius:8px;box-sizing:border-box;font-size:11px;height:16px;inset-block-start:0;inset-inline-end:0;line-height:16px;min-width:16px;padding:0 4px;position:absolute;text-align:center;transform:translate(50%,-50%)}.jetpack-search-filters-popover__badge[hidden]{display:none}:dir(rtl) .jetpack-search-filters-popover__badge{transform:translate(-50%,-50%)}.jetpack-search-filters-popover__badge-count{color:#fff;color:var(--jp-search-page-surface,var(--wp--preset--color--background,#fff))}.jetpack-search-filters-popover .jetpack-search-filters-popover__panel{background-color:#fff;background-color:var(--jp-search-page-surface,var(--wp--preset--color--base,var(--wp--preset--color--background,#fff)));border:1px solid color-mix(in srgb,currentcolor 15%,#0000);border-radius:4px;box-shadow:0 4px 16px color-mix(in sRGB,currentColor 12%,#0000);color:inherit;color:var(--jp-search-page-ink,var(--wp--preset--color--contrast,var(--wp--preset--color--foreground,inherit)));display:none;flex-direction:column;font-size:1rem;gap:1rem;inset-block-start:calc(100% + 4px);inset-inline-end:0;max-width:min(360px,90vw);min-width:260px;padding:12px;position:absolute;z-index:20}.jetpack-search-filters-popover.is-popover-open .jetpack-search-filters-popover__panel{display:flex}.jetpack-search-filters-popover.is-editor-preview.is-popover-open .jetpack-search-filters-popover__panel{background:#0000;border:none;border-radius:0;box-shadow:none;color:inherit;display:flex;max-width:none;min-width:0;padding:0;position:static;z-index:auto}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/filters-popover.css */
+</style>
+<style id="jetpack-search-powered-by-style-inline-css">
+.wp-block-jetpack-search-powered-by{margin-block:1.5em;margin-block:var(--wp--style--block-gap,1.5em);text-align:center}.jetpack-search-powered-by__link{align-items:center;color:inherit;display:inline-flex;font-size:.7em;font-size:var(--wp--preset--font-size--small,.7em);gap:.5em;line-height:1;text-decoration:none}.jetpack-search-powered-by__logo{display:inline-flex;flex:0 0 auto;height:1em;width:1em}.jetpack-search-powered-by__logo svg{display:block;height:100%;width:100%}.jetpack-search-powered-by__text{font-weight:500}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/powered-by.css */
+</style>
+<style id="jetpack-search-results-count-style-inline-css">
+.wp-block-jetpack-search-results-count{color:inherit;font-size:.85rem;margin:0;opacity:.7}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/results-count.css */
+</style>
+<style id="jetpack-search-results-list-style-inline-css">
+@keyframes jetpack-search-skeleton-shimmer{0%{background-position:-200% 0}to{background-position:200% 0}}.wp-block-jetpack-search-results-list .jetpack-search-skeleton{animation:jetpack-search-skeleton-shimmer 1.5s linear infinite;background:color-mix(in sRGB,currentColor 8%,#0000) linear-gradient(90deg,#0000,color-mix(in sRGB,currentColor 6%,#0000) 50%,#0000) repeat;background-size:200% 100%;border-radius:4px;display:block}@media(prefers-reduced-motion:reduce){.wp-block-jetpack-search-results-list .jetpack-search-skeleton{animation:none}}.wp-block-jetpack-search-results-list .jetpack-search-skeleton--title{height:1.5rem;width:65%}.wp-block-jetpack-search-results-list .jetpack-search-skeleton--path{height:.8125rem;margin-top:.5rem;width:40%}.wp-block-jetpack-search-results-list .jetpack-search-skeleton--meta{height:.9rem;margin-top:1rem;width:25%}.wp-block-jetpack-search-results-list .jetpack-search-skeleton--image{aspect-ratio:16/10;flex:0 0 auto;max-width:30%;width:200px}.wp-block-jetpack-search-results-list .jetpack-search-results__item--skeleton[hidden]{display:none}.wp-block-jetpack-search-results-list .jetpack-search-results__list{list-style:none;margin:0;padding:0}.wp-block-jetpack-search-results-list :is(.jetpack-search-results__error,.jetpack-search-results__no-results){align-items:center;display:flex;flex-direction:column;gap:.25rem;justify-content:center;margin:0;min-height:12rem;opacity:.6;padding:2rem 1rem;text-align:center}.wp-block-jetpack-search-results-list :is(.jetpack-search-results__error[hidden],.jetpack-search-results__no-results[hidden]){display:none}.wp-block-jetpack-search-results-list :is(.jetpack-search-results__error,.jetpack-search-results__no-results) p{font-size:.875rem;line-height:1.5;margin:0;max-width:36ch}.wp-block-jetpack-search-results-list :is(.jetpack-search-results__error,.jetpack-search-results__no-results) p[hidden]{display:none}.wp-block-jetpack-search-results-list .jetpack-search-results__item{align-items:flex-start;display:flex;gap:1.5rem;padding:1.5rem 0}.wp-block-jetpack-search-results-list .jetpack-search-results__copy{flex:1 1 auto;min-width:0}.wp-block-jetpack-search-results-list .jetpack-search-results__title{font-size:1.5rem;font-weight:700;line-height:1.25;margin:0 0 .25rem}.wp-block-jetpack-search-results-list .jetpack-search-results__title-link{color:inherit;text-decoration:none}.wp-block-jetpack-search-results-list :is(.jetpack-search-results__title-link:focus-visible,.jetpack-search-results__title-link:hover){text-decoration:underline}.wp-block-jetpack-search-results-list .jetpack-search-results__title-link span[hidden]{display:none}.wp-block-jetpack-search-results-list .jetpack-search-results__highlight{background:color-mix(in sRGB,currentColor 18%,#0000);background:var(--jetpack-search-highlight-background,color-mix(in sRGB,currentColor 18%,#0000));font-weight:700}.wp-block-jetpack-search-results-list .jetpack-search-results__path{color:inherit;font-size:.8125rem;line-height:1.4;margin-top:.25rem;opacity:.6}.wp-block-jetpack-search-results-list .jetpack-search-results__path[hidden]{display:none}.wp-block-jetpack-search-results-list .jetpack-search-results__content{color:inherit;display:-webkit-box;font-size:1rem;line-height:1.55;margin-top:.4rem;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}.wp-block-jetpack-search-results-list .jetpack-search-results__content[hidden]{display:none}.wp-block-jetpack-search-results-list .jetpack-search-results__meta{align-items:baseline;color:inherit;display:flex;flex-wrap:wrap;font-size:.9rem;gap:.5rem;margin-top:1rem;opacity:.6}.wp-block-jetpack-search-results-list :is(.jetpack-search-results__author,.jetpack-search-results__date){color:inherit}.wp-block-jetpack-search-results-list .jetpack-search-results__meta-separator[hidden],.wp-block-jetpack-search-results-list :is(.jetpack-search-results__author[hidden],.jetpack-search-results__date[hidden]){display:none}.wp-block-jetpack-search-results-list .jetpack-search-results__image-link{aspect-ratio:16/10;background-color:color-mix(in sRGB,currentColor 8%,#0000);border-radius:4px;display:block;flex:0 0 auto;max-width:30%;overflow:hidden;width:200px}.wp-block-jetpack-search-results-list .jetpack-search-results__image-link[hidden]{display:none}.wp-block-jetpack-search-results-list .jetpack-search-results__image{aspect-ratio:16/10;display:block;height:100%;object-fit:cover;width:100%}.jetpack-search-results--compact .jetpack-search-results__list{display:flex;flex-direction:column;gap:.25rem;list-style:none;margin:0;padding:0}.jetpack-search-results--compact .jetpack-search-results__item{border-color:currentcolor color-mix(in sRGB,currentColor 15%,#0000) color-mix(in sRGB,currentColor 15%,#0000);border-top:1px solid color-mix(in srgb,currentcolor 15%,#0000);padding:.5rem 0}.jetpack-search-results--compact .jetpack-search-results__item:first-child{border-top:none}.jetpack-search-results--compact .jetpack-search-results__copy{align-items:baseline;display:flex;flex-wrap:wrap;gap:.25rem .75rem}.jetpack-search-results--compact .jetpack-search-results__title{font-size:1rem;font-weight:500;margin:0}.jetpack-search-results--compact .jetpack-search-results__meta{font-size:.875em;gap:.75rem;margin-top:0;opacity:.75}.jetpack-search-results--product .jetpack-search-results__list{display:grid;gap:1.5rem;grid-template-columns:repeat(2,minmax(0,1fr));list-style:none;margin:0;padding:0}@media(min-width:600px){.jetpack-search-results--product .jetpack-search-results__list{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(min-width:960px){.jetpack-search-results--product .jetpack-search-results__list{grid-template-columns:repeat(4,minmax(0,1fr))}}.jetpack-search-results--product .jetpack-search-results__item{align-items:stretch;display:flex;flex-direction:column;gap:.5rem;padding:0}.jetpack-search-results--product .jetpack-search-results__product-image-link{aspect-ratio:1/1;background-color:color-mix(in sRGB,currentColor 8%,#0000);border-radius:4px;display:block;overflow:hidden;text-decoration:none}.jetpack-search-results--product :is(.jetpack-search-results__product-image,.jetpack-search-results__product-image-placeholder){background-position:50%;background-repeat:no-repeat;background-size:cover;block-size:100%;display:block;inline-size:100%}.jetpack-search-results--product :is(.jetpack-search-results__product-image-placeholder[hidden],.jetpack-search-results__product-image[hidden]){display:none}.jetpack-search-results--product .jetpack-search-results__product-image-placeholder{background-color:currentColor;mask-image:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27><rect x=%273%27 y=%273%27 width=%2718%27 height=%2718%27 rx=%272%27/><circle cx=%278.5%27 cy=%278.5%27 r=%271.5%27/><path d=%27m21 15-5-5L5 21%27/></svg>");-webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27><rect x=%273%27 y=%273%27 width=%2718%27 height=%2718%27 rx=%272%27/><circle cx=%278.5%27 cy=%278.5%27 r=%271.5%27/><path d=%27m21 15-5-5L5 21%27/></svg>");mask-position:center;-webkit-mask-position:center;mask-repeat:no-repeat;-webkit-mask-repeat:no-repeat;mask-size:40%;-webkit-mask-size:40%;opacity:.3}.jetpack-search-results--product .jetpack-search-results__copy{display:flex;flex-direction:column;gap:.25rem}.jetpack-search-results--product .jetpack-search-skeleton--product-image{aspect-ratio:1/1;width:100%}.jetpack-search-results--product .jetpack-search-skeleton--title{height:1.4rem;width:95%}.jetpack-search-results--product .jetpack-search-skeleton--title-secondary{height:1.4rem;width:60%}.jetpack-search-results--product .jetpack-search-results__title{font-size:1.05rem;font-weight:600;line-height:1.3;margin:0}.jetpack-search-results--product .jetpack-search-results__price{display:flex;flex-wrap:wrap;font-size:1rem;gap:.5rem}.jetpack-search-results--product .jetpack-search-results__price[hidden]{display:none}.jetpack-search-results--product .jetpack-search-results__price .jetpack-search-results__price-regular{opacity:.6;text-decoration:line-through}.jetpack-search-results--product .jetpack-search-results__price .jetpack-search-results__price-regular[hidden]{display:none}.jetpack-search-results--product .jetpack-search-results__price .jetpack-search-results__price-sale{font-weight:700;text-decoration:none}.jetpack-search-results--product .jetpack-search-results__price .jetpack-search-results__price-sale[hidden]{display:none}.jetpack-search-results--product .jetpack-search-results__price .jetpack-search-results__price-current{font-weight:600}.jetpack-search-results--product .jetpack-search-results__price .jetpack-search-results__price-current[hidden]{display:none}.jetpack-search-results--product .jetpack-search-results__rating{align-items:center;display:flex;font-size:.875rem;gap:.5rem}.jetpack-search-results--product .jetpack-search-results__rating[hidden]{display:none}.jetpack-search-results--product .jetpack-search-results__rating-stars{block-size:1em;color:color-mix(in sRGB,currentColor 25%,#0000);display:inline-block;font-size:1em;inline-size:5em;line-height:1;position:relative}.jetpack-search-results--product .jetpack-search-results__rating-stars:before{content:"★★★★★";inset:0;letter-spacing:0;position:absolute}.jetpack-search-results--product .jetpack-search-results__rating-fill{color:#f7b500;color:var(--jetpack-search-rating-color,#f7b500);inset-block:0;inset-inline-start:0;overflow:hidden;position:absolute;white-space:nowrap}.jetpack-search-results--product .jetpack-search-results__rating-fill:before{content:"★★★★★"}.jetpack-search-results--product .jetpack-search-results__rating-count{opacity:.7}.jetpack-search-results--product .jetpack-search-results__match-hint{font-size:.8rem;opacity:.75}.jetpack-search-results--product .jetpack-search-results__match-hint[hidden]{display:none}.jetpack-search-results--product .jetpack-search-results__match-hint mark{background:none;color:inherit}.jetpack-search-results--product .jetpack-search-results__match-hint span[hidden]{display:none}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/results-list.css */
+</style>
+<style id="jetpack-search-results-load-more-style-inline-css">
+.wp-block-jetpack-search-results-load-more{padding-block:1rem;padding-block:var(--wp--style--block-gap,1rem);text-align:center}.wp-block-jetpack-search-results-load-more[hidden]{display:none}.wp-block-jetpack-search-results-load-more .jetpack-search-load-more__button{cursor:pointer}.wp-block-jetpack-search-results-load-more .jetpack-search-load-more__button[hidden]{display:none}.wp-block-jetpack-search-results-load-more .jetpack-search-load-more__button:disabled{cursor:not-allowed;opacity:.5}.wp-block-jetpack-search-results-load-more.is-style-compact .jetpack-search-load-more__button{font-size:.8125rem;line-height:1.5;min-width:0;padding:.25em .75em;width:auto}.wp-block-jetpack-search-results-load-more .jetpack-search-load-more__spinner{color:inherit;display:block;margin-block:.5rem;margin-block:var(--wp--style--block-gap,.5rem);margin-inline:auto;opacity:.7}.wp-block-jetpack-search-results-load-more .jetpack-search-load-more__spinner[hidden]{display:none}.wp-block-jetpack-search-results-load-more .jetpack-search-load-more__sentinel{display:block;height:1px;width:100%}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/results-load-more.css */
+</style>
+<style id="jetpack-search-results-sort-style-inline-css">
+.wp-block-jetpack-search-results-sort{align-items:center;display:flex;gap:.5rem;margin-inline-start:auto}.wp-block-jetpack-search-results-sort label{color:inherit;font-size:.9rem;opacity:.8}.wp-block-jetpack-search-results-sort select{appearance:auto;border:1px solid color-mix(in srgb,currentcolor 20%,#0000);border-radius:4px;cursor:pointer;padding:.2rem .5rem}.wp-block-jetpack-search-results-sort select,.wp-block-jetpack-search-results-sort select option{background-color:#fff;background-color:var(--jp-search-page-surface,var(--wp--preset--color--base,var(--wp--preset--color--background,#fff)));color:inherit;color:var(--jp-search-page-ink,var(--wp--preset--color--contrast,var(--wp--preset--color--foreground,inherit)))}.wp-block-jetpack-search-results-sort .jetpack-search-results-sort__radio-group{align-items:center;border:0;display:flex;flex-wrap:wrap;margin:0;padding:0}.wp-block-jetpack-search-results-sort .jetpack-search-results-sort__radio-group legend{border:0;clip-path:inset(50%);height:1px;margin:0;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}.wp-block-jetpack-search-results-sort .jetpack-search-results-sort__radio-item{align-items:center;display:flex;font-size:.9rem;position:relative}.wp-block-jetpack-search-results-sort .jetpack-search-results-sort__radio-item input[type=radio]{appearance:none;border:0;clip-path:inset(50%);height:1px;margin:0;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}.wp-block-jetpack-search-results-sort .jetpack-search-results-sort__radio-item label{cursor:pointer}.wp-block-jetpack-search-results-sort .jetpack-search-results-sort__radio-item input[type=radio]:checked+label{font-weight:600;opacity:1}.wp-block-jetpack-search-results-sort .jetpack-search-results-sort__radio-item input[type=radio]:focus-visible+label{outline:2px solid currentColor;outline-offset:2px}.wp-block-jetpack-search-results-sort .jetpack-search-results-sort__radio-item:not(:last-child):after{content:"•"/"";margin-block:0;margin-inline:.5rem;opacity:.5}.jetpack-search-results-sort--popover{display:inline-block;position:relative}.jetpack-search-results-sort--popover .jetpack-search-results-sort__trigger{align-items:center;background:#0000;border:1px solid color-mix(in srgb,currentcolor 20%,#0000);border-radius:4px;color:inherit;cursor:pointer;display:inline-flex;height:2rem;justify-content:center;padding:0;width:2rem}.jetpack-search-results-sort--popover .jetpack-search-results-sort__trigger:hover:not(:disabled),.jetpack-search-results-sort--popover .jetpack-search-results-sort__trigger[aria-expanded=true]{background:color-mix(in sRGB,currentColor 6%,#0000)}.jetpack-search-results-sort--popover .jetpack-search-results-sort__trigger:disabled{cursor:not-allowed;opacity:.4}.jetpack-search-results-sort--popover .jetpack-search-results-sort__menu{background-color:#fff;background-color:var(--jp-search-page-surface,var(--wp--preset--color--base,var(--wp--preset--color--background,#fff)));border:1px solid color-mix(in srgb,currentcolor 15%,#0000);border-radius:4px;box-shadow:0 4px 16px color-mix(in sRGB,currentColor 12%,#0000);color:inherit;color:var(--jp-search-page-ink,var(--wp--preset--color--contrast,var(--wp--preset--color--foreground,inherit)));display:flex;flex-direction:column;font-size:1rem;inset-block-start:calc(100% + 4px);inset-inline-end:0;min-width:160px;padding:4px;position:absolute;z-index:20}.jetpack-search-results-sort--popover .jetpack-search-results-sort__menu[hidden]{display:none}.jetpack-search-results-sort--popover .jetpack-search-results-sort__menu-item{appearance:none;background:#0000;border:none;border-radius:2px;color:inherit;cursor:pointer;font:inherit;padding:6px 8px;text-align:start}.jetpack-search-results-sort--popover :is(.jetpack-search-results-sort__menu-item:focus-visible,.jetpack-search-results-sort__menu-item:hover){background:color-mix(in sRGB,currentColor 8%,#0000)}.jetpack-search-results-sort--popover .jetpack-search-results-sort__menu-item[aria-checked=true]:before{content:"✓";margin-inline-end:6px}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/results-sort.css */
+</style>
+<style id="jetpack-search-search-input-style-inline-css">
+.jetpack-search-compact-toolbar>.wp-block-jetpack-search-search-input{flex:1 1 0;min-width:0}.wp-block-jetpack-search-search-input .jetpack-search-input__inside-wrapper{align-items:center;border-bottom:1px solid #0000;display:flex;gap:.5rem;padding:.5rem 0;position:relative}@supports(border-color:color-mix(in sRGB,black 50%,white)){.wp-block-jetpack-search-search-input .jetpack-search-input__inside-wrapper{border-bottom-color:color-mix(in sRGB,currentColor 15%,#0000)}}.wp-block-jetpack-search-search-input .jetpack-search-input__icon{fill:currentColor;flex:0 0 auto;height:1.5rem;opacity:.6;width:1.5rem}.wp-block-jetpack-search-search-input .jetpack-search-input__field{background:#0000;border:0;color:inherit;flex:1 1 auto;font-size:1.25rem;line-height:1.4;min-width:0;padding:0}.wp-block-jetpack-search-search-input .jetpack-search-input__field::-webkit-search-cancel-button,.wp-block-jetpack-search-search-input .jetpack-search-input__field::-webkit-search-decoration{appearance:none}.wp-block-jetpack-search-search-input .jetpack-search-input__field::placeholder{color:inherit;opacity:.5}.wp-block-jetpack-search-search-input .jetpack-search-input__field:focus{outline:none}.wp-block-jetpack-search-search-input .jetpack-search-input__clear{background:none;border:0;color:inherit;cursor:pointer;flex:0 0 auto;font-size:1rem;line-height:1;opacity:.6;padding:.25rem .5rem}.wp-block-jetpack-search-search-input .jetpack-search-input__clear[hidden]{display:none}.wp-block-jetpack-search-search-input :is(.jetpack-search-input__clear:focus-visible,.jetpack-search-input__clear:hover){opacity:1}.wp-block-jetpack-search-search-input .jetpack-search-input__suggestions{background-color:#fff;background-color:var(--jp-search-page-surface,var(--wp--preset--color--base,var(--wp--preset--color--background,#fff)));border:1px solid color-mix(in srgb,currentcolor 15%,#0000);border-radius:4px;box-shadow:0 4px 16px color-mix(in sRGB,currentColor 12%,#0000);color:inherit;color:var(--jp-search-page-ink,var(--wp--preset--color--contrast,var(--wp--preset--color--foreground,inherit)));font-size:1rem;left:0;list-style:none;margin:0;max-height:60vh;overflow-y:auto;overscroll-behavior:contain;padding:4px 0;position:absolute;right:0;top:calc(100% + 4px);z-index:20}.wp-block-jetpack-search-search-input .jetpack-search-input__suggestions[hidden]{display:none}@media(max-width:480px){.wp-block-jetpack-search-search-input .jetpack-search-input__suggestions{max-height:50vh}}.wp-block-jetpack-search-search-input .jetpack-search-input__suggestions-label{color:color-mix(in sRGB,currentColor 55%,#0000);font-size:.75rem;font-weight:600;letter-spacing:.06em;padding:8px 12px 4px;text-transform:uppercase}.wp-block-jetpack-search-search-input .jetpack-search-input__suggestions-option{border-radius:2px;color:inherit;cursor:pointer;font:inherit;line-height:1.4;padding:8px 12px}@media(max-width:480px){.wp-block-jetpack-search-search-input .jetpack-search-input__suggestions-option{padding:12px}}.wp-block-jetpack-search-search-input .jetpack-search-input__suggestions-option:hover{background:color-mix(in sRGB,currentColor 8%,#0000)}.wp-block-jetpack-search-search-input .jetpack-search-input__suggestions-option.is-active{background:color-mix(in sRGB,currentColor 14%,#0000)}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/search-input.css */
+</style>
+<style id="jetpack-search-search-results-style-inline-css">
+.jetpack-search-search-results{display:flex;flex-direction:column;gap:1.5rem;gap:var(--wp--style--block-gap,1.5rem)}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/search-blocks/search-results.css */
+</style>
+<link rel='stylesheet' id='bb_theme_block-buddypanel-style-css-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/blocks/buddypanel/build/style-buddypanel.css?ver=0d3f6dc312fb857c6779' media='all' />
+<link rel='stylesheet' id='mediaelement-css' href='https://muslimxchange.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://muslimxchange.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=7.0' media='all' />
+<style id="jetpack-sharing-buttons-style-inline-css">
+.jetpack-sharing-buttons__services-list{display:flex;flex-direction:row;flex-wrap:wrap;gap:0;list-style-type:none;margin:5px;padding:0}.jetpack-sharing-buttons__services-list.has-small-icon-size{font-size:12px}.jetpack-sharing-buttons__services-list.has-normal-icon-size{font-size:16px}.jetpack-sharing-buttons__services-list.has-large-icon-size{font-size:24px}.jetpack-sharing-buttons__services-list.has-huge-icon-size{font-size:36px}@media print{.jetpack-sharing-buttons__services-list{display:none!important}}.editor-styles-wrapper .wp-block-jetpack-sharing-buttons{gap:0;padding-inline-start:0}ul.jetpack-sharing-buttons__services-list.has-background{padding:1.25em 2.375em}
+/*# sourceURL=https://muslimxchange.com/wp-content/plugins/jetpack/_inc/blocks/sharing-buttons/view.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='bb-pro-enqueue-scripts-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/assets/css/index.min.css?ver=3.0.2' media='all' />
+<link rel='stylesheet' id='bb-access-control-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/access-control/assets/css/bb-access-control.min.css?ver=3.0.2' media='all' />
+<link rel='stylesheet' id='bb-polls-style-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/polls/assets/css/bb-polls.min.css?ver=3.0.2' media='all' />
+<link rel='stylesheet' id='bb-schedule-posts-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/schedule-posts/assets/css/bb-schedule-posts.min.css?ver=3.0.2' media='all' />
+<link rel='stylesheet' id='bb-meprlms-frontend-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/meprlms/assets/css/meprlms-frontend.min.css?ver=3.0.5' media='all' />
+<link rel='stylesheet' id='bb-tutorlms-admin-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/tutorlms/assets/css/bb-tutorlms-admin.min.css?ver=3.0.5' media='all' />
+<link rel='stylesheet' id='custom-csv-upload-css-css' href='https://muslimxchange.com/wp-content/plugins/custom_csv_upload/custom-csv-upload.css?ver=13' media='all' />
+<link rel='stylesheet' id='dynamic-tabs-style-css' href='https://muslimxchange.com/wp-content/plugins/fmp-api/css/style.css?ver=1738067097' media='all' />
+<link rel='stylesheet' id='bootstrap-css-css-css' href='https://muslimxchange.com/wp-content/plugins/fmp-api/css/bootstrap.min.css?ver=20241207043936' media='all' />
+<link rel='stylesheet' id='mx-stock-page-limited-css' href='https://muslimxchange.com/wp-content/plugins/mx-stock-page-fast-template/assets/css/stock-page-limited.css?ver=1779576684' media='all' />
+<link rel='stylesheet' id='pmpro_frontend_base-css' href='https://muslimxchange.com/wp-content/plugins/paid-memberships-pro/css/frontend/base.css?ver=3.8' media='all' />
+<link rel='stylesheet' id='pmpro_frontend_variation_high_contrast-css' href='https://muslimxchange.com/wp-content/plugins/paid-memberships-pro/css/frontend/variation_high_contrast.css?ver=3.8' media='all' />
+<link rel='stylesheet' id='pmpro-add-paypal-express-styles-css' href='https://muslimxchange.com/wp-content/plugins/pmpro-add-paypal-express/css/pmpro-add-paypal-express.css?ver=7.0' media='all' />
+<link rel='stylesheet' id='pmpro-advanced-levels-styles-css' href='https://muslimxchange.com/wp-content/plugins/pmpro-advanced-levels-shortcode/css/pmpro-advanced-levels.css?ver=7.0' media='all' />
+<link rel='stylesheet' id='jetpack-instant-search-css' href='https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/instant-search/jp-search.chunk-main-payload.css?minify=false&#038;ver=5468f78a75d33f51b278' media='all' />
+<link rel='stylesheet' id='redux-extendify-styles-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/inc/admin/framework/redux-core/assets/css/extendify-utilities.css?ver=4.4.11' media='all' />
+<link rel='stylesheet' id='bbappstyle-css' href='https://muslimxchange.com/wp-content/plugins/buddyboss-app/assets/css/main.css?ver=3.0.3' media='all' />
+<link rel='stylesheet' id='e-motion-fx-css' href='https://muslimxchange.com/wp-content/plugins/elementor-pro/assets/css/modules/motion-fx.min.css?ver=4.1.2' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://muslimxchange.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://muslimxchange.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://muslimxchange.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='widget-social-icons-css' href='https://muslimxchange.com/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='e-apple-webkit-css' href='https://muslimxchange.com/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='https://muslimxchange.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='widget-spacer-css' href='https://muslimxchange.com/wp-content/plugins/elementor/assets/css/widget-spacer.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='e-shapes-css' href='https://muslimxchange.com/wp-content/plugins/elementor/assets/css/conditionals/shapes.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='e-popup-css' href='https://muslimxchange.com/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=4.1.2' media='all' />
+<link rel='stylesheet' id='elementor-post-843-css' href='https://muslimxchange.com/wp-content/uploads/elementor/css/post-843.css?ver=1782226847' media='all' />
+<link rel='stylesheet' id='wpdt-elementor-widget-font-css' href='https://muslimxchange.com/wp-content/plugins/wpdatatables/integrations/starter/page-builders/elementor/css/style.css?ver=7.4.1' media='all' />
+<link rel='stylesheet' id='elementor-post-249395-css' href='https://muslimxchange.com/wp-content/uploads/elementor/css/post-249395.css?ver=1782226847' media='all' />
+<link rel='stylesheet' id='elementor-post-482025-css' href='https://muslimxchange.com/wp-content/uploads/elementor/css/post-482025.css?ver=1782226847' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-magnific-popup-css-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/css/vendors/magnific-popup.min.css?ver=2.20.1' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-select2-css-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/css/vendors/select2.min.css?ver=2.20.1' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-css-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/css/theme.css?ver=2.20.1' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-template-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/css/template-v2.css?ver=2.20.1' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-buddypress-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/css/buddypress.css?ver=2.20.1' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-elementor-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/css/elementor.css?ver=2.20.1' media='all' />
+<link rel='stylesheet' id='buddyboss-theme-pmpro-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/css/pmpro.css?ver=2.20.1' media='all' />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lora:600%7CMulish&#038;display=swap&#038;ver=1754500872" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:600%7CMulish&#038;display=swap&#038;ver=1754500872" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:600%7CMulish&#038;display=swap&#038;ver=1754500872" /></noscript><link rel='stylesheet' id='buddyboss-child-css-css' href='https://muslimxchange.com/wp-content/themes/buddyboss-theme-child/assets/css/custom.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='elementor-gf-local-nunito-css' href='https://muslimxchange.com/wp-content/uploads/elementor/google-fonts/css/nunito.css?ver=1741803750' media='all' />
+<script type="text/javascript">
+            window._bbssoDOMReady = function (callback) {
+                if ( document.readyState === "complete" || document.readyState === "interactive" ) {
+                    callback();
+                } else {
+                    document.addEventListener( "DOMContentLoaded", callback );
+                }
+            };
+            </script><script id="jquery-core-js" src="https://muslimxchange.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://muslimxchange.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="bb-twemoji-js-extra">
+var bbemojiSettings = {"baseUrl":"https://s.w.org/images/core/emoji/14.0.0/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/14.0.0/svg/","svgExt":".svg"};
+//# sourceURL=bb-twemoji-js-extra
+</script>
+<script id="bb-twemoji-js" src="https://muslimxchange.com/wp-includes/js/twemoji.min.js?ver=3.0.5"></script>
+<script id="bb-emoji-loader-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/js/bb-emoji-loader.min.js?ver=3.0.5"></script>
+<script id="bp-widget-members-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/js/widget-members.min.js?ver=3.0.5"></script>
+<script id="bp-jquery-query-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/js/jquery-query.min.js?ver=3.0.5"></script>
+<script id="bp-jquery-cookie-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery-cookie.min.js?ver=3.0.5"></script>
+<script id="bp-jquery-scroll-to-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/jquery-scroll-to.min.js?ver=3.0.5"></script>
+<script id="bb-meprlms-frontend-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/meprlms/assets/js/bb-meprlms-frontend.min.js?ver=3.0.5"></script>
+<script id="bb-tutorlms-admin-js-extra">
+var bbTutorLMSVars = {"ajax_url":"https://muslimxchange.com/wp-admin/admin-ajax.php","select_course_placeholder":"Start typing a course name to associate with this group."};
+//# sourceURL=bb-tutorlms-admin-js-extra
+</script>
+<script id="bb-tutorlms-admin-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/integrations/tutorlms/assets/js/bb-tutorlms-admin.min.js?ver=3.0.5"></script>
+<script id="bp-nouveau-magnific-popup-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/magnific-popup.js?ver=3.0.5"></script>
+<script id="pmprogroupacct-checkout-js" src="https://muslimxchange.com/wp-content/plugins/pmpro-group-accounts/js/pmprogroupacct-checkout.js?ver=1.6"></script>
+<script id="buddyboss-child-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme-child/assets/js/custom.js?ver=1.0.0"></script>
+<link rel="https://api.w.org/" href="https://muslimxchange.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://muslimxchange.com/wp-json/wp/v2/ticker/278976" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://muslimxchange.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0" />
+<link rel='shortlink' href='https://muslimxchange.com/?p=278976' />
+
+	<script>var ajaxurl = 'https://muslimxchange.com/wp-admin/admin-ajax.php';</script>
+
+	<style id="pmpro_colors">:root {
+	--pmpro--color--base: #ffffff;
+	--pmpro--color--contrast: #222222;
+	--pmpro--color--accent: #424242;
+	--pmpro--color--accent--variation: hsl( 0,0%,39% );
+	--pmpro--color--border--variation: hsl( 0,0%,0% );
+}</style><script>document.documentElement.className += " js";</script>
+	<style>img#wpstats{display:none}</style>
+		<meta name="generator" content="Redux 4.4.11" /><link rel="pingback" href="https://muslimxchange.com/xmlrpc.php"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=1" />		<style>
+			body.groups.in-bbapp .item-body nav#object-nav {
+				display: block;
+			}
+		</style>
+		<meta name="generator" content="Elementor 4.1.4; features: e_font_icon_svg; settings: css_print_method-external, google_font-enabled, font_display-auto">
+
+<!-- Meta Pixel Code -->
+<script type='text/javascript'>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+</script>
+<!-- End Meta Pixel Code -->
+<script type='text/javascript'>var url = window.location.origin + '?ob=open-bridge';
+            fbq('set', 'openbridge', '576395691612727', url);
+fbq('init', '576395691612727', {}, {
+    "agent": "wordpress_0-7.0-5.1.0"
+})</script><script type='text/javascript'>
+    fbq('track', 'PageView', []);
+  </script>			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-siteicon-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-siteicon-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-siteicon-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-siteicon-270x270.jpg" />
+<style id="buddyboss_theme-style">:root{--bb-primary-color:#F28C00;--bb-primary-color-rgb:242, 140, 0;--bb-body-background-color:#F7F8FA;--bb-body-background-color-rgb:247, 248, 250;--bb-content-background-color:#FFFFFF;--bb-content-alternate-background-color:#F7F8FA;--bb-content-border-color:#E5E7EB;--bb-content-border-color-rgb:229, 231, 235;--bb-cover-image-background-color:#0F2944;--bb-headings-color:#1F2937;--bb-headings-color-rgb:31, 41, 55;--bb-body-text-color:#1F2937;--bb-body-text-color-rgb:31, 41, 55;--bb-alternate-text-color:#4B5563;--bb-alternate-text-color-rgb:75, 85, 99;--bb-primary-button-background-regular:#F28C00;--bb-primary-button-background-hover:#E67F00;--bb-primary-button-border-regular:#C96F00;--bb-primary-button-border-hover:#C96F00;--bb-primary-button-text-regular:#FFFFFF;--bb-primary-button-text-regular-rgb:255, 255, 255;--bb-primary-button-text-hover:#FFFFFF;--bb-primary-button-text-hover-rgb:255, 255, 255;--bb-secondary-button-background-regular:#FFFFFF;--bb-secondary-button-background-hover:#0F2944;--bb-secondary-button-border-regular:#0F2944;--bb-secondary-button-border-hover:#0F2944;--bb-secondary-button-text-regular:#0F2944;--bb-secondary-button-text-hover:#FFFFFF;--bb-header-background:#FFFFFF;--bb-header-alternate-background:#F7F8FA;--bb-header-links:#1F2937;--bb-header-links-hover:#F28C00;--bb-header-mobile-logo-size:45px;--bb-header-height:70px;--bb-sidenav-background:#FFFFFF;--bb-sidenav-text-regular:#1F2937;--bb-sidenav-text-hover:#0F2944;--bb-sidenav-text-active:#FFFFFF;--bb-sidenav-menu-background-color-regular:#FFFFFF;--bb-sidenav-menu-background-color-hover:#F7F8FA;--bb-sidenav-menu-background-color-active:#0F2944;--bb-sidenav-count-text-color-regular:#1F2937;--bb-sidenav-count-text-color-hover:#0F2944;--bb-sidenav-count-text-color-active:#FFFFFF;--bb-sidenav-count-background-color-regular:#FFFFFF;--bb-sidenav-count-background-color-hover:#F28C00;--bb-sidenav-count-background-color-active:#F28C00;--bb-footer-background:#0F2944;--bb-footer-widget-background:#17365E;--bb-footer-text-color:#F7F8FA;--bb-footer-menu-link-color-regular:#F7F8FA;--bb-footer-menu-link-color-hover:#F28C00;--bb-footer-menu-link-color-active:#FFFFFF;--bb-admin-screen-bgr-color:#FFFFFF;--bb-admin-screen-txt-color:#1F2937;--bb-login-register-link-color-regular:#F28C00;--bb-login-register-link-color-hover:#E67F00;--bb-login-register-button-background-color-regular:#F28C00;--bb-login-register-button-background-color-hover:#E67F00;--bb-login-register-button-border-color-regular:#C96F00;--bb-login-register-button-border-color-hover:#C96F00;--bb-login-register-button-text-color-regular:#FFFFFF;--bb-login-register-button-text-color-hover:#FFFFFF;--bb-label-background-color:#D1A857;--bb-label-text-color:#1F2937;--bb-tooltip-background:#17365E;--bb-tooltip-background-rgb:23, 54, 94;--bb-tooltip-color:#FFFFFF;--bb-default-notice-color:#1D4ED8;--bb-default-notice-color-rgb:29, 78, 216;--bb-success-color:#27AE60;--bb-success-color-rgb:39, 174, 96;--bb-warning-color:#F2994A;--bb-warning-color-rgb:242, 153, 74;--bb-danger-color:#E74C3C;--bb-danger-color-rgb:231, 76, 60;--bb-login-custom-heading-color:#FFFFFF;--bb-button-radius:6px;--bb-block-radius:10px;--bb-option-radius:5px;--bb-block-radius-inner:6px;--bb-input-radius:6px;--bb-label-type-radius:6px;--bb-checkbox-radius:5.4px;--bb-primary-button-focus-shadow:0px 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px 0px 0px 2px rgba(0, 0, 0, 0.08);--bb-secondary-button-focus-shadow:0px 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px 0px 0px 2px rgba(0, 0, 0, 0.08);--bb-outline-button-focus-shadow:0px 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px 0px 0px 2px rgba(0, 0, 0, 0.08);--bb-input-focus-shadow:0px 0px 0px 2px rgba(var(--bb-primary-color-rgb), 0.1);--bb-input-focus-border-color:var(--bb-primary-color);--bb-widget-title-text-transform:none;}h1 { line-height:1.2; }h2 { line-height:1.2; }h3 { line-height:1.4; }h4 { line-height:1.4; }h5 { line-height:1.4; }h6 { line-height:1.4; }.bb-style-primary-bgr-color {background-color:#F28C00;}.bb-style-border-radius {border-radius:6px;}#site-logo .site-title img {max-height:inherit;}.site-header-container .site-branding {min-width:60px;}#site-logo .site-title .bb-logo img,#site-logo .site-title img.bb-logo,.buddypanel .site-title img {width:60px;}.site-title img.bb-mobile-logo {width:45px;}.footer-logo img {max-width:55px;}.site-header-container #site-logo .bb-logo img,.site-header-container #site-logo .site-title img.bb-logo,.site-title img.bb-mobile-logo {max-height:70px}.site-header .site-header-container,.header-search-wrap,.header-search-wrap input.search-field,.header-search-wrap form.search-form {height:70px;}.sticky-header .bp-feedback.bp-sitewide-notice {top:70px;}@media screen and (max-width:767px) {.bb-mobile-header {height:70px;}#learndash-content .lms-topic-sidebar-wrapper .lms-topic-sidebar-data,.lifter-topic-sidebar-wrapper .lifter-topic-sidebar-data {height:calc(90vh - 70px);}}[data-balloon]:after,[data-bp-tooltip]:after {background-color:rgba( 23,54,94,1 );box-shadow:none;}[data-balloon]:before,[data-bp-tooltip]:before {background:no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba( 23,54,94,1 )%22%20transform%3D%22rotate(0)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");background-size:100% auto;}[data-bp-tooltip][data-bp-tooltip-pos="right"]:before,[data-balloon][data-balloon-pos='right']:before {background:no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba( 23,54,94,1 )%22%20transform%3D%22rotate(90 6 6)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");background-size:100% auto;}[data-bp-tooltip][data-bp-tooltip-pos="left"]:before,[data-balloon][data-balloon-pos='left']:before {background:no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba( 23,54,94,1 )%22%20transform%3D%22rotate(-90 18 18)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");background-size:100% auto;}[data-bp-tooltip][data-bp-tooltip-pos="down-left"]:before,[data-bp-tooltip][data-bp-tooltip-pos="down"]:before,[data-balloon][data-balloon-pos='down']:before {background:no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba( 23,54,94,1 )%22%20transform%3D%22rotate(180 18 6)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");background-size:100% auto;}</style>
+            <style id="buddyboss_theme-bp-style">
+                #buddypress #header-cover-image.has-default,#buddypress #header-cover-image.has-default .guillotine-window img,.bs-group-cover.has-default a {background-color:#0F2944;}.login-split {background-image:url(https://muslimxchange.com/wp-content/uploads/2021/11/investing.jpg);background-size:cover;background-position:50% 50%;}body.buddypress.register.login-split-page .login-split .split-overlay,body.buddypress.activation.login-split-page .login-split .split-overlay {opacity:0.3;}body.buddypress.register .register-section-logo img,body.buddypress.activation .activate-section-logo img {width:145px;}
+            </style>
+            
+		<style id="buddyboss_theme-custom-style">
+
+		a.bb-close-panel i {top:21px;}
+		</style>
+		<style id="buddyboss_theme_options-dynamic-css" title="dynamic-css" class="redux-options-output">.site-header .site-title{font-family:Lora;font-weight:normal;font-style:normal;font-size:30px;font-display:swap;}body{font-family:Mulish;font-weight:normal;font-style:normal;font-size:16px;font-display:swap;}h1{font-family:Lora;font-weight:normal;font-style:normal;font-size:34px;font-display:swap;}h2{font-family:Lora;font-weight:normal;font-style:normal;font-size:24px;font-display:swap;}h3{font-family:Lora;font-weight:normal;font-style:normal;font-size:20px;font-display:swap;}h4{font-family:Lora;font-weight:600;font-style:normal;font-size:18px;font-display:swap;}h5{font-family:Lora;font-weight:normal;font-style:normal;font-size:16px;font-display:swap;}h6{font-family:Lora;font-weight:600;font-style:normal;font-size:12px;font-display:swap;}</style><style>.entry-img {
+    background-color:#fafafa;
+}</style>
+	</head>
+
+	<body class="pmpro-variation_high_contrast bp-nouveau wp-singular ticker-template-default single single-ticker postid-278976 wp-custom-logo wp-theme-buddyboss-theme wp-child-theme-buddyboss-theme-child pmpro-body-has-access jps-theme-buddyboss-theme-child buddyboss-theme bb-template-v2 buddypanel-logo-off default-fi  header-style-3  menu-style-standard elementor-default elementor-kit-843 no-js">
+
+        <script id='jetpack-search-theme-token-sampler'>(function(){try{var c=getComputedStyle(document.body),r=document.documentElement,ink=c.color,bg=c.backgroundColor;if(ink){r.style.setProperty('--jp-search-page-ink',ink);}if(bg&&bg!==ink&&bg!=='rgba(0, 0, 0, 0)'&&bg!=='transparent'){r.style.setProperty('--jp-search-page-surface',bg);}}catch(e){}})();</script>
+<!-- Meta Pixel Code -->
+<noscript>
+<img height="1" width="1" style="display:none" alt="fbpx"
+src="https://www.facebook.com/tr?id=576395691612727&ev=PageView&noscript=1" />
+</noscript>
+<!-- End Meta Pixel Code -->
+
+		
+		<div id="page" class="site">
+
+			
+			<header id="masthead" class="site-header site-header--bb">
+				<div class="container site-header-container flex default-header header-3">
+	<a href="#" class="bb-toggle-panel">
+		<i class="bb-icon-l bb-icon-sidebar"></i>
+		<span class="screen-reader-text">Toggle Side Panel</span>
+	</a>
+	
+<div id="site-logo" class="site-branding buddypanel_logo_display_off">
+	<div class="site-title">
+		<a href="https://muslimxchange.com/" rel="home" aria-label="Go to Muslim Xchange homepage">
+			<img width="236" height="150" src="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall.png" class="bb-logo" alt="Muslim Xchange" decoding="async" srcset="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall.png 236w, https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall-100x64.png 100w" sizes="(max-width: 236px) 100vw, 236px" />		</a>
+	</div>
+</div>	<nav id="site-navigation" class="main-navigation" data-menu-space="120">
+		<div id="primary-navbar">
+			<ul id="primary-menu" class="primary-menu bb-primary-overflow"><li id="menu-item-249391" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-249391 no-icon"><a href="https://muslimxchange.com/"><span>Home</span></a></li>
+<li id="menu-item-221737" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-221737 icon-added"><a href="https://muslimxchange.com/choose-membership/"><i class="_mi _before bb-icon-l buddyboss bb-icon-currency-dollar" aria-hidden="true"></i><span>Pricing</span></a></li>
+<li id="menu-item-249390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249390 icon-added"><a href="https://muslimxchange.com/features/"><i class="_mi _before bb-icon-l buddyboss bb-icon-award" aria-hidden="true"></i><span>Features</span></a></li>
+<li id="menu-item-462167" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-462167 icon-added"><a href="https://muslimxchange.com/business/"><i class="_mi _before bb-icon-l buddyboss bb-icon-globe-alt" aria-hidden="true"></i><span>Enterprise</span></a></li>
+<li id="menu-item-440218" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-440218 icon-added"><a href="https://muslimxchange.com/insights/"><i class="_mi _before bb-icon-l buddyboss bb-icon-lightbulb" aria-hidden="true"></i><span>Insights</span></a></li>
+</ul>			<div id="navbar-collapse">
+				<a class="more-button" href="#">
+					<i class="bb-icon-f bb-icon-ellipsis-h"></i>
+					<span class="screen-reader-text">More options</span>
+				</a>
+				<div class="sub-menu">
+					<div class="wrapper">
+						<ul id="navbar-extend" class="sub-menu-inner"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+		
+<div id="header-aside" class="header-aside avatar">
+	<div class="header-aside-inner">
+
+		
+							<div class="bb-header-buttons">
+					<a href="https://muslimxchange.com/wp-login.php" class="button small outline signin-button link">Sign in</a>
+
+											<a href="https://muslimxchange.com/choose-membership/" class="button small signup">Sign up</a>
+									</div>
+			
+	</div><!-- .header-aside-inner -->
+</div><!-- #header-aside -->
+</div>
+
+<div class="bb-mobile-header-wrapper bb-single-icon">
+	<div class="bb-mobile-header flex align-items-center">
+		<div class="bb-left-panel-icon-wrap">
+			<a href="#" class="push-left bb-left-panel-mobile"><i class="bb-icon-l bb-icon-bars"></i></a>
+		</div>
+
+		<div class="flex-1 mobile-logo-wrapper">
+			
+			<div class="site-title">
+
+				<a href="https://muslimxchange.com/" rel="home">
+					<img width="236" height="150" src="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall.png" class="bb-mobile-logo" alt="" decoding="async" srcset="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall.png 236w, https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall-100x64.png 100w" sizes="(max-width: 236px) 100vw, 236px" />				</a>
+
+			</div>
+		</div>
+		<div class="header-aside">
+					</div>
+	</div>
+
+	<div class="header-search-wrap">
+		<div class="container">
+			
+<form role="search" method="get" class="search-form" action="https://muslimxchange.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field-top" placeholder="Search" value="" name="s" />
+	</label>
+</form>
+			<a data-balloon-pos="left" data-balloon="Close" href="#" class="close-search"><i class="bb-icon-l bb-icon-times"></i></a>
+		</div>
+	</div>
+</div>
+
+<div class="bb-mobile-panel-wrapper left light closed">
+	<div class="bb-mobile-panel-inner">
+		<div class="bb-mobile-panel-header">
+							<div class="logo-wrap">
+					<a href="https://muslimxchange.com/" rel="home">
+						<img width="236" height="150" src="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall.png" class="bb-mobile-logo" alt="" decoding="async" srcset="https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall.png 236w, https://muslimxchange.com/wp-content/uploads/2021/03/cropped-mxLogosmall-100x64.png 100w" sizes="(max-width: 236px) 100vw, 236px" />					</a>
+				</div>
+						<a href="#" class="bb-close-panel"><i class="bb-icon-l bb-icon-times"></i></a>
+		</div>
+
+		<nav class="main-navigation" data-menu-space="120">
+			<ul id="menu-mobile-logged-ouot" class="bb-primary-menu mobile-menu buddypanel-menu side-panel-menu"><li id="menu-item-460905" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-460905"><a href="https://muslimxchange.com/features/"><i class="_mi _before bb-icon-l buddyboss bb-icon-award" aria-hidden="true"></i><span>Features</span></a></li>
+<li id="menu-item-460906" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-460906"><a href="https://muslimxchange.com/choose-membership/"><i class="_mi _before bb-icon-l buddyboss bb-icon-currency-dollar" aria-hidden="true"></i><span>Pricing</span></a></li>
+<li id="menu-item-486238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-486238"><a href="https://muslimxchange.com/business/"><i class="_mi _before bb-icon-l buddyboss bb-icon-globe-alt" aria-hidden="true"></i><span>Enterprise</span></a></li>
+<li id="menu-item-460904" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-460904"><a href="https://muslimxchange.com/insights/"><i class="_mi _before bb-icon-l buddyboss bb-icon-lightbulb" aria-hidden="true"></i><span>Insights</span></a></li>
+<li id="menu-item-221792" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-221792"><a href="https://muslimxchange.com/wp-login.php"><i class="_mi _before bb-icon-l buddyboss bb-icon-user" aria-hidden="true"></i><span>Login</span></a></li>
+</ul>		</nav>
+
+	</div>
+</div>
+<div class="header-search-wrap">
+	<div class="container">
+		
+<form role="search" method="get" class="search-form" action="https://muslimxchange.com/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field-top" placeholder="Search" value="" name="s" />
+	</label>
+</form>
+		<a href="#" class="close-search">
+			<i class="bb-icon-l bb-icon-times"></i>
+			<span class="screen-reader-text">Close search</span>
+		</a>
+	</div>
+</div>
+			</header>
+
+			
+			
+			<div id="content" class="site-content">
+
+				
+				<div class="container">
+					<div class="bb-grid site-content-grid">
+    <main id="primary" class="site-main mx-stock-page-wrapper">
+        <div class="mxx-limited">
+  <div class="mxx-limited-hero">
+    <div class="mxx-limited-kicker">Limited stock view</div>
+    <h1 class="mxx-limited-title">Is NVDA Stock Halal and Shariah Compliant?</h1>
+    
+      <div class="mxx-limited-verdict pass">✓ Yes, NVDA (NVIDIA Corp) stock is Shariah compliant</div>
+    
+    
+    <p class="mxx-limited-subtitle">As of Jun 19, 2026, this page shows a limited preview. Members can unlock the full Shariah report, methodology-by-methodology ratios, purification, zakat tools, and research data.</p>
+  </div>
+
+  <div class="mxx-limited-grid">
+    <div class="mxx-limited-card">
+      <div class="mxx-limited-card-pad">
+        <h2 class="mxx-limited-section-title">Basic Stock Information</h2>
+        <div class="mxx-limited-facts">
+          <div class="mxx-limited-fact"><span>Company</span><strong>NVIDIA Corp</strong></div>
+          <div class="mxx-limited-fact"><span>Ticker</span><strong>NVDA</strong></div>
+          <div class="mxx-limited-fact"><span>Market</span><strong>USA</strong></div>
+          <div class="mxx-limited-fact"><span>Exchange</span><strong>Nasdaq</strong></div>
+          <div class="mxx-limited-fact"><span>Sector</span><strong>Technology</strong></div>
+          <div class="mxx-limited-fact"><span>Industry</span><strong>Semiconductors</strong></div>
+          <div class="mxx-limited-fact"><span>Last Close</span><strong>$208.65</strong></div>
+          <div class="mxx-limited-fact"><span>Market Cap</span><strong>$5.05T</strong></div>
+        </div>
+
+        <div class="mxx-limited-faq">
+          <div class="mxx-limited-q">
+            <h3>Is NVDA – NVIDIA Corp stock halal to invest in?</h3>
+            <p>The limited view gives the overall status only. Members can see the detailed screening logic, ratios, thresholds, and methodology-level pass/fail results.</p>
+          </div>
+          <div class="mxx-limited-q">
+            <h3>Do I need to purify my investment in NVDA?</h3>
+            <p>Members can access purification data and a calculator to estimate purification based on their shares and holding period.</p>
+          </div>
+          <div class="mxx-limited-q">
+            <h3>Can I calculate zakat for my shares?</h3>
+            <p>Members can use Muslim Xchange’s zakat-per-share data and tools where available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mxx-limited-card mxx-locked-card">
+      <div class="mxx-limited-card-pad">
+        <div class="mxx-lock-icon">🔒</div>
+        <div class="mxx-locked-eyebrow">You are seeing a limited view</div>
+        <h2 class="mxx-locked-title">Unlock industry-grade Shariah compliance for global stocks.</h2>
+        <p class="mxx-locked-copy">Get detailed screening reports trusted by serious halal investors and used by Islamic finance professionals.</p>
+
+        <div class="mxx-trust-logos" aria-label="Trusted by global Islamic funds">
+          <div class="mxx-trust-logos-title">Trusted by global Islamic funds</div>
+          <div class="mxx-trust-logo-row">
+            <div class="mxx-trust-logo sharia"><img src="https://muslimxchange.com/wp-content/uploads/elementor/thumbs/ShariaPortfolio_Logo_cropped-qeibijvc355bfa67314bor34psgkyv8qcbr74i445c.png" alt="ShariaPortfolio" loading="lazy" decoding="async"></div>
+            <div class="mxx-trust-logo raqaba"><img src="https://muslimxchange.com/wp-content/uploads/elementor/thumbs/cropped-raqaba-full-logo-reduced-120-qeib9mej5sx94n55865x007hk0h1udsj44n4zvcr9c.png" alt="Raqaba" loading="lazy" decoding="async"></div>
+            <div class="mxx-trust-logo sib"><img src="https://muslimxchange.com/wp-content/uploads/elementor/thumbs/sib-qowavho0wytati2dtj7cvpeo13t07pz0s8p1zqus5c.png" alt="Standard Investment Bank" loading="lazy" decoding="async"></div>
+            <div class="mxx-trust-logo noorvest"><img src="https://muslimxchange.com/wp-content/uploads/elementor/thumbs/noorvestlogo-copy-rd59tpbmcrcd7npiej5tmdfy6417mrakevonrkyoe8.jpg" alt="NoorVest" loading="lazy" decoding="async"></div>
+          </div>
+        </div>
+
+        <ul class="mxx-feature-list">
+          <li>Detailed Shariah compliance report across major standards</li>
+          <li>Screening by an AAOIFI Certified Shariah Advisor &amp; Auditor</li>
+          <li>Purification and zakat calculator</li>
+          <li>Advanced fundamental and technical research data</li>
+          <li>Portfolio tools, watchlists, advanced filters, and more</li>
+        </ul>
+
+        <div class="mxx-limited-actions">
+          <a class="mxx-limited-btn primary" href="/pricing/">Join Now</a>
+          <a class="mxx-limited-btn secondary" href="/login/">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mxx-preview-strip">
+    <div class="mxx-preview-item"><strong>8</strong><span>Shariah methodologies tracked</span></div>
+    <div class="mxx-preview-item"><strong>30K+</strong><span>Global stocks and ETFs</span></div>
+    <div class="mxx-preview-item"><strong>Daily</strong><span>Financial data updates</span></div>
+  </div>
+</div>    </main>
+
+    
+
+</div><!-- .bb-grid -->
+</div><!-- .container -->
+</div><!-- #content -->
+
+
+		<footer data-elementor-type="footer" data-elementor-id="249395" class="elementor elementor-249395 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-a575483 e-flex e-con-boxed e-con e-parent" data-id="a575483" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;,&quot;shape_divider_top&quot;:&quot;mountains&quot;,&quot;shape_divider_bottom&quot;:&quot;mountains&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-shape elementor-shape-top" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z"/>
+	<path class="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z"/>
+	<path class="elementor-shape-fill" d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0 h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"/>
+</svg>		</div>
+				<div class="elementor-shape elementor-shape-bottom" aria-hidden="true" data-negative="false">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+	<path class="elementor-shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z"/>
+	<path class="elementor-shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z"/>
+	<path class="elementor-shape-fill" d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0 h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"/>
+</svg>		</div>
+		<div class="elementor-element elementor-element-cb04cf2 e-con-full e-flex e-con e-child" data-id="cb04cf2" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-c430055 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="c430055" data-element_type="widget" data-e-type="widget" data-settings="{&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateX_effect&quot;:&quot;yes&quot;,&quot;motion_fx_translateX_direction&quot;:&quot;negative&quot;,&quot;motion_fx_translateX_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.4,&quot;sizes&quot;:[]},&quot;_position&quot;:&quot;absolute&quot;,&quot;motion_fx_translateX_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" width="181" height="47" src="https://muslimxchange.com/wp-content/uploads/2022/09/30b4e950-g8112.png" class="attachment-full size-full wp-image-240576" alt="" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-8940f10 elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="8940f10" data-element_type="widget" data-e-type="widget" data-settings="{&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateX_effect&quot;:&quot;yes&quot;,&quot;motion_fx_translateX_direction&quot;:&quot;negative&quot;,&quot;motion_fx_translateX_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.4,&quot;sizes&quot;:[]},&quot;_position&quot;:&quot;absolute&quot;,&quot;motion_fx_translateX_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" width="181" height="47" src="https://muslimxchange.com/wp-content/uploads/2022/09/30b4e950-g8112.png" class="attachment-full size-full wp-image-240576" alt="" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-bff135e elementor-widget__width-initial elementor-absolute elementor-widget elementor-widget-image" data-id="bff135e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;motion_fx_translateX_effect&quot;:&quot;yes&quot;,&quot;motion_fx_translateX_direction&quot;:&quot;negative&quot;,&quot;motion_fx_translateX_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.4,&quot;sizes&quot;:[]},&quot;_position&quot;:&quot;absolute&quot;,&quot;motion_fx_translateX_affectedRange&quot;:{&quot;unit&quot;:&quot;%&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:{&quot;start&quot;:0,&quot;end&quot;:100}},&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;]}" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img loading="lazy" width="181" height="47" src="https://muslimxchange.com/wp-content/uploads/2022/09/30b4e950-g8112.png" class="attachment-full size-full wp-image-240576" alt="" />															</div>
+				</div>
+		<div class="elementor-element elementor-element-867c056 e-con-full e-flex e-con e-child" data-id="867c056" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-c06c49f e-con-full e-flex e-con e-child" data-id="c06c49f" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-f539b36 elementor-widget elementor-widget-image" data-id="f539b36" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img src="https://muslimxchange.com/wp-content/uploads/elementor/thumbs/GitHub-Mark-Light-64px-px54qpfx88eh5v88h5hxzorhfymnydch69hni03wn4.png" title="GitHub-Mark-Light-64px" alt="GitHub-Mark-Light-64px" loading="lazy" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-e9fe6fb elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="e9fe6fb" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<p class="elementor-heading-title elementor-size-default">Muslim Xchange Inc. is a Canadian company based in Mississauga, Ontario. 🍁</p>				</div>
+				</div>
+				<div class="elementor-element elementor-element-cdfb6da e-grid-align-left elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="cdfb6da" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-social-icons-wrapper elementor-grid" role="list">
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-493c733" href="https://www.instagram.com/muslimxchange/" target="_blank">
+						<span class="elementor-screen-only">Instagram</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-2c11c7e" href="https://www.linkedin.com/company/muslim-xchange/" target="_blank">
+						<span class="elementor-screen-only">Linkedin</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>					</a>
+				</span>
+							<span class="elementor-grid-item" role="listitem">
+					<a class="elementor-icon elementor-social-icon elementor-social-icon-tiktok elementor-repeater-item-351c7a0" href="https://www.tiktok.com/@muslimxchange" target="_blank">
+						<span class="elementor-screen-only">Tiktok</span>
+						<svg aria-hidden="true" class="e-font-icon-svg e-fab-tiktok" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></svg>					</a>
+				</span>
+					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-3426d94 elementor-widget elementor-widget-image" data-id="3426d94" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://apps.apple.com/ca/app/muslim-xchange/id1597668812">
+							<img src="https://muslimxchange.com/wp-content/uploads/elementor/thumbs/app-store-white-e1707224384938-qjetm87i1jmlat9ee5aub4n13xlryv7avvupdrrbqw.png" title="app-store-white" alt="app-store-white" loading="lazy" />								</a>
+															</div>
+				</div>
+				<div class="elementor-element elementor-element-6b7d0bc elementor-widget elementor-widget-image" data-id="6b7d0bc" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://play.google.com/store/apps/details?id=com.muslimxchange.mx&#038;pcampaignid=web_share">
+							<img src="https://muslimxchange.com/wp-content/uploads/elementor/thumbs/play-store-white-e1707224403955-qjetmq2fneb1fejghv0r4i4se95r1467ac8xi10ugo.png" title="play-store-white" alt="play-store-white" loading="lazy" />								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-46efccd e-con-full e-flex e-con e-child" data-id="46efccd" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-4b772b7 elementor-widget elementor-widget-heading" data-id="4b772b7" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Quick Links</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-658b6ad elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="658b6ad" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://muslimxchange.com">
+
+											<span class="elementor-icon-list-text">Home</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://muslimxchange.com/about/">
+
+											<span class="elementor-icon-list-text">About</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://muslimxchange.com/shariah-screening-methodology/">
+
+											<span class="elementor-icon-list-text">Shariah Screening</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://muslimxchange.com/faq/">
+
+											<span class="elementor-icon-list-text">FAQ</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://muslimxchange.com/business/">
+
+											<span class="elementor-icon-list-text">Business Solutions</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://muslimxchange.com/membership-account/">
+
+											<span class="elementor-icon-list-text">Membership</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-eab8b78 e-con-full e-flex e-con e-child" data-id="eab8b78" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-85ae181 elementor-widget elementor-widget-heading" data-id="85ae181" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Contact us</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-d20eb57 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="d20eb57" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">Email Address</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-ed395d7 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="ed395d7" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+										<span class="elementor-icon-list-text">support@muslimxchange.com</span>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-90dcc15 elementor-widget elementor-widget-spacer" data-id="90dcc15" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-741cda8 elementor-widget elementor-widget-button" data-id="741cda8" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJ1cmwiOiJodHRwczpcL1wvbXVzbGlteGNoYW5nZS5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjNcLzAyXC9hYW9pZmktY2VydGlmaWNhdGUtc2NhbGVkLmpwZyIsInR5cGUiOiJpbWFnZSIsInRpdGxlIjoiYWFvaWZpLWNlcnRpZmljYXRlIn0%3D">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">AAOIFI Certification</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-1ae8924 e-con-full e-flex e-con e-child" data-id="1ae8924" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-60f9a6a e-con-full e-flex e-con e-child" data-id="60f9a6a" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-42f3ca7 elementor-widget elementor-widget-heading" data-id="42f3ca7" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<span class="elementor-heading-title elementor-size-default">© 2026 Muslim Xchange Inc.</span>				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-c9a665d e-con-full e-flex e-con e-child" data-id="c9a665d" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-c34b329 elementor-icon-list--layout-inline elementor-align-end elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="c34b329" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://muslimxchange.com/disclaimer-policy/">
+
+											<span class="elementor-icon-list-text">Disclaimer</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://muslimxchange.com/terms-of-service/">
+
+											<span class="elementor-icon-list-text">Terms</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://muslimxchange.com/privacy-policy/">
+
+											<span class="elementor-icon-list-text">Privacy</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://muslimxchange.com/contact/">
+
+											<span class="elementor-icon-list-text">Support</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</footer>
+		
+</div><!-- #page -->
+
+
+<span id="bbapp-title" style="display: none;">NVDA - NVIDIA Corp</span>        <!-- Meta Pixel Event Code -->
+        <script type='text/javascript'>
+        (function () {
+            function runPixelCode( response ) {
+                if ( ! response || ! response.data || ! response.data.fb_pxl_code ) {
+                    return;
+                }
+
+                try {
+                    new Function( response.data.fb_pxl_code )();
+                } catch ( e ) {
+                    console && console.warn
+                        && console.warn( 'Meta Pixel response parsing failed. Please check if your pixel is connected.', e );
+                }
+            }
+
+            var radio = window.nfRadio
+                || ( window.Backbone && window.Backbone.Radio );
+            if ( radio && radio.channel ) {
+                radio.channel( 'forms' ).on( 'submit:response', runPixelCode );
+            }
+
+            if ( window.jQuery ) {
+                window.jQuery( document ).on(
+                    'nfFormSubmitResponse',
+                    function ( event, data ) {
+                        if ( data && data.response ) {
+                            runPixelCode( data.response );
+                        }
+                    }
+                );
+            }
+        })();
+        </script>
+        <!-- End Meta Pixel Event Code -->
+                <!-- Meta Pixel Event Code -->
+        <script type='text/javascript'>
+        (function ( $ ) {
+            if ( ! $ || typeof document === 'undefined' ) {
+                return;
+            }
+            // WPForms triggers this jQuery event and passes the AJAX response object.
+            $( document ).on( 'wpformsAjaxSubmitSuccess', function ( event, data ) {
+                if ( data && data.data && data.data.fb_pxl_code ) {
+                    try {
+                        new Function( data.data.fb_pxl_code )();
+                    } catch ( e ) {
+                        console && console.warn && console.warn( 'Meta Pixel eval failed', e );
+                    }
+                }
+            } );
+        })( window.jQuery );
+        </script>
+        <!-- End Meta Pixel Event Code -->
+        <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/buddyboss-theme-child/*","/wp-content/themes/buddyboss-theme/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<!-- Memberships powered by Paid Memberships Pro v3.8. -->
+			<div class="jetpack-instant-search__widget-area" style="display: none">
+					</div>
+		
+<div id="content-report" class="content-report-popup moderation-popup mfp-hide">
+	<div class="modal-mask bb-white bbm-model-wrap bbm-uploader-model-wrap">
+		<div class="modal-wrapper">
+			<div class="modal-container">
+				<header class="bb-model-header">
+					<h4>Report <span class="bp-reported-type"></span></h4>
+					<button title="Close (Esc)" type="button" class="mfp-close">
+						<span class="bb-icon-l bb-icon-times"></span>
+					</button>
+				</header>
+				<div class="bp-feedback bp-feedback-v2 error" id="notes-error" style="display: none;">
+					<span class="bp-icon" aria-hidden="true"></span>
+					<p>There was a problem reporting this post.</p>
+				</div>
+								<div class="bb-report-type-wrp">
+					<form id="bb-report-content" action="javascript:void(0);">
+
+						
+						<div class="form-item">
+							<label for="report-category-other">
+								<input type="radio" id="report-category-other" name="report_category" value="other">
+								<span>Other</span>
+							</label>
+						</div>
+						<div class="form-item bp-hide">
+							<label for="report-note">
+								<span class="screen-reader-text">Report note</span>
+								<textarea id="report-note" placeholder="Enter your reason for reporting..." name="note" class="bp-other-report-cat"></textarea>
+							</label>
+						</div>
+						<footer class="bb-model-footer">
+							<input type="button" class="bb-cancel-report-content button" value="Cancel"/>
+							<button type="submit" class="report-submit button">Report</button>
+							<input type="hidden" name="content_id" class="bp-content-id"/>
+							<input type="hidden" name="content_type" class="bp-content-type"/>
+							<input type="hidden" name="_wpnonce" class="bp-nonce"/>
+						</footer>
+					</form>
+					<div class="bp-report-form-err"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div id="block-member" class="block-member-popup moderation-popup mfp-hide">
+	<div class="modal-mask bb-white bbm-model-wrap bbm-uploader-model-wrap">
+			<div class="modal-wrapper">
+				<div class="modal-container">
+					<header class="bb-model-header">
+						<h4>Block Member?</h4>
+						<button title="Close (Esc)" type="button" class="mfp-close">
+							<span class="bb-icon-l bb-icon-times"></span>
+						</button>
+					</header>
+
+					<div class="bb-report-type-wrp">
+						<p>
+							Please confirm you want to block this member.						</p>
+						<p>
+							You will no longer be able to:						</p>
+						<ul>
+														<li>
+								See blocked member&#039;s posts							</li>
+														<li>
+								Mention this member in posts							</li>
+																											</ul>
+
+						<p>
+							
+							Please allow a few minutes for this process to complete.						</p>
+						<form id="bb-block-member" action="javascript:void(0);">
+							<footer class="bb-model-footer">
+								<input type="button" class="bb-cancel-report-content button" value="Cancel"/>
+								<button type="submit" class="report-submit button">Confirm</button>
+								<input type="hidden" name="content_id" class="bp-content-id"/>
+								<input type="hidden" name="content_type" class="bp-content-type"/>
+								<input type="hidden" name="_wpnonce" class="bp-nonce"/>
+							</footer>
+						</form>
+												<div class="bp-report-form-err"></div>
+					</div>
+
+				</div>
+			</div>
+	</div>
+
+</div>
+
+<div id="reported-content" class="content-report-popup moderation-popup mfp-hide">
+	<div class="modal-mask bb-white bbm-model-wrap bbm-uploader-model-wrap">
+		<div class="modal-wrapper">
+			<div class="modal-container">
+				<header class="bb-model-header">
+					<h4>
+						Report <span class="bp-reported-type"></span>					</h4>
+					<button title="Close (Esc)" type="button" class="mfp-close">
+						<span class="bb-icon-l bb-icon-times"></span>
+					</button>
+				</header>
+
+				<div class="bb-report-type-wrp">
+					You have already reported this <span class="bp-reported-type"></span>.				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		<div data-elementor-type="popup" data-elementor-id="482025" class="elementor elementor-482025 elementor-location-popup" data-elementor-settings="{&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-4735aff e-flex e-con-boxed e-con e-parent" data-id="4735aff" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2814234 elementor-widget elementor-widget-html" data-id="2814234" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					            <div style="position:relative;">
+                <div>
+                    <input type="text" id="filterItemSearch" placeholder="Search" />
+                    
+                </div>
+               <div id="filters-wrapper"></div>
+            </div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		    <!-- Meta Pixel Event Code -->
+    <script type='text/javascript'>
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+        if( "fb_pxl_code" in event.detail.apiResponse){
+            eval(event.detail.apiResponse.fb_pxl_code);
+        }
+        }, false );
+    </script>
+    <!-- End Meta Pixel Event Code -->
+        <div id="fb-pxl-ajax-code"></div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD34Q4Z2TB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD34Q4Z2TB');
+gtag('config', 'AW-16477337182');
+</script>
+			<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script id="snaptrade-api-script-js-extra">
+var ajax_object = {"ajax_url":"https://muslimxchange.com/wp-admin/admin-ajax.php","site_url":"https://muslimxchange.com","plugin_dir_url":"https://muslimxchange.com/wp-content/plugins/snaptrade-plugin/","this_page_url":"https://muslimxchange.com/ticker/nvda-nvidia-corp/"};
+//# sourceURL=snaptrade-api-script-js-extra
+</script>
+<script id="snaptrade-api-script-js" src="https://muslimxchange.com/wp-content/plugins/snaptrade-plugin/js/snaptrade-api.js?ver=20260623160234"></script>
+<script id="isInViewport-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/js/vendor/isInViewport.min.js?ver=3.0.5"></script>
+<script id="moment-js" src="https://muslimxchange.com/wp-includes/js/dist/vendor/moment.min.js?ver=2.30.1"></script>
+<script id="moment-js-after">
+moment.updateLocale( 'en_US', {"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"week":{"dow":1},"longDateFormat":{"LT":"g:i a","LTS":null,"L":null,"LL":"F j, Y","LLL":"F j, Y g:i a","LLLL":null}} );
+moment.updateLocale( 'en_US', {"relativeTime":{"future":"in %s","past":"%s ago","s":"second","ss":"%d seconds","m":"a minute","mm":"%d minutes","h":"an hour","hh":"%d hours","d":"a day","dd":"%d days","w":"a week","ww":"%d weeks","M":"a month","MM":"%d months","y":"a year","yy":"%d years"}} );
+//# sourceURL=moment-js-after
+</script>
+<script id="bp-livestamp-js-extra">
+var bb_livestamp = {"year_in_seconds":"31536000","day_in_seconds":"86400","week_in_seconds":"604800","hour_in_seconds":"3600","minute_in_seconds":"60","chunks":[31536000,5256000,2592000,604800,86400,3600,60,1],"unknown_text":"sometime","right_now_text":"Just now","ago_text":"%s ago","second_text":"a second","seconds_text":"seconds","minute_text":"a minute","minutes_text":"minutes","hour_text":"an hour","hours_text":"hours","day_text":"a day","days_text":"days","week_text":"a week","weeks_text":"weeks","month_text":"a month","months_text":"months","year_text":"a year","years_text":"years"};
+//# sourceURL=bp-livestamp-js-extra
+</script>
+<script id="bp-livestamp-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/js/livestamp.min.js?ver=3.0.5"></script>
+<script id="bb-reaction-js-extra">
+var bbReactionVars = {"ajax_url":"https://muslimxchange.com/wp-admin/admin-ajax.php"};
+//# sourceURL=bb-reaction-js-extra
+</script>
+<script id="bb-reaction-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/reactions/assets/js/bb-reaction.min.js?ver=3.0.2"></script>
+<script id="underscore-js" src="https://muslimxchange.com/wp-includes/js/underscore.min.js?ver=1.13.8"></script>
+<script id="wp-util-js-extra">
+var _wpUtilSettings = {"ajax":{"url":"/wp-admin/admin-ajax.php"}};
+//# sourceURL=wp-util-js-extra
+</script>
+<script id="wp-util-js" src="https://muslimxchange.com/wp-includes/js/wp-util.min.js?ver=7.0"></script>
+<script id="wp-hooks-js" src="https://muslimxchange.com/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d"></script>
+<script id="wp-i18n-js" src="https://muslimxchange.com/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="bp-nouveau-js-extra">
+var BP_Nouveau = {"ajaxurl":"https://muslimxchange.com/wp-admin/admin-ajax.php","only_admin_notice":"As you are the only organizer of this group, you cannot leave it. You can either delete the group or promote another member to be an organizer first and then leave the group.","is_friend_confirm":"Are you sure you want to remove your connection with this member?","confirm":"Are you sure?","confirm_delete_set":"Are you sure you want to delete this set? This cannot be undone.","show_x_comments":"View more comments","unsaved_changes":"Your profile has unsaved changes. If you leave the page, the changes will be lost.","object_nav_parent":"#buddypress","anchorPlaceholderText":"Paste or type a link","empty_field":"New Field","close":"Close","parent_group_leave_confirm":"By leaving this main group you will automatically be removed and unsubscribed to any subgroups relating to this group.","group_leave_confirm":"\u003Cp\u003EAre you sure you want to leave \u003Cspan class=\"bb-group-name\"\u003E\u003C/span\u003E?\u003C/p\u003E","wpTime":"2026-06-23 12:02:34","wpTimezone":"America/Toronto","dir_labels":{"members":{"singular":"Member","plural":"Members"},"followers":{"singular":"Follower","plural":"Followers"},"video":{"singular":"Video","plural":"Videos"},"album":{"singular":"Album","plural":"Albums"},"media":{"singular":"Photo","plural":"Photos"}},"rest_url":"https://muslimxchange.com/wp-json/buddyboss/v1","rest_nonce":"6ddc49d787","member_label":"member","members_label":"members","objects":{"0":"activity","1":"members","4":"xprofile","6":"media","7":"document","8":"video","10":"settings","11":"notifications","13":"moderation"},"nonces":{"activity":"31ec00be5c","members":"a1cfed1426","xprofile":"37c8ff2409","media":"9315e1d9ef","document":"c13f6e65a4","video":"cd12b770b6","settings":"57fdfb34a6","notifications":"76fd18ffc3","moderation":"24555f96d3"},"is_send_ajax_request":"1","bb_enable_content_counts":"","more_menu_items":"Menu Items","more_menu_text":"More","modbypass":null,"activity":{"params":{"user_id":0,"object":"user","backcompat":false,"post_nonce":"6b95f323db","post_draft_nonce":"3ec39409b8","excluded_hosts":[],"user_can_post":false,"is_activity_edit":false,"displayed_user_id":0,"errors":{"empty_post_update":"Sorry, Your update cannot be empty.","post_fail":"An error occurred while saving your post.","media_fail":"To change the media type, remove existing media from your post."},"is_activity_post_title_required":false,"activity_post_title_maxlength":80,"post_title_tooltip_error":"Please enter a title","avatar_url":"https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/images/profile-avatar-buddyboss-50.png","avatar_width":150,"avatar_height":150,"user_display_name":false,"user_domain":"","avatar_alt":"Profile photo of ","link_preview":true,"objects":{"profile":{"text":"Post in: Profile","autocomplete_placeholder":"","priority":5}},"draft_activity":false,"access_control_settings":{"can_create_activity":true,"can_create_activity_media":true,"can_create_activity_document":true},"comment_threading":{"enabled":true,"max_depth":4},"post_feature_image":{"can_upload_post_feature_image":false,"nonce":{"save":"8b0bbc1f16","upload":"4bf2d82509","delete":"698c858d4b","crop_replace":"8a409c969e"},"config":{"feature_name":"activity-post-feature-image","option_key":"bb_enable_activity_post_feature_image","upload_dir":"bb_activity_post_feature_images","allowed_mimes":{"jpg|jpeg|jpe":"image/jpeg","gif":"image/gif","png":"image/png","bmp":"image/bmp"},"image_sizes":{"bb-activity-post-feature-image":{"width":2400,"height":2400,"crop":false}},"max_upload_size":256,"max_file":1},"strings":{"upload_failed":"Upload failed","reposition_crop":"Reposition photo","reposition_crop_image":"Reposition and Crop Image","invalid_media_type":"Unable to upload the file","connection_lost_error":"Connection lost with the server.","crop_operation_failed":"Crop operation failed:","failed_to_save_cropped_image":"Failed to save cropped image. Please try again.","error_dc":"Error destroying cropper:","error_dc_during_cleanup":"Error destroying cropper during cleanup:","error_destroying_dropzone":"Error destroying dropzone:","invalid_thumbnail_url":"Invalid thumbnail URL, skipping thumbnail creation:"}}},"strings":{"whatsnewPlaceholder":"Share what's on your mind, ...","whatsnewLabel":"Post what&#039;s new","whatsnewpostinLabel":"Post in","postUpdateButton":"Post","updatePostButton":"Update Post","cancelButton":"Cancel","commentLabel":"%d Comment","commentsLabel":"%d Comments","loadingMore":"Loading...","discardButton":"Discard Draft","pinPost":"Pin to Feed","unpinPost":"Unpin from Feed","pinGroupPost":"Pin to Group","unpinGroupPost":"Unpin from Group","pinPostError":"There was a problem marking this operation. Please try again.","reactionAjaxError":"There was a problem marking this operation. Please try again.","closeComments":"Turn off commenting","uncloseComments":"Turn on commenting","closeCommentsError":"There was a problem marking this operation. Please try again.","commentPostError":"There was a problem posting your comment.","muteNotification":"Turn off notifications","unmuteNotification":"Turn on notifications","whatsNewTitle":"Title (optional)"}},"media":{"max_upload_size":10,"profile_media":false,"profile_album":true,"group_media":false,"group_album":true,"messages_media":false,"messages_media_active":false,"dropzone_media_message":"\u003Cstrong\u003EAdd Photos\u003C/strong\u003E Or drag and drop","media_select_error":"This file type is not supported for photo uploads.","empty_media_type":"Empty media file will not be uploaded.","invalid_media_type":"Unable to upload the file","media_size_error_header":"File too large ","media_size_error_description":"This file type is too large.","dictFileTooBig":"Sorry, file size is too big ({{filesize}} MB). Max file size limit: {{maxFilesize}} MB.","cover_photo_size_error_header":"Unable to reposition the image ","cover_photo_size_error_description":"To reposition your cover photo, please upload a larger image and then try again.","maxFiles":10,"is_media_directory":"no","create_album_error_title":"Please enter title of album","current_album":0,"current_type":"","move_to_id_popup":0,"media_dict_file_exceeded":"You are allowed to upload only 10 photos at a time.","can_manage_media":false,"create_album_title":"Create Album","dictCancelUploadConfirmation":"Are you sure you want to cancel this upload?","connection_lost_error":"Connection lost with the server.","emoji":{"profile":false,"groups":false,"messages":false,"forums":false,"document":false},"emoji_filter_url":"https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/images/emojifilter/","gif":{"profile":false,"groups":false,"messages":false,"forums":false,"document":false},"gif_api_key":"","gif_search_placeholder":"Search GIPHY...","gif_no_results":"No results found","gif_no_connection":"Could not connect to GIPHY","i18n_strings":{"select":"Select","unselect":"Unselect","selectall":"Select All","unselectall":"Unselect All","no_photos_found":"Sorry, no photos were found","upload":"Upload","uploading":"Uploading","upload_status":"%1$d out of %2$d uploaded","album_delete_confirm":"Are you sure you want to delete this album? Photos in this album will also be deleted.","album_delete_error":"There was a problem deleting the album.","media_delete_confirm":"Are you sure you want to delete this media?","photo":"photo","photos":"photos","video":"video","videos":"videos","folder_delete_confirm":"Are you sure you want to delete this folder? Documents in this folder will also be deleted?","document_delete_confirm":"Are you sure you want to delete this document?","folder_delete_error":"There was a problem deleting the folder.","folder_move_error":"Please select destination folder."},"profile_document":false,"group_document":false,"messages_document":false,"messages_document_active":false,"document_type":"application/x-abiword,text/xml,application/x-ace-compressed,application/postscript,application/pdf,application/vnd.android.package-archive,application/java-archive,text/css,text/plain,text/csv,application/msword,application/vnd.ms-word.document.macroenabled.12,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-word.template.macroenabled.12,image/x-eps,image/gif,application/x-gzip,application/gzip,text/html,image/x-icon,text/calendar,application/octet-stream,image/jpeg,application/javascript,audio/mpeg,application/vnd.oasis.opendocument.spreadsheet,application/vnd.oasis.opendocument.text,image/png,application/vnd.ms-powerpoint.template.macroenabled.12,application/vnd.openxmlformats-officedocument.presentationml.template,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.slideshow,application/vnd.ms-powerpoint.presentation.macroenabled.12,image/vnd.adobe.photoshop,application/x-rar-compressed,application/x-rar,application/rss+xml,application/rtf,application/x-sqlite3,image/svg+xml,application/x-tar,image/tiff,text/x-vcard,text/vcard,audio/x-wav,application/vnd.ms-excel.sheet.binary.macroenabled.12,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroenabled.12,application/vnd.ms-excel.template.macroenabled.12,application/vnd.openxmlformats-officedocument.spreadsheetml.template,text/yaml,application/zip,application/x-7z-compressed,video/mp4,video/webm,video/ogg,video/quicktime,.abw,.ace,.ai,.apk,.css,.csv,.doc,.docm,.docx,.dotm,.dotx,.eps,.gif,.gz,.gzip,.htm,.html,.ico,.ics,.ipa,.jar,.jpeg,.jpg,.js,.mp3,.ods,.odt,.pdf,.png,.potm,.potx,.pps,.ppsx,.ppt,.pptm,.pptx,.psd,.rar,.rss,.rtf,.sketch,.svg,.tar,.tiff,.txt,.vcf,.wav,.xlam,.xls,.xlsb,.xlsm,.xlsx,.xltm,.xltx,.xml,.yaml,.zip,.7z,.mp4,.webm,.ogg,.mov","empty_document_type":"Empty documents will not be uploaded.","current_folder":0,"current_user_id":0,"current_group_id":0,"target_text":"Documents","create_folder_error_title":"Please enter title of folder","invalid_file_type":"Unable to upload the file","document_select_error":"Please upload only the following file types: \u003Cbr /\u003E\u003Cdiv class=\"bb-allowed-file-types\"\u003E.abw, .ace, .ai, .apk, .css, .csv, .doc, .docm, .docx, .dotm, .dotx, .eps, .gif, .gz, .gzip, .htm, .html, .ico, .ics, .ipa, .jar, .jpeg, .jpg, .js, .mp3, .ods, .odt, .pdf, .png, .potm, .potx, .pps, .ppsx, .ppt, .pptm, .pptx, .psd, .rar, .rss, .rtf, .sketch, .svg, .tar, .tiff, .txt, .vcf, .wav, .xlam, .xls, .xlsb, .xlsm, .xlsx, .xltm, .xltx, .xml, .yaml, .zip, .7z, .mp4, .webm, .ogg, .mov\u003C/div\u003E","dropzone_document_message":"\u003Cstrong\u003EAdd Files\u003C/strong\u003E Or drag and drop","is_document_directory":"no","document_preview_error":"Sorry! something went wrong we are not able to preview.","move_to_folder":"Move folder to...","move_to_file":"Move document to...","copy_to_clip_board_text":"Copied to Clipboard","download_button":"Download","document_size_error_header":"File too large ","document_size_error_description":"This file type is too large.","sidebar_download_text":"Download","sidebar_view_text":"View","create_folder":"Create Folder","document_dict_file_exceeded":"You are allowed to upload only 10 documents at a time.","can_manage_document":false},"video":{"max_upload_size":5,"video_type":"video/mp4,video/webm,video/ogg,video/quicktime,.mp4,.webm,.ogg,.mov","profile_video":false,"profile_album":true,"group_video":false,"group_album":true,"messages_video":false,"messages_video_active":false,"dropzone_video_message":"\u003Cstrong\u003EAdd Videos\u003C/strong\u003E Or drag and drop","dropzone_video_thumbnail_message":"Upload thumbnail","video_select_error":"This file type is not supported for video uploads.","empty_video_type":"Empty video file will not be uploaded.","invalid_video_type":"Unable to upload the file","video_size_error_header":"File too large ","video_size_error_description":"This file type is too large.","dictFileTooBig":"Sorry, file size is too big ({{filesize}} MB). Max file size limit: {{maxFilesize}} MB.","maxFiles":2,"is_video_directory":"no","create_album_error_title":"Please enter title of album","cover_video_size_error_header":"Unable to reposition the image ","cover_video_size_error_description":"To reposition your cover video, please upload a larger image and then try again.","current_album":0,"current_type":"","move_to_id_popup":0,"video_dict_file_exceeded":"You are allowed to upload only 2 videos at a time.","thumb_dict_file_exceeded":"You are allowed to upload only 1 thumb at a time.","dictInvalidFileType":"Please upload only the following file types: \u003Cbr /\u003E\u003Cdiv class=\"bb-allowed-file-types\"\u003Evideo/mp4, video/webm, video/ogg, video/quicktime, .mp4, .webm, .ogg, .mov\u003C/div\u003E","is_ffmpeg_installed":false,"generating_thumb":"Generating thumbnail\u2026","dictCancelUploadConfirmation":"Are you sure you want to cancel this upload?","i18n_strings":{"select":"Select","unselect":"Unselect","selectall":"Select All","unselectall":"Unselect All","no_videos_found":"Sorry, no videos were found","upload":"Upload","upload_thumb":"Change Thumbnail","uploading":"Uploading","upload_status":"%1$d out of %2$d uploaded","album_delete_confirm":"Are you sure you want to delete this album? Videos in this album will also be deleted.","album_delete_error":"There was a problem deleting the album.","video_delete_confirm":"Are you sure you want to delete this video?","video_enlarge_text":"Enlarge","video_fullscreen_text":"Full screen","video_play_text":"Play","video_pause_text":"Pause","video_uploaded_text":"Uploaded","video_volume_text":"Volume","video_miniplayer_text":"Miniplayer","video_speed_text":"Speed","video_skip_back_text":"Step Back (5)","video_skip_forward_text":"Step Forward (5)","video_picture_in_text":"This video is playing in the miniplayer."}},"moderation":{"unblock_user_msg":"Are you sure you want to unblock this member?","no_user_msg":"No blocked members found."},"activity_polls":{"params":{"can_create_poll_activity":false},"strings":{"DeletePollConfirm":"Are you sure you would like to delete this poll?","addedByYou":"Added by you","areYouSure":"Are you sure?","closePopupConfirm":"Any options you have chosen will be removed"}},"document":{"dictInvalidFileType":"Please upload only the following file types: \u003Cbr /\u003E\u003Cdiv class=\"bb-allowed-file-types\"\u003E.abw, .ace, .ai, .apk, .css, .csv, .doc, .docm, .docx, .dotm, .dotx, .eps, .gif, .gz, .gzip, .htm, .html, .ico, .ics, .ipa, .jar, .jpeg, .jpg, .js, .mp3, .ods, .odt, .pdf, .png, .potm, .potx, .pps, .ppsx, .ppt, .pptm, .pptx, .psd, .rar, .rss, .rtf, .sketch, .svg, .tar, .tiff, .txt, .vcf, .wav, .xlam, .xls, .xlsb, .xlsm, .xlsx, .xltm, .xltx, .xml, .yaml, .zip, .7z, .mp4, .webm, .ogg, .mov\u003C/div\u003E","max_upload_size":5,"maxFiles":10,"mp3_preview_extension":"mp3,wav,ogg"}};
+var BB_Nouveau_Presence = {"heartbeat_enabled":"","presence_interval":"60","presence_default_interval":"60","presence_time_span":"20","idle_inactive_span":"180","rest_nonce":"6ddc49d787","native_presence":"1","native_presence_url":"https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-core/bb-core-native-presence.php","presence_rest_url":"https://muslimxchange.com/wp-json/buddyboss/v1/members/presence"};
+//# sourceURL=bp-nouveau-js-extra
+</script>
+<script id="bp-nouveau-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-nouveau.min.js?ver=3.0.5"></script>
+<script id="backbone-js" src="https://muslimxchange.com/wp-includes/js/backbone.min.js?ver=1.6.1"></script>
+<script id="wp-backbone-js" src="https://muslimxchange.com/wp-includes/js/wp-backbone.min.js?ver=7.0"></script>
+<script id="jquery-ui-core-js" src="https://muslimxchange.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3"></script>
+<script id="jquery-ui-mouse-js" src="https://muslimxchange.com/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.3"></script>
+<script id="jquery-ui-sortable-js" src="https://muslimxchange.com/wp-includes/js/jquery/ui/sortable.min.js?ver=1.13.3"></script>
+<script id="bb-poll-script-js-extra">
+var bbPollsVars = {"ajax_url":"https://muslimxchange.com/wp-admin/admin-ajax.php","nonce":{"add_poll_nonce":"e1ef3fe9d3","add_poll_option_nonce":"e00c5f02b0","remove_poll_option_nonce":"e4ecb31cbe","add_poll_vote_nonce":"78a1833b56","poll_vote_state_nonce":"27924f3ed8","remove_poll_nonce":"aee7425533"}};
+//# sourceURL=bb-poll-script-js-extra
+</script>
+<script id="bb-poll-script-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/polls/assets/js/bb-poll.min.js?ver=3.0.2"></script>
+<script id="bb-schedule-posts-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform-pro/includes/schedule-posts/assets/js/bb-schedule-posts.min.js?ver=3.0.2"></script>
+<script id="guillotine-js-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/jquery.guillotine.min.js?ver=3.0.5"></script>
+<script async data-wp-strategy="async" fetchpriority="low" id="comment-reply-js" src="https://muslimxchange.com/wp-includes/js/comment-reply.min.js?ver=7.0"></script>
+<script id="bp-nouveau-moderation-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-platform/bp-templates/bp-nouveau/js/buddypress-moderation.min.js?ver=3.0.5"></script>
+<script id="custom-csv-upload-js-js-extra">
+var es_ajax_object = {"ajax_url":"https://muslimxchange.com/wp-admin/admin-ajax.php"};
+//# sourceURL=custom-csv-upload-js-js-extra
+</script>
+<script id="custom-csv-upload-js-js" src="https://muslimxchange.com/wp-content/plugins/custom_csv_upload/custom-csv-upload.js?ver=8"></script>
+<script id="dynamic-tabs-js-extra">
+var tickerData = {"symbol":null,"activeTab":"compliance","initialContent":"","tickerQuote":"","tickerPrePostQuote":""};
+//# sourceURL=dynamic-tabs-js-extra
+</script>
+<script id="dynamic-tabs-js" src="https://muslimxchange.com/wp-content/plugins/fmp-api/js/dynamic-tabs.js?ver=1771839900"></script>
+<script id="tradingview-chart-js" src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+<script id="charts-js-chart-js" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script id="charts-js-annonation-chart-js" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+<script id="wp-jp-i18n-loader-js" src="https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-assets/build/i18n-loader.js?minify=true&#038;ver=5ba5dddc04be2306aaf0"></script>
+<script id="wp-jp-i18n-loader-js-after">
+wp.jpI18nLoader.state = {"baseUrl":"https://muslimxchange.com/wp-content/languages/","locale":"en_US","domainMap":{"jetpack-account-protection":"plugins/jetpack","jetpack-admin-ui":"plugins/jetpack-search","jetpack-assets":"plugins/jetpack-search","jetpack-boost-core":"plugins/jetpack-search","jetpack-boost-speed-score":"plugins/jetpack-search","jetpack-config":"plugins/jetpack-search","jetpack-connection":"plugins/jetpack-search","jetpack-explat":"plugins/jetpack-search","jetpack-ip":"plugins/jetpack-search","jetpack-jitm":"plugins/jetpack-search","jetpack-licensing":"plugins/jetpack-search","jetpack-my-jetpack":"plugins/jetpack-search","jetpack-password-checker":"plugins/jetpack-search","jetpack-plugins-installer":"plugins/jetpack-search","jetpack-protect-models":"plugins/jetpack-search","jetpack-protect-status":"plugins/jetpack-search","jetpack-sync":"plugins/jetpack-search","jetpack-transport-helper":"plugins/jetpack-protect","jetpack-waf":"plugins/jetpack","jetpack-agents-manager":"plugins/jetpack-search","jetpack-search-pkg":"plugins/jetpack-search","jetpack-stats":"plugins/jetpack-search","jetpack-wp-abilities":"plugins/jetpack-search","jetpack-videopress-pkg":"plugins/jetpack","jetpack-wp-build-polyfills":"plugins/jetpack","jetpack-activity-log":"plugins/jetpack","jetpack-backup-pkg":"plugins/jetpack","jetpack-blaze":"plugins/jetpack","jetpack-block-delimiter":"plugins/jetpack","jetpack-classic-theme-helper":"plugins/jetpack","jetpack-compat":"plugins/jetpack","jetpack-external-connections":"plugins/jetpack","jetpack-external-media":"plugins/jetpack","jetpack-forms":"plugins/jetpack","jetpack-image-cdn":"plugins/jetpack","jetpack-import":"plugins/jetpack","jetpack-jwt":"plugins/jetpack","jetpack-masterbar":"plugins/jetpack","jetpack-newsletter":"plugins/jetpack","jetpack-paypal-payments":"plugins/jetpack","jetpack-post-list":"plugins/jetpack","jetpack-post-media":"plugins/jetpack","jetpack-publicize-pkg":"plugins/jetpack","jetpack-scan-page":"plugins/jetpack","jetpack-seo":"plugins/jetpack","jetpack-stats-admin":"plugins/jetpack"},"domainPaths":{"jetpack-account-protection":"jetpack_vendor/automattic/jetpack-account-protection/","jetpack-admin-ui":"jetpack_vendor/automattic/jetpack-admin-ui/","jetpack-assets":"jetpack_vendor/automattic/jetpack-assets/","jetpack-boost-core":"jetpack_vendor/automattic/jetpack-boost-core/","jetpack-boost-speed-score":"jetpack_vendor/automattic/jetpack-boost-speed-score/","jetpack-config":"jetpack_vendor/automattic/jetpack-config/","jetpack-connection":"jetpack_vendor/automattic/jetpack-connection/","jetpack-explat":"jetpack_vendor/automattic/jetpack-explat/","jetpack-ip":"jetpack_vendor/automattic/jetpack-ip/","jetpack-jitm":"jetpack_vendor/automattic/jetpack-jitm/","jetpack-licensing":"jetpack_vendor/automattic/jetpack-licensing/","jetpack-my-jetpack":"jetpack_vendor/automattic/jetpack-my-jetpack/","jetpack-password-checker":"jetpack_vendor/automattic/jetpack-password-checker/","jetpack-plugins-installer":"jetpack_vendor/automattic/jetpack-plugins-installer/","jetpack-protect-models":"jetpack_vendor/automattic/jetpack-protect-models/","jetpack-protect-status":"jetpack_vendor/automattic/jetpack-protect-status/","jetpack-sync":"jetpack_vendor/automattic/jetpack-sync/","jetpack-transport-helper":"jetpack_vendor/automattic/jetpack-transport-helper/","jetpack-waf":"jetpack_vendor/automattic/jetpack-waf/","jetpack-agents-manager":"jetpack_vendor/automattic/jetpack-agents-manager/","jetpack-search-pkg":"jetpack_vendor/automattic/jetpack-search/","jetpack-stats":"jetpack_vendor/automattic/jetpack-stats/","jetpack-wp-abilities":"jetpack_vendor/automattic/jetpack-wp-abilities/","jetpack-videopress-pkg":"jetpack_vendor/automattic/jetpack-videopress/","jetpack-wp-build-polyfills":"jetpack_vendor/automattic/jetpack-wp-build-polyfills/","jetpack-activity-log":"jetpack_vendor/automattic/jetpack-activity-log/","jetpack-backup-pkg":"jetpack_vendor/automattic/jetpack-backup/","jetpack-blaze":"jetpack_vendor/automattic/jetpack-blaze/","jetpack-block-delimiter":"jetpack_vendor/automattic/block-delimiter/","jetpack-classic-theme-helper":"jetpack_vendor/automattic/jetpack-classic-theme-helper/","jetpack-compat":"jetpack_vendor/automattic/jetpack-compat/","jetpack-external-connections":"jetpack_vendor/automattic/jetpack-external-connections/","jetpack-external-media":"jetpack_vendor/automattic/jetpack-external-media/","jetpack-forms":"jetpack_vendor/automattic/jetpack-forms/","jetpack-image-cdn":"jetpack_vendor/automattic/jetpack-image-cdn/","jetpack-import":"jetpack_vendor/automattic/jetpack-import/","jetpack-jwt":"jetpack_vendor/automattic/jetpack-jwt/","jetpack-masterbar":"jetpack_vendor/automattic/jetpack-masterbar/","jetpack-newsletter":"jetpack_vendor/automattic/jetpack-newsletter/","jetpack-paypal-payments":"jetpack_vendor/automattic/jetpack-paypal-payments/","jetpack-post-list":"jetpack_vendor/automattic/jetpack-post-list/","jetpack-post-media":"jetpack_vendor/automattic/jetpack-post-media/","jetpack-publicize-pkg":"jetpack_vendor/automattic/jetpack-publicize/","jetpack-scan-page":"jetpack_vendor/automattic/jetpack-scan-page/","jetpack-seo":"jetpack_vendor/automattic/jetpack-seo/","jetpack-stats-admin":"jetpack_vendor/automattic/jetpack-stats-admin/"}};
+//# sourceURL=wp-jp-i18n-loader-js-after
+</script>
+<script id="wp-polyfill-js" src="https://muslimxchange.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0"></script>
+<script id="wp-url-js" src="https://muslimxchange.com/wp-includes/js/dist/url.min.js?ver=bb0f766c3d2efe497871"></script>
+<script id="jetpack-instant-search-js-before">
+var JetpackInstantSearchOptions={"overlayOptions":{"colorTheme":"light","enableInfScroll":false,"enableFilteringOpensOverlay":true,"enablePostDate":false,"enableProductPrice":true,"enableSort":false,"highlightColor":"#ffdba9","overlayTrigger":"submit","resultFormat":"minimal","showPoweredBy":false,"defaultSort":"relevance","excludedPostTypes":["post","page","attachment","e-floating-buttons"],"fallbackImageUrl":"","enableFallbackImage":false},"homeUrl":"https://muslimxchange.com","locale":"en-US","postsPerPage":10,"siteId":228669727,"searchSuggestionsEnabled":false,"postTypes":{"post":{"singular_name":"Post","name":"Posts"},"page":{"singular_name":"Page","name":"Pages"},"attachment":{"singular_name":"Media","name":"Media"},"e-floating-buttons":{"singular_name":"Floating Element","name":"Floating Elements"},"ticker":{"singular_name":"Stock","name":"Stocks"},"funds":{"singular_name":"ETF","name":"ETFs"}},"webpackPublicPath":"https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/instant-search/","isPhotonEnabled":false,"isFreePlan":false,"apiRoot":"https://muslimxchange.com/wp-json/","apiNonce":"6ddc49d787","isPrivateSite":false,"isWpcom":false,"hasOverlayWidgets":false,"widgets":[],"widgetsOutsideOverlay":[],"hasNonSearchWidgets":false,"preventTrackingCookiesReset":false,"disableTracking":false,"aiAnswersEnabled":false};
+//# sourceURL=jetpack-instant-search-js-before
+</script>
+<script id="jetpack-instant-search-js" src="https://muslimxchange.com/wp-content/plugins/jetpack-search/jetpack_vendor/automattic/jetpack-search/build/instant-search/jp-search.js?minify=false&#038;ver=5468f78a75d33f51b278"></script>
+<script id="jp-tracks-js" src="//stats.wp.com/w.js?ver=202626"></script>
+<script id="bbappaction-js" src="https://muslimxchange.com/wp-content/plugins/buddyboss-app/assets/js/main.js?ver=3.0.3"></script>
+<script id="elementor-webpack-runtime-js" src="https://muslimxchange.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.1.4"></script>
+<script id="elementor-frontend-modules-js" src="https://muslimxchange.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.1.4"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.1.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"container":true,"e_panel_promotions":true,"theme_builder_v2":true,"nested-elements":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true,"e_pro_atomic_form":true,"mega-menu":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/muslimxchange.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/muslimxchange.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/muslimxchange.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"5cd76d251a","atomicFormsSendForm":"84dc69f937"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet","viewport_laptop","viewport_widescreen"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":278976,"title":"Is%20NVDA%20-%20NVIDIA%20Corp%20Halal%20and%20Shariah%20Compliant%20to%20Invest%3F","excerpt":"Unlock the Shariah compliance report for NVDA - NVIDIA Corp. Screened by AAOIFI Certified Shariah Advisor based on 5 major standards.","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://muslimxchange.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.1.4"></script>
+<script id="wdt-custom-avada-js-js-extra">
+var wdt_ajax_object = {"ajaxurl":"https://muslimxchange.com/wp-admin/admin-ajax.php"};
+//# sourceURL=wdt-custom-avada-js-js-extra
+</script>
+<script id="wdt-custom-avada-js-js" src="https://muslimxchange.com/wp-content/plugins/wpdatatables/integrations/starter/page-builders/avada/assets/js/wdt-custom-avada-js.js?ver=7.4.1"></script>
+<script id="imagesloaded-js" src="https://muslimxchange.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0"></script>
+<script id="masonry-js" src="https://muslimxchange.com/wp-includes/js/masonry.min.js?ver=4.2.2"></script>
+<script id="boss-menu-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/menu.js?ver=2.20.1"></script>
+<script id="boss-fitvids-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/fitvids.js?ver=2.20.1"></script>
+<script id="boss-slick-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/slick.min.js?ver=2.20.1"></script>
+<script id="boss-panelslider-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/panelslider.min.js?ver=2.20.1"></script>
+<script id="boss-sticky-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/sticky-kit.js?ver=2.20.1"></script>
+<script id="boss-jssocials-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/jssocials.min.js?ver=2.20.1"></script>
+<script id="buddyboss-theme-main-js-js-extra">
+var bs_data = {"jm_ajax":"https://muslimxchange.com/jm-ajax/","ajaxurl":"https://muslimxchange.com/wp-admin/admin-ajax.php","show_notifications":"1","show_messages":"","facebook_label":"Share on Facebook","twitter_label":"Post on X","more_menu_title":"Menu Items","more_menu_options":"More options","translation":{"comment_posted":"Your comment has been posted.","comment_btn_loading":"Please Wait...","choose_a_file_label":"Choose a file","email_validation":"Please enter a valid email address."},"gamipress_badge_label":"Badge","nonce_list_grid":"6f32589130"};
+//# sourceURL=buddyboss-theme-main-js-js-extra
+</script>
+<script id="buddyboss-theme-main-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/main.js?ver=2.20.1"></script>
+<script id="boss-validate-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/validate.min.js?ver=2.20.1"></script>
+<script id="select2-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/select2.full.min.js?ver=2.20.1"></script>
+<script id="progressbar-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/progressbar.min.js?ver=2.20.1"></script>
+<script id="mousewheel-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/vendors/mousewheel.min.js?ver=2.20.1"></script>
+<script id="buddyboss-theme-elementor-js-js" src="https://muslimxchange.com/wp-content/themes/buddyboss-theme/assets/js/plugins/elementor.js?ver=2.20.1"></script>
+<script id="jetpack-stats-js-before">
+_stq = window._stq || [];
+_stq.push([ "view", {"v":"ext","blog":"228669727","post":"278976","tz":"-4","srv":"muslimxchange.com","j":"1:15.9"} ]);
+_stq.push([ "clickTrackerInit", "228669727", "278976" ]);
+//# sourceURL=jetpack-stats-js-before
+</script>
+<script data-wp-strategy="defer" defer fetchpriority="low" id="jetpack-stats-js" src="https://stats.wp.com/e-202626.js"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://muslimxchange.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.1.2"></script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/muslimxchange.com\/wp-admin\/admin-ajax.php","nonce":"b17612d4a3","urls":{"assets":"https:\/\/muslimxchange.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/muslimxchange.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/muslimxchange.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://muslimxchange.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.1.2"></script>
+<script id="pro-elements-handlers-js" src="https://muslimxchange.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.1.2"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://muslimxchange.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://muslimxchange.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+
+</body>
+</html>
+
+<!-- Performance optimized by Redis Object Cache. Learn more: https://wprediscache.com -->

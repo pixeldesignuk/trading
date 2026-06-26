@@ -1,0 +1,28 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 11,
+    "entry_basis": "moneytaur deeper 'future reversal' / 'diamonds' buy zone ~$10.5-11.5 (estimated midpoint) — the lower dark-green box on the chart, which he treats as the higher-probability long vs the high-risk $13 third-hit",
+    "targets": [
+      { "price": 15, "basis": "moneytaur — reclaim of the 12D/7D supply box (RH/KSH ~$15.00-15.50)" }
+    ],
+    "invalidation": 10.5,
+    "stop_basis": "below the 'future reversal' / diamonds floor (~$10.5); a 3-day close under it breaks the reversal thesis (consistent with his 5% spot stop)"
+  },
+  "stance_by_source": [
+    {
+      "source": "moneytaur",
+      "as_of": "2026-06-20",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Cautious. Would buy spot for a bounce but explicitly flags the current $13 support as a high-risk 3rd touch, and expects a likely deeper drop into the $10.5-11.5 zone before a cleaner long; tiny size, 5% stop."
+    }
+  ],
+  "conflicts": [
+    "The single source contradicts itself on direction: it marks $13 as a buyable support yet warns the same level is a high-risk third touch and that a deeper drop to ~$10.5-11.5 is more likely first.",
+    "Image vs text: the chart shows a separate, deeper 'future reversal' buy zone (~$10.5-11.5) that the extracted entry only partly captured — that lower zone is the higher-conviction long, not the $13 bounce."
+  ],
+  "plain_english": "Only one analyst has called this, and he is hedging his own bet: he'd consider buying near today's price of about $13, but in the same breath warns it is the third and weakest test of support and that the price is more likely to fall to the $10.5-$11.5 area first, where he'd rather buy. With the source arguing both sides, there is no clean trade here. Wait — either for the price to drop into that deeper $10.5-$11.5 zone before buying a small spot position, or for a strong push back above $15 to confirm strength; don't chase the high-risk bounce at $13."
+}

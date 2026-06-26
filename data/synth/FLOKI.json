@@ -1,0 +1,27 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.0000240,
+    "entry_basis": "moneytaur chart (2026-06-17): long-position box drawn at the demand near the green support shelf; he is explicitly waiting for a retest before entering, around current price (estimated — no exact entry stated in text)",
+    "targets": [
+      { "price": 0.0000400, "basis": "moneytaur chart: top of the drawn long-position box (estimated)" },
+      { "price": 0.0000455, "basis": "moneytaur chart: 0.5 fib red resistance zone" },
+      { "price": 0.0000490, "basis": "moneytaur chart: 0.618 fib 'BCS' red resistance zone" }
+    ],
+    "invalidation": 0.0000228,
+    "stop_basis": "just below the green horizontal support shelf (~0.0000235); a tight ~4% stop per his note (estimated)"
+  },
+  "stance_by_source": [
+    {
+      "source": "moneytaur",
+      "as_of": "2026-06-17",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "A tentative long off support with upside to the red resistance zones, but he rates it 'not very likely' and is waiting for a retest rather than chasing — low conviction."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one source has touched FLOKI, and even he is lukewarm: a small buy near current support (~0.0000240) with a tight stop just below ~0.0000235, aiming up toward the ~0.0000455 and ~0.0000490 resistance bands. He openly calls it 'not very likely' and is waiting for the price to dip back and re-test support before doing anything. This is a low-conviction meme-coin scalp, not a core idea — so the right move is to wait and only consider it if price actually pulls back to that support and holds."
+}

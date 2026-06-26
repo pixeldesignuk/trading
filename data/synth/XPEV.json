@@ -1,0 +1,51 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 12.5,
+    "entry_basis": "zero_hub daily chart green demand zone labelled 'best level in my opinion + more spot' at 12.50; aligns with Zero grade note 'accumulate between $11/13'. The grade's text entry of 14 is the first tranche already filled (order executed 16 Jun ~14.30); 12.50 is the better add.",
+    "targets": [
+      { "price": 28.5, "basis": "zero_hub grade TP1 28.5 / weekly chart '$28.50 still untested supply above key high'" },
+      { "price": 38, "basis": "zero_hub grade TP2 38 / weekly chart '$37/38 strong supply and TP'" },
+      { "price": 50, "basis": "zero_hub grade TP3 50 / weekly chart '$47/50 strong supply and long-term target'" }
+    ],
+    "invalidation": 11,
+    "stop_basis": "Below the $11/14 weekly demand zone — manual note '<$11 wk close'. Zero's grade text is looser ('HTF closures below $10'); using the tighter $11 zone low as the structure-based stop."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-11",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Weekly chart: buy the $11-14 demand, big upside to supply at 28.50, then 37-38 and 47-50."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-11",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Daily chart: best buy level is 12.50 with more to add toward 11; first buy already executed near 14.30."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-11",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Grade note: accumulating $11-13 while demand holds, targets 28.5 / 38 / 50, invalid on weekly closes below $10. Graded 6/10 'partial'."
+    },
+    {
+      "source": "manual",
+      "as_of": null,
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Watch-list note: target 28.50, give up if it closes a week below $11."
+    }
+  ],
+  "conflicts": [
+    "Entry number: the grade text says '14', but the same source's note and chart say to accumulate the $11-13 zone with 12.50 as the best level. Treat 14 as the first tranche already bought and 12.50 as the better add.",
+    "Invalidation differs slightly: Zero's grade text uses a weekly close below $10, while the manual note uses a weekly close below $11. Used the tighter $11 (the demand-zone low) to keep the stop on structure."
+  ],
+  "plain_english": "Everyone here is reading XPEV the same way: it has dropped into a buying area around $11-14 and they want to own it for a move up toward $28.50, then $37-38 and eventually $47-50. There is no disagreement on direction, but the stock is still falling (down about 10% on the week) and the trader's own chart marks $12.50 as the best place to buy, which is below today's $13.35. So this is an accumulation idea, not a confirmed bounce yet. Wait for $12.50 to add, keep targets at 28.50/38/50, and abandon the trade if it closes a week below $11."
+}

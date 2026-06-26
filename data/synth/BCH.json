@@ -1,0 +1,30 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 135,
+    "entry_basis": "moneytaur — deep weekly demand floor ~$125–140 (bottom of the green demand box on the chart); he explicitly says wait for this deep zone, don't chase",
+    "targets": [
+      { "price": 320, "basis": "moneytaur — 0.5 fib (dotted line ~$320 on chart)" },
+      { "price": 355, "basis": "moneytaur — 0.618 fib (dotted line ~$355 on chart)" },
+      { "price": 420, "basis": "moneytaur — supply (red horizontal line ~$425 on chart)" }
+    ],
+    "invalidation": 120,
+    "stop_basis": "below the weekly HTF demand floor ~$125 (thick green support band at the base of the chart); losing it breaks the accumulation thesis"
+  },
+  "stance_by_source": [
+    {
+      "source": "moneytaur",
+      "as_of": "2026-06-20",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Patient long-term buyer: accumulate spot in the deep weekly demand zone ($130–290, ideally the $125–140 floor) and wait — don't chase — for a rebound toward $320–420."
+    }
+  ],
+  "conflicts": [
+    "The chart shows a second, higher supply band around $520 (grey zone) that the extracted text omitted — a level to watch if price ever clears the ~$420 supply.",
+    "Live price ($191.55) is already inside the broad demand box ($130–290), but the source's stated plan is to wait for the deeper $125–140 floor — so 'in the zone' does not mean 'time to buy' here."
+  ],
+  "plain_english": "Only one source covers Bitcoin Cash, and the view is patient and bullish for the long haul: treat the big buy zone roughly between $130 and $290 as a place to slowly accumulate, ideally near the $125–140 floor, and aim for a recovery toward $320, $355, then $420. The current price near $191 is inside that zone but above the deepest, best-value buying area, and the source's own note is 'eventually — don't chase.' The plan only breaks if price loses about $125. Action: wait — don't buy here; set alerts for the deeper $125–140 area and let price come to you."
+}

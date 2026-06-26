@@ -1,0 +1,39 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 20,
+    "entry_basis": "zero_hub grade (2026-06-09): stated buy at 20, '9M demand'. Daily chart shows the accumulation band as roughly 20-24 ('SPOT PLAY' zone), so 20 is the safer lower edge.",
+    "targets": [
+      { "price": 34, "basis": "zero_hub grade TP1 (2026-06-09); internal supply area on the daily chart" },
+      { "price": 40, "basis": "zero_hub grade TP2; daily chart red 'pay close attention... TP level' zone ~40" },
+      { "price": 48, "basis": "zero_hub grade TP3; daily chart 0.5 fib line ~48" },
+      { "price": 51.5, "basis": "zero_hub grade TP4; daily chart explicitly labelled $51.50" },
+      { "price": 81.5, "basis": "zero_hub grade TP5; daily chart 'highest target I can expect' ~81.94" }
+    ],
+    "invalidation": 19,
+    "stop_basis": "Below the 19 floor / blue support band (~19.3) on the daily chart; grade states the trade is invalid on a close below 19."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-15",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Spot demand around 23-24 is holding; only add to the position once the price closes above 24.49."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-09",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Strong 9-month buying zone near 20; buy there with a stop below 19, targets stacked from 34 up to 81.5."
+    }
+  ],
+  "conflicts": [
+    "Not a direction disagreement - both Zero reads are bullish on owning the shares - but they point to different buy triggers: the June 9 plan buys the dip near 20, while the newer June 15 note says only add after a daily close above 24.49.",
+    "Chart vs text: the daily chart shows the buy area as a band of roughly 20-24 ('SPOT PLAY'), slightly above the grade text's single 20 entry; the safest plan uses 20 as the lower, more defensive edge."
+  ],
+  "plain_english": "Both of Zero's reads agree the shares are a buy - they just point at two different places to get in. The earlier June 9 plan says the strong buying zone is near 20, with the trade proven wrong on a close below 19 and targets stacked all the way up to about 51.50 and beyond. The newer June 15 note says to add only after the price closes above 24.49. The price right now (about 22) is stuck in between, so there is no clean entry yet. Wait - either buy a dip toward 20 with a stop just under 19, or hold off until the price closes above 24.49 before adding."
+}

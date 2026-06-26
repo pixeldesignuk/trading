@@ -1,0 +1,26 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 1000,
+    "entry_basis": "zero_hub 2026-06-24 — optimal tap ~$1,000 at the bottom of the $1,000–1,200 demand zone (monthly fair-value gap + 11-month Bollinger band + monthly value-area-high + round number)",
+    "targets": [
+      { "price": 1500, "basis": "zero_hub 2026-06-24 — TP1 (R:R ~2.6:1 from the ~$1,000 entry)" },
+      { "price": 1727, "basis": "zero_hub 2026-06-24 — TP2 (R:R ~4:1 from the ~$1,000 entry)" }
+    ],
+    "invalidation": 950,
+    "stop_basis": "zero_hub 2026-06-24 — a monthly close below the 11-month Bollinger band (which anchors the ~$1,000 zone); ~950 is an estimate of where a close-below would sit (estimated, no explicit number given)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-24",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Planned long from the $1,000–1,200 demand zone after a roughly -45/50% drop; best around $1,000, but price hasn't reached the zone yet and a monthly confirmation is still required before entering."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one source covers palladium, and it is bullish — it wants to buy from a deep support area around $1,000 (the band runs $1,000 to $1,200) after the metal fell roughly 45-50%, aiming for $1,500 and then $1,727. The reward-to-risk is good (about 2.6 to 1, rising to 4 to 1). But this is a plan, not a live trade: the price has not yet dropped into the buy zone, and the source is waiting for the monthly chart to confirm before committing. Do not buy yet — wait for price to reach roughly $1,000 and for a monthly confirmation; if the monthly candle closes below that zone (around $950), the idea is dead."
+}

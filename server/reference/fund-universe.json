@@ -1,0 +1,31 @@
+{
+  "_note": "Starting Sharia-compliant fund universe for the solar-system sleeves (Zero masterclass). Curated reference, NOT a live screen — confirm each against Zoya/Musaffa and check the trading currency on the T212 buy screen before buying. `symbol` = Trading 212 form (LSE = .GB), `yahoo` = price-feed symbol (LSE = .L), `currency` = the line's trading currency (GBP avoids the 0.15% T212 FX fee; USD incurs it). GBP-quoted lines are preferred where they exist.",
+  "core": [
+    { "name": "iShares MSCI World Islamic UCITS ETF (GBP line)", "symbol": "ISWD.GB", "yahoo": "ISWD.L", "currency": "GBP", "sleeve": "core", "exposure": "global developed", "core_type": "world", "note": "the World-Islamic core — GBP-quoted, no FX fee. Preferred over ISDW (USD)." },
+    { "name": "HSBC MSCI World Islamic Screened UCITS ETF", "symbol": "HIWS.GB", "yahoo": "HIWS.L", "currency": "GBP", "sleeve": "core", "exposure": "global developed", "core_type": "world", "note": "alt world-Islamic core — GBP-quoted, no FX fee." },
+    { "name": "iShares MSCI World Islamic UCITS ETF (USD line)", "symbol": "ISDW.GB", "yahoo": "ISDW.L", "currency": "USD", "sleeve": "core", "exposure": "global developed", "core_type": "world", "note": "same fund as ISWD but USD-quoted — incurs the 0.15% FX fee. Use ISWD instead." },
+    { "name": "iShares MSCI USA Islamic UCITS ETF", "symbol": "ISUS.GB", "yahoo": "ISUS.L", "currency": "GBP", "sleeve": "core", "exposure": "US", "core_type": "us", "note": "halal S&P 500 stand-in; GBP-quoted LSE line (no FX fee)." },
+    { "name": "SP Funds S&P 500 Sharia ETF", "symbol": "SPUS", "yahoo": "SPUS", "currency": "USD", "sleeve": "core", "exposure": "US large cap", "core_type": "us", "note": "US-listed (USD, FX applies)." }
+  ],
+  "income": [
+    { "name": "SP Funds Dow Jones Global Sukuk ETF", "symbol": "SPSK", "yahoo": "SPSK", "currency": "USD", "sleeve": "core", "exposure": "sukuk (income)", "core_type": "quality_income", "income_kind": "sukuk", "note": "halal fixed-income sleeve, replaces bonds (USD)." },
+    { "name": "Wahed Dow Jones Islamic World ETF", "symbol": "HLAL", "yahoo": "HLAL", "currency": "USD", "sleeve": "core", "exposure": "global quality", "core_type": "world", "note": "quality tilt (USD)." },
+    { "name": "Xtrackers II Salam USD Global Aggregate Sukuk UCITS ETF", "symbol": "XASB.GB", "yahoo": "XASB.L", "currency": "USD", "sleeve": "core", "exposure": "sukuk (income)", "core_type": "quality_income", "income_kind": "sukuk", "ter": 0.40, "accumulating": false, "sharia_source": "Bloomberg Global USD Sukuk Index (ASB Capital Shariah Board)" },
+    { "name": "HANetf Saturna Al-Kawthar Global Focused Equity UCITS ETF", "symbol": "AMAP.GB", "yahoo": "AMAP.L", "currency": "GBP", "sleeve": "core", "exposure": "global quality equity", "core_type": "quality_income", "income_kind": "quality_equity_proxy", "ter": 0.75, "accumulating": true, "sharia_source": "Saturna in-house Sharia + ESG screen" }
+  ],
+  "satellite_etf": [
+    { "name": "iShares Physical Gold ETC", "symbol": "SGLN.GB", "yahoo": "SGLN.L", "currency": "GBP", "sleeve": "sat_etf", "theme": "commodities", "exposure": "gold", "note": "physically backed, GBP-quoted (no FX), unhedged. Sharia-compliant." },
+    { "name": "iShares Physical Gold GBP Hedged ETC", "symbol": "IGLG.GB", "yahoo": "IGLG.L", "currency": "GBP", "sleeve": "sat_etf", "theme": "commodities", "exposure": "gold (GBP-hedged)", "note": "physically backed, GBP-quoted + GBP-hedged (removes USD FX swings)." },
+    { "name": "HSBC MSCI EM Islamic Screened UCITS ETF", "symbol": "HIES.GB", "yahoo": "HIES.L", "currency": "GBP", "sleeve": "sat_etf", "theme": "em", "exposure": "emerging markets", "note": "Sharia EM, GBP-quoted LSE line (no FX)." },
+    { "name": "iShares MSCI EM Islamic UCITS ETF", "symbol": "ISDE.GB", "yahoo": "ISDE.L", "currency": "GBP", "sleeve": "sat_etf", "theme": "em", "exposure": "emerging markets", "note": "GBP-quoted LSE line — verify GBP on the T212 buy screen (a USD line also exists)." },
+    { "name": "SP Funds S&P Global Technology ETF (Sharia)", "symbol": "SPTE", "yahoo": "SPTE", "currency": "USD", "sleeve": "sat_etf", "theme": "tech", "exposure": "tech", "note": "no Sharia tech ETF has a GBP line — US-listed USD only (FX applies). Your world Core already holds big tech." }
+  ],
+  "crypto": [
+    { "name": "Bitcoin (spot)", "symbol": "BTC", "yahoo": "BTC", "currency": null, "sleeve": "crypto", "theme": "crypto", "note": "spot only — not on T212 UK ISA; buy via a spot exchange." },
+    { "name": "Ethereum (spot)", "symbol": "ETH", "yahoo": "ETH", "currency": null, "sleeve": "crypto", "theme": "crypto", "note": "spot only; staking has its own screening question." }
+  ],
+  "cash_defensive": [
+    { "name": "SP Funds Dow Jones Global Sukuk ETF", "symbol": "SPSK", "yahoo": "SPSK", "currency": "USD", "sleeve": "cash", "exposure": "sukuk", "note": "yield on the defensive base (USD)." },
+    { "name": "Cash", "symbol": "CASH", "yahoo": null, "currency": "GBP", "sleeve": "cash", "note": "dry powder for DCA + opportunities." }
+  ]
+}

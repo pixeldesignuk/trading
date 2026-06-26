@@ -1,0 +1,43 @@
+{
+  "name": "trading-hub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "description": "Trading Hub — ticker-centric dashboard (Postgres) aggregating Zero + Moneytaur signals, spot-first, graded + Sharia-screened",
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,green \"node --no-warnings --env-file-if-exists=.env --watch server/index.js\" \"vite\"",
+    "build": "vite build",
+    "start": "node --no-warnings --env-file-if-exists=.env server/index.js",
+    "test": "node --no-warnings --env-file-if-exists=.env --test server/*.test.js server/alerts/*.test.js server/brokers/*.test.js server/brokers/*.integration.test.js",
+    "feed:state": "node --no-warnings --env-file-if-exists=.env server/feed-state.js",
+    "alerts:run": "node --no-warnings --env-file-if-exists=.env server/alerts/cli.js",
+    "seed:feed": "node --no-warnings --env-file-if-exists=.env server/seed-feed.js",
+    "migrate": "node --no-warnings --env-file-if-exists=.env server/migrate-to-tickers.js",
+    "import:hub": "node --no-warnings --env-file-if-exists=.env server/import-hub-charts.js",
+    "import:moneytaur": "node --no-warnings --env-file-if-exists=.env server/import-moneytaur-charts.js",
+    "import:lives": "node --no-warnings --env-file-if-exists=.env server/import-lives.js",
+    "vendor:bible": "cp ../dojo-library/ZERO-BIBLE.md ../dojo-library/INVESTING-MASTERCLASS.md ../dojo-library/SHARIA-SCREENING.md server/reference/bible/ && echo 'vendored bible snapshot → server/reference/bible (commit it)'"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.106.0",
+    "@google/genai": "^2.10.0",
+    "express": "^4.21.2",
+    "marked": "^14.1.4",
+    "pg": "^8.22.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "snaptrade-typescript-sdk": "^10.0.16",
+    "yahoo-finance2": "^3.15.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "tailwindcss": "^4.1.13",
+    "vite": "^6.0.7"
+  }
+}

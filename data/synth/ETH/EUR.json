@@ -1,0 +1,30 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 1200,
+    "entry_basis": "moneytaur — monthly green demand band ~€1,200 (chart + text 'next is the monthly green ~€1,200'). This is the next zone BELOW the current price; the source's stated buy zones at ~€1,900 (3D clean reversal) and ~€1,500 (3D partial) are both already broken by the live price of ~€1,461.",
+    "targets": [
+      { "price": 2800, "basis": "moneytaur — reclaim of the red supply band ~€2,800" },
+      { "price": 3250, "basis": "moneytaur — 'D partial' demand/supply zone ~€3,250 on the chart" }
+    ],
+    "invalidation": 1150,
+    "stop_basis": "below the monthly green demand band ~€1,200 (estimated ~€1,150); below that the source names no further support"
+  },
+  "stance_by_source": [
+    {
+      "source": "moneytaur",
+      "as_of": "2026-06-05",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Plan to slowly buy Ethereum at lower prices — stacked buy zones near €1,900 then €1,500 — aiming for a recovery back to €2,800 and €3,250."
+    }
+  ],
+  "conflicts": [
+    "The plan said to buy the €1,500 zone, but the live price (~€1,461) has already dropped below it, so that buy level has failed — the only support the source names below here is the monthly zone around €1,200.",
+    "The chart shows an extra buy zone labelled '7D and lower' around €2,350–€2,450 that the extracted text omits, but it sits above the current price and has already been broken, so it offers no support right now.",
+    "This is a single source from 2026-06-05; price has fallen sharply since, so the read is contested by current price action rather than by a second opinion."
+  ],
+  "plain_english": "One trader laid out a plan to gradually buy Ethereum at lower prices, with buy zones near €1,900 and €1,500 and a hope of recovering toward €2,800 and €3,250. Since then the price has fallen to about €1,461, which is already below the deepest buy zone he named, so that plan has effectively broken down. The only support level he points to below here is around €1,200. Wait — don't buy into this falling price; let it either reach the ~€1,200 zone or climb back above €1,500 and steady before considering anything."
+}
