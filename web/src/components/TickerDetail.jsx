@@ -737,8 +737,8 @@ function Synthesis({ syn, at, busy, onRun }) {
         <div className="mt-3 flex items-center justify-between border-t border-zinc-900 pt-2.5">
           <span className="font-mono text-[10px] tabular text-zinc-700">{at ? `Synthesized ${String(at).slice(0, 10)}` : ''}</span>
           <button onClick={onRun} disabled={busy}
-            className="font-mono text-[10px] uppercase tracking-wider text-zinc-600 hover:text-zinc-300 disabled:opacity-50">
-            {busy ? 'Synthesizing…' : 'Re-run'}
+            className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-300 transition-colors hover:bg-zinc-800 disabled:opacity-50">
+            <span className={busy ? 'animate-spin' : ''}>↻</span>{busy ? 'Synthesizing…' : 'Re-synthesise'}
           </button>
         </div>
       </div>
@@ -813,6 +813,39 @@ function ShariaScreen({ ticker, busy, onRun }) {
   )
 }
 
+// ---- header chips + tabs -------------------------------------------------
+// The synthesis verdict, surfaced loud in the header — the single most important
+// "what do I do" signal, no longer buried in the synthesis card.
+function ActionPill({ action }) {
+  const a = ACTION[action]
+  if (!a) return null
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 font-mono text-[12px] font-bold uppercase tracking-[0.12em]"
+      style={{ color: a.c, background: a.c + '1f', border: `1px solid ${a.c}66` }} title="Skeptical-editor verdict">
+      <span className="h-1.5 w-1.5 rounded-full" style={{ background: a.c, boxShadow: `0 0 6px ${a.c}` }} />{a.label}
+    </span>
+  )
+}
+function AlertChip({ muted, count, armed }) {
+  if (muted) return <span className="inline-flex items-center gap-1 rounded-md border border-zinc-700 bg-zinc-800/40 px-1.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-500" title="Plan alerts muted">🔕 Muted</span>
+  if (count > 0) return <span className="inline-flex items-center gap-1 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-1.5 py-1 font-mono text-[10px] uppercase tracking-wider text-emerald-300" title={`${count} active alert${count === 1 ? '' : 's'} set`}>🔔 {count} alert{count === 1 ? '' : 's'}</span>
+  if (armed) return <span className="inline-flex items-center gap-1 rounded-md border border-zinc-700 bg-zinc-800/40 px-1.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-400" title="Plan armed — engine watches the levels">🔔 Armed</span>
+  return null
+}
+function DetailTabs({ view, setView, tabs }) {
+  return (
+    <nav className="mb-5 flex gap-1 border-b border-zinc-800">
+      {tabs.map(({ key, label, badge }) => (
+        <button key={key} onClick={() => setView(key)}
+          className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors ${view === key ? 'border-b-2 border-emerald-500 text-zinc-100' : 'text-zinc-500 hover:text-zinc-300'}`}>
+          {label}
+          {badge ? <span className="rounded bg-zinc-800 px-1.5 py-0.5 font-mono text-[10px] tabular text-zinc-400">{badge}</span> : null}
+        </button>
+      ))}
+    </nav>
+  )
+}
+
 // ---- page ----------------------------------------------------------------
 export default function TickerDetail({ symbol, onBack }) {
   const [data, setData] = useState(null)
@@ -824,7 +857,10 @@ export default function TickerDetail({ symbol, onBack }) {
   const [shariaBusy, setShariaBusy] = useState(false)
   const [levels, setLevels] = useUrlState('levels', 'cfd')   // commodity CFD↔ETC level basis
   const [chatOpen, setChatOpen] = useState(false)            // study-desk slide-over (mobile)
+  const [view, setView] = useUrlState('view', 'overview')    // detail tab (URL state)
+  const [alerts, setAlerts] = useState(null)                 // alerts payload (for the header chip)
   const load = () => api.ticker(symbol).then(setData)
+  const loadAlerts = () => api.alerts().then(setAlerts).catch(() => {})
   const runSynth = () => {
     setSynthBusy(true)
     api.synthesize(symbol, true).then(load).catch(() => {}).finally(() => setSynthBusy(false))
@@ -843,6 +879,7 @@ export default function TickerDetail({ symbol, onBack }) {
   }, [data?.ticker?.symbol, data?.ticker?.sharia_screen_at])
   useEffect(() => {
     load()
+    loadAlerts()
     setHistory(null)
     api.quotes().then((q) => { setPrice(q[symbol]?.price ?? null); setChange(q[symbol]?.changePct ?? null) })
     api.history(symbol).then(setHistory)
@@ -885,6 +922,21 @@ export default function TickerDetail({ symbol, onBack }) {
   const sharia = SHARIA[t.sharia_status] || SHARIA.unknown
   const charts = data.events.filter((e) => e.kind === 'chart')
   const notes = data.events.filter((e) => e.kind !== 'chart')
+  // Telegram + community chatter, broken out so it's findable on the Sources tab.
+  const chatter = notes.filter((e) => e.source === 'zero_tg' || e.source === 'community')
+  const otherNotes = notes.filter((e) => e.source !== 'zero_tg' && e.source !== 'community')
+
+  // Alert status for the header chip (custom alerts set + whether the plan engine is armed).
+  const customCount = alerts ? (alerts.custom || []).filter((c) => c.symbol === symbol).length : 0
+  const armedPlan = alerts ? (alerts.armed || []).some((a) => a.symbol === symbol) : false
+  const alertInfo = { muted: !!t.alerts_muted, count: customCount, armed: armedPlan }
+
+  const tabs = [
+    { key: 'overview', label: 'Overview' },
+    { key: 'synthesis', label: 'Synthesis' },
+    { key: 'sources', label: 'Sources', badge: notes.length + charts.length },
+    { key: 'alerts', label: 'Alerts', badge: customCount },
+  ]
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -899,8 +951,10 @@ export default function TickerDetail({ symbol, onBack }) {
             <AssetIcon type={type} size={18} />
           </div>
           <div className="mt-1 truncate text-sm text-zinc-500">{t.name}</div>
-          <div className="mt-3 flex flex-wrap items-center gap-3">
+          <div className="mt-3 flex flex-wrap items-center gap-2.5">
+            <ActionPill action={t.synthesis?.action} />
             <Pipeline status={t.status} onSet={(st) => api.setStatus(symbol, st).then(load)} />
+            <AlertChip {...alertInfo} />
             {commodity ? (
               commodity.investable === false ? (
                 <span className="rounded-md border px-1.5 py-1 text-[10px] font-medium border-red-500/30 bg-red-500/10 text-red-300" title={commodity.no_vehicle_note}>
@@ -936,79 +990,105 @@ export default function TickerDetail({ symbol, onBack }) {
         </div>
       </div>
 
-      {/* commodity: switch all levels between Zero's CFD/spot and the chosen ETC */}
-      {canToggle && (
-        <div className="mb-2 flex items-center gap-2">
-          <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-600">Levels in</span>
-          <div className="flex overflow-hidden rounded-md border border-zinc-800">
-            {[['cfd', `${commodity.reference_symbol} (spot)`], ['etc', `${commodity.selected} (ETC)`]].map(([v, label]) => (
-              <button key={v} onClick={() => setLevels(v)}
-                className={`px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors ${levelBasis === v ? 'bg-emerald-600 text-white' : 'bg-transparent text-zinc-400 hover:text-zinc-200'}`}>
-                {label}
-              </button>
-            ))}
+      <DetailTabs view={view} setView={setView} tabs={tabs} />
+
+      {view === 'overview' && (
+        <div className="space-y-4">
+          {/* commodity: switch all levels between Zero's CFD/spot and the chosen ETC */}
+          {canToggle && (
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-600">Levels in</span>
+              <div className="flex overflow-hidden rounded-md border border-zinc-800">
+                {[['cfd', `${commodity.reference_symbol} (spot)`], ['etc', `${commodity.selected} (ETC)`]].map(([v, label]) => (
+                  <button key={v} onClick={() => setLevels(v)}
+                    className={`px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors ${levelBasis === v ? 'bg-emerald-600 text-white' : 'bg-transparent text-zinc-400 hover:text-zinc-200'}`}>
+                    {label}
+                  </button>
+                ))}
+              </div>
+              <span className="font-mono text-[10px] text-zinc-600">ratio {commodity.ratio?.toFixed(4)} · trigger always tracks spot</span>
+            </div>
+          )}
+
+          {/* levels + graph */}
+          <div className="overflow-hidden rounded-xl border border-zinc-900 bg-black/30">
+            <PriceChart data={historyView} s={s} />
+            <SetupGauge s={s} rm={rm} />
           </div>
-          <span className="font-mono text-[10px] text-zinc-600">ratio {commodity.ratio?.toFixed(4)} · trigger always tracks spot</span>
-        </div>
-      )}
 
-      {/* levels + graph always at the top */}
-      <div className="mb-4 overflow-hidden rounded-xl border border-zinc-900 bg-black/30">
-        <PriceChart data={historyView} s={s} />
-        <SetupGauge s={s} rm={rm} />
-      </div>
+          {/* synthesis verdict — the action + one-line "why", with a jump to the full read */}
+          {t.synthesis?.plain_english && (
+            <div className="rounded-xl border border-zinc-900 bg-black/20 px-4 py-3">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-zinc-600">Editor verdict</span>
+                <ActionPill action={t.synthesis.action} />
+                <ConvictionMeter value={t.synthesis.conviction} />
+                {t.synthesis.contested && <span className="rounded border border-amber-500/40 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-amber-300">⚠ Contested</span>}
+                <button onClick={() => setView('synthesis')} className="ml-auto font-mono text-[10px] uppercase tracking-wider text-sky-400/80 hover:text-sky-300">Full read →</button>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-200">{t.synthesis.plain_english}</p>
+            </div>
+          )}
 
-      {commodity && <CommodityPanel commodity={commodity} symbol={symbol} entry={s0.entry}
-        onLock={(v) => api.setVehicle(symbol, v).then(load)} />}
+          {commodity && <CommodityPanel commodity={commodity} symbol={symbol} entry={s0.entry} onLock={(v) => api.setVehicle(symbol, v).then(load)} />}
 
-      <ShariaScreen ticker={t} busy={shariaBusy} onRun={() => runSharia(true)} />
-
-      <Synthesis syn={t.synthesis} at={t.synth_at} busy={synthBusy} onRun={runSynth} />
-
-      <div className="grid grid-cols-2 divide-x divide-y divide-zinc-900 overflow-hidden rounded-xl border border-zinc-900 bg-black/20 sm:grid-cols-4 sm:divide-y-0">
-        <Stat k="Entry">{t.synthesis ? (s.entry != null ? fmtPrice(s.entry) : 'stand aside') : (t.entry_zone ? <span dangerouslySetInnerHTML={rich(t.entry_zone)} /> : '—')}</Stat>
-        <Stat k="Next target">{s.nextTp != null ? fmtPrice(s.nextTp) : '—'}</Stat>
-        <Stat k="Invalidation">{s.inval != null ? fmtPrice(s.inval) : (t.invalidation ? 'structure' : '—')}</Stat>
-        <Stat k="State"><span style={{ color: STATE[s.state].c }}>{STATE[s.state].label}</span></Stat>
-      </div>
-
-      <RiskPanel symbol={t.symbol} held={holding} />
-
-      <div className="mt-5">
-        <SectionLabel>Alerts</SectionLabel>
-        <AlertsWidget load focus={t.symbol} />
-      </div>
-
-      {t.ai_thesis && (
-        <div className="mt-5">
-          <SectionLabel>Thesis</SectionLabel>
-          <div className="rounded-xl border border-zinc-900 bg-black/20 p-4 text-sm leading-relaxed text-zinc-200" dangerouslySetInnerHTML={rich(t.ai_thesis)} />
-        </div>
-      )}
-
-      {notes.length > 0 && (
-        <div className="mt-5">
-          <SectionLabel>What each source says</SectionLabel>
-          <div className="space-y-3">{notes.map((e, i) => <SourceCard key={e.id} e={e} i={i} />)}</div>
-        </div>
-      )}
-
-      {charts.length > 0 && (
-        <div className="mt-5">
-          <SectionLabel>Charts</SectionLabel>
-          <div className="space-y-4">
-            {charts.map((e) => (
-              <figure key={e.id} className="overflow-hidden rounded-xl border border-zinc-900 bg-black/20">
-                <img src={'/' + e.payload.chart} alt={e.payload?.caption || ''} className="w-full" />
-                <figcaption className="border-t border-zinc-900 px-4 py-2.5 text-xs text-zinc-400">
-                  <span className="font-mono uppercase tracking-wider" style={{ color: (SOURCE[e.source] || {}).accent || '#a1a1aa' }}>{(SOURCE[e.source] || {}).label || e.source}</span>
-                  {e.payload?.caption ? <span className="text-zinc-500"> — {e.payload.caption}</span> : ''}
-                </figcaption>
-              </figure>
-            ))}
+          <div className="grid grid-cols-2 divide-x divide-y divide-zinc-900 overflow-hidden rounded-xl border border-zinc-900 bg-black/20 sm:grid-cols-4 sm:divide-y-0">
+            <Stat k="Entry">{t.synthesis ? (s.entry != null ? fmtPrice(s.entry) : 'stand aside') : (t.entry_zone ? <span dangerouslySetInnerHTML={rich(t.entry_zone)} /> : '—')}</Stat>
+            <Stat k="Next target">{s.nextTp != null ? fmtPrice(s.nextTp) : '—'}</Stat>
+            <Stat k="Invalidation">{s.inval != null ? fmtPrice(s.inval) : (t.invalidation ? 'structure' : '—')}</Stat>
+            <Stat k="State"><span style={{ color: STATE[s.state].c }}>{STATE[s.state].label}</span></Stat>
           </div>
+
+          <RiskPanel symbol={t.symbol} held={holding} />
+          <ShariaScreen ticker={t} busy={shariaBusy} onRun={() => runSharia(true)} />
         </div>
       )}
+
+      {view === 'synthesis' && <Synthesis syn={t.synthesis} at={t.synth_at} busy={synthBusy} onRun={runSynth} />}
+
+      {view === 'sources' && (
+        <div className="space-y-5">
+          {chatter.length > 0 && (
+            <div>
+              <SectionLabel>Telegram &amp; community</SectionLabel>
+              <div className="space-y-3">{chatter.map((e, i) => <SourceCard key={e.id} e={e} i={i} />)}</div>
+            </div>
+          )}
+          {otherNotes.length > 0 && (
+            <div>
+              <SectionLabel>What each source says</SectionLabel>
+              <div className="space-y-3">{otherNotes.map((e, i) => <SourceCard key={e.id} e={e} i={i} />)}</div>
+            </div>
+          )}
+          {t.ai_thesis && (
+            <div>
+              <SectionLabel>Thesis</SectionLabel>
+              <div className="rounded-xl border border-zinc-900 bg-black/20 p-4 text-sm leading-relaxed text-zinc-200" dangerouslySetInnerHTML={rich(t.ai_thesis)} />
+            </div>
+          )}
+          {charts.length > 0 && (
+            <div>
+              <SectionLabel>Charts</SectionLabel>
+              <div className="space-y-4">
+                {charts.map((e) => (
+                  <figure key={e.id} className="overflow-hidden rounded-xl border border-zinc-900 bg-black/20">
+                    <img src={'/' + e.payload.chart} alt={e.payload?.caption || ''} className="w-full" />
+                    <figcaption className="border-t border-zinc-900 px-4 py-2.5 text-xs text-zinc-400">
+                      <span className="font-mono uppercase tracking-wider" style={{ color: (SOURCE[e.source] || {}).accent || '#a1a1aa' }}>{(SOURCE[e.source] || {}).label || e.source}</span>
+                      {e.payload?.caption ? <span className="text-zinc-500"> — {e.payload.caption}</span> : ''}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          )}
+          {notes.length === 0 && charts.length === 0 && (
+            <div className="rounded-xl border border-dashed border-zinc-800 bg-black/20 px-4 py-8 text-center text-sm text-zinc-600">No source notes or charts on file for {symbol} yet.</div>
+          )}
+        </div>
+      )}
+
+      {view === 'alerts' && <AlertsWidget load focus={t.symbol} />}
 
         </div>
       </main>
