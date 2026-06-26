@@ -1,4 +1,5 @@
 import { query } from './db.js'
+import { classify } from './portfolio/classify.js'
 
 export async function upsertTicker(symbol, { name = null, asset_class = null } = {}) {
   // `(xmax = 0) AS inserted` distinguishes a fresh INSERT from an ON CONFLICT
@@ -34,10 +35,14 @@ export async function listTickers({ status, exclude } = {}) {
        FROM tickers t LEFT JOIN events e ON e.ticker = t.symbol
        ${where}
        GROUP BY t.symbol
-       ORDER BY t.pinned DESC, t.updated_at DESC`,
+       ORDER BY t.pinned DESC, t.sort_order ASC NULLS LAST, t.updated_at DESC`,
     params,
   )
-  return r.rows
+  // Attach the effective solar-system classification (layer/role/bucket/theme/
+  // tier) so the client renders trade-vs-hold posture without re-deriving it.
+  // `layer:'hold'` means no entry/stop plan is expected — a hold is sized by
+  // allocation, not by a stop. Nested to avoid clobbering the raw override columns.
+  return r.rows.map((t) => ({ ...t, classification: classify(t) }))
 }
 
 export async function setStatus(symbol, status) {

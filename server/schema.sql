@@ -41,6 +41,7 @@ ALTER TABLE tickers ADD COLUMN IF NOT EXISTS target_pin   NUMERIC;  -- pinned ta
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS actioned_at  TIMESTAMPTZ;  -- "marked as bought" intent (pending until broker confirms)
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS sleeve       TEXT;         -- explicit allocation sleeve override: core|sat_etf|crypto|picks|cash
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS satellite_theme TEXT;  -- tech|em|commodities|niche|crypto (null for non-satellite)
+ALTER TABLE tickers ADD COLUMN IF NOT EXISTS sort_order   INTEGER;  -- manual Portfolio board order within a status group (null = unset)
 
 -- Book each synced account belongs to
 ALTER TABLE broker_accounts ADD COLUMN IF NOT EXISTS book TEXT NOT NULL DEFAULT 'personal'; -- personal|kids

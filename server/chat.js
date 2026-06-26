@@ -718,11 +718,18 @@ async function geminiAgent({ scope, turns, onText, onEvent, signal }) {
 const PORTFOLIO_STATUSES = ['new', 'watching', 'in']
 
 const PORTFOLIO_CONTEXT = `# PORTFOLIO MODE
-You're looking at Mansoor's WHOLE pipeline — new candidates, watchlist, and held positions — NOT a single ticker. Each turn you get a live PORTFOLIO ROSTER grouped by status, with every name's price, plan state, grade, synthesis stance, Sharia and any holding.
+You're looking at Mansoor's WHOLE pipeline — new candidates, watchlist, and held positions — NOT a single ticker. Each turn you get a live PORTFOLIO ROSTER grouped by status, with every name's price, layer, grade, synthesis stance, Sharia and any holding.
 
-Your job here:
-- Flag ACTIVE TRADES AT RISK first — held (IN) names sitting at/near invalidation or deep in drawdown. These need his attention.
-- Surface STANDOUTS worth a closer look: strong grade + a valid/approaching setup + conviction; say why in one line each.
+## TRADE vs HOLD — read this before flagging anything
+Every row is tagged TRADE or HOLD. They are managed completely differently:
+- **TRADE** (layer=trade): an active setup managed by a plan — entry, invalidation/stop, targets. Risk = price at/near invalidation, or a trade with NO plan levels defined. A "state" is shown (in_buy, below_buy, near_target, drifting, past_invalidation, no_plan).
+- **HOLD** (layer=hold): a long-term allocation position — core/satellite ETFs, crypto/commodity holds. A hold has NO entry/stop plan BY DESIGN; it is sized by allocation, not by a stop. **NEVER flag a HOLD as "at risk" or "no plan" for lacking a stop** — that's the expected state. A hold only deserves attention if it's in heavy drawdown vs its thesis (shown as "⚠ drawdown"), its synthesis turns to stand_aside/contested, or its Sharia status degrades.
+
+Mistaking a hold ETF for a planless trade is the #1 error here — do not make it.
+
+Your job:
+- Flag ACTIVE TRADES AT RISK first — held TRADE names at/near invalidation, or trades missing plan levels. Then HOLDS in heavy drawdown or with a degraded thesis.
+- Surface STANDOUTS worth a closer look: strong grade + (for trades) a valid/approaching setup + conviction; say why in one line each.
 - Answer "what do I hold / show my positions" from the HELD rows.
 
 Tools:
@@ -766,7 +773,7 @@ async function portfolioRoster(book = 'personal') {
     const al = armedBy.get(t.symbol) || null
     return {
       symbol: t.symbol, name: t.name, status: t.status, asset_class: t.asset_class,
-      tier: c.pyramidTier || null, layer: c.layer || null,
+      tier: c.pyramidTier || null, layer: c.layer || null, role: c.role || null, bucket: c.bucket || null, theme: c.theme || null,
       price: r2(price), changePct: r2(q?.changePct ?? null), state: priceVsPlan(price, plan),
       plan: planCompact(plan), grade: t.top_grade ?? null, sharia: t.sharia_status || null,
       synthesis: syn ? { action: syn.action || null, conviction: syn.conviction ?? null, contested: !!syn.contested } : null,
@@ -777,11 +784,30 @@ async function portfolioRoster(book = 'personal') {
   return { rows, bySymbol: new Map(rows.map((r) => [r.symbol, r])), book }
 }
 
+// Drawdown % of cost basis for a held row (negative = underwater), or null.
+const heldDrawdownPct = (held) => {
+  if (!held) return null
+  const cost = held.value - held.pnl
+  return cost > 0 ? (held.pnl / cost) * 100 : null
+}
+
+// Layer-aware roster line. A HOLD (core/satellite ETF, crypto/commodity hold) is
+// sized by allocation and has no entry/stop plan BY DESIGN — never render it as
+// "no_plan" or imply it's a broken trade. Its risk is drawdown vs thesis. Only a
+// TRADE carries a plan/invalidation state.
 function rosterLine(r) {
+  const isHold = r.layer === 'hold'
   const bits = [r.symbol]
   if (r.price != null) bits.push(`${r.price}${r.changePct != null ? ` (${r.changePct >= 0 ? '+' : ''}${r.changePct}%)` : ''}`)
-  bits.push(`state ${r.state}`)
-  if (r.plan) bits.push(`plan e:${r.plan.entry} inval:${r.plan.inval} tgt:${(r.plan.targets || []).join('/') || '?'}`)
+  bits.push(isHold ? `HOLD ${[r.role, r.theme].filter(Boolean).join('/') || 'satellite'}` : 'TRADE')
+  if (isHold) {
+    const dd = heldDrawdownPct(r.held)
+    if (dd != null && dd <= -15) bits.push(`⚠ drawdown ${dd.toFixed(0)}%`)
+    if (r.state === 'no_price') bits.push('no price (data gap)')
+  } else {
+    bits.push(`state ${r.state}`)
+    if (r.plan) bits.push(`plan e:${r.plan.entry} inval:${r.plan.inval} tgt:${(r.plan.targets || []).join('/') || '?'}`)
+  }
   if (r.grade != null) bits.push(`grade ${r.grade}/10`)
   if (r.synthesis?.action) bits.push(`syn:${r.synthesis.action}${r.synthesis.conviction != null ? `(${r.synthesis.conviction})` : ''}${r.synthesis.contested ? '⚠' : ''}`)
   if (r.sharia && r.sharia !== 'unknown') bits.push(`☪${r.sharia}`)

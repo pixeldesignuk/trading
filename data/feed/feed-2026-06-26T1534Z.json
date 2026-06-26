@@ -1,0 +1,129 @@
+{
+  "discussion": {
+    "slug": "feed-2026-06-26T1534Z",
+    "date": "2026-06-26",
+    "generated": "2026-06-26T15:34:36Z",
+    "since": "since last check · 06-25→06-26",
+    "tldr": "Quiet day dominated by the crypto pullback. BTC broke under $60k toward the 49–50k psychological zone; Zero flagged BTC 44/45 (sweeping the Aug-2024 low) as his first point of interest and confirmed a ~10% hard-stop trim on his spot DOGE bag after price closed below demand — then fielded a stream of questions about it. On stocks, members floated NKE, Fresh Del Monte (FDP, an old Zero long), Salesforce (CRM), XPEV and MRNA, with Zero noting an 'important day for Netflix.' Alt chatter centred on TAO and INJ levels.",
+    "stats": {
+      "messages": 40,
+      "channels": [
+        {"title": "Discussion area", "count": 40},
+        {"title": "Stock trades", "count": 0},
+        {"title": "Zero's Dojo", "count": 0}
+      ],
+      "ideas": 7,
+      "signals": 0
+    },
+    "topics": [
+      {
+        "group": "Discussion area",
+        "topic": "BTC pullback — where's the bottom?",
+        "summary": "BTC broke under $60k; EJ is eyeing the 49–50k psychological zone, noting 'nothing in the mid-50ks except frontrunning 50k.' Zero: BTC 44/45, sweeping the August 2024 low, is his first point of interest.",
+        "participants": ["EJ", "@ZeroIkaa", "@OxAdam9", "@AlexBThomsen"],
+        "tickers": ["BTC", "ETH"]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "Zero trims DOGE spot — 10% hard stop",
+        "summary": "Zero cut ~10% of his spot DOGE bag after price closed below demand (hard stop hit), looking to re-long from a multi-month level if in confluence. Several members (Gtje, dindoobs, CATSU11, Dheerane) asked for clarification; the dashboard update was still pending.",
+        "participants": ["@ZeroIkaa", "Gtje", "@dindoobs", "@CATSU11", "@Dheerane"],
+        "tickers": ["DOGE"]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "Stock ideas floated",
+        "summary": "Members surfaced setups: Spaceloonie on NKE ('time to pay attention'), Sergio resurfacing Fresh Del Monte (Zero's old long — Zero: 'nice one!'), AlexBThomsen entering half into CRM near 2022/23 lows, VittyJJ/AlexBThomsen on XPEV ~11.5–11.6, KonigNeit naming MRNA. Zero: 'important day for Netflix.'",
+        "participants": ["Spaceloonie", "Sergio", "@AlexBThomsen", "@VittyJJ", "@KonigNeit", "@ZeroIkaa"],
+        "tickers": ["NKE", "FDP", "CRM", "XPEV", "MRNA", "NFLX"]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "Alt levels — TAO & INJ",
+        "summary": "Iwwa24k posted TAO (a good play if it lines up with USDT/BTC; demand ~140–160 box, current ~210, resistance ~297) and INJ (current ~4.39, supply 5.12–5.51, demand ~3.54). EJ agreed the TAO setup is 'totally possible.'",
+        "participants": ["@Iwwa24k", "EJ"],
+        "tickers": ["TAO", "INJ"]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "Process talk — win-rate vs RR",
+        "summary": "F25 reflected on exiting a BTC scalp early near the 59.8k SFP; M argued a high success rate matters more than RR, while EJ shared his approach to fading sweeps and waiting for value before committing to a forming range.",
+        "participants": ["F25", "M", "EJ"],
+        "tickers": ["BTC"]
+      }
+    ]
+  },
+  "ideas": [
+    {
+      "symbol": "NKE",
+      "name": "Nike, Inc.",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-25T15:52:16+00:00",
+      "native_id": "tg-disc-336743",
+      "author": {"handle": "Spaceloonie", "name": "Spaceloonie"},
+      "note": "Flagged NKE — 'time to pay attention.' Daily chart shows an entry zone ~45 with a gap above toward 48–50, 3D CBOB / $$$ extreme reclaim in play.",
+      "url": "https://t.me/c/1899385205/336743"
+    },
+    {
+      "symbol": "FDP",
+      "name": "Fresh Del Monte Produce Inc.",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-25T19:23:01+00:00",
+      "native_id": "tg-disc-336749",
+      "author": {"handle": "Sergio", "name": "Sergio"},
+      "note": "Resurfaced Fresh Del Monte (Del Monte) as Zero's old long — Zero acknowledged 'nice one!' 2W chart: 2W/4W BB support ~25.64, fib retrace zone ~26–32, price ~28.2.",
+      "url": "https://t.me/c/1899385205/336749"
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-25T19:41:32+00:00",
+      "native_id": "tg-disc-336751",
+      "author": {"handle": "@AlexBThomsen", "name": "Alex B Thomsen"},
+      "note": "Entered half of planned position into Salesforce (CRM), sitting at 2022/23 levels close to the low.",
+      "url": "https://t.me/c/1899385205/336751"
+    },
+    {
+      "symbol": "TAO",
+      "name": "Bittensor",
+      "asset_class": "crypto",
+      "occurred_at": "2026-06-26T03:55:43+00:00",
+      "native_id": "tg-disc-336753",
+      "author": {"handle": "@Iwwa24k", "name": "Iwwa24k"},
+      "note": "TAO — 'if it coincides with USDT or BTC, prolly a good play.' Chart: demand box ~140–160, current ~210, resistance ~297. EJ agreed it's 'totally possible.'",
+      "url": "https://t.me/c/1899385205/336753"
+    },
+    {
+      "symbol": "INJ",
+      "name": "Injective",
+      "asset_class": "crypto",
+      "occurred_at": "2026-06-26T06:02:46+00:00",
+      "native_id": "tg-disc-336758",
+      "author": {"handle": "@Iwwa24k", "name": "Iwwa24k"},
+      "note": "INJ daily — current ~4.39, supply 5.12–5.51 above, demand ~3.54 below.",
+      "url": "https://t.me/c/1899385205/336758"
+    },
+    {
+      "symbol": "XPEV",
+      "name": "XPeng Inc.",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-26T06:26:43+00:00",
+      "native_id": "tg-disc-336761",
+      "author": {"handle": "@VittyJJ", "name": "VittyJJ"},
+      "note": "Flagged XPEV at 11.64; AlexBThomsen set a limit order at 11.5.",
+      "url": "https://t.me/c/1899385205/336761"
+    },
+    {
+      "symbol": "MRNA",
+      "name": "Moderna, Inc.",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-26T15:12:11+00:00",
+      "native_id": "tg-disc-336775",
+      "author": {"handle": "@KonigNeit", "name": "KonigNeit"},
+      "note": "Named MRNA (ticker only, no levels given).",
+      "url": "https://t.me/c/1899385205/336775"
+    }
+  ],
+  "signals": []
+}
