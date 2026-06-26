@@ -146,7 +146,7 @@ function FilterSortBar({ q, setQ, sel, toggleFacet, clearAll, minGrade, setMinGr
   for (const f of FACETS) for (const v of sel[f.key]) chips.push({ key: f.key, v, label: labelFor(f.key, v) })
   if (minGrade) chips.push({ key: '_grade', v: '', label: `grade ≥ ${minGrade}` })
   return (
-    <div className="space-y-2">
+    <div className="space-y-2" onClick={(e) => e.stopPropagation()}>
       <div className="flex flex-wrap items-center gap-2">
         <div className="relative flex-1 min-w-[140px]">
           <span className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-[11px] text-zinc-600">⌕</span>
@@ -435,7 +435,7 @@ export default function Portfolio({ onOpen, onAskZ }) {
   const { atRisk, watchList } = useMemo(() => {
     const at = [], w = []
     for (const t of rows || []) {
-      if (t.status === 'new' && isIdea(t)) continue
+      if (t.status === 'closed' || (t.status === 'new' && isIdea(t))) continue
       const layer = t.classification?.layer
       const held = holdingByTicker[t.symbol]
       const price = quotes[t.symbol]?.price ?? null
