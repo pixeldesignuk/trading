@@ -3,26 +3,35 @@
 // (3) scene-detect + symbol OCR (handled by prep.sh, not here).
 // This module owns the deterministic, token-free parsers (1) and (2).
 
-// Parse "LABEL -> MM:SS" / "LABEL -> H:MM:SS" lines out of a Telegram caption.
-// Returns ordered [{ label, start_sec }] or [] if the caption has no chapter lines.
+// Parse "LABEL -> MM:SS" / "LABEL -> H:MM:SS" entries out of a Telegram caption.
+// Handles newline-separated and inline lists, and tolerates leading/trailing emoji
+// (e.g. "- DOGE -> 14:07 🦮"). Returns ordered [{ label, start_sec }] or [] if none.
 export function parseCaptionChapters(caption) {
   if (!caption) return []
   const out = []
-  // Match: optional bullet, label, an arrow (->, –>, →), then a timestamp.
-  const re = /^[\s\-•*]*(.+?)\s*(?:->|–>|—>|→)\s*(\d{1,2}:\d{2}(?::\d{2})?)\s*$/
-  for (const raw of caption.split('\n')) {
-    const m = raw.match(re)
-    if (!m) continue
-    const label = m[1].trim().replace(/[💡🔥📈📉👀:\s]+$/u, '').trim()
+  // Label = text before the arrow (same line only); arrow ∈ -> → –> —>; then a timestamp.
+  const re = /([^\n]+?)\s*(?:->|–>|—>|→)\s*(\d{1,2}:\d{2}(?::\d{2})?)/g
+  let m
+  while ((m = re.exec(caption)) !== null) {
+    const label = cleanLabel(m[1])
     if (!label) continue
     out.push({ label, start_sec: toSeconds(m[2]) })
   }
-  // Must be monotonically non-decreasing and start at/near 0 to be a real chapter list.
+  // Must be ≥2 entries and monotonically non-decreasing to count as a real chapter list.
   if (out.length < 2) return []
   for (let i = 1; i < out.length; i++) {
-    if (out[i].start_sec < out[i - 1].start_sec) return [] // not a real ordered chapter list
+    if (out[i].start_sec < out[i - 1].start_sec) return []
   }
   return out
+}
+
+// Strip leading bullets/separators + leading/trailing emoji & whitespace; keep + / ( ) etc.
+function cleanLabel(s) {
+  return s
+    .replace(/^[\s\-•*–—_.]+/u, '')
+    .replace(/^[\p{Extended_Pictographic}️‍\s]+/u, '')
+    .replace(/[\p{Extended_Pictographic}️‍\s]+$/u, '')
+    .trim()
 }
 
 // Dojo API chapters: [{ title, startMs }] (or {label,start}) -> [{ label, start_sec }].

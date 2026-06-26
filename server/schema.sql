@@ -42,6 +42,8 @@ ALTER TABLE tickers ADD COLUMN IF NOT EXISTS actioned_at  TIMESTAMPTZ;  -- "mark
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS sleeve       TEXT;         -- explicit allocation sleeve override: core|sat_etf|crypto|picks|cash
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS satellite_theme TEXT;  -- tech|em|commodities|niche|crypto (null for non-satellite)
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS sort_order   INTEGER;  -- manual Portfolio board order within a status group (null = unset)
+ALTER TABLE tickers ADD COLUMN IF NOT EXISTS quote_symbol TEXT;     -- yahoo symbol override (e.g. broker line HIESL → HIES.L) when the bare symbol won't resolve
+ALTER TABLE tickers ADD COLUMN IF NOT EXISTS instrument   TEXT;     -- etf|equity|crypto|commodity (from yahoo quoteType) — distinguishes ETFs from single stocks
 
 -- Book each synced account belongs to
 ALTER TABLE broker_accounts ADD COLUMN IF NOT EXISTS book TEXT NOT NULL DEFAULT 'personal'; -- personal|kids

@@ -81,7 +81,12 @@ export async function getQuotes(pairs, { yf = yahooFinance, now = Date.now() } =
       const got = new Set()
       for (const q of arr) {
         if (q?.symbol) {
-          cache.set(q.symbol, { price: q.regularMarketPrice ?? null, changePct: q.regularMarketChangePercent ?? null, ts: now })
+          // LSE lines quote in pence (currency 'GBp'); normalise to pounds so the
+          // price reads consistently with GBP-denominated holdings (e.g. ISWD.L
+          // 5028 GBp → £50.28). Percentage change is unit-independent.
+          let price = q.regularMarketPrice ?? null
+          if (price != null && q.currency === 'GBp') price = price / 100
+          cache.set(q.symbol, { price, changePct: q.regularMarketChangePercent ?? null, ts: now })
           got.add(q.symbol)
         }
       }

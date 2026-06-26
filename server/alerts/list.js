@@ -21,7 +21,7 @@ export async function listAlerts() {
   // Price LIVE (same source + cache as the chat's live blocks) so the widget never
   // shows a stale alert_state.price — keyed the same way run.js prices them.
   let quotes = {}
-  try { quotes = await getQuotes(armedBase.map(({ t }) => ({ ticker: t.symbol, asset_class: t.asset_class }))) }
+  try { quotes = await getQuotes(armedBase.map(({ t }) => ({ ticker: t.symbol, asset_class: t.asset_class, symbol: t.quote_symbol || undefined }))) }
   catch { /* fall back to last-eval price below */ }
 
   const armed = armedBase.map(({ t, plan }) => {

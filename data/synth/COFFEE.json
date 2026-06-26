@@ -1,0 +1,23 @@
+{
+  "conviction": 2,
+  "contested": false,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No source gave an entry level — the only mention is general context from a Zero live session, with no buy zone stated.",
+    "targets": [],
+    "invalidation": null,
+    "stop_basis": "No structure or level was provided by any source, so there is nothing to anchor a stop to."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-05",
+      "stance": "neutral",
+      "timeframe": "unspecified",
+      "summary": "Coffee was mentioned only as passing educational context in a Zero live session — no direction, no levels, no trade call."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "There is only one mention of coffee here, and it was a passing comment in an educational live session — no price to buy at, no target, and no level that would say the idea is wrong. With nothing concrete to act on and no live price to check against, this is not a setup. Stand aside and wait for an actual buy zone and target before considering anything."
+}

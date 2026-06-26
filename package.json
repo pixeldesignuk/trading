@@ -20,6 +20,7 @@
     "import:hub": "node --no-warnings --env-file-if-exists=.env server/import-hub-charts.js",
     "import:moneytaur": "node --no-warnings --env-file-if-exists=.env server/import-moneytaur-charts.js",
     "import:lives": "node --no-warnings --env-file-if-exists=.env server/import-lives.js",
+    "tag:instruments": "node --no-warnings --env-file-if-exists=.env server/tag-instruments.js",
     "vendor:bible": "cp ../dojo-library/ZERO-BIBLE.md ../dojo-library/INVESTING-MASTERCLASS.md ../dojo-library/SHARIA-SCREENING.md server/reference/bible/ && echo 'vendored bible snapshot → server/reference/bible (commit it)'"
   },
   "dependencies": {

@@ -34,7 +34,16 @@ const COLUMNS = [
   { key: 'closed', label: 'Closed', droppable: false, accent: '#71717a' },
 ]
 
-const ASSET = { stock: '#38bdf8', crypto: '#a78bfa', commodity: '#fbbf24' }
+const ASSET = { stock: '#38bdf8', etf: '#2dd4bf', crypto: '#a78bfa', commodity: '#fbbf24' }
+// Asset "kind" for the dot + Asset filter — prefers the yahoo-derived instrument
+// (so ETFs split out from single stocks) and falls back to asset_class.
+const assetKind = (r) => {
+  if (r.instrument === 'etf') return 'etf'
+  if (r.instrument === 'crypto' || r.asset_class === 'crypto') return 'crypto'
+  if (r.asset_class === 'commodity' || r.instrument === 'commodity') return 'commodity'
+  if (r.instrument === 'equity' || r.asset_class === 'stock') return 'stock'
+  return String(r.asset_class || '').toLowerCase()
+}
 const SHARIA = {
   compliant: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
   questionable: 'border-amber-500/30 bg-amber-500/10 text-amber-300',
@@ -111,7 +120,7 @@ const FACETS = [
   { key: 'bucket', label: 'Bucket', opts: [['core', 'Core'], ['satellite', 'Satellite'], ['picks', 'Picks']], get: (r) => r.classification?.bucket },
   { key: 'theme', label: 'Theme', opts: Object.entries(THEME_LABEL), get: (r) => r.classification?.theme },
   { key: 'sharia', label: 'Sharia', opts: Object.entries(SHARIA_LABEL), get: (r) => r.sharia_status || 'unknown' },
-  { key: 'asset', label: 'Asset', opts: [['stock', 'Stock'], ['crypto', 'Crypto'], ['commodity', 'Commodity']], get: (r) => String(r.asset_class || '').toLowerCase() },
+  { key: 'asset', label: 'Asset', opts: [['stock', 'Stock'], ['etf', 'ETF'], ['crypto', 'Crypto'], ['commodity', 'Commodity']], get: assetKind },
 ]
 const SORTS = [['manual', 'Manual'], ['grade', 'Grade'], ['pnl', 'P&L'], ['acct', '% of book'], ['updated', 'Updated'], ['alpha', 'A–Z']]
 const parseSet = (s) => new Set((s || '').split(',').filter(Boolean))
@@ -225,7 +234,7 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
   const price = quote?.price ?? null
   const change = quote?.changePct ?? null
   const sharia = t.sharia_status || 'unknown'
-  const dot = ASSET[String(t.asset_class || '').toLowerCase()] || '#52525b'
+  const dot = ASSET[assetKind(t)] || '#52525b'
   const isHold = t.classification?.layer === 'hold'
   const layer = LAYER[t.classification?.layer] || null
   const { v, RailComp, state: planState, dist } = railFor(t, price, holding)

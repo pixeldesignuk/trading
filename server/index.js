@@ -55,7 +55,7 @@ const quotesForAll = async () => {
     if (t.asset_class === 'commodity' && t.commodity_key) {
       return { ticker: t.symbol, asset_class: 'commodity', symbol: getCommodity(t.commodity_key)?.reference_symbol }
     }
-    return { ticker: t.symbol, asset_class: t.asset_class }
+    return { ticker: t.symbol, asset_class: t.asset_class, symbol: t.quote_symbol || undefined }
   }))
   // Attach the locked ETC's live price (the SURFACED instrument) to each commodity.
   const commodities = tickers.filter((t) => t.asset_class === 'commodity' && t.commodity_key)
@@ -106,9 +106,10 @@ app.get('/api/tickers/:symbol', async (req, res) => {
 app.get('/api/tickers/:symbol/history', async (req, res) => {
   const ticker = await getTicker(req.params.symbol)
   if (!ticker) return res.status(404).json({ error: 'not found' })
-  // Commodities chart off their reference future (the bare symbol won't resolve).
+  // Commodities chart off their reference future (the bare symbol won't resolve);
+  // other lines can carry a quote_symbol override (e.g. a broker LSE line).
   const symbol = ticker.asset_class === 'commodity' && ticker.commodity_key
-    ? getCommodity(ticker.commodity_key)?.reference_symbol : undefined
+    ? getCommodity(ticker.commodity_key)?.reference_symbol : (ticker.quote_symbol || undefined)
   res.json(await getHistory(ticker.symbol, ticker.asset_class, { symbol }))
 })
 

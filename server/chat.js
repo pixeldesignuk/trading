@@ -267,7 +267,7 @@ async function buildLive(ticker) {
   let price = null, changePct = null, commodity = null, history = null, holding = null, alert = null, risk = null, memo = null
   try {
     if (isCommodity) { commodity = await commodityView(ticker, { getQuotes, heldBrokers: HELD_BROKERS }); price = commodity?.spot ?? null }
-    else { const q = (await getQuotes([{ ticker: symbol, asset_class: ticker.asset_class }]))[symbol]; price = q?.price ?? null; changePct = q?.changePct ?? null }
+    else { const q = (await getQuotes([{ ticker: symbol, asset_class: ticker.asset_class, symbol: ticker.quote_symbol || undefined }]))[symbol]; price = q?.price ?? null; changePct = q?.changePct ?? null }
   } catch { /* price best-effort */ }
   try {
     const refSym = isCommodity ? getCommodity(ticker.commodity_key)?.reference_symbol : undefined
@@ -738,7 +738,7 @@ async function portfolioRoster(book = 'personal') {
   const all = await listTickers()
   const live = all.filter((t) => PORTFOLIO_STATUSES.includes(t.status))
   let quotes = {}
-  try { quotes = await getQuotes(live.map((t) => ({ ticker: t.symbol, asset_class: t.asset_class }))) } catch { /* best-effort */ }
+  try { quotes = await getQuotes(live.map((t) => ({ ticker: t.symbol, asset_class: t.asset_class, symbol: t.quote_symbol || undefined }))) } catch { /* best-effort */ }
   const heldBy = new Map()
   try {
     for (const h of await getHoldings({ book })) {
