@@ -10,6 +10,7 @@ import Alerts from './components/Alerts.jsx'
 import Archive from './components/Archive.jsx'
 import Accounts from './components/Accounts.jsx'
 import PortfolioChat from './components/PortfolioChat.jsx'
+import MarketClock from './components/MarketClock.jsx'
 
 // Ideas now live as a "Stage" filter on the Tickers tab, not a separate tab.
 const TABS = [
@@ -42,8 +43,9 @@ export default function App() {
   return (
     <>
     <div className={`mx-auto px-4 py-6 ${portfolioTab ? 'max-w-none lg:pr-[28rem]' : 'max-w-5xl'}`}>
-      <header className="mb-6">
+      <header className="mb-6 flex items-center justify-between gap-4">
         <h1 className="text-xl font-bold tracking-tight">Trading Hub</h1>
+        <MarketClock />
       </header>
       <nav className="mb-6 flex gap-1 border-b border-zinc-800">
         {TABS.map(([id, label]) => (
