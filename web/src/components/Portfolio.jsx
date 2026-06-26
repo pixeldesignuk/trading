@@ -624,7 +624,9 @@ export default function Portfolio({ onOpen, onAskZ }) {
         minGrade={minGrade} setMinGrade={setMinGrade} sort={sort} setSort={setSort}
         open={openFacet} setOpen={setOpenFacet} count={matchCount} />
 
-      <div className="overflow-hidden rounded-lg border border-zinc-900 bg-black/20">
+      {/* horizontal scroll on mobile — the dense row grid keeps its layout */}
+      <div className="-mx-3 overflow-x-auto px-3 sm:mx-0 sm:px-0">
+       <div className="min-w-[660px] overflow-hidden rounded-lg border border-zinc-900 bg-black/20">
         {COLUMNS.map((col) => {
           const items = byColumn[col.key]
           const isCollapsed = collapsed.has(col.key)
@@ -658,6 +660,7 @@ export default function Portfolio({ onOpen, onAskZ }) {
             </div>
           )
         })}
+       </div>
       </div>
 
       <ContextMenu menu={menu} actions={menu ? rowActions(menu.t) : []} onClose={() => setMenu(null)} />
