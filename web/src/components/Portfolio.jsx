@@ -335,6 +335,16 @@ export default function Portfolio({ onOpen, onAskZ }) {
   const [drag, setDrag] = useState(null)            // { symbol, from } currently dragged
   const [planArmed, setPlanArmed] = useState(new Set())  // symbols with plan alerts armed
   const [alertBusy, setAlertBusy] = useState(null)
+  // Which status groups are collapsed — persisted across reloads.
+  const [collapsed, setCollapsed] = useState(() => {
+    try { return new Set(JSON.parse(localStorage.getItem('portfolio.collapsed') || '[]')) } catch { return new Set() }
+  })
+  const toggleCollapsed = (key) => setCollapsed((prev) => {
+    const next = new Set(prev)
+    next.has(key) ? next.delete(key) : next.add(key)
+    try { localStorage.setItem('portfolio.collapsed', JSON.stringify([...next])) } catch { /* ignore */ }
+    return next
+  })
 
   const [scope, setScope] = useUrlState('scope', 'me')
   const isHousehold = scope.startsWith('hh:')
@@ -528,19 +538,22 @@ export default function Portfolio({ onOpen, onAskZ }) {
       <div className="overflow-hidden rounded-lg border border-zinc-900 bg-black/20">
         {COLUMNS.map((col) => {
           const items = byColumn[col.key]
+          const isCollapsed = collapsed.has(col.key)
           return (
             <div key={col.key}
               onDragOver={col.droppable && drag ? (e) => { e.preventDefault(); setDragOver(col.key) } : undefined}
               onDragLeave={col.droppable ? () => setDragOver((d) => (d === col.key ? null : d)) : undefined}
               onDrop={(e) => onColDrop(e, col)}
               className={`border-b border-zinc-900 last:border-b-0 transition-colors ${dragOver === col.key ? 'bg-emerald-500/[0.04]' : ''}`}>
-              <div style={{ borderLeft: `3px solid ${col.accent}`, background: `${col.accent}14` }}
-                className="flex w-full items-center gap-2 border-b border-zinc-900 px-3 py-1.5">
+              <button onClick={() => toggleCollapsed(col.key)}
+                style={{ borderLeft: `3px solid ${col.accent}`, background: `${col.accent}14` }}
+                className="flex w-full items-center gap-2 border-b border-zinc-900 px-3 py-1.5 text-left transition-colors hover:brightness-125">
+                <span style={{ color: col.accent }} className={`font-mono text-[9px] transition-transform ${isCollapsed ? '' : 'rotate-90'}`}>▶</span>
                 <span style={{ color: col.accent }} className="text-[11px] font-semibold uppercase tracking-wider">{col.label}</span>
                 {col.broker && <span className="rounded bg-zinc-800/60 px-1 py-0.5 font-mono text-[9px] text-zinc-500" title="Mirrors your broker — not manually set">broker</span>}
                 <span className="font-mono text-[10px] tabular text-zinc-600">{items.length}</span>
-              </div>
-              {items.length === 0 ? (
+              </button>
+              {isCollapsed ? null : items.length === 0 ? (
                 <div className="px-3 py-3 text-[11px] text-zinc-700">{col.broker ? 'No open positions' : '—'}</div>
               ) : (
                 items.map((t) => (
