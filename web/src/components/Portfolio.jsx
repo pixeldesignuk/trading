@@ -220,11 +220,11 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
     <div draggable={draggable} onDragStart={draggable ? onDragStart : undefined} onDragEnd={onDragEnd}
       onDragOver={onDragOver} onDrop={onDrop}
       onClick={() => onOpen(t.symbol)}
-      className={`row-in group relative grid grid-cols-[minmax(120px,1.1fr)_minmax(150px,1.8fr)_minmax(70px,0.85fr)_minmax(100px,1.1fr)_auto] items-center gap-3 border-b border-zinc-900 px-3 py-2 text-left transition-colors last:border-b-0 hover:bg-white/[0.025] ${draggable ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'} ${dropEdge ? 'before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-emerald-400' : ''}`}>
+      className={`row-in group relative grid min-h-[48px] grid-cols-[minmax(150px,1.2fr)_minmax(150px,1.7fr)_minmax(78px,0.8fr)_minmax(96px,1fr)_auto] items-center gap-3 border-b border-zinc-900 px-3 py-1.5 text-left transition-colors last:border-b-0 hover:bg-white/[0.025] ${draggable ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'} ${dropEdge ? 'before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-emerald-400' : ''}`}>
       {/* identity */}
       <div className="flex min-w-0 items-center gap-2">
         <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: dot }} />
-        <span className="font-mono text-[13px] font-semibold tracking-tight text-zinc-100">{t.symbol}</span>
+        <span className="shrink-0 whitespace-nowrap font-mono text-[13px] font-semibold tracking-tight text-zinc-100">{t.symbol}</span>
         {layer && <span className="shrink-0 rounded px-1 py-0.5 text-[8px] font-semibold uppercase tracking-wider" style={{ color: layer.c, background: layer.c + '1a' }}>{layer.label}</span>}
         <span className="truncate text-[11px] text-zinc-500">{t.name || ''}</span>
       </div>
