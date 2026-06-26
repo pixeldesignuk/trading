@@ -1,23 +1,23 @@
 {
-  "conviction": 3,
+  "conviction": 4,
   "contested": false,
   "action": "wait",
   "safest_plan": {
     "entry": 5,
-    "entry_basis": "moneytaur grade (score 8/10, verdict pass), as_of 2026-06-20 — stated entry $5",
+    "entry_basis": "moneytaur grade (2026-06-20), entry $5, passing grade 8/10",
     "targets": [],
     "invalidation": null,
-    "stop_basis": "No invalidation or stop level was given by any source, so the downside risk is undefined — you cannot size a safe stop from this alone"
+    "stop_basis": "No source gave a structure-based invalidation level, so no stop can be placed safely"
   },
   "stance_by_source": [
     {
       "source": "moneytaur",
       "as_of": "2026-06-20",
       "stance": "bullish",
-      "timeframe": "swing",
-      "summary": "Graded the idea a pass (8 out of 10) with a buy around $5, but gave no profit targets and no level where the trade would be wrong"
+      "timeframe": "LTF",
+      "summary": "A single passing grade (8/10) flagging a buy around $5, but with no target or stop attached."
     }
   ],
   "conflicts": [],
-  "plain_english": "Only one source has spoken on Zed: Moneytaur, who likes it (an 8 out of 10) and suggests buying near $5. The problem is that's all there is — no price targets to aim for and, more importantly, no level that says 'I was wrong, get out', so there is no way to judge whether the reward is worth the risk. Nobody disagrees, but a single thumbs-up with no exit plan is not enough to act on. Wait for a second opinion or a clear invalidation level before putting money in."
+  "plain_english": "Only one source has spoken on Zed, and it gives a thumbs-up to buying near $5 but offers no profit target and no level that would tell you the idea is wrong. With nothing to size a stop or a reward against, this is a one-source tip rather than a tradeable plan. Wait for a second view or a clear exit level before committing money."
 }

@@ -2,6 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { api } from '../api.js'
 import { useUrlState } from '../useUrlState.js'
 import { planView, Rail, STATE, positionView, PositionRail, POS_STATE, posLabelParts } from './TickerList.jsx'
+// Pure server modules (Vite bundles them; see AllocationLedger). Importing the
+// SAME state + posture rules the chat/scan use keeps the page's "at risk"
+// judgement identical to the agent's — one source of truth.
+import { effectivePlan } from '../../../server/portfolio/effective-plan.js'
+import { priceVsPlan } from '../../../server/price-plan.js'
+import { assessPosture } from '../../../server/portfolio/posture.js'
 
 // Held positions get the in-trade rail (stop · entry · TP + loss/reward
 // distances); everything else gets the entry rail (buy zone). Returns the
@@ -271,8 +277,52 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
   )
 }
 
+// ── scan / action bar ─────────────────────────────────────────────────────────
+// Spins through the flagged names (at-risk first, then worth-a-look), the way the
+// agent triages the book — deterministic + layer-aware, so a hold is never
+// flagged for lacking a stop. "Ask Z" hands off to the portfolio chat for depth.
+function ScanBar({ atRisk, watch, onOpen, onAskZ }) {
+  const items = useMemo(() => [
+    ...atRisk.map((x) => ({ ...x, kind: 'at_risk' })),
+    ...watch.map((x) => ({ ...x, kind: 'watch' })),
+  ], [atRisk, watch])
+  const [i, setI] = useState(0)
+  useEffect(() => { setI(0) }, [items.length])
+  useEffect(() => {
+    if (items.length <= 1) return
+    const id = setInterval(() => setI((x) => (x + 1) % items.length), 3800)
+    return () => clearInterval(id)
+  }, [items.length])
+  const clear = items.length === 0
+  const cur = items[i % Math.max(1, items.length)] || null
+  return (
+    <div className="flex items-center gap-3 rounded-lg border border-zinc-900 bg-gradient-to-r from-zinc-900/50 to-black/10 px-3 py-2">
+      <span className="flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.15em] text-zinc-500">
+        <span className="relative flex h-2 w-2">
+          {!clear && <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400/60" />}
+          <span className={`relative inline-flex h-2 w-2 rounded-full ${clear ? 'bg-emerald-500' : 'bg-amber-400'}`} />
+        </span>
+        Scan
+      </span>
+      {clear ? (
+        <span className="text-[12px] text-zinc-500">All clear — nothing needs attention right now.</span>
+      ) : (
+        <button key={cur.symbol} onClick={() => onOpen(cur.symbol)} className="scan-in group flex min-w-0 flex-1 items-center gap-2 text-left">
+          <span className={`shrink-0 rounded px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider ${cur.kind === 'at_risk' ? 'bg-red-500/15 text-red-300' : 'bg-amber-500/15 text-amber-300'}`}>{cur.kind === 'at_risk' ? 'At risk' : 'Watch'}</span>
+          <span className="shrink-0 font-mono text-[13px] font-semibold text-zinc-100">{cur.symbol}</span>
+          <span className="truncate text-[12px] text-zinc-400 group-hover:text-zinc-200">{cur.reason}</span>
+        </button>
+      )}
+      <div className="ml-auto flex shrink-0 items-center gap-2.5">
+        {!clear && <span className="font-mono text-[10px] text-zinc-600"><span className="text-red-400/80">{atRisk.length}</span> at risk · <span className="text-amber-400/80">{watch.length}</span> watch</span>}
+        {onAskZ && <button onClick={onAskZ} className="rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 font-mono text-[10px] font-medium text-emerald-200 hover:bg-emerald-500/20"><span className="font-bold">Z</span> Ask</button>}
+      </div>
+    </div>
+  )
+}
+
 // ── the page ──────────────────────────────────────────────────────────────────
-export default function Portfolio({ onOpen }) {
+export default function Portfolio({ onOpen, onAskZ }) {
   const [rows, setRows] = useState(null)
   const [quotes, setQuotes] = useState({})
   const [led, setLed] = useState(null)
@@ -379,6 +429,28 @@ export default function Portfolio({ onOpen }) {
 
   const matchCount = useMemo(() => Object.values(byColumn).reduce((n, a) => n + a.length, 0), [byColumn])
 
+  // Deterministic, layer-aware triage over the whole (owner-scoped) book — runs
+  // regardless of the active filters so a risk is never hidden. Same rules as the
+  // chat roster (assessPosture), so the bar and the agent always agree.
+  const { atRisk, watchList } = useMemo(() => {
+    const at = [], w = []
+    for (const t of rows || []) {
+      if (t.status === 'new' && isIdea(t)) continue
+      const layer = t.classification?.layer
+      const held = holdingByTicker[t.symbol]
+      const price = quotes[t.symbol]?.price ?? null
+      const state = layer === 'hold' ? null : priceVsPlan(price, effectivePlan(t))
+      const a = assessPosture({
+        layer, state, grade: t.top_grade,
+        held: held ? { value: held.value, pnl: held.pnl } : null,
+        synthesis: t.synthesis ? { action: t.synthesis.action, contested: t.synthesis.contested } : null,
+      })
+      if (a.kind === 'at_risk') at.push({ symbol: t.symbol, reason: a.reason })
+      else if (a.kind === 'watch') w.push({ symbol: t.symbol, reason: a.reason })
+    }
+    return { atRisk: at, watchList: w }
+  }, [rows, holdingByTicker, quotes])
+
   const onSync = async () => {
     setSyncing(true)
     try { await api.syncBrokers(); loadScoped(); api.tickers().then(setRows) }
@@ -446,6 +518,8 @@ export default function Portfolio({ onOpen }) {
         </div>
       </div>
       <Summary led={led} />
+
+      <ScanBar atRisk={atRisk} watch={watchList} onOpen={onOpen} onAskZ={onAskZ} />
 
       <FilterSortBar q={q} setQ={setQ} sel={sel} toggleFacet={toggleFacet} clearAll={clearAll}
         minGrade={minGrade} setMinGrade={setMinGrade} sort={sort} setSort={setSort}

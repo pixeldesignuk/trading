@@ -7,7 +7,9 @@ import { getTicker, listTickers } from './tickers.js'
 import { eventsForTicker } from './events.js'
 import { chartPath } from './synthesize.js'
 import { classify } from './portfolio/classify.js'
-import { numericPlan, priceVsPlan } from './price-plan.js'
+import { priceVsPlan } from './price-plan.js'
+import { effectivePlan } from './portfolio/effective-plan.js'
+import { assessPosture } from './portfolio/posture.js'
 import { getQuotes, getHistory } from './price-provider.js'
 import { commodityView, getCommodity } from './commodities.js'
 import { getHoldings, getFunds } from './brokers/funds.js'
@@ -116,21 +118,6 @@ function bible() {
 // carries a real safest_plan, so the STATE block said "no_plan" while the sizing
 // block used entry/stop/targets. One source of truth: prefer the manual plan; fall
 // back to the synthesis candidate. Labelled so the agent knows which it is.
-function effectivePlan(ticker) {
-  const np = numericPlan(ticker)
-  const hasManual = np && (np.buyLow != null || np.buyHigh != null || np.invalidation != null || (np.targets || []).length)
-  if (hasManual) return { ...np, source: 'confirmed' }
-  const sp = ticker?.synthesis?.safest_plan
-  if (sp && sp.entry != null) {
-    return {
-      buyLow: sp.entry, buyHigh: sp.entry,
-      targets: (sp.targets || []).map((t) => (t && typeof t === 'object' ? t.price : t)).filter((x) => x != null),
-      invalidation: sp.invalidation ?? null,
-      source: 'synthesis_candidate',
-    }
-  }
-  return np ? { ...np, source: 'confirmed' } : null
-}
 const planLine = (p) => !p ? 'none defined'
   : `entry ${p.buyLow === p.buyHigh ? (p.buyLow ?? '?') : `${p.buyLow ?? '?'}–${p.buyHigh ?? '?'}`}, invalidation ${p.invalidation ?? '?'}, targets ${(p.targets || []).join(' / ') || '?'} [${p.source}]`
 
@@ -781,6 +768,9 @@ async function portfolioRoster(book = 'personal') {
       alert: al ? { state: al.state, muted: !!al.muted } : null,
     }
   })
+  // Deterministic layer-aware posture (same helper the scan bar uses) so the
+  // agent's "at risk" judgement is anchored to the same rule, not re-derived.
+  for (const r of rows) r.posture = assessPosture({ layer: r.layer, state: r.state, grade: r.grade, held: r.held, synthesis: r.synthesis })
   return { rows, bySymbol: new Map(rows.map((r) => [r.symbol, r])), book }
 }
 
@@ -813,6 +803,8 @@ function rosterLine(r) {
   if (r.sharia && r.sharia !== 'unknown') bits.push(`☪${r.sharia}`)
   if (r.held) bits.push(`HELD £${r.held.value} pnl £${r.held.pnl}`)
   if (r.alert?.muted) bits.push('muted')
+  if (r.posture?.kind === 'at_risk') bits.push(`⚠ AT RISK: ${r.posture.reason}`)
+  else if (r.posture?.kind === 'watch') bits.push(`◦ watch: ${r.posture.reason}`)
   return bits.join(' · ')
 }
 

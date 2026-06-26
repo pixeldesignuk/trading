@@ -60,7 +60,7 @@ export default function App() {
       </nav>
       {tab === 'feed' && <Feed onOpen={setSymbol} />}
       {tab === 'tickers' && <Tickers onOpen={setSymbol} />}
-      {tab === 'portfolio' && <Portfolio onOpen={setSymbol} />}
+      {tab === 'portfolio' && <Portfolio onOpen={setSymbol} onAskZ={() => setChatOpen(true)} />}
       {tab === 'allocation' && <AllocationLedger onOpen={setSymbol} />}
       {tab === 'alerts' && <Alerts onOpen={setSymbol} />}
       {tab === 'accounts' && <Accounts />}

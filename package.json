@@ -12,7 +12,7 @@
     "dev": "concurrently -n server,web -c blue,green \"node --no-warnings --env-file-if-exists=.env --watch server/index.js\" \"vite\"",
     "build": "vite build",
     "start": "node --no-warnings --env-file-if-exists=.env server/index.js",
-    "test": "node --no-warnings --env-file-if-exists=.env --test server/*.test.js server/alerts/*.test.js server/brokers/*.test.js server/brokers/*.integration.test.js",
+    "test": "node --no-warnings --env-file-if-exists=.env --test server/*.test.js server/alerts/*.test.js server/brokers/*.test.js server/brokers/*.integration.test.js server/portfolio/*.test.js",
     "feed:state": "node --no-warnings --env-file-if-exists=.env server/feed-state.js",
     "alerts:run": "node --no-warnings --env-file-if-exists=.env server/alerts/cli.js",
     "seed:feed": "node --no-warnings --env-file-if-exists=.env server/seed-feed.js",
