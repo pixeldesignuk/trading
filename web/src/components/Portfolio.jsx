@@ -257,7 +257,7 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
     <div draggable={draggable} onDragStart={draggable ? onDragStart : undefined} onDragEnd={onDragEnd}
       onDragOver={onDragOver} onDrop={onDrop} onContextMenu={onContextMenu}
       onClick={() => onOpen(t.symbol)}
-      className={`row-in group relative grid min-h-[48px] grid-cols-[24px_minmax(150px,1fr)_minmax(120px,1.6fr)_92px_160px_104px] items-center gap-x-3 border-b border-zinc-900 px-3 py-1.5 text-left transition-colors last:border-b-0 hover:bg-white/[0.025] ${draggable ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'} ${dropEdge ? 'before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-emerald-400' : ''}`}>
+      className={`row-in group relative grid min-h-[48px] grid-cols-[24px_minmax(150px,1fr)_minmax(120px,1.6fr)_92px_160px_104px] items-center gap-x-3 border-b border-zinc-900 px-3 py-1.5 text-left transition-colors last:border-b-0 hover:bg-white/[0.025] cursor-default ${dropEdge ? 'before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-emerald-400' : ''}`}>
       {/* alert bell (trades only) — leading slot, empty for holds to keep alignment */}
       <div className="flex justify-center">{!isHold && <AlertToggle armed={armed} busy={alertBusy} onToggle={() => onToggleAlert(t.symbol, armed)} />}</div>
       {/* identity */}
