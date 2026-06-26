@@ -814,8 +814,27 @@ function ShariaScreen({ ticker, busy, onRun }) {
 }
 
 // ---- header chips + tabs -------------------------------------------------
-// The synthesis verdict, surfaced loud in the header — the single most important
-// "what do I do" signal, no longer buried in the synthesis card.
+// Alert bell — same glyph as the portfolio list. Arms/disarms the plan alert set
+// from the header (filled emerald when armed, muted style when muted).
+function BellIcon({ filled }) {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+      <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+    </svg>
+  )
+}
+function HeaderBell({ armed, muted, busy, onToggle }) {
+  return (
+    <button onClick={onToggle} disabled={busy}
+      title={muted ? 'Plan alerts muted' : armed ? 'Plan alerts armed — click to disarm' : 'Arm alerts from this plan (entry · stop · targets)'}
+      className={`flex h-7 w-7 items-center justify-center rounded-md transition-colors disabled:opacity-40 ${muted ? 'text-zinc-600' : armed ? 'text-emerald-400 hover:text-emerald-300' : 'text-zinc-600 hover:text-zinc-300'} ${busy ? 'animate-pulse' : ''}`}>
+      <BellIcon filled={armed && !muted} />
+    </button>
+  )
+}
+
+// The synthesis verdict action, surfaced loud in the header.
 function ActionPill({ action }) {
   const a = ACTION[action]
   if (!a) return null
@@ -825,12 +844,6 @@ function ActionPill({ action }) {
       <span className="h-1.5 w-1.5 rounded-full" style={{ background: a.c, boxShadow: `0 0 6px ${a.c}` }} />{a.label}
     </span>
   )
-}
-function AlertChip({ muted, count, armed }) {
-  if (muted) return <span className="inline-flex items-center gap-1 rounded-md border border-zinc-700 bg-zinc-800/40 px-1.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-500" title="Plan alerts muted">🔕 Muted</span>
-  if (count > 0) return <span className="inline-flex items-center gap-1 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-1.5 py-1 font-mono text-[10px] uppercase tracking-wider text-emerald-300" title={`${count} active alert${count === 1 ? '' : 's'} set`}>🔔 {count} alert{count === 1 ? '' : 's'}</span>
-  if (armed) return <span className="inline-flex items-center gap-1 rounded-md border border-zinc-700 bg-zinc-800/40 px-1.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-400" title="Plan armed — engine watches the levels">🔔 Armed</span>
-  return null
 }
 function DetailTabs({ view, setView, tabs }) {
   return (
@@ -861,9 +874,15 @@ export default function TickerDetail({ symbol, onBack }) {
   const [alerts, setAlerts] = useState(null)                 // alerts payload (for the header chip)
   const load = () => api.ticker(symbol).then(setData)
   const loadAlerts = () => api.alerts().then(setAlerts).catch(() => {})
+  const [alertBusy, setAlertBusy] = useState(false)
   const runSynth = () => {
     setSynthBusy(true)
     api.synthesize(symbol, true).then(load).catch(() => {}).finally(() => setSynthBusy(false))
+  }
+  const toggleAlerts = (armed) => {
+    setAlertBusy(true)
+    const req = armed ? api.disarmAlerts(symbol) : api.armAlerts(symbol)
+    req.then((res) => setAlerts(res?.alerts || null)).catch(() => {}).finally(() => { setAlertBusy(false); loadAlerts() })
   }
   const runSharia = (force) => {
     setShariaBusy(true)
@@ -904,7 +923,6 @@ export default function TickerDetail({ symbol, onBack }) {
 
   const t = data.ticker
   const commodity = data.commodity || null
-  const type = ASSET[String(t.asset_class || '').toLowerCase()] ? String(t.asset_class).toLowerCase() : 'other'
   // Levels basis: commodities can switch between Zero's CFD/spot levels and the
   // chosen ETC's price terms (scaled by the live ratio). State/% are unaffected.
   const canToggle = !!(commodity && commodity.ratio)
@@ -926,16 +944,14 @@ export default function TickerDetail({ symbol, onBack }) {
   const chatter = notes.filter((e) => e.source === 'zero_tg' || e.source === 'community')
   const otherNotes = notes.filter((e) => e.source !== 'zero_tg' && e.source !== 'community')
 
-  // Alert status for the header chip (custom alerts set + whether the plan engine is armed).
-  const customCount = alerts ? (alerts.custom || []).filter((c) => c.symbol === symbol).length : 0
-  const armedPlan = alerts ? (alerts.armed || []).some((a) => a.symbol === symbol) : false
-  const alertInfo = { muted: !!t.alerts_muted, count: customCount, armed: armedPlan }
+  // Alert status for the header bell — plan-armed = the plan alert set is active.
+  const planArmed = alerts ? (alerts.custom || []).some((c) => c.symbol === symbol && c.created_by === 'plan') : false
+  const alertsMuted = !!t.alerts_muted
 
   const tabs = [
     { key: 'overview', label: 'Overview' },
-    { key: 'synthesis', label: 'Synthesis' },
+    { key: 'verdict', label: 'Verdict' },
     { key: 'sources', label: 'Sources', badge: notes.length + charts.length },
-    { key: 'alerts', label: 'Alerts', badge: customCount },
   ]
 
   return (
@@ -946,15 +962,14 @@ export default function TickerDetail({ symbol, onBack }) {
 
       <div className="mb-5 flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <h1 className="font-mono text-3xl font-semibold tracking-tight text-zinc-50">{t.symbol}</h1>
-            <AssetIcon type={type} size={18} />
+            <HeaderBell armed={planArmed} muted={alertsMuted} busy={alertBusy} onToggle={() => toggleAlerts(planArmed)} />
           </div>
           <div className="mt-1 truncate text-sm text-zinc-500">{t.name}</div>
           <div className="mt-3 flex flex-wrap items-center gap-2.5">
             <ActionPill action={t.synthesis?.action} />
             <Pipeline status={t.status} onSet={(st) => api.setStatus(symbol, st).then(load)} />
-            <AlertChip {...alertInfo} />
             {commodity ? (
               commodity.investable === false ? (
                 <span className="rounded-md border px-1.5 py-1 text-[10px] font-medium border-red-500/30 bg-red-500/10 text-red-300" title={commodity.no_vehicle_note}>
@@ -1016,20 +1031,6 @@ export default function TickerDetail({ symbol, onBack }) {
             <SetupGauge s={s} rm={rm} />
           </div>
 
-          {/* synthesis verdict — the action + one-line "why", with a jump to the full read */}
-          {t.synthesis?.plain_english && (
-            <div className="rounded-xl border border-zinc-900 bg-black/20 px-4 py-3">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-zinc-600">Editor verdict</span>
-                <ActionPill action={t.synthesis.action} />
-                <ConvictionMeter value={t.synthesis.conviction} />
-                {t.synthesis.contested && <span className="rounded border border-amber-500/40 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-amber-300">⚠ Contested</span>}
-                <button onClick={() => setView('synthesis')} className="ml-auto font-mono text-[10px] uppercase tracking-wider text-sky-400/80 hover:text-sky-300">Full read →</button>
-              </div>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-200">{t.synthesis.plain_english}</p>
-            </div>
-          )}
-
           {commodity && <CommodityPanel commodity={commodity} symbol={symbol} entry={s0.entry} onLock={(v) => api.setVehicle(symbol, v).then(load)} />}
 
           <div className="grid grid-cols-2 divide-x divide-y divide-zinc-900 overflow-hidden rounded-xl border border-zinc-900 bg-black/20 sm:grid-cols-4 sm:divide-y-0">
@@ -1041,10 +1042,15 @@ export default function TickerDetail({ symbol, onBack }) {
 
           <RiskPanel symbol={t.symbol} held={holding} />
           <ShariaScreen ticker={t} busy={shariaBusy} onRun={() => runSharia(true)} />
+
+          <div>
+            <SectionLabel>Alerts</SectionLabel>
+            <AlertsWidget load focus={t.symbol} />
+          </div>
         </div>
       )}
 
-      {view === 'synthesis' && <Synthesis syn={t.synthesis} at={t.synth_at} busy={synthBusy} onRun={runSynth} />}
+      {view === 'verdict' && <Synthesis syn={t.synthesis} at={t.synth_at} busy={synthBusy} onRun={runSynth} />}
 
       {view === 'sources' && (
         <div className="space-y-5">
@@ -1087,8 +1093,6 @@ export default function TickerDetail({ symbol, onBack }) {
           )}
         </div>
       )}
-
-      {view === 'alerts' && <AlertsWidget load focus={t.symbol} />}
 
         </div>
       </main>
