@@ -1,7 +1,9 @@
 # Portfolio page rebuild — design
 
 **Date:** 2026-06-26
-**Status:** approved (decisions locked), pending implementation
+**Status:** implemented (Units 0–5 shipped to main). Known follow-up: the
+portfolio chat (`streamPortfolioChat`) still scopes to `book='personal'` and does
+not yet follow the owner/household selector — wiring scope→chat is the next step.
 
 ## Problem
 
