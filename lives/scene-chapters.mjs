@@ -12,32 +12,49 @@ import { execFileSync } from 'node:child_process'
 // "Bitcoin / U.S. Dollar-1D- INDEX" / "ConocoPhillips · 1W · NYSE".
 export function ocrSymbolHeader(framePath, tmpDir) {
   const pre = path.join(tmpDir, 'hdr.png')
+  const outBase = path.join(tmpDir, 'hdr_out')
   try {
-    // header band: full-width-ish left 1100px, y 78..248 — covers toolbar + title row.
-    execFileSync('ffmpeg', ['-y', '-i', framePath, '-vf',
-      'crop=1100:170:0:78,format=gray,negate,scale=iw*2:ih*2', pre], { stdio: 'ignore' })
-    const raw = execFileSync('tesseract', [pre, 'stdout', '--psm', '6'], { encoding: 'utf8' })
-    fs.rmSync(pre, { force: true })
+    // header band: left 1100px, y 80..240 — covers toolbar (search ticker) + title row.
+    execFileSync('ffmpeg', ['-y', '-i', framePath, '-frames:v', '1', '-vf',
+      'crop=1100:160:0:80,format=gray,scale=iw*2:ih*2', pre], { stdio: 'ignore' })
+    execFileSync('tesseract', [pre, outBase, '--psm', '6'], { stdio: 'ignore' })
+    const raw = fs.readFileSync(outBase + '.txt', 'utf8')
+    fs.rmSync(pre, { force: true }); fs.rmSync(outBase + '.txt', { force: true })
     return cleanHeader(raw)
   } catch {
     return ''
   }
 }
 
+// Toolbar/exchange words that contaminate the OCR'd header — never part of the asset name.
+const NOISE = /\b(INDICATORS?|ALERT|REPLAY|INDEX|NYSE|NASDAQ|BINANCE|MEXC|TVC|CRYPTO|FOREX|STOCKS|TRADE|PUBLISH|SELL|BUY|SQ|TL|ZIN|USD|USDT|OZ)\b/g
+
 // Pull the instrument fingerprint from the noisy header OCR.
 // Prefer the title name (before the "-1D-"/"· 1W ·" timeframe), else the search ticker.
 export function cleanHeader(raw) {
   const text = raw.replace(/\r/g, ' ').replace(/\s+/g, ' ').trim()
-  // 1) Title: "<Name> -1D- EXCHANGE" or "<Name> · 1W · EXCHANGE"
+  // 1) Title: "<Name> -1D- EXCHANGE" / "<Name> · 1W · EXCHANGE". Take the text right
+  //    before the timeframe marker, then drop any leading toolbar words.
   const title = text.match(/([A-Za-z][A-Za-z0-9 .&/']{2,40}?)\s*[-·]\s*\d+\s*[mhdwDWM]\b/)
   if (title) {
-    const name = title[1].replace(/[^A-Za-z0-9 .&/']/g, ' ').replace(/\s+/g, ' ').trim()
-    if (name.length >= 3) return name.toUpperCase().slice(0, 40)
+    let name = title[1].replace(/[^A-Za-z0-9 .&/']/g, ' ')
+    name = name.replace(NOISE, ' ').replace(/\s+/g, ' ').trim()
+    // keep only the asset name: last 1-4 words before the timeframe (drops "Replay Bitcoin"→"Bitcoin")
+    name = name.split(' ').filter(Boolean).slice(-5).join(' ')
+    if (name.replace(/[^A-Za-z]/g, '').length >= 3) return name.toUpperCase().slice(0, 40)
   }
-  // 2) Search box ticker: "Q BTCUSD" (Q may be glued to the ticker as a misread icon)
+  // 2) Search-box ticker: "Q BTCUSD" (the Q is the search icon; may glue to the ticker)
   const tick = text.match(/\bQ\s*([A-Z][A-Z0-9.]{1,11})\b/) || text.match(/\b([A-Z]{2,6}USD?T?)\b/)
   if (tick) return tick[1].replace(/^Q(?=[A-Z]{2,})/, '').toUpperCase().slice(0, 12)
   return ''
+}
+
+// Normalize a label to a grouping key so OCR variants of the same asset merge
+// ("BTCUSD" / "BITCOIN U.S. DOLLAR" → "BITCOIN"; first meaningful word).
+export function groupKey(label) {
+  const w = label.replace(/[^A-Z ]/gi, ' ').toUpperCase().split(/\s+/).filter(Boolean)
+  const alias = { BTCUSD: 'BITCOIN', BTC: 'BITCOIN', ETHUSD: 'ETHEREUM', ETH: 'ETHEREUM' }
+  return alias[w[0]] || w[0] || label
 }
 
 // Levenshtein-ratio similarity so OCR jitter ("CONOCOPHILLIPS" vs "CONOCOPHILUPS") still groups.

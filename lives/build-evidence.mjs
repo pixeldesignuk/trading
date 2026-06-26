@@ -46,7 +46,7 @@ function extractFrame(video, sec, outPng) {
 function ocrFrame(pngPath) {
   const pre = pngPath.replace(/\.png$/, '.ocr.png')
   try {
-    execFileSync('ffmpeg', ['-y', '-i', pngPath, '-vf', 'format=gray,negate,scale=iw*1.5:ih*1.5', pre], {
+    execFileSync('ffmpeg', ['-y', '-i', pngPath, '-frames:v', '1', '-vf', 'format=gray,negate,scale=iw*1.5:ih*1.5', pre], {
       stdio: 'ignore',
     })
     const out = execFileSync('tesseract', [pre, 'stdout', '--psm', '11'], { encoding: 'utf8' })

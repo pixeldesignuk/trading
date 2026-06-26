@@ -64,6 +64,19 @@ const fmtMoney = (v, ccy = 'GBP') => (v == null ? '—' : v.toLocaleString('en-G
 const pct0 = (f) => (f == null ? '—' : `${Math.round(f * 100)}%`)
 const signed = (f) => (f == null ? '—' : `${f >= 0 ? '+' : ''}${(f * 100).toFixed(1)}%`)
 const isIdea = (t) => t.status === 'new' && (t.sources || []).includes('community')
+const DAY = 86400000
+// Compact "time since" for the date-added column: 5h · 3d · 2w · 4mo · 1y.
+const agoShort = (iso) => {
+  if (!iso) return null
+  const ms = Date.now() - new Date(iso).getTime()
+  if (ms < DAY) { const h = Math.floor(ms / 3600000); return h < 1 ? 'now' : `${h}h` }
+  const d = Math.floor(ms / DAY)
+  if (d < 14) return `${d}d`
+  if (d < 60) return `${Math.floor(d / 7)}w`
+  if (d < 365) return `${Math.floor(d / 30)}mo`
+  return `${Math.floor(d / 365)}y`
+}
+const isRecent = (iso) => iso && Date.now() - new Date(iso).getTime() < 3 * DAY
 const sinceText = (iso) => {
   if (!iso) return 'never'
   const mins = Math.round((Date.now() - new Date(iso).getTime()) / 60000)
@@ -230,7 +243,7 @@ function AlertToggle({ armed, busy, onToggle }) {
   )
 }
 
-function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDragEnd, onDragOver, onDrop, dropEdge, armed, alertBusy, onToggleAlert }) {
+function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDragEnd, onDragOver, onDrop, dropEdge, armed, alertBusy, onToggleAlert, onContextMenu }) {
   const price = quote?.price ?? null
   const change = quote?.changePct ?? null
   const sharia = t.sharia_status || 'unknown'
@@ -242,7 +255,7 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
 
   return (
     <div draggable={draggable} onDragStart={draggable ? onDragStart : undefined} onDragEnd={onDragEnd}
-      onDragOver={onDragOver} onDrop={onDrop}
+      onDragOver={onDragOver} onDrop={onDrop} onContextMenu={onContextMenu}
       onClick={() => onOpen(t.symbol)}
       className={`row-in group relative grid min-h-[48px] grid-cols-[24px_minmax(150px,1fr)_minmax(120px,1.6fr)_92px_160px_104px] items-center gap-x-3 border-b border-zinc-900 px-3 py-1.5 text-left transition-colors last:border-b-0 hover:bg-white/[0.025] ${draggable ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'} ${dropEdge ? 'before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-emerald-400' : ''}`}>
       {/* alert bell (trades only) — leading slot, empty for holds to keep alignment */}
@@ -251,8 +264,10 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
       <div className="flex min-w-0 items-center gap-2">
         <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: dot }} />
         <span className="shrink-0 whitespace-nowrap font-mono text-[13px] font-semibold tracking-tight text-zinc-100">{t.symbol}</span>
+        {isRecent(t.first_seen) && <span className="shrink-0 rounded bg-emerald-500/15 px-1 py-0.5 text-[8px] font-semibold uppercase tracking-wider text-emerald-300">New</span>}
         {layer && <span className="shrink-0 rounded px-1 py-0.5 text-[8px] font-semibold uppercase tracking-wider" style={{ color: layer.c, background: layer.c + '1a' }}>{layer.label}</span>}
         <span className="truncate text-[11px] text-zinc-500">{t.name || ''}</span>
+        {t.first_seen && <span className="ml-auto shrink-0 whitespace-nowrap font-mono text-[10px] text-zinc-600" title={`Added ${new Date(t.first_seen).toLocaleDateString('en-GB')}`}>{agoShort(t.first_seen)}</span>}
       </div>
       {/* posture — plan rail for trades, allocation posture for holds */}
       <div className="min-w-0">
@@ -340,6 +355,34 @@ function ScanBar({ atRisk, watch, onOpen, onAskZ }) {
   )
 }
 
+// ── right-click context menu ──────────────────────────────────────────────────
+function ContextMenu({ menu, actions, onClose }) {
+  useEffect(() => {
+    if (!menu) return
+    const onKey = (e) => e.key === 'Escape' && onClose()
+    window.addEventListener('keydown', onKey); window.addEventListener('scroll', onClose, true)
+    return () => { window.removeEventListener('keydown', onKey); window.removeEventListener('scroll', onClose, true) }
+  }, [menu, onClose])
+  if (!menu) return null
+  // Clamp to viewport so the menu never opens off-screen.
+  const x = Math.min(menu.x, window.innerWidth - 200)
+  const y = Math.min(menu.y, window.innerHeight - (actions.length * 32 + 16))
+  return (
+    <>
+      <div className="fixed inset-0 z-40" onClick={onClose} onContextMenu={(e) => { e.preventDefault(); onClose() }} />
+      <div className="fixed z-50 min-w-[184px] rounded-lg border border-zinc-800 bg-zinc-950 p-1 shadow-xl shadow-black/60" style={{ left: x, top: y }}>
+        <div className="px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-600">{menu.t.symbol}</div>
+        {actions.map((a, i) => a.divider ? <div key={i} className="my-1 border-t border-zinc-800/70" /> : (
+          <button key={i} onClick={() => { a.onClick(); onClose() }} disabled={a.disabled}
+            className={`flex w-full items-center gap-2.5 rounded px-2.5 py-1.5 text-left text-[12px] hover:bg-white/5 disabled:opacity-40 ${a.danger ? 'text-red-300' : 'text-zinc-300'}`}>
+            <span className="w-4 text-center text-[11px] text-zinc-500">{a.icon}</span>{a.label}
+          </button>
+        ))}
+      </div>
+    </>
+  )
+}
+
 // ── the page ──────────────────────────────────────────────────────────────────
 export default function Portfolio({ onOpen, onAskZ }) {
   const [rows, setRows] = useState(null)
@@ -354,6 +397,7 @@ export default function Portfolio({ onOpen, onAskZ }) {
   const [drag, setDrag] = useState(null)            // { symbol, from } currently dragged
   const [planArmed, setPlanArmed] = useState(new Set())  // symbols with plan alerts armed
   const [alertBusy, setAlertBusy] = useState(null)
+  const [menu, setMenu] = useState(null)                 // right-click context menu { x, y, t }
   // Which status groups are collapsed — persisted across reloads.
   const [collapsed, setCollapsed] = useState(() => {
     try { return new Set(JSON.parse(localStorage.getItem('portfolio.collapsed') || '[]')) } catch { return new Set() }
@@ -521,6 +565,26 @@ export default function Portfolio({ onOpen, onAskZ }) {
   const onColDrop = (e, col) => { e.preventDefault(); if (col.droppable) moveCard(col.key, dropAt?.col === col.key ? dropAt.before : null) }
   const onRowDrop = (e, t, col) => { e.preventDefault(); e.stopPropagation(); if (col.droppable) moveCard(col.key, t.symbol) }
 
+  // Move a ticker between pipeline stages (optimistic), used by the context menu.
+  const setRowStatus = async (sym, status) => {
+    setRows((prev) => prev.map((t) => (t.symbol === sym ? { ...t, status } : t)))
+    await api.setStatus(sym, status).catch(loadShared)
+  }
+  // Build the context-menu actions for a given row.
+  const rowActions = (t) => {
+    const isHold = t.classification?.layer === 'hold'
+    const armed = planArmed.has(t.symbol)
+    const STAGES = [['new', 'Potential'], ['watching', 'Watched']]
+    const acts = [{ label: 'Open ticker', icon: '↗', onClick: () => onOpen(t.symbol) }]
+    if (!isHold) acts.push({ label: armed ? 'Disarm alerts' : 'Arm plan alerts', icon: armed ? '✕' : '🔔', onClick: () => onToggleAlert(t.symbol, armed) })
+    const moves = STAGES.filter(([k]) => k !== t.status && ['new', 'watching'].includes(t.status))
+    if (moves.length) {
+      acts.push({ divider: true })
+      for (const [k, label] of moves) acts.push({ label: `Move to ${label}`, icon: '→', onClick: () => setRowStatus(t.symbol, k) })
+    }
+    return acts
+  }
+
   const onToggleAlert = async (sym, isArmed) => {
     setAlertBusy(sym)
     setPlanArmed((prev) => { const n = new Set(prev); isArmed ? n.delete(sym) : n.add(sym); return n })  // optimistic
@@ -581,13 +645,16 @@ export default function Portfolio({ onOpen, onAskZ }) {
                     onDragStart={(e) => onDragStart(e, t)} onDragEnd={onDragEnd}
                     onDragOver={(e) => onRowDragOver(e, t, col)} onDrop={(e) => onRowDrop(e, t, col)}
                     dropEdge={dropAt?.col === col.key && dropAt?.before === t.symbol}
-                    armed={planArmed.has(t.symbol)} alertBusy={alertBusy === t.symbol} onToggleAlert={onToggleAlert} />
+                    armed={planArmed.has(t.symbol)} alertBusy={alertBusy === t.symbol} onToggleAlert={onToggleAlert}
+                    onContextMenu={(e) => { e.preventDefault(); setMenu({ x: e.clientX, y: e.clientY, t }) }} />
                 ))
               )}
             </div>
           )
         })}
       </div>
+
+      <ContextMenu menu={menu} actions={menu ? rowActions(menu.t) : []} onClose={() => setMenu(null)} />
     </div>
   )
 }
