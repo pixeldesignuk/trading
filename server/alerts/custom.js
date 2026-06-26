@@ -2,6 +2,7 @@ import { query } from '../db.js'
 import { getTicker } from '../tickers.js'
 import { getQuotes } from '../price-provider.js'
 import { appendEvent } from '../events.js'
+import { resolvePlan } from './resolve-plan.js'
 
 // ── Custom price-cross alerts ────────────────────────────────────────────────
 // Free-standing "ping me when SYM crosses PRICE", distinct from the plan-derived
@@ -10,6 +11,7 @@ import { appendEvent } from '../events.js'
 // run alongside the plan alerts and delivered through the same Telegram path.
 
 const DIRECTIONS = new Set(['above', 'below'])
+const CREATORS = new Set(['chat', 'widget', 'plan'])
 const fmt = (n) => (n == null ? '?' : Number(n).toLocaleString('en-US', { maximumFractionDigits: 6 }))
 
 // Active custom alerts, newest first. Optional symbol filter.
@@ -34,9 +36,45 @@ export async function createCustomAlert({ symbol, direction, price, note = null,
   const r = await query(
     `INSERT INTO custom_alerts (symbol, direction, price, note, created_by)
      VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-    [sym, dir, p, note ? String(note).slice(0, 280) : null, createdBy === 'widget' ? 'widget' : 'chat'],
+    [sym, dir, p, note ? String(note).slice(0, 280) : null, CREATORS.has(createdBy) ? createdBy : 'chat'],
   )
   return r.rows[0]
+}
+
+// ── Plan-armed alerts ────────────────────────────────────────────────────────
+// Arm a deterministic set of one-shot alerts straight from a ticker's plan: the
+// entry (buy zone), the invalidation (stop) and each target. Direction is chosen
+// so each alert sits AHEAD of the live price (a future cross) rather than firing
+// instantly. Tagged created_by='plan' so disarm can find + cancel exactly this
+// set; re-arming clears the old set first so levels track the current plan.
+export async function armPlanAlerts(symbol) {
+  const sym = String(symbol || '').toUpperCase().trim()
+  const t = await getTicker(sym)
+  if (!t) throw new Error(`unknown ticker ${sym}`)
+  const plan = resolvePlan(t)
+  if (!plan) return { symbol: sym, armed: 0, reason: 'no plan levels' }
+  await disarmPlanAlerts(sym)
+  let price = null
+  try { const q = await getQuotes([{ ticker: sym, asset_class: t.asset_class }]); price = q[sym]?.price ?? null } catch { /* best-effort */ }
+  const aheadDir = (level) => (price != null && price >= level ? 'below' : 'above')
+  const levels = []
+  if (plan.entryHigh != null) levels.push({ price: plan.entryHigh, note: 'Plan: entry zone' })
+  if (plan.invalidation != null) levels.push({ price: plan.invalidation, direction: 'below', note: 'Plan: invalidation (stop)' })
+  ;(plan.targets || []).forEach((tp, i) => levels.push({ price: tp, direction: 'above', note: `Plan: target ${i + 1}` }))
+  let armed = 0
+  for (const lv of levels) {
+    if (lv.price == null || !(lv.price > 0)) continue
+    await createCustomAlert({ symbol: sym, direction: lv.direction || aheadDir(lv.price), price: lv.price, note: lv.note, createdBy: 'plan' })
+    armed++
+  }
+  return { symbol: sym, armed }
+}
+
+// Cancel the plan-armed set for a ticker (custom chat/widget alerts untouched).
+export async function disarmPlanAlerts(symbol) {
+  const sym = String(symbol || '').toUpperCase().trim()
+  const r = await query("UPDATE custom_alerts SET active=FALSE WHERE symbol=$1 AND created_by='plan' AND active", [sym])
+  return { symbol: sym, cancelled: r.rowCount }
 }
 
 // Deactivate one alert. Returns true if a matching active alert was found.

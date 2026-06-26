@@ -77,6 +77,13 @@ export const api = {
       method: 'POST', headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ symbol, muted }),
     }).then(j),
+  armAlerts: (symbol) => fetch(`/api/tickers/${symbol}/alerts/arm`, { method: 'POST' }).then(j),
+  disarmAlerts: (symbol) => fetch(`/api/tickers/${symbol}/alerts/arm`, { method: 'DELETE' }).then(j),
+  reorderTickers: (symbols) =>
+    fetch('/api/tickers/reorder', {
+      method: 'PATCH', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ symbols }),
+    }).then(j),
   enrichTicker: (symbol, { ai_thesis, plan_levels } = {}) =>
     fetch('/api/enrich/ticker', {
       method: 'POST', headers: { 'content-type': 'application/json' },

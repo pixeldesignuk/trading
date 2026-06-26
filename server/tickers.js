@@ -49,6 +49,21 @@ export async function setStatus(symbol, status) {
   await query('UPDATE tickers SET status=$2, updated_at=now() WHERE symbol=$1', [symbol, status])
 }
 
+// Persist manual board order: sort_order = the symbol's index in `symbols`. One
+// atomic statement (unnest join). Used by the Portfolio drag-reorder so the
+// 'Manual' sort survives reloads (ORDER BY sort_order in listTickers).
+export async function reorderTickers(symbols = []) {
+  const list = symbols.map((s) => String(s).toUpperCase()).filter(Boolean)
+  if (!list.length) return { reordered: 0 }
+  const r = await query(
+    `UPDATE tickers AS t SET sort_order = v.ord, updated_at = now()
+       FROM (SELECT * FROM unnest($1::text[], $2::int[]) AS x(symbol, ord)) v
+      WHERE t.symbol = v.symbol`,
+    [list, list.map((_, i) => i)],
+  )
+  return { reordered: r.rowCount }
+}
+
 // Lock in the investable ETC for a commodity ticker (surfaces on lists + alerts).
 export async function setVehicle(symbol, vehicle) {
   await query('UPDATE tickers SET commodity_vehicle=$2, updated_at=now() WHERE symbol=$1', [symbol, vehicle])

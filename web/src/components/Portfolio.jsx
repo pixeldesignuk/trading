@@ -194,7 +194,19 @@ function HoldPosture({ t }) {
   )
 }
 
-function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDragOver, onDrop, dropEdge }) {
+// Per-row alert toggle — arms/disarms the plan-derived alert set (entry · stop ·
+// targets). Only meaningful for a TRADE with levels; hidden for holds.
+function AlertToggle({ armed, busy, onToggle }) {
+  return (
+    <button onClick={(e) => { e.stopPropagation(); onToggle() }} disabled={busy}
+      title={armed ? 'Plan alerts armed — click to disarm' : 'Arm alerts from this plan (entry · stop · targets)'}
+      className={`flex h-5 items-center gap-1 rounded border px-1.5 text-[9px] font-semibold uppercase tracking-wider transition-colors disabled:opacity-40 ${armed ? 'border-emerald-500/40 bg-emerald-500/15 text-emerald-300' : 'border-zinc-700/70 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'}`}>
+      <span className="text-[10px] leading-none">{armed ? '🔔' : '🔕'}</span>{busy ? '…' : armed ? 'Armed' : 'Arm'}
+    </button>
+  )
+}
+
+function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDragEnd, onDragOver, onDrop, dropEdge, armed, alertBusy, onToggleAlert }) {
   const price = quote?.price ?? null
   const change = quote?.changePct ?? null
   const sharia = t.sharia_status || 'unknown'
@@ -205,7 +217,7 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
   const pctOfBook = holding && led?.bookValue ? holding.value / led.bookValue : null
 
   return (
-    <div draggable={draggable} onDragStart={draggable ? (e) => onDragStart(e, t) : undefined}
+    <div draggable={draggable} onDragStart={draggable ? onDragStart : undefined} onDragEnd={onDragEnd}
       onDragOver={onDragOver} onDrop={onDrop}
       onClick={() => onOpen(t.symbol)}
       className={`row-in group relative grid grid-cols-[minmax(120px,1.1fr)_minmax(150px,1.8fr)_minmax(70px,0.85fr)_minmax(100px,1.1fr)_auto] items-center gap-3 border-b border-zinc-900 px-3 py-2 text-left transition-colors last:border-b-0 hover:bg-white/[0.025] ${draggable ? 'cursor-grab active:cursor-grabbing' : 'cursor-pointer'} ${dropEdge ? 'before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-emerald-400' : ''}`}>
@@ -249,8 +261,9 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
           <span className="text-zinc-700">—</span>
         )}
       </div>
-      {/* sharia + grade */}
+      {/* alerts (trades only) + sharia + grade */}
       <div className="flex items-center justify-end gap-2">
+        {!isHold && <AlertToggle armed={armed} busy={alertBusy} onToggle={() => onToggleAlert(t.symbol, armed)} />}
         <span className={`rounded border px-1.5 py-0.5 text-[9px] font-medium ${SHARIA[sharia] || SHARIA.unknown}`}>{SHARIA_LABEL[sharia] || 'Unscreened'}</span>
         <span className="w-4 text-right font-mono text-[11px]" style={t.top_grade != null ? { color: t.top_grade >= 7 ? '#34d399' : t.top_grade >= 5 ? '#fbbf24' : '#f87171' } : undefined} title="§20 grade">{t.top_grade ?? ''}</span>
       </div>
@@ -268,6 +281,10 @@ export default function Portfolio({ onOpen }) {
   const [households, setHouseholds] = useState([])
   const [syncing, setSyncing] = useState(false)
   const [dragOver, setDragOver] = useState(null)
+  const [dropAt, setDropAt] = useState(null)        // { col, before } — insertion indicator
+  const [drag, setDrag] = useState(null)            // { symbol, from } currently dragged
+  const [planArmed, setPlanArmed] = useState(new Set())  // symbols with plan alerts armed
+  const [alertBusy, setAlertBusy] = useState(null)
 
   const [scope, setScope] = useUrlState('scope', 'me')
   const isHousehold = scope.startsWith('hh:')
@@ -293,7 +310,11 @@ export default function Portfolio({ onOpen }) {
   }
   const clearAll = () => { for (const k of Object.keys(setters)) setters[k](''); setMinGrade(''); setQ('') }
 
-  const loadShared = () => { api.tickers().then(setRows); api.quotes().then(setQuotes) }
+  const refreshArmed = (alerts) => setPlanArmed(new Set((alerts?.custom || []).filter((c) => c.created_by === 'plan').map((c) => c.symbol)))
+  const loadShared = () => {
+    api.tickers().then(setRows); api.quotes().then(setQuotes)
+    api.alerts().then(refreshArmed).catch(() => {})
+  }
   const loadScoped = () => {
     api.ledger(scope).then(setLed).catch(() => setLed(null))
     api.holdings(scope).then(setHoldings).catch(() => setHoldings([]))
@@ -364,15 +385,49 @@ export default function Portfolio({ onOpen }) {
     finally { setSyncing(false) }
   }
 
-  const onDragStart = (e, t) => { e.dataTransfer.setData('text/plain', JSON.stringify({ symbol: t.symbol, from: t.status })) }
-  const onDrop = async (e, col) => {
-    e.preventDefault(); setDragOver(null)
-    if (!col.droppable) return
-    let data; try { data = JSON.parse(e.dataTransfer.getData('text/plain')) } catch { return }
-    if (!data?.symbol || data.from === col.key) return
-    if (!['new', 'watching'].includes(data.from)) return  // only manual stages move by drag
-    setRows((prev) => prev.map((t) => (t.symbol === data.symbol ? { ...t, status: col.key } : t)))  // optimistic
-    await api.setStatus(data.symbol, col.key).catch(loadShared)
+  // ── drag: move between manual stages (new↔watching) AND reorder within a group.
+  // Order persists via sort_order (the 'Manual' sort). Only the manual stages
+  // drag; Active/Closed are broker-driven.
+  const MANUAL = ['new', 'watching']
+  const onDragStart = (e, t) => { setDrag({ symbol: t.symbol, from: t.status }); e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', t.symbol) }
+  const onDragEnd = () => { setDrag(null); setDropAt(null); setDragOver(null) }
+  const onRowDragOver = (e, t, col) => {
+    if (!drag || !col.droppable) return
+    e.preventDefault(); e.stopPropagation()
+    setDragOver(col.key); setDropAt({ col: col.key, before: t.symbol })
+  }
+  // Drop dragged card into `destCol`, inserted before `beforeSym` (or appended).
+  const moveCard = async (destCol, beforeSym) => {
+    const d = drag; setDrag(null); setDropAt(null); setDragOver(null)
+    if (!d || !MANUAL.includes(d.from) || !MANUAL.includes(destCol)) return
+    if (beforeSym === d.symbol) return
+    const prev = rows
+    const moved = { ...prev.find((t) => t.symbol === d.symbol), status: destCol }
+    const without = prev.filter((t) => t.symbol !== d.symbol)
+    let idx
+    if (beforeSym) idx = without.findIndex((t) => t.symbol === beforeSym)
+    else { let last = -1; without.forEach((t, i) => { if (t.status === destCol) last = i }); idx = last + 1 }
+    if (idx < 0) idx = without.length
+    const next = [...without]; next.splice(idx, 0, moved)
+    setRows(next)   // optimistic
+    setSort('manual')   // a manual drag implies manual ordering
+    const destOrder = next.filter((t) => t.status === destCol).map((t) => t.symbol)
+    try {
+      if (d.from !== destCol) await api.setStatus(d.symbol, destCol)
+      await api.reorderTickers(destOrder)
+    } catch { loadShared() }
+  }
+  const onColDrop = (e, col) => { e.preventDefault(); if (col.droppable) moveCard(col.key, dropAt?.col === col.key ? dropAt.before : null) }
+  const onRowDrop = (e, t, col) => { e.preventDefault(); e.stopPropagation(); if (col.droppable) moveCard(col.key, t.symbol) }
+
+  const onToggleAlert = async (sym, isArmed) => {
+    setAlertBusy(sym)
+    setPlanArmed((prev) => { const n = new Set(prev); isArmed ? n.delete(sym) : n.add(sym); return n })  // optimistic
+    try {
+      const res = isArmed ? await api.disarmAlerts(sym) : await api.armAlerts(sym)
+      if (res?.alerts) refreshArmed(res.alerts)
+    } catch { api.alerts().then(refreshArmed).catch(() => {}) }
+    finally { setAlertBusy(null) }
   }
 
   if (rows == null) return <div className="px-3 py-10 text-center text-sm text-zinc-600">Loading…</div>
@@ -401,9 +456,9 @@ export default function Portfolio({ onOpen }) {
           const items = byColumn[col.key]
           return (
             <div key={col.key}
-              onDragOver={col.droppable ? (e) => { e.preventDefault(); setDragOver(col.key) } : undefined}
+              onDragOver={col.droppable && drag ? (e) => { e.preventDefault(); setDragOver(col.key) } : undefined}
               onDragLeave={col.droppable ? () => setDragOver((d) => (d === col.key ? null : d)) : undefined}
-              onDrop={(e) => onDrop(e, col)}
+              onDrop={(e) => onColDrop(e, col)}
               className={`border-b border-zinc-900 last:border-b-0 transition-colors ${dragOver === col.key ? 'bg-emerald-500/[0.04]' : ''}`}>
               <div style={{ borderLeft: `3px solid ${col.accent}`, background: `${col.accent}14` }}
                 className="flex w-full items-center gap-2 border-b border-zinc-900 px-3 py-1.5">
@@ -416,7 +471,11 @@ export default function Portfolio({ onOpen }) {
               ) : (
                 items.map((t) => (
                   <ListRow key={t.symbol} t={t} quote={quotes[t.symbol]} holding={holdingByTicker[t.symbol]} led={led}
-                    draggable={col.droppable} onOpen={onOpen} onDragStart={onDragStart} />
+                    draggable={col.droppable} onOpen={onOpen}
+                    onDragStart={(e) => onDragStart(e, t)} onDragEnd={onDragEnd}
+                    onDragOver={(e) => onRowDragOver(e, t, col)} onDrop={(e) => onRowDrop(e, t, col)}
+                    dropEdge={dropAt?.col === col.key && dropAt?.before === t.symbol}
+                    armed={planArmed.has(t.symbol)} alertBusy={alertBusy === t.symbol} onToggleAlert={onToggleAlert} />
                 ))
               )}
             </div>

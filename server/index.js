@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
 import { init, query } from './db.js'
-import { listTickers, getTicker, setStatus, setPlan, setVehicle, setClassification, setCommodityKey, upsertTicker, setActioned } from './tickers.js'
+import { listTickers, getTicker, setStatus, setPlan, setVehicle, setClassification, setCommodityKey, upsertTicker, setActioned, reorderTickers } from './tickers.js'
 import { getCommodity, vehicleByTicker, pickVehicle, commodityView } from './commodities.js'
 import { eventsForTicker } from './events.js'
 import { ingestSignal } from './ingest-signal.js'
@@ -18,7 +18,7 @@ import { streamChat, streamPortfolioChat, chatReady, missingKey } from './chat.j
 import { screenTicker } from './sharia/screen.js'
 import { runAlerts } from './alerts/run.js'
 import { listAlerts } from './alerts/list.js'
-import { createCustomAlert, cancelCustomAlert, setMuted } from './alerts/custom.js'
+import { createCustomAlert, cancelCustomAlert, setMuted, armPlanAlerts, disarmPlanAlerts } from './alerts/custom.js'
 import { ALERTS_RUN_TOKEN } from './config.js'
 import { syncAll } from './brokers/sync.js'
 import { getFunds, getHoldings } from './brokers/funds.js'
@@ -115,6 +115,12 @@ app.get('/api/tickers/:symbol/history', async (req, res) => {
 app.patch('/api/tickers/:symbol/status', async (req, res) => {
   await setStatus(req.params.symbol, req.body.status)
   res.json({ ok: true })
+})
+
+// Persist manual Portfolio board order (sort_order = position in the array).
+app.patch('/api/tickers/reorder', async (req, res) => {
+  try { res.json(await reorderTickers(req.body?.symbols || [])) }
+  catch (e) { res.status(400).json({ error: e.message }) }
 })
 
 app.patch('/api/tickers/:symbol/plan', async (req, res) => {
@@ -265,6 +271,20 @@ app.post('/api/alerts/mute', async (req, res) => {
   try {
     const { symbol, muted } = req.body || {}
     const out = await setMuted(symbol, muted)
+    res.json({ ok: true, ...out, alerts: await listAlerts() })
+  } catch (e) { res.status(400).json({ error: e.message }) }
+})
+
+// Arm / disarm the plan-derived alert set for a ticker (entry · stop · targets).
+app.post('/api/tickers/:symbol/alerts/arm', async (req, res) => {
+  try {
+    const out = await armPlanAlerts(req.params.symbol)
+    res.json({ ok: true, ...out, alerts: await listAlerts() })
+  } catch (e) { res.status(400).json({ error: e.message }) }
+})
+app.delete('/api/tickers/:symbol/alerts/arm', async (req, res) => {
+  try {
+    const out = await disarmPlanAlerts(req.params.symbol)
     res.json({ ok: true, ...out, alerts: await listAlerts() })
   } catch (e) { res.status(400).json({ error: e.message }) }
 })
