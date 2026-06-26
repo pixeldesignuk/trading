@@ -22,7 +22,7 @@ const SHARIA = {
 const SHARIA_ORDER = Object.keys(SHARIA)
 // Stage = where a ticker is in your pipeline: Ideas (community-raised) →
 // Potential (candidates you're considering) → Watched → Active (entered, held).
-const STAGE = { potential: 'Potential', watched: 'Watched', active: 'Active', ideas: 'Ideas' }
+const STAGE = { potential: 'Potential', watched: 'Watched', active: 'Active', ideas: 'Ideas', archived: 'Archived' }
 const STAGE_ORDER = Object.keys(STAGE)
 
 // An "idea" is a community-raised ticker not yet triaged (matches the old Ideas
@@ -35,6 +35,7 @@ export function statusMatch(t, key) {
     case 'ideas': return idea
     case 'watched': return t.status === 'watching'
     case 'active': return t.status === 'in'                 // entered / held
+    case 'archived': return t.status === 'archived'         // parked / removed from the board
     case 'potential': default: return t.status === 'new' && !idea
   }
 }

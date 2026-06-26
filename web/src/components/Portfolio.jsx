@@ -577,10 +577,13 @@ export default function Portfolio({ onOpen, onAskZ }) {
     const STAGES = [['new', 'Potential'], ['watching', 'Watched']]
     const acts = [{ label: 'Open ticker', icon: '↗', onClick: () => onOpen(t.symbol) }]
     if (!isHold) acts.push({ label: armed ? 'Disarm alerts' : 'Arm plan alerts', icon: armed ? '✕' : '🔔', onClick: () => onToggleAlert(t.symbol, armed) })
-    const moves = STAGES.filter(([k]) => k !== t.status && ['new', 'watching'].includes(t.status))
-    if (moves.length) {
+    const manual = ['new', 'watching'].includes(t.status)
+    const moves = STAGES.filter(([k]) => k !== t.status && manual)
+    if (manual) {
       acts.push({ divider: true })
       for (const [k, label] of moves) acts.push({ label: `Move to ${label}`, icon: '→', onClick: () => setRowStatus(t.symbol, k) })
+      // Archive — parks the ticker off the board; restorable from the Tickers tab's Archived stage.
+      acts.push({ label: 'Move to Archive', icon: '🗄', danger: true, onClick: () => setRowStatus(t.symbol, 'archived') })
     }
     return acts
   }

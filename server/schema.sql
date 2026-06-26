@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS tickers (
   symbol         TEXT PRIMARY KEY,
   name           TEXT,
   asset_class    TEXT,                              -- stock | crypto | commodity
-  status         TEXT NOT NULL DEFAULT 'new',       -- new|watching|in|closed|dismissed
+  status         TEXT NOT NULL DEFAULT 'new',       -- new|watching|in|closed|dismissed|archived
   sharia_status  TEXT DEFAULT 'unknown',            -- compliant|questionable|non_compliant|unknown
   sharia_note    TEXT,
   sharia_source  TEXT,

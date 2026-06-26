@@ -37,11 +37,11 @@ export function cleanHeader(raw) {
   //    before the timeframe marker, then drop any leading toolbar words.
   const title = text.match(/([A-Za-z][A-Za-z0-9 .&/']{2,40}?)\s*[-·]\s*\d+\s*[mhdwDWM]\b/)
   if (title) {
-    let name = title[1].replace(/[^A-Za-z0-9 .&/']/g, ' ')
+    let name = title[1].replace(/[^A-Za-z0-9 .&/']/g, ' ').toUpperCase()
     name = name.replace(NOISE, ' ').replace(/\s+/g, ' ').trim()
-    // keep only the asset name: last 1-4 words before the timeframe (drops "Replay Bitcoin"→"Bitcoin")
+    // keep only the asset name: last few words before the timeframe (drops "REPLAY BITCOIN"→"BITCOIN")
     name = name.split(' ').filter(Boolean).slice(-5).join(' ')
-    if (name.replace(/[^A-Za-z]/g, '').length >= 3) return name.toUpperCase().slice(0, 40)
+    if (name.replace(/[^A-Z]/g, '').length >= 3) return name.slice(0, 40)
   }
   // 2) Search-box ticker: "Q BTCUSD" (the Q is the search icon; may glue to the ticker)
   const tick = text.match(/\bQ\s*([A-Z][A-Z0-9.]{1,11})\b/) || text.match(/\b([A-Z]{2,6}USD?T?)\b/)
@@ -52,9 +52,13 @@ export function cleanHeader(raw) {
 // Normalize a label to a grouping key so OCR variants of the same asset merge
 // ("BTCUSD" / "BITCOIN U.S. DOLLAR" → "BITCOIN"; first meaningful word).
 export function groupKey(label) {
-  const w = label.replace(/[^A-Z ]/gi, ' ').toUpperCase().split(/\s+/).filter(Boolean)
   const alias = { BTCUSD: 'BITCOIN', BTC: 'BITCOIN', ETHUSD: 'ETHEREUM', ETH: 'ETHEREUM' }
-  return alias[w[0]] || w[0] || label
+  const w = label.replace(/[^A-Z ]/gi, ' ').toUpperCase().split(/\s+/).filter(Boolean)
+  if (!w.length) return label
+  // prefer a tickerish alias, else the first "real" word (≥4 chars), else the longest.
+  for (const t of w) if (alias[t]) return alias[t]
+  const real = w.find((x) => x.length >= 4)
+  return real || w.slice().sort((a, b) => b.length - a.length)[0]
 }
 
 // Levenshtein-ratio similarity so OCR jitter ("CONOCOPHILLIPS" vs "CONOCOPHILUPS") still groups.
@@ -84,11 +88,13 @@ export function detectChapters(video, durationSec, { interval = 15, minSegSec = 
       samples.push({ t, sym: '' })
     }
   }
-  // collapse consecutive similar symbols into runs
+  // collapse consecutive same-asset samples into runs (group by normalized key so
+  // OCR variants merge; blank readings extend the current run rather than break it)
   const runs = []
   for (const s of samples) {
     const last = runs[runs.length - 1]
-    if (last && (similar(last.sym, s.sym) >= 0.6 || !s.sym)) {
+    const sameAsset = last && s.sym && (groupKey(last.sym) === groupKey(s.sym) || similar(last.sym, s.sym) >= 0.6)
+    if (last && (sameAsset || !s.sym)) {
       last.end = s.t
       if (s.sym && s.sym.length > last.sym.length) last.sym = s.sym // keep the fullest reading
     } else {
