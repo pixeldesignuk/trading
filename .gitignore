@@ -2,8 +2,10 @@ node_modules/
 .env
 data/*.db
 data/*.db-*
-server/public/media/
 .DS_Store
 *.log
 data/price-cache.json
 media/
+# Frontend build output — produced by `pnpm build` (the Dockerfile's build stage
+# on Railway rebuilds it every deploy; local dev uses vite). Not committed.
+server/public/
