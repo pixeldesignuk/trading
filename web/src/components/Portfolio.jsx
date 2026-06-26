@@ -32,6 +32,7 @@ const COLUMNS = [
   { key: 'watching', label: 'Watched', droppable: true, accent: '#fbbf24' },
   { key: 'in', label: 'Active', droppable: false, broker: true, accent: '#34d399' },
   { key: 'closed', label: 'Closed', droppable: false, accent: '#71717a' },
+  { key: 'archived', label: 'Archived', droppable: false, accent: '#52525b' },
 ]
 
 const ASSET = { stock: '#38bdf8', etf: '#2dd4bf', crypto: '#a78bfa', commodity: '#fbbf24' }
@@ -398,14 +399,16 @@ export default function Portfolio({ onOpen, onAskZ }) {
   const [planArmed, setPlanArmed] = useState(new Set())  // symbols with plan alerts armed
   const [alertBusy, setAlertBusy] = useState(null)
   const [menu, setMenu] = useState(null)                 // right-click context menu { x, y, t }
-  // Which status groups are collapsed — persisted across reloads.
+  // Which status groups are collapsed — persisted across reloads. Archived starts
+  // collapsed by default (v2 key seeds it; user toggles persist thereafter).
   const [collapsed, setCollapsed] = useState(() => {
-    try { return new Set(JSON.parse(localStorage.getItem('portfolio.collapsed') || '[]')) } catch { return new Set() }
+    try { const s = localStorage.getItem('portfolio.collapsed.v2'); return new Set(s == null ? ['archived'] : JSON.parse(s)) }
+    catch { return new Set(['archived']) }
   })
   const toggleCollapsed = (key) => setCollapsed((prev) => {
     const next = new Set(prev)
     next.has(key) ? next.delete(key) : next.add(key)
-    try { localStorage.setItem('portfolio.collapsed', JSON.stringify([...next])) } catch { /* ignore */ }
+    try { localStorage.setItem('portfolio.collapsed.v2', JSON.stringify([...next])) } catch { /* ignore */ }
     return next
   })
 
@@ -487,7 +490,7 @@ export default function Portfolio({ onOpen, onAskZ }) {
   }
 
   const byColumn = useMemo(() => {
-    const cols = { new: [], watching: [], in: [], closed: [] }
+    const cols = { new: [], watching: [], in: [], closed: [], archived: [] }
     for (const t of rows || []) {
       if (t.status === 'new' && isIdea(t)) continue           // ideas live on the Tickers tab
       if (!cols[t.status]) continue
@@ -508,7 +511,7 @@ export default function Portfolio({ onOpen, onAskZ }) {
   const { atRisk, watchList } = useMemo(() => {
     const at = [], w = []
     for (const t of rows || []) {
-      if (t.status === 'closed' || (t.status === 'new' && isIdea(t))) continue
+      if (t.status === 'closed' || t.status === 'archived' || (t.status === 'new' && isIdea(t))) continue
       const layer = t.classification?.layer
       const held = holdingByTicker[t.symbol]
       const price = quotes[t.symbol]?.price ?? null
@@ -577,13 +580,13 @@ export default function Portfolio({ onOpen, onAskZ }) {
     const STAGES = [['new', 'Potential'], ['watching', 'Watched']]
     const acts = [{ label: 'Open ticker', icon: '↗', onClick: () => onOpen(t.symbol) }]
     if (!isHold) acts.push({ label: armed ? 'Disarm alerts' : 'Arm plan alerts', icon: armed ? '✕' : '🔔', onClick: () => onToggleAlert(t.symbol, armed) })
-    const manual = ['new', 'watching'].includes(t.status)
-    const moves = STAGES.filter(([k]) => k !== t.status && manual)
-    if (manual) {
+    // Manual stages (new/watching) and archived can be re-staged from the menu.
+    const movable = ['new', 'watching', 'archived'].includes(t.status)
+    if (movable) {
       acts.push({ divider: true })
-      for (const [k, label] of moves) acts.push({ label: `Move to ${label}`, icon: '→', onClick: () => setRowStatus(t.symbol, k) })
-      // Archive — parks the ticker off the board; restorable from the Tickers tab's Archived stage.
-      acts.push({ label: 'Move to Archive', icon: '🗄', danger: true, onClick: () => setRowStatus(t.symbol, 'archived') })
+      for (const [k, label] of STAGES.filter(([k]) => k !== t.status)) acts.push({ label: `Move to ${label}`, icon: '→', onClick: () => setRowStatus(t.symbol, k) })
+      // Archive parks the ticker off the board (restorable here or on the Tickers tab).
+      if (t.status !== 'archived') acts.push({ label: 'Move to Archive', icon: '🗄', danger: true, onClick: () => setRowStatus(t.symbol, 'archived') })
     }
     return acts
   }
