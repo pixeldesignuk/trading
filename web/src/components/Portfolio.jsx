@@ -28,9 +28,9 @@ const hasPlan = (v) => v.state !== 'no_plan' && v.state !== 'no_price'
 // is auto (held → gone). The list is the default view; the board is dormant.
 
 const COLUMNS = [
-  { key: 'new', label: 'Potential', droppable: true, accent: '#38bdf8' },
-  { key: 'watching', label: 'Watched', droppable: true, accent: '#fbbf24' },
   { key: 'in', label: 'Active', droppable: false, broker: true, accent: '#34d399' },
+  { key: 'watching', label: 'Watched', droppable: true, accent: '#fbbf24' },
+  { key: 'new', label: 'Potential', droppable: true, accent: '#38bdf8' },
   { key: 'closed', label: 'Closed', droppable: false, accent: '#71717a' },
   { key: 'archived', label: 'Archived', droppable: false, accent: '#52525b' },
 ]
