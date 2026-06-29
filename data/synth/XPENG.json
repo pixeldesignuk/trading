@@ -1,0 +1,29 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 13,
+    "entry_basis": "zero_live grade — big demand/accumulation zone, chart labelled \"$11/14\" with 0.705 fib ~$13; mid of the $11-14 band (image)",
+    "targets": [
+      { "price": 18, "basis": "red horizontal supply line + hand-drawn bounce target with two blue dots ~$18 (image)" },
+      { "price": 20, "basis": "gray mid resistance line (image, estimated)" },
+      { "price": 22.5, "basis": "green range high (image, estimated)" }
+    ],
+    "invalidation": 11,
+    "stop_basis": "below the $11-14 demand zone / 0.79 fib ~$11.8 — zero_live: \"break and hold below big demand area on daily\""
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-27",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Wants to wait for a full drop back into the $11-14 buying zone; warns price may go lower first; only a partial setup, not an active buy here."
+    }
+  ],
+  "conflicts": [
+    "Internal tension in the one source: the chart sketches a short bounce up to ~$18, but Zero's stated preference is to be patient and buy only on a deeper drop into the $11-14 zone — so the near-term bounce is not the actionable plan."
+  ],
+  "plain_english": "XPeng is trading around $16.50. The only source here would rather wait for the price to fall back into its big buying zone around $11-14 before getting interested, and even warns it could dip below the recent low first. There's a rough sketch on the chart of a brief bounce up toward $18, but the trader's stated plan is to be patient and buy lower, not to chase it at the current price. Best move: wait — set alerts near $13 and only reconsider if it reaches the $11-14 zone."
+}

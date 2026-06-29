@@ -1,0 +1,32 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 4.77,
+    "entry_basis": "zero_live chart — the discount buy zone where the bullish break of structure formed: 0.5 retracement at 4.77, deeper fill toward 0.786 at 4.32. NOT the extracted '5.70–6.00', which sits at overhead resistance on the chart.",
+    "targets": [
+      { "price": 6.30, "basis": "zero_live chart — the marked 'key' level at ~6.3034 (first overhead resistance / partial TP)" },
+      { "price": 8.20, "basis": "zero_live chart — base of the highlighted 8.20–8.37 take-profit supply zone" },
+      { "price": 9.00, "basis": "zero_live text — imbalance/gap from late Dec 2024 (stated target)" }
+    ],
+    "invalidation": 4.00,
+    "stop_basis": "below the 0.786 OTE level (4.32) and the green demand block (~4.0) at the range low — a close under this kills the bullish break-of-structure thesis. (The extracted 'close below 5.70' is below current price and is rejected.)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-12",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Textbook (8/10) swing long: price tapped the discount zone, broke structure to the upside, and is heading for the 8.20–8.37 supply zone with a stretch target near 9.00."
+    }
+  ],
+  "conflicts": [
+    "Image vs text: the extracted entry '5.70–6.00' is overhead resistance on the chart (the 0.62/0.705 retracement cluster of the prior down-leg), not a discount long entry — the chart's actual buy zone is the 4.32–4.77 OTE where the break of structure formed. Image wins.",
+    "Image vs text: the extracted invalidation 'close below 5.70' sits below the current price (5.33), which is nonsensical for a long; the structural invalidation is a close below the ~4.0 demand block / 4.32 OTE low. Image wins.",
+    "Image vs text: the extracted first target '5.14' is below both the current price and the entry, so it cannot be an upside target — disregarded.",
+    "Staleness: this is a single source dated 2025-05-12, more than a year old, with no fresher confirmation. The structure is a template, not a live trigger — treat the levels as a plan that needs re-validation against current price action before acting."
+  ],
+  "plain_english": "Only one source covers Cosmos, and it is over a year old, so treat this as a study rather than a live trade. On that chart the coin had dropped into a cheap buy area around 4.30–4.80, bounced strongly, and was pointed up toward roughly 8.20–9.00. The numbers the earlier step pulled out are jumbled (it listed a buy level that is actually resistance and a stop that sits below where price already was), so do not trust them at face value. Wait: do nothing until you re-check Cosmos at today's price and a fresh signal confirms the same bullish setup."
+}

@@ -1,0 +1,31 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No price level exists. The only chart is a Commitments-of-Traders positioning page (Long vs. Short bars), not a price chart — it carries no entry zone. The text's 'value at low retest' was flagged by its own grader as 'exact level unclear from partial screenshot, estimated.'",
+    "targets": [
+      {
+        "price": null,
+        "basis": "No target levels are stated or drawable; 'value at high retest' is a generic placeholder with no number."
+      }
+    ],
+    "invalidation": null,
+    "stop_basis": "No structural level given — the source shows positioning data, not price structure, so no stop can be anchored."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-27",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "An educational walk-through of how to build a EUR/CAD setup from Commitments-of-Traders data; the large-speculator (NonCommercial) group is shown net long the Euro at about 55%, a mild bullish lean, but no buy/sell price is given."
+    }
+  ],
+  "conflicts": [
+    "The chart image is a Commitments-of-Traders positioning page (Long vs. Short bars), not a price chart — so the extracted entry/target prices ('value at low/high retest') do not appear anywhere on the image and cannot be trusted as levels.",
+    "The grade text itself admits the entry level is 'unclear from partial screenshot, estimated' — there is no firm number behind it."
+  ],
+  "plain_english": "The only material here is one teaching screenshot showing how big speculators are positioned in the Euro versus the Canadian dollar — they lean slightly long (about 55% betting it rises). That is background positioning, not a trade: there is no buy price, no profit target, and no level that says the idea is wrong. Treat it as context only and wait — there is nothing concrete to act on until an actual price setup with real levels appears."
+}

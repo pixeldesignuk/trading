@@ -1,0 +1,33 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "enter",
+  "safest_plan": {
+    "entry": 28.2,
+    "entry_basis": "community 2026-06-25: current price in fib retrace zone 26–32",
+    "targets": [
+      { "price": 43, "basis": "Zero live 2025-05-21: long target extension to ATH retest (43–46)" },
+      { "price": 46, "basis": "Zero live 2025-05-21: long target extension to ATH retest (43–46)" }
+    ],
+    "invalidation": 25.64,
+    "stop_basis": "community 2026-06-25: 2W/4W Bollinger Band support; aligns with Zero live 2025-05-21 structural stop at close below 25"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-21",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Long entry 25–30 (gap rebalance from 2018–2020) targeting 43–46 extension to ATH retest; alternative short at 39 for 33–35 downside; grade 6/10 partial confidence"
+    },
+    {
+      "source": "community",
+      "as_of": "2026-06-25",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Resurfaced FDP as Zero's old long setup; price ~28.2 in fib retrace zone 26–32 above 2W/4W BB support 25.64; structure confirms entry zone is live"
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Fresh Del Monte is in its primary long entry zone (25–30) at current price ~28.2, sitting comfortably above two-week Bollinger Band support at 25.64. Both the technical structure from a year ago and fresh community confirmation today agree this is a valid rebalance entry. Targets are 43–46, representing a climb back to prior all-time-high levels. Your stop is at 25.64; if price closes below that, the setup breaks and the trade is done. The setup is not contested—both sources align on the long thesis. Conviction is moderate (6/10) because the original chart analysis is old and carried only partial confidence from Zero, but it's validated by current price action. Action: enter or add to longs at current levels targeting the 43–46 zone."
+}

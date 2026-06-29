@@ -1,0 +1,26 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "Zero live (2026-05-26) names only a 'spot demand level (pullback/retest zone)' with no price; no chart was provided to read a level off, so no number can be set without inventing one",
+    "targets": [
+      { "price": null, "basis": "Zero live (2026-05-26): 'longer-term highs' — no price given" },
+      { "price": null, "basis": "Zero live (2026-05-26): 'supply area above current price' — no price given" }
+    ],
+    "invalidation": null,
+    "stop_basis": "Zero live (2026-05-26): a daily close back below the demand/support zone that the buy is leaning on — but the zone itself was never priced, so no stop number can be set"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-26",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy a pullback into a demand zone and look for a move up toward the prior longer-term highs; weak setup graded 4/10."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one source has weighed in on Disney: a single educational mention that suggested buying on a dip into a support area and aiming for the prior highs, but it gave no actual prices and it scored the idea as weak. With no numbers to act on and no chart to read levels from, there is nothing concrete to trade here. Wait for a clear, priced level before doing anything."
+}

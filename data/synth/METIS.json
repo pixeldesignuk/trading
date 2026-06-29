@@ -1,0 +1,31 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 18,
+    "entry_basis": "zero_live grade: primary buy at 18 (0.5 equilibrium of the 'high liquidity concentration' band). The chart also marks a SECOND, deeper buy at 16 (0.79 fib floor, blue markers) — scaling in toward 16 gives a much better reward:risk than 18 alone.",
+    "targets": [
+      { "price": 22.84, "basis": "zero_live grade TP1 — labelled 22.84$ supply on chart" },
+      { "price": 23.83, "basis": "zero_live grade TP2 — labelled 23.83$ at the HTF supply / 1.618 fib on chart" },
+      { "price": 29.74, "basis": "zero_live grade — low edge of the 29.74-31.35 'smart money' sell area (above the visible chart; final exit zone, estimated as the lower bound)" }
+    ],
+    "invalidation": 14,
+    "stop_basis": "Structural: a daily close below ~14 — the swing low (point B) and the green demand zone that anchor this whole long. NOTE: the extracted invalidation of 'close above 37.68' is an extraction error (that is a swing-high above the setup, not a stop for a buy); the image's swing-low support governs the stop instead."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-19",
+      "stance": "bullish",
+      "timeframe": "swing (daily, with higher-timeframe supply context)",
+      "summary": "Textbook (graded 9/10) buy-the-dip setup: buy the 16-18 demand band, target 22.84 then 23.83, trim into ~29.74-31.35."
+    }
+  ],
+  "conflicts": [
+    "The extracted invalidation says 'daily close above 37.68' — that is wrong for a buy. A long here is voided by a close BELOW the ~14 swing low, not above a higher price; 37.68 is not even on the chart. The image's swing-low support is used as the stop.",
+    "The text lists only one entry (18), but the chart clearly marks a second, deeper buy at 16 (the 0.79 fib floor with the blue markers). Both have been included.",
+    "Staleness: this chart is dated May 2025, over a year old, and there is no live price to confirm the 16-18 zone is still in play. Treat the levels as a reference, not a fresh trigger."
+  ],
+  "plain_english": "This is a single, well-drawn buy setup from Zero — but it is from May 2025, more than a year old, so the prices may no longer line up with where the coin trades now. The idea is to buy on a pull-back into the 16-to-18 area (better value the closer to 16), aim to sell into the low-20s (around 22.8 then 23.8), and give up on the trade if the daily candle closes below roughly 14. Because the chart is so old and there's no current price to check it against, don't jump in — wait for price to actually return to the 16-18 zone and confirm before acting."
+}

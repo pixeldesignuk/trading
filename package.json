@@ -15,6 +15,7 @@
     "test": "node --no-warnings --env-file-if-exists=.env --test server/*.test.js server/alerts/*.test.js server/brokers/*.test.js server/brokers/*.integration.test.js server/portfolio/*.test.js",
     "feed:state": "node --no-warnings --env-file-if-exists=.env server/feed-state.js",
     "alerts:run": "node --no-warnings --env-file-if-exists=.env server/alerts/cli.js",
+    "alerts:digest": "node --no-warnings --env-file-if-exists=.env server/alerts/digest-cli.js",
     "seed:feed": "node --no-warnings --env-file-if-exists=.env server/seed-feed.js",
     "migrate": "node --no-warnings --env-file-if-exists=.env server/migrate-to-tickers.js",
     "import:hub": "node --no-warnings --env-file-if-exists=.env server/import-hub-charts.js",

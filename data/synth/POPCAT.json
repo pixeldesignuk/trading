@@ -1,0 +1,31 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.27,
+    "entry_basis": "zero_live 2025-05-26 chart — green 'Ultra valid area for buying spot / 2D DEMAND' zone labelled 0.27 (~0.25-0.30); image wins over the extracted-text 'Entry 2 at 0.30-0.35'",
+    "targets": [
+      { "price": 0.62, "basis": "zero_live — 0.62 fib marker / local resistance absorption (top-right cluster)" },
+      { "price": 0.705, "basis": "zero_live — 0.705 fib marker / psychological key level" },
+      { "price": 0.79, "basis": "zero_live — 0.79 marker, major higher-timeframe resistance (weekly projection)" }
+    ],
+    "invalidation": 0.20,
+    "stop_basis": "below the 0.20 demand floor (0.786 line at chart base); a daily close beneath the 2D demand zone voids the long thesis"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-26",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Spot accumulation idea: buy the deep demand zone near 0.27 (and a shallower tap ~0.45), targeting 0.62 then 0.70 and 0.79, invalid on a close below 0.20."
+    }
+  ],
+  "conflicts": [
+    "Only one source (a single chart graded 'partial' 5/10), so there is no second opinion to cross-check this bullish read against.",
+    "The chart's labelled prime buy zone is '0.27 — ultra valid area for buying spot', whereas the extracted text rendered it as a 0.30-0.35 zone; the image's 0.27 level is used.",
+    "This call is dated 2025-05-26 — over 13 months old — and the current live price is unknown, so the levels may now be far from where price actually trades and could be obsolete."
+  ],
+  "plain_english": "A single, year-old chart suggests buying Popcat patiently on a deep dip — the strongest buy area is around 0.27, with a smaller buy near 0.45, aiming to sell into 0.62, then 0.70 and 0.79, and giving up on the idea if it closes below 0.20. But this is just one source, it was only rated 'partial', and it is more than a year stale with no current price to check it against. Treat it as a rough map, not a live trade: wait and re-confirm where price actually is before acting."
+}

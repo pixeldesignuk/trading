@@ -1,0 +1,65 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 1720,
+    "entry_basis": "2026-05-26 Zero chart — deeper weekly demand labelled '1W (3X) PARTIAL' ~1,720; the only fresh zone aligned with the prevailing down-move. Wait for price to tag it AND show a reclaim before buying; do not buy mid-range here.",
+    "targets": [
+      { "price": 1900, "basis": "2026-05-26 chart — '1D|12H|6H DEMAND' ~1,900, first overhead flip on a bounce" },
+      { "price": 2360, "basis": "2026-05-26 chart — '1W SUPPLY' ~2,360 (also 1D supply ~2,283 just below it)" }
+    ],
+    "invalidation": 1600,
+    "stop_basis": "below the 1,600–1,800 demand shelf seen on the 2026-02-02 chart; a close under it opens the March-23 downside targets (1,300–1,400)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-26",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Downtrend intact ~2,075–2,191; sell rallies into the ~2,500 strong level, downside toward 1,700 and possibly lower."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-20",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Small tactical long already filled near 2,255 for a bounce; explicitly fails if Bitcoin rolls over."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-03-23",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Sell-side at 2,500–2,600 confluence, targeting 1,300–1,400 next, extremes lower if the macro picture breaks."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-02-09",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Conditional long only ON a confirmed close back above the 2,600–2,700 range — that trigger never fired."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-11-24",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy the breaker 2,823–2,900 for 3,300–3,600 — a textbook-graded call that price never delivered; now stale."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-10-06",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy ~4,300 for 5,000–6,800; price instead collapsed from here — anchor invalidated."
+    }
+  ],
+  "conflicts": [
+    "Direction is genuinely split across time: the two freshest reads (May 2026 and March 2026) say sell rallies and target 1,700 then 1,300–1,400, while the older late-2025/early-2026 reads were buy-the-dip calls — the recent bearish HTF view overrides the stale bullish ones because price actually fell.",
+    "The chart wins over the text: the newest 2026-05-26 image already shows price ~2,075, well BELOW the 2,500 'entry' the text lists, so that level is a place to sell a bounce, not a buy — and the chart adds a second, deeper buy zone (~1,720 partial demand) the grade text omits.",
+    "Every 2025 bullish target (4,000 / 5,000 / 6,000) was never reached; ETH dropped roughly 4,950 to 2,000 instead, so those higher-timeframe buy anchors are stale and must not be blended into a current entry."
+  ],
+  "plain_english": "Ethereum has been falling hard for months, from roughly 4,950 down to about 2,000, and the most recent reads say the path of least resistance is still down — sell bounces into the 2,500 area, with downside toward 1,700 and possibly the 1,300–1,400 region. Older notes that said buy the dip for a run to 4,000+ never worked out, so ignore them. This is a falling market, not a buy zone right now: the safest move is to wait, let price reach the deeper support near 1,720 and prove it can hold and turn up before risking anything, and walk away entirely if it closes below about 1,600."
+}

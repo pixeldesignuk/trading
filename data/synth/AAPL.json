@@ -1,0 +1,36 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 207,
+    "entry_basis": "zero_live 2025-05-21 chart 'Currently BB' buy box / daily order block ~206-210 (BUY marked 206.86); 207 is the mid of that 206-210 zone (estimated)",
+    "targets": [
+      { "price": 225, "basis": "zero_live chart label '225$ — MSS when 225$ is reclaimed' (first structural reclaim)" },
+      { "price": 266, "basis": "zero_live chart annotation 'First important TP for AAPL: 266$/268$ premium levels'" }
+    ],
+    "invalidation": 206,
+    "stop_basis": "weekly close below the daily order block / breaker block ~206 — the floor of the green 'Currently BB' zone"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-21",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Weekly chart: accumulate in the 206-210 buy box, with deeper add zones laddered at 193, ~180, ~170 and 150; reclaim 225 then aim for 266/268."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-21",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Context note: DCA zone 206-210 already used; first target 225 reclaim, then 266/268; invalidated on a close below the ~206 daily breaker block."
+    }
+  ],
+  "conflicts": [
+    "The chart shows a deeper staged-accumulation ladder (193, ~180, ~170 at the 0.886, and a '150 — start adding' zone) that the extracted text omitted entirely; the plan is buy-the-dips in tranches, not a single entry.",
+    "The only source is a single educational ('context', grade 2) read dated 2025-05-21 — over a year stale and self-described as 'already exploited' — so the 206-210 anchor cannot be treated as a fresh live level; no newer call confirms or refutes it."
+  ],
+  "plain_english": "Both notes come from one educational chart over a year old, where Apple was being bought into a 206-210 zone with the idea of reclaiming 225 and then running to 266-268; the chart also lays out lower buy-the-dip rungs at 193, 180, 170 and 150. Because this is a single, stale, education-only read with no recent confirmation and a stop that sits right at the entry, it's not a clean live setup. Wait for a current price and a fresh signal before acting on these levels rather than entering on the year-old plan."
+}

@@ -1,0 +1,30 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.2685,
+    "entry_basis": "zero_live chart 2025-05-19 — explicit 'level to monitor for a pullback' at 0.2685, top of the 0.26-0.2685 demand zone (chart labels this zone 'Not formed', so entry is conditional)",
+    "targets": [
+      { "price": 0.40, "basis": "zero_live chart 2025-05-19 — 0.705+1.454 fib magnet; note says 'start selling + looking for shorts into 0.40', i.e. take-profit/exit, not hold-through" },
+      { "price": 0.47, "basis": "zero_live grade 2025-05-19 TP2 0.46-0.48 HTF fib extension; chart top-right 1.454 box marked '?' (speculative)" }
+    ],
+    "invalidation": 0.25,
+    "stop_basis": "daily close below 0.25, beneath the 0.26-0.2685 demand zone (zero_live grade invalidation, confirmed by chart structure)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-19",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy only on a deep pullback to the 0.26-0.27 support area (not yet formed), then aim for 0.40 where he would take profit and even look to sell, with a stretch target at 0.46-0.48."
+    }
+  ],
+  "conflicts": [
+    "The setup is over 13 months old (drawn 2025-05-19) and the current live price is unknown, so these exact levels must be re-checked before acting.",
+    "The buy entry never triggered: when drawn, price sat at ~0.322, well above the 0.26-0.2685 demand zone, and the chart marks that zone as 'Not formed' (conditional, unconfirmed).",
+    "0.40 is a sell/short magnet on the chart, not a level to hold through — the 'target' is where the plan exits, after which the bias on the chart turns bearish."
+  ],
+  "plain_english": "Back in May 2025, the only source's plan was to buy Decentraland (MANA) only if it dropped to a support area around 0.26-0.27, then aim for 0.40 (where he would actually take profit and even start selling) and possibly 0.46-0.48. That dip never happened, the support zone was never confirmed, and this view is now more than a year old. Don't act on these numbers as they stand — wait and re-check the current price and whether that support has actually formed before considering anything."
+}

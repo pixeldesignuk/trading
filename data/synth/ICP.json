@@ -1,0 +1,30 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": 4.95,
+    "entry_basis": "zero_live 2025-05-26 first-dip accumulation buy zone (4.95, blue box at the 0.705 fib on the chart); a second dip near 4.70 and a deeper 4.00-4.50 bullish 2-day order block (green zone) sit below it",
+    "targets": [
+      { "price": 5.90, "basis": "zero_live 2025-05-26 — the only one of the 5.47/5.69/5.90 overhead levels with strong confluence (0.618 fib + present on the 2-day), marked as the key level" },
+      { "price": 7.05, "basis": "zero_live 2025-05-26 — 0.886 fib level" },
+      { "price": 8.70, "basis": "zero_live 2025-05-26 — start of the 8.70/8.86/8.95 heavy take-profit band (only 'if reached')" }
+    ],
+    "invalidation": 4.50,
+    "stop_basis": "zero_live grade says a daily close below 4.50 breaks the accumulation thesis; note the bullish 2-day order block actually spans 4.00-4.50, so a stop sitting fully below the block would be nearer 4.00 (estimated)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-26",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy dips into the 4.95/4.70 accumulation range (deeper 2-day order block at 4.00-4.50), aim for 5.90 then 7.05 and the 8.70-8.95 band; thesis breaks on a daily close below 4.50."
+    }
+  ],
+  "conflicts": [
+    "Only one source (the Zero live chart and its grade, both 2025-05-26), so there is no disagreement between sources — but the read is ~13 months old and the live price is unknown, so there is no confirmation the levels are still relevant.",
+    "Text gives invalidation as 'close below 4.50' while the chart's bullish 2-day order block actually spans 4.00-4.50 — a stop placed fully below that block would be closer to 4.00, not 4.50."
+  ],
+  "plain_english": "This is a single, year-old plan from one Zero live session, graded as only a partial setup. The idea was bullish: wait for the price to fall back into the 4.95 to 4.70 buy area (with a deeper safety floor around 4.00 to 4.50) and then aim up toward 5.90, then 7.05, and possibly the 8.70 to 8.95 zone, abandoning it if the price closed below 4.50. Because the call is roughly 13 months old and we don't have a current price to check it against, none of those levels can be trusted as live right now. Stand aside and re-check ICP against a fresh chart before doing anything."
+}

@@ -1,0 +1,30 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 350,
+    "entry_basis": "zero_live 2025-05-21 stated accumulation zone (350); matches the labelled 'High probability' deep buy zone at the bottom of the chart",
+    "targets": [
+      { "price": 540, "basis": "zero_live chart — '540:ATH' / 'MAX TARGET' zone (all-time-high area)" },
+      { "price": 575, "basis": "zero_live chart — upper target level marked above ATH" }
+    ],
+    "invalidation": 340,
+    "stop_basis": "structure below the 350 'High probability' accumulation zone and the rising long-term trendline (estimated — no explicit stop given by source; the source's quoted 'close above 540' is an upside target, not a valid stop for a long)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-21",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Long-term accumulation bias on the Nasdaq 100 — a ladder of buy-the-dip zones (486, 450, 420, 392, 350) under an all-time-high target of 540 and a higher 575, but graded a weak setup with no clean entry at current price."
+    }
+  ],
+  "conflicts": [
+    "The extracted text reads 'entry 350' with invalidation 'close above 540 (ATH)', which is inconsistent: on the chart 540/575 are upside targets, so a close above the all-time high confirms strength rather than invalidating a long. The chart wins — 540/575 treated as targets, not a stop.",
+    "The text named only the 350 zone, but the chart shows several intermediate accumulation zones it omitted (486 at the 0.618 fib, 450 at 0.5, ~420, and 392/388/380) — these are the nearer dip-buy levels and were added from the image.",
+    "Only one dated source (2025-05-21) with a weak grade (4) and no fresh confirmation, so conviction is held low."
+  ],
+  "plain_english": "The Nasdaq 100 ETF is trading near 520, just under its all-time high around 540. One educational chart — flagged as a weak setup — lays out a staircase of buy-the-dip zones below the current price (around 486, 450, 420, and a deep long-term zone near 350) with upside targets at the 540 all-time high and 575. There is no clean entry right here because price is pressed up against resistance at 529–530, and the genuinely attractive long-term buy levels are well below where it trades now. Wait — either for a pullback into one of the lower zones to accumulate, or for a confirmed break and hold above 530/540 before chasing strength."
+}

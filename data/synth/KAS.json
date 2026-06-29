@@ -1,0 +1,60 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.035,
+    "entry_basis": "0.035 — the HTF 'second entry' / 1-month demand zone marked identically on the 2025-11-13 and 2025-12-01/08 charts, labelled 'still fresh, still valid for the future if it comes'. Price (~0.040) is just above it, so this is a patient dip-buy, not a chase.",
+    "targets": [
+      { "price": 0.062, "basis": "VAH / 'taking partial spot profits' line, consistent across 2025-12-01 and 2025-12-08 charts" },
+      { "price": 0.068, "basis": "supply / '% of spot profits for a short' zone ($0.068-0.070), Nov 13 + both Dec charts; also the 2026-05-11 breakout target" },
+      { "price": 0.12, "basis": "HTF VAH 'achievable target', 2025-11-13 macro chart (estimated stretch goal, requires full regime recovery)" }
+    ],
+    "invalidation": 0.028,
+    "stop_basis": "below the 0.028 'third entry' / 3-month demand; a close through it breaks the laddered accumulation structure, with only the 0.008 last breaker beneath"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-11",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Thin, weak read: wait for a breakout above the recent multi-week range before going long, aiming roughly 0.068-0.07. No demand-buy here."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-12-08",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Favorite long around 0.0518-0.055 demand, partial profits at the 0.062 value-area high, strong structure shift if it reclaims 0.081; invalidation a close below 0.051."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-12-01",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Strongest call (grade 7): favorite long 0.0518 on a fib retest bounce with volume confluence, targets 0.062 value-area high then 0.0757 prior high; invalidation below 0.050."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-11-13",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Ladder spot buys into the 0.062 / 0.035 / 0.028 demand zones — 'do or die for KAS, worth the risk' — with an HTF stretch target of 0.12."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-12",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Obsolete: from a ~0.13 price regime — entry 0.10 retest, take profits ~0.125. Price has since fallen ~70%, so these levels no longer apply."
+    }
+  ],
+  "conflicts": [
+    "The strongest, most structured call (Dec 1, buy 0.0518) is now stale: price has fallen below it to ~0.040, so that tactical long trigger no longer applies and the newer reads override it.",
+    "The freshest read (2026-05-11) wants to BUY a breakout above the range (~0.07 target), while the older HTF charts want to BUY dips into demand (0.035 / 0.028) — opposite entry timing, so there is no single clean trigger right now.",
+    "The 2025-05-12 chart (entry 0.10, target 0.125) is from a price regime roughly 3x current and is obsolete; it should not anchor any present decision.",
+    "Image correction: the chart filed as '04-HTF-setups-DOGE-SUI-KAS.png' (KAS, 2026-05-11) actually shows the SUI perpetual chart; KAS appears only in its watchlist (~0.040). No KAS levels were readable from it — the dated text note was used instead."
+  ],
+  "plain_english": "Every source is on the buy side over the long run — Zero is slowly accumulating Kaspa as spot and calls it a 'worth the risk' bet — but there is no clean trigger to act on right now. The best-defined buy from December (around 0.0518) has already broken because price has slipped to about 0.040, and the newest comment is a thin, low-confidence one that says wait for the price to break upward out of its range first. Price is stuck in between zones, so the patient play is to wait: either buy a dip down into the 0.035 demand shelf (next floor 0.028), or wait for a confirmed break upward before buying. Until one of those happens, sit on your hands."
+}

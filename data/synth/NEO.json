@@ -1,0 +1,25 @@
+{
+  "conviction": 2,
+  "contested": false,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No source gave a numeric entry — the only mention says 'at interesting level' with no price (Zero live, 2026-05-26)",
+    "targets": [
+      { "price": null, "basis": "Only 'higher levels' stated, no numeric target (Zero live, 2026-05-26)" }
+    ],
+    "invalidation": null,
+    "stop_basis": "Only 'close below support' stated, no named support level or price (Zero live, 2026-05-26)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-26",
+      "stance": "neutral",
+      "timeframe": "LTF",
+      "summary": "A weak (grade 3) educational mention from a Zero live — vaguely positive but with no actual entry, target, or stop prices."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "There is only one mention of this stock, and it's a weak, low-confidence note from an educational session — it says to buy 'at an interesting level' for 'higher levels' but never gives an actual price to buy at, a target, or a point where the idea is wrong. With no concrete numbers and only a single thin source, there is nothing to act on. Stand aside and wait for a real, priced setup before considering anything here."
+}

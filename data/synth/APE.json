@@ -1,0 +1,28 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "Zero live (2026-05-26) only said 'multiple entries with risk scaling' — no actual price level was given, and there is no chart to read one off, so no honest entry number can be stated.",
+    "targets": [
+      {
+        "price": null,
+        "basis": "Zero live (2026-05-26) only said 'explosive move upside' — no numeric target was provided."
+      }
+    ],
+    "invalidation": null,
+    "stop_basis": "Zero live (2026-05-26) said 'close below demand zone' — the demand zone was never given a price, so the stop level is undefined."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-26",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "A single educational mention leaning bullish — scale in across multiple entries, expecting a sharp move up, with the idea cancelled if price closes below its buy zone."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one source has mentioned this coin — a Zero live session from late May 2026 — and even that was tagged as a weak setup and educational only. It pointed up but gave no actual prices to buy at, aim for, or get out at, and there is no chart to read those levels from. With nothing concrete and a low-quality single mention, there is no trade to act on here — wait until a fresh, properly-levelled call appears before doing anything."
+}

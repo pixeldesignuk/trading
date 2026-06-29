@@ -1,0 +1,39 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No active entry zone — historical 395–410 (zero_live, May 2025) is behind current price (438.57)",
+    "targets": [
+      {
+        "price": 512,
+        "basis": "zero_live TP1 (May 2025 chart)"
+      }
+    ],
+    "invalidation": 280,
+    "stop_basis": "1M demand floor (zero_live, May 2025); close below invalidates structure"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-16",
+      "stance": "bullish",
+      "timeframe": "1D/1W/HTF",
+      "summary": "Entry on retest of 1W supply (395–410); partial profit at 512; invalidated below 280 1M demand floor"
+    },
+    {
+      "source": "community",
+      "as_of": "2026-06-26",
+      "stance": "bullish",
+      "timeframe": "unspecified",
+      "summary": "Conditionally bullish if TAO coincides with USDT/BTC move; cites demand box ~140–160, current ~210, resistance ~297"
+    }
+  ],
+  "conflicts": [
+    "Community comment (June 26) states current price ~210 and demand box ~140–160, but actual current price is 438.57 — numbers do not align with current chart or data, making the source's conviction untrustworthy.",
+    "Zero's historical entry zone (395–410, May 2025) is already behind current price; the setup window has closed.",
+    "Community references a resistance at 297, which is below current price (438.57) and below the old TP1 (512), suggesting either a different chart or stale data."
+  ],
+  "plain_english": "Zero called a bullish setup over a year ago with entry around 395–410 and targets toward 512. Price is now at 438.57, already past that entry zone. A community member posted on June 26 that TAO looks good if it aligns with USDT or BTC, but the price levels they mentioned (current ~210, demand ~140–160) don't match today's price or chart, raising doubt about their credibility. Wait for either a fresh, credible source with current structure, or a retest of a key support level (around 350–280) to re-anchor the setup."
+}

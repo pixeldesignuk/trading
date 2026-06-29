@@ -1,33 +1,59 @@
 {
-  "conviction": 6,
-  "contested": false,
+  "conviction": 3,
+  "contested": true,
   "action": "wait",
   "safest_plan": {
     "entry": 102.5,
-    "entry_basis": "zero_hub/zero_tg — the 3M breaker-block 0.5 retrace at $102.50, stacked with the higher-timeframe 0.618 fib, the $100 round-number level and the 2-week demand at $99.50 just below; chart confirms the blue breaker zone and pink $100 marker. Buy zone is really 99.50–102.50.",
+    "entry_basis": "zero_tg (carried 06-19) breaker buy $102.50 = 3M breaker 0.5 + HTF 0.618 + $100 psych + 2W demand $99.50; matches the blue zone on the COP 3M chart (0.5 ≈ 104, 0.618 ≈ 102, $100 psych, 2W demand floor 99.68)",
     "targets": [
-      { "price": 120, "basis": "zero_hub TP1 — matches the ~120 line labelled 4D on the chart" },
-      { "price": 130, "basis": "zero_hub TP2 — matches the ~130 line labelled 6D on the chart" }
+      { "price": 120, "basis": "COP 3M chart VAH / 5D green line (~119–120); also the 06-05 conditional 'breaker ~120 reclaim' level" },
+      { "price": 130, "basis": "COP 3M chart 8D level (~130)" }
     ],
-    "invalidation": 94,
-    "stop_basis": "Below the 3M demand at $94. Zero's stated invalidation is a 3-month close below the breaker block (~$99.50); that confirms a slide to the $94 demand, so the stop sits beneath $94 to give the swing room rather than at the zone edge."
+    "invalidation": 99.5,
+    "stop_basis": "close below the 3M breaker block / 2W demand (~99.68 on the COP 3M chart); a close below that points to 3M demand 92–94 (zero_tg invalidation: 'close below the 3M BB → 3M demand $94')"
   },
   "stance_by_source": [
-    {
-      "source": "zero_hub",
-      "as_of": "2026-06-19",
-      "stance": "bullish",
-      "timeframe": "HTF",
-      "summary": "Spot buy at the 3-month breaker-block retrace near $102.50, targeting $120 then $130; invalidated on a 3-month close below the breaker block."
-    },
     {
       "source": "zero_tg",
       "as_of": "2026-06-19",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Same clean spot setup carried over unchanged — buy the $99.50–$102.50 confluence zone, stop on a close below the breaker block."
+      "summary": "Cleanest in-lane halal spot buy — breaker dip at $102.50 with stacked confluence; targets the 120 region, invalid below the breaker."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-05",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Accumulate ~100 ONLY after oil reclaims fair value and the 120 breaker — explicitly conditional, and that condition is not yet met; targets 135/145/150."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-05",
+      "stance": "bearish",
+      "timeframe": "LTF",
+      "summary": "Underlying WTI crude (the driver for COP) is in a failed auction, rolling off ~96 toward the 84–88 demand box with a drawn path to ~80/70."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-11",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Value-at-high retest around 98–99 as a reload, invalid on a close below value-at-low."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-08",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Reaccumulate near 80 if a correction comes; long-run target the old supply high ~145+."
     }
   ],
-  "conflicts": [],
-  "plain_english": "Every source agrees on the same plan, so the read is consistent: this is a buy-the-dip idea on ConocoPhillips, treated as a long-term spot holding. The plan is to buy in the $99.50–$102.50 area, where several support markers line up, aiming for roughly $120 then $130, and to abandon it if a 3-month candle closes below about $94. The catch is that the stock is currently around $110 — above the buy zone — so nothing should be bought yet. Wait for a pullback into the buy zone before entering."
+  "conflicts": [
+    "Direction clash: the COP stock chart frames a bullish dip-buy at ~100–104, but the underlying WTI crude charts (newest, 06-05) show a failed auction falling from ~96 toward 84–80 with a drawn path to ~70 — that oil weakness threatens to drive COP straight through the breaker to 3M demand 92–94.",
+    "The 06-05 entry was explicitly conditional — 'accumulate ~100 only after oil reclaims fair value + the 120 breaker' — and the oil charts show that condition is NOT met, so the bullish trigger has not actually fired.",
+    "Timing: COP last printed ~107.74 (06-19), trading ABOVE the stated 100–104 buy zone, so the planned entry is not yet available; you would be chasing if you bought here.",
+    "Text vs image (minor): extracted entry '$102.50' is consistent with the chart's blue breaker zone (0.5 ≈ 104, 0.618 ≈ 102, $100 psych, 2W demand 99.68) — $102.50 is the midpoint, no correction needed."
+  ],
+  "plain_english": "ConocoPhillips is the one clean, faith-compliant oil stock here, and on its own chart it has a tidy buy zone around $100–104 with room up toward $120. The catch: this stock follows the oil price, and every oil chart in the set shows oil weakening and likely heading lower — and the original plan said only buy once oil turns back up, which it hasn't. The stock is also currently above the buy zone, not in it. So don't buy now: wait for the price to actually fall into the $100–104 zone AND for oil to stop falling and start recovering before committing; if it instead closes below about $99–100, step aside and look again near $92–94."
 }

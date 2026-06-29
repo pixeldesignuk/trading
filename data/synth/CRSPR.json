@@ -1,0 +1,30 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 44.57,
+    "entry_basis": "zero_live 2026-03-23 chart — blue 'Monthly in discount' buy band at the 0.705 retracement (44.57), the exact spot Zero circled 'I've set a buy here'. Matches the extracted text buy zone 44.50–45.50.",
+    "targets": [
+      { "price": 60.39, "basis": "zero_live chart — 50% range equilibrium (60.39), the low end of Zero's stated TP2 zone 60.00–65.00" },
+      { "price": 86.45, "basis": "zero_live chart — premium supply box 80–91, marked level 86.45 (text: 85–91 long-term TP)" }
+    ],
+    "invalidation": 42.0,
+    "stop_basis": "Below the 42$ level Zero draws just under the discount buy band (text: close below 42.00). Losing 42 breaks the bullish discount structure; below that the only support left is the deeper 0.79 (~37, estimated) and the multi-year range low at 29.79."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-03-23",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "After a +40% move Zero took profit higher and set a buy back down in the monthly discount zone around 44.57, planning to compound lower for moves toward 60 and the 85–91 premium zone."
+    }
+  ],
+  "conflicts": [
+    "Text gave the buy as a band (44.50–45.50); the chart pins it precisely to the 0.705 discount level at 44.57 where Zero marked 'I've set a buy here' — image used.",
+    "Minor internal tension, not a direction flip: Zero flags the $55–57 area just above price as a spot that 'could be tested for proceeding lower' with an optional small short, while the macro thesis stays bullish accumulation in discount — same source, so conviction is not capped as contested.",
+    "The chart shows a deeper discount level at the 0.79 (~37, estimated) below the 42 invalidation that the text omits — only in play if 42 breaks and the range resets lower."
+  ],
+  "plain_english": "Zero's weekly read on CRISPR is bullish but patient: he already banked profit on the run up and has placed a fresh buy order down in the cheap zone around 44.57, just under where the price is now (about 46.88). If it fills there, he's playing for a recovery toward 60, then potentially the expensive 85–91 area much later, and he bails if the weekly price closes under 42. He also notes the 55–57 area overhead could get tested before any deeper dip. The price hasn't reached his buy yet, so the move is to wait for it to dip into roughly 44.5 rather than chase it here."
+}

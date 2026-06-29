@@ -1,0 +1,26 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "Zero live (2026-05-26) names a 'hidden breaker level' as the preferred buy, but gives no price; live price is unavailable, so no numeric entry can be set without the chart.",
+    "targets": [
+      { "price": 1.50, "basis": "Zero live (2026-05-26) first target, '1.50+'" },
+      { "price": 2.00, "basis": "Zero live (2026-05-26) second target, '2.00+'" }
+    ],
+    "invalidation": null,
+    "stop_basis": "Zero live says 'close below demand' — the demand zone below the breaker — but no price was given, so the stop level is undefined until the chart is read."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-26",
+      "stance": "bullish",
+      "timeframe": "unspecified",
+      "summary": "Buy from a preferred breaker level, aiming for 1.50 then 2.00, with a stop on a close below the demand zone — graded only a partial setup (6/10)."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one source covers NEAR — a Zero educational live from late May 2026 that liked buying from a specific support level and aiming up toward 1.50 then 2.00, bailing if price closes below that support. The catch: no actual prices were given for the entry or the stop, and there's no current price to anchor against, so this is an idea rather than something you can place an order on. It's also graded only a partial setup, and at over a month old it may be stale. Wait for confirmation of the actual levels (and a fresher read) before acting."
+}

@@ -1,0 +1,30 @@
+{
+  "conviction": 2,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 74,
+    "entry_basis": "zero_live chart 2026-04-20 — midpoint of the drawn green discount zone ~72-76 labelled 'discount area + origin of breakout + high volume concentration + Bollinger Band + monthly fair-value gap' (zone explicit on chart; 74 is the midpoint)",
+    "targets": [
+      { "price": 84, "basis": "zero_live chart — the 0.5 fib / red level at ~84, first overhead reference near current price" },
+      { "price": 112.16, "basis": "zero_live chart — explicit dashed upper line at 112.16 (full upside reference)" }
+    ],
+    "invalidation": 67,
+    "stop_basis": "below the 72-76 discount zone / origin of breakout, under the deeper support band and lower 0.5 fib at ~67"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-20",
+      "stance": "neutral",
+      "timeframe": "macro",
+      "summary": "An educational macro decision-tree, not a trade: it maps two opposite outcomes for oil (stays high if inflation runs hot, or falls if inflation cools) and what each means for the US dollar, gold and risk appetite. Only structural buy reference is a deep accumulation zone around 72-76, far below the current ~87 price."
+    }
+  ],
+  "conflicts": [
+    "The chart itself is two-sided by design: it presents one path where oil stays elevated and another where oil falls, so it gives no single directional call.",
+    "The extracted text carried no entry, targets or invalidation; those levels come only from the chart image (discount zone 72-76, references at 84 and 112.16).",
+    "Any buy at 72-76 is a deep pullback level — roughly 15% below the current ~87 price — so it is not actionable now; price would have to fall a long way first."
+  ],
+  "plain_english": "This is a teaching chart about the big picture for crude oil, not a buy or sell signal. It simply shows two possible futures — oil stays expensive if inflation keeps rising, or oil drops if inflation cools — and what each would mean for the dollar and gold. Because it points in both directions at once and the only marked buy area (around 72 to 76) sits well below today's price near 87, there is nothing to act on right now: wait, and only consider buying if price falls back into that lower zone."
+}

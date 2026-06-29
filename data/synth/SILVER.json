@@ -4,10 +4,13 @@
   "action": "wait",
   "safest_plan": {
     "entry": 58,
-    "entry_basis": "zero_live 2026-06-15 'Spot: 58, deeper 1-month breakout demand' and 2026-06-22 'accumulate physical lower toward ~58'; the green demand zone reads ~57.4-58.0 on both charts. This is a BUY (accumulate physical), not the short.",
-    "targets": [],
-    "invalidation": 57,
-    "stop_basis": "below the ~57.4 green demand / 1-month breakout demand zone that both charts mark as the accumulation floor; a close under it breaks the 'buy the flush' thesis"
+    "entry_basis": "zero_live 2026-06-22 macro 'expansion to the ~58 region' + zero_live daily chart green DEMAND band ~57.5-58 labelled '1st area to look for a spot'; zero_live 2026-06-15 'Spot: 58, deeper 1-mo breakout demand'",
+    "targets": [
+      { "price": 68, "basis": "VAL / prior value-area low ~68.38 on both charts — first level to reclaim on a bounce" },
+      { "price": 78, "basis": "zero_live daily chart resistance ~78, 'flip this high = more bullish'" }
+    ],
+    "invalidation": 50,
+    "stop_basis": "deeper monthly breakout-demand band toward ~50 on the daily chart (estimated) — losing it breaks the long-term-support thesis behind accumulating at 58"
   },
   "stance_by_source": [
     {
@@ -15,33 +18,40 @@
       "as_of": "2026-06-22",
       "stance": "bearish",
       "timeframe": "HTF",
-      "summary": "Three failed pushes at the ~70-71 ceiling led to continuation down; macro target ~58. For you, accumulate physical silver lower toward ~58, not the leveraged short."
+      "summary": "Shorted the triple top for continuation down toward ~58; for your spot account, accumulate physical silver lower toward ~58 — not the short."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-22",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Daily chart: price 65.40 falling, demand flipped to resistance for continuation down into the 57.5-58 accumulation band."
     },
     {
       "source": "zero_hub",
       "as_of": "2026-06-19",
       "stance": "bearish",
-      "timeframe": "HTF",
-      "summary": "2H chart: triple-top key level ~70-71, value-area-low ~68.4, continuation down toward the ~57.4-58.0 green demand zone, possibly after a retest higher first."
+      "timeframe": "LTF",
+      "summary": "2H short from 67.77 (10x), triple-top 1-2-3 at ~71, stepping down 66.5 → swing low ~63-64 → macro demand 57.5-58."
     },
     {
       "source": "zero_live",
       "as_of": "2026-06-15",
       "stance": "bearish",
       "timeframe": "HTF",
-      "summary": "Accumulate spot at 58 after a closure into the deeper 1-month breakout demand."
+      "summary": "Spot plan: accumulate around 58 after a closure, with deeper one-month breakout demand below."
     },
     {
       "source": "zero_tg",
       "as_of": null,
       "stance": "bearish",
       "timeframe": "LTF",
-      "summary": "Short was entered at the value-area-low ~67.77 but flagged as a touch early and haram; your spot angle is to accumulate physical lower after the flush."
+      "summary": "The leveraged short is haram; your only angle is accumulating physical silver lower after the flush. Flags the 67.77 entry as 'a touch early' vs the plan."
     }
   ],
   "conflicts": [
-    "The zero_tg short entry of 67.77 (value-area-low) was itself flagged as 'a touch early' versus the live's triple-top plan, and price has since fallen below it to ~63-65, so that entry is stale for a fresh short.",
-    "Two angles run in parallel: the leveraged trade is a CFD SHORT (off-limits for you on faith grounds), while your action is to BUY physical lower - same 'silver goes lower' view, opposite instrument and action."
+    "The extracted entry of $67.77 is the leveraged SHORT entry, not a level to buy at — and Zero himself called it 'a touch early' vs his triple-top plan; it is not an action for the spot account.",
+    "The leveraged silver short (CFD + 10x) is haram, so it is not investable; the only actionable read is buying physical silver lower, around 58, which appears on the chart but was missing from the extracted text."
   ],
-  "plain_english": "Every source agrees silver is grinding lower after failing three times at the ~70-71 ceiling, and they all point to roughly 58 as the area to step in. The leveraged short Zero took is a contract-for-difference and is off-limits for you, so ignore it - your version is simply buying physical silver, and only once it flushes down toward 58. Price is currently around 63-65, still above that zone, so there is nothing to do yet. Wait for the drop toward 58 to accumulate, and drop the idea if silver instead closes below about 57."
+  "plain_english": "Every source points the same way — silver is falling. Zero is running a leveraged short on it, which is off-limits for you, and his plan is for the price to keep dropping toward roughly $58, where strong long-term buying has shown up before. The only thing here you can act on is buying physical silver, and the guidance is to wait and accumulate lower in that $58 area rather than at today's price. So hold off for now: let it fall into the zone before buying, with the option of a second, smaller buy near $50 if it drops further."
 }

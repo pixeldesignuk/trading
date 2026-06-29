@@ -1,0 +1,31 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.0155,
+    "entry_basis": "Top of the green 'HTF DEMAND' support zone (~0.0150–0.0155) read off the zero_live chart; the chart's hand-drawn path dips into this zone before bouncing. Note: the extracted text said entry 0.020 'close above after sweep', a breakout entry that conflicts with this demand-buy idea — the chart's demand zone is the lower-risk read.",
+    "targets": [
+      { "price": 0.0185, "basis": "The 'BOS' (break-of-structure) line on the zero_live chart — first overhead resistance to clear." },
+      { "price": 0.0205, "basis": "The '0.20$' target label sitting just below the red 'SOS' supply zone on the zero_live chart." },
+      { "price": 0.026, "basis": "zero_live grade text first target (0.026) — beyond the visible chart frame, treat as an extended stretch goal (estimated)." }
+    ],
+    "invalidation": 0.0148,
+    "stop_basis": "Below the green 'HTF DEMAND' support zone (~0.015) on the zero_live chart — a daily close beneath it means the demand has failed."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-02",
+      "stance": "bullish",
+      "timeframe": "daily",
+      "summary": "Cautiously bullish: wants a dip into the ~0.015 support zone to hold (or a reclaim higher) before buying, but Zero himself graded the setup weak."
+    }
+  ],
+  "conflicts": [
+    "Within the single source, the extracted text gives a breakout entry of 0.020 (buy strength) while the chart drawing points to buying the ~0.015 support zone on a dip — opposite entry styles; the chart's demand-zone read is used here.",
+    "The text invalidation 'reentry below 0.018' is stale/inconsistent — price is already ~0.0167 (below 0.018) — so the chart's structural stop below the ~0.015 demand zone is used instead.",
+    "Text targets read as 0.026 and 0.29; 0.29 is almost certainly a garbled extraction (chart's own label is 0.20$), so it is excluded."
+  ],
+  "plain_english": "Only one source covers GALA — a single Zero live chart from early June, which Zero himself rated weak. The chart shows the price sitting on a support shelf around 0.0155, with a green demand zone just below and a supply ceiling up near 0.021; the drawn idea is a dip into support, then a bounce. The extracted text and the chart disagree on how to enter (buy a breakout up high vs. buy the dip into support), and nothing here is strong enough to act on. Stand back and wait for the 0.015 support to actually hold (or for a clean reclaim above 0.0185) before considering a small position."
+}

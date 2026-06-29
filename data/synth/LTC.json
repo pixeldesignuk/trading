@@ -1,0 +1,37 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 80,
+    "entry_basis": "Lower end of the 16 Jun 'spot accumulation 80-90' grade, which lines up with the chart's weekly-demand band (~77-80). Buying the bottom of the zone rather than the 90 level that has already been broken below.",
+    "targets": [
+      { "price": 115, "basis": "115$ 'Partial TP' red band — labelled on BOTH charts" },
+      { "price": 124, "basis": "124$ 'More consistent TP' at the 0.786/1.618 fib — labelled on BOTH charts" },
+      { "price": 150, "basis": "16 Jun grade macro 3-4x target (150-155 red band, newest chart only)" }
+    ],
+    "invalidation": 75,
+    "stop_basis": "A daily close below ~75 loses the weekly-demand base / macro support that the 16 Jun chart flags as the last line; stop sits just under that band."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-16",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Still wants to accumulate Litecoin spot in the 80-90 area for a swing higher, but the protective stop already got run, the setup was downgraded to 'partial', and he's now watching the deeper ~77 area in case of a bigger flush before the move up."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-19",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Textbook discounted buy at the 90 zone (with the 9-month demand base near 70 as the backstop), aiming first for 115 then 124."
+    }
+  ],
+  "conflicts": [
+    "The written entry calls 90 the '9-month demand', but both charts clearly put the 9-month demand band down at ~68-72 — 90 is the discounted entry zone, not the demand base. The image wins.",
+    "Between 19 May and 16 June the call weakened rather than reversed: the earlier 'textbook' buy at 90 was downgraded to a looser 80-90 accumulation, price slid below 90, the stop was swept, and a deeper ~77 zone is now being monitored — so the entry has drifted lower and conviction has fallen, even though the direction stayed bullish."
+  ],
+  "plain_english": "Both reads from the same source point the same way — buy Litecoin cheap and hold for a move up toward 115, then 124, with a longer-term stretch to around 150. But the picture got weaker over time: by mid-June price had dropped under the planned 90 buy area, the safety stop had already been triggered, and the trader started watching a lower ~77 zone for a possible deeper dip first. So don't chase it here — wait for price to come down into the 77-80 accumulation band, and only stay in while it holds above about 75 on a daily closing basis."
+}

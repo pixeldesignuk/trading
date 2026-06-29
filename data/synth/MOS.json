@@ -1,39 +1,62 @@
 {
-  "conviction": 6,
-  "contested": false,
+  "conviction": 3,
+  "contested": true,
   "action": "wait",
   "safest_plan": {
-    "entry": 20,
-    "entry_basis": "zero_hub grade (2026-06-09): stated buy at 20, '9M demand'. Daily chart shows the accumulation band as roughly 20-24 ('SPOT PLAY' zone), so 20 is the safer lower edge.",
+    "entry": 21,
+    "entry_basis": "9M + BB demand band / 'SPOT PLAY' zone on the 2026-06-09 macro chart (~21), where price is now sitting after the breakdown; the deeper green demand on the 2026-06-15 4h chart sits just under at ~20. This is the structure-supported accumulation entry, NOT a chase.",
     "targets": [
-      { "price": 34, "basis": "zero_hub grade TP1 (2026-06-09); internal supply area on the daily chart" },
-      { "price": 40, "basis": "zero_hub grade TP2; daily chart red 'pay close attention... TP level' zone ~40" },
-      { "price": 48, "basis": "zero_hub grade TP3; daily chart 0.5 fib line ~48" },
-      { "price": 51.5, "basis": "zero_hub grade TP4; daily chart explicitly labelled $51.50" },
-      { "price": 81.5, "basis": "zero_hub grade TP5; daily chart 'highest target I can expect' ~81.94" }
+      { "price": 27, "basis": "Prior supply / red line ~27 on the 2026-06-15 4h chart; matches the 2026-03-23 grade's 26.50–27.00 first target" },
+      { "price": 32, "basis": "Internal supply / partial-profit zone on the 2026-06-09 macro chart; the 2026-03-23 grade's 32+ thesis" },
+      { "price": 40, "basis": "0.886 'TP level — pay close attention' band on the 2026-06-09 macro chart" },
+      { "price": 48, "basis": "0.5 fib / $48 label on the 2026-06-09 macro chart" },
+      { "price": 51.5, "basis": "$51.50 'strongest VAH, take more profit' on the 2026-06-09 macro chart" }
     ],
-    "invalidation": 19,
-    "stop_basis": "Below the 19 floor / blue support band (~19.3) on the daily chart; grade states the trade is invalid on a close below 19."
+    "invalidation": 19.34,
+    "stop_basis": "A close below the 9M + BB demand band and the labelled 19.34 level (shown on both the 2026-06-15 4h and 2026-06-09 macro charts). For the spot thesis the final deep invalidation is the 1W BB ~15.26, but a sustained close under 19.34 already breaks the accumulation structure."
   },
   "stance_by_source": [
     {
+      "source": "community",
+      "as_of": "2026-06-23",
+      "stance": "bullish",
+      "timeframe": "position",
+      "summary": "A member already bought MOS, saying they were following Zero's spot setup."
+    },
+    {
       "source": "zero_live",
       "as_of": "2026-06-15",
-      "stance": "bullish",
-      "timeframe": "LTF",
-      "summary": "Spot demand around 23-24 is holding; only add to the position once the price closes above 24.49."
+      "stance": "neutral",
+      "timeframe": "4h / tactical",
+      "summary": "The monthly demand zone melted into resistance and price is breaking down toward 20-21; Zero says only add on a 'flip' — i.e. wait for a daily close back above 24.49 before buying. Not a chase."
     },
     {
       "source": "zero_hub",
       "as_of": "2026-06-09",
       "stance": "bullish",
-      "timeframe": "HTF",
-      "summary": "Strong 9-month buying zone near 20; buy there with a stop below 19, targets stacked from 34 up to 81.5."
+      "timeframe": "macro / 1D",
+      "summary": "Long-term spot accumulation in the low 20s, holding for 32, 40, 48 and 51.50, with a bonus stretch to 67-82; deep invalidation around 15."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-26",
+      "stance": "neutral",
+      "timeframe": "1W",
+      "summary": "Marks weekly demand below price at ~19-21 and ~16-18; explicitly 'doesn't want' the higher zone — patient, waiting for deeper support."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-03-23",
+      "stance": "bullish",
+      "timeframe": "1D (graded weak, 4/10)",
+      "summary": "Earlier buy 23.50-24.50 monthly demand, scaling, targets 26.50-27 then 32+, invalid on a close below 22.50 — that level has since broken, so this leg is stale."
     }
   ],
   "conflicts": [
-    "Not a direction disagreement - both Zero reads are bullish on owning the shares - but they point to different buy triggers: the June 9 plan buys the dip near 20, while the newer June 15 note says only add after a daily close above 24.49.",
-    "Chart vs text: the daily chart shows the buy area as a band of roughly 20-24 ('SPOT PLAY'), slightly above the grade text's single 20 entry; the safest plan uses 20 as the lower, more defensive edge."
+    "The community member bought on 23 Jun following 'Zero's spot setup', but Zero's own 15 Jun note says to add only on a flip — a daily close back above 24.49 — which has not happened, so the member is early relative to Zero's own trigger.",
+    "The older 23 Mar buy zone (23.50-24.50, invalid below 22.50) has been overtaken: the 15 Jun chart shows the monthly demand 'melted into supply' and 22.50 already broke, so that tactical long is no longer valid.",
+    "The newer macro chart is bullish for the long-term spot hold (low 20s up to 51+), while the newest tactical chart shows the structure breaking down first toward 20-21 — agreement on eventual direction, but a real disagreement on whether NOW is a buy.",
+    "The extracted 'above 224-226 resistance' is a misread of the on-chart price box (~22.71); MOS trades in the low 20s and the real resistance/target band is ~24-27 — corrected from the image."
   ],
-  "plain_english": "Both of Zero's reads agree the shares are a buy - they just point at two different places to get in. The earlier June 9 plan says the strong buying zone is near 20, with the trade proven wrong on a close below 19 and targets stacked all the way up to about 51.50 and beyond. The newer June 15 note says to add only after the price closes above 24.49. The price right now (about 22) is stuck in between, so there is no clean entry yet. Wait - either buy a dip toward 20 with a stop just under 19, or hold off until the price closes above 24.49 before adding."
+  "plain_english": "Everyone agrees Mosaic is a long-term 'buy the dip and hold' idea, with room up to roughly 32, 40, 48 and beyond if it works. But the most recent chart shows the support it was sitting on has just broken and flipped into resistance, so the price is falling toward the 20-21 area, and Zero himself says to wait for the stock to close back above 24.49 before adding. One member jumped in early; the patient play is different. Don't chase it down here: wait either for that 24.49 reclaim, or for the price to steady in the 20-21 support band, and only then accumulate on a spot (no-leverage) basis."
 }

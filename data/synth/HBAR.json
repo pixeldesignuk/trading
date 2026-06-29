@@ -1,0 +1,30 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.185,
+    "entry_basis": "zero_live 2025-05-14 chart — the 0.185 'SPOT/LONG' zone (0.786 fib). NOT a fresh-chase: the move already ran +62% and price (~0.213) sits ABOVE this zone, so this is a pullback re-entry, not a buy-now. Chart also shows deeper buy levels at 0.11 / 0.095 / 0.073 (missing from the extracted text) flagged as 'extremely interesting' for spot.",
+    "targets": [
+      { "price": 0.233, "basis": "zero_live chart — 'Partial TP' band (omitted from extracted text)" },
+      { "price": 0.24, "basis": "zero_live grade — TP1 / consistent level (also drawn as 'Partial TP' on chart)" },
+      { "price": 0.29, "basis": "zero_live grade + chart note — weekly level / intermediate TP" }
+    ],
+    "invalidation": 0.16,
+    "stop_basis": "Close below 0.16 — structural support breach on the 2-day; sits under the 0.17-0.185 buy-zone cluster"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-14",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Textbook (grade 9) spot/long setup; the trade already ran +62%, so the live advice is to wait for a pullback into the 0.185 support zone (or deeper to 0.11/0.095) before re-entering, targeting 0.233-0.29."
+    }
+  ],
+  "conflicts": [
+    "Chart vs extracted text: the chart shows three deeper buy levels (0.11, 0.095, 0.073) that the text dropped entirely, plus a 0.233 partial-TP band — image wins, all included.",
+    "Recency: this is the ONLY source and it is ~13 months old (2025-05-14 vs today 2026-06-27). The drawn levels and 'already +62%' context are almost certainly out of date, so treat every number as a stale reference, not a live trigger."
+  ],
+  "plain_english": "There is only one source here and it is over a year old, so trust it lightly. Back in May 2025 this was a clean, high-quality buy idea, but the trade had already jumped 62% by the time of the note — meaning you would have been chasing if you bought then, and the levels are stale now. The plan if it ever sets up again was to wait for the price to dip back to about 0.185 (or much deeper, around 0.11 or 0.095) before buying, aiming for 0.233 to 0.29 and bailing if it closes below 0.16. For now: do nothing, just re-check HBAR against fresh charts before acting on any of these numbers."
+}

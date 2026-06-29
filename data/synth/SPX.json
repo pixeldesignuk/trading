@@ -1,0 +1,52 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 7013.43,
+    "entry_basis": "zero_live 2026-04-20 chart — the 100% fib at 7,013.43, the level price broke above; a pullback to retest it (now support) is the lowest-risk long. Price has already run to ~7,115, so this entry has not pulled back yet.",
+    "targets": [
+      { "price": 7200.57, "basis": "zero_live 2026-04-20 chart — 127.2% fib (7,200.57); also the lower end of the 7,200-7,500 context target (2026-04-20)" },
+      { "price": 7325.80, "basis": "zero_live 2026-04-20 chart — 145.4% fib (7,325.80), bottom of the drawn target box" },
+      { "price": 7438.63, "basis": "zero_live 2026-04-20 chart — 161.8% fib (7,438.63), top of the target box; aligns with the ~7,500 context extension" }
+    ],
+    "invalidation": 6866.19,
+    "stop_basis": "below the 78.6% fib (6,866.19), the prior consolidation high on the 2026-04-20 chart — losing it means the breakout has failed and the bullish structure is void"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-20",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Price broke above 7,013 and is pushing into the 7,200-7,438 extension zone; upside continuation while it holds above the breakout."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-11-24",
+      "stance": "bearish",
+      "timeframe": "LTF",
+      "summary": "Cautious/two-sided at 6,623: short scenario toward 6,200 / 6,000-5,800 if it breaks 6,500, but a 6,268 demand zone for a bounce and 'remain bullish' if it holds. Invalidated above 6,800 — now overtaken."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-28",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Recovery context off the April lows; bullish once the prior swing high (~5,800) is reclaimed, sell area overhead at 6,000-6,150."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-21",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Upside take-profits at 6,291 / 6,523 / 6,767 if it closes above the all-time high, but flagged as low probability at the time."
+    }
+  ],
+  "conflicts": [
+    "The November 2025 read leaned bearish (short below 6,500 toward 6,000-5,800), but its own line in the sand was 'reclaim above 6,800' — the April 2026 chart shows price rallied through that to 7,115, so the bearish case is dead and the newer bullish breakout overrides it.",
+    "The November source was internally two-sided: the extracted text gave a bearish short (6,550-6,650), yet the chart itself annotated a 6,268 bounce zone and 'sustain this area and we remain bullish' — it was never a clean short.",
+    "Price at ~7,115 has already run into the 7,200-7,438 target zone, so the bullish breakout entry (above 7,013) triggered roughly 100 points ago — buying here is chasing a vertical move with thin reward to the first target, not a fresh setup."
+  ],
+  "plain_english": "The most recent chart (April 2026) is clearly bullish: the index pushed above 7,013 and is heading toward 7,200, then 7,325, then about 7,438. The older November read that worried about a drop is now out of date — price climbed past the level that would have cancelled it. The catch is that price has already shot almost straight up into that target area, so buying right now means chasing with little room left before the first target and a long way to fall if it reverses. Wait for a pullback toward the 7,013 breakout level before going long, rather than buying the spike."
+}

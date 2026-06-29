@@ -1,0 +1,33 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 2.97,
+    "entry_basis": "zero_live chart workflow note 'long from 2.97$ where there's liquidity'; full spot buy zone is the 2.88-3.08 demand/OTE cluster (chart green zone + grade entry 2.88-3.08)",
+    "targets": [
+      { "price": 3.15, "basis": "zero_live grade 'initial upside into prior resistance' = chart 0.618 fib (3.15$); only a modest first target above the 2.97 entry" },
+      { "price": 3.45, "basis": "zero_live chart label '3.45$ - TP and small short if aligned with majors' (natural take-profit for a long)" },
+      { "price": 4.20, "basis": "zero_live grade '4.20+ if structure holds' (estimated/aggressive; above the 3.69-3.80 supply Zero flags for shorts, so structure-dependent)" }
+    ],
+    "invalidation": 2.88,
+    "stop_basis": "below the 2.88-3.08 demand cluster; chart + grade both say 'Close below 2.88' invalidates the long"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-12",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Wants to buy the discount: long the 2.88-3.08 demand zone (preferred 2.97) for a swing higher, but also short/take-profit into 3.45 and 3.69-3.80 supply if Bitcoin aligns; whole plan is tied to Bitcoin's move."
+    }
+  ],
+  "conflicts": [
+    "Single source, but it's a two-sided plan, not a clean buy: Zero wants to LONG the 2.88-3.08 discount yet also SHORT into the 3.45 and 3.69-3.80 zones above if Bitcoin aligns.",
+    "Staleness: this read is from 12 May 2025 (over a year old). The price context it was drawn in has long passed, so treat every level as illustrative rather than live-actionable.",
+    "On the chart, price was already at 3.45 (the take-profit / short zone) ABOVE the 2.97 buy entry - the long needs a pullback into 2.88-3.08 that may never come.",
+    "Live price is unknown (not provided), so we cannot confirm where TON sits relative to this plan today.",
+    "The extracted '3.15 target' is actually the 0.618 discount fib on the chart - a minor first step up from 2.97, not a major upside objective."
+  ],
+  "plain_english": "This is one over-a-year-old Toncoin chart that grades as textbook but only describes buying a dip into the 2.88-3.08 area (best around 2.97), then taking profit up at 3.45 and 3.69-3.80. It is a two-sided plan tied to Bitcoin's direction, and when it was drawn the price was already up at 3.45, above where you'd want to buy. Because it's so old, conditional on a pullback that may not happen, and we don't even know the current price, do not act on it. Wait: only consider a small buy if Toncoin actually trades back down into 2.88-3.08 and you confirm Bitcoin is supportive, with an exit if it closes below 2.88."
+}

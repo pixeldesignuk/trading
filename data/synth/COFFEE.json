@@ -1,23 +1,32 @@
 {
-  "conviction": 2,
+  "conviction": 6,
   "contested": false,
-  "action": "stand_aside",
+  "action": "enter",
   "safest_plan": {
-    "entry": null,
-    "entry_basis": "No source gave an entry level — the only mention is general context from a Zero live session, with no buy zone stated.",
-    "targets": [],
-    "invalidation": null,
-    "stop_basis": "No structure or level was provided by any source, so there is nothing to anchor a stop to."
+    "entry": 245,
+    "entry_basis": "Zero Live 2026-05-18: 250–240 range during consolidation (current price 240.57 at lower edge, chart-confirmed)",
+    "targets": [
+      {
+        "price": 320,
+        "basis": "Zero Live 2026-05-18: intermediate target (estimated progression toward 340)"
+      },
+      {
+        "price": 340,
+        "basis": "Zero Live 2026-05-18: achievable target, labeled on chart as key resistance"
+      }
+    ],
+    "invalidation": 235,
+    "stop_basis": "break below consolidation structure (Zero Live); chart shows support ~240, conservative stop at 235"
   },
   "stance_by_source": [
     {
       "source": "zero_live",
-      "as_of": "2026-06-05",
-      "stance": "neutral",
-      "timeframe": "unspecified",
-      "summary": "Coffee was mentioned only as passing educational context in a Zero live session — no direction, no levels, no trade call."
+      "as_of": "2026-05-18",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Consolidation buy 250–240 before Brazilian winter (June–August–September) harvest season; target 340 on seasonal tailwind and supply pressure dynamics."
     }
   ],
   "conflicts": [],
-  "plain_english": "There is only one mention of coffee here, and it was a passing comment in an educational live session — no price to buy at, no target, and no level that would say the idea is wrong. With nothing concrete to act on and no live price to check against, this is not a setup. Stand aside and wait for an actual buy zone and target before considering anything."
+  "plain_english": "Coffee is consolidating in the 240–250 range before the June–August harvest season (Brazilian winter). Zero marks this as a tactical buy targeting 340, with the setup invalidated only if price breaks below 240. Current price sits at the entry zone. Scale in cautiously—the grade itself was marked 'partial' (7/10), so avoid all-in size. Stop if support fails; target is 100-point upside (2.3:1 reward)."
 }

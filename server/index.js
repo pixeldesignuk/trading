@@ -4,9 +4,10 @@ import { fileURLToPath } from 'node:url'
 import express from 'express'
 import { init, query } from './db.js'
 import { listTickers, getTicker, setStatus, setPlan, setVehicle, setClassification, setCommodityKey, upsertTicker, setActioned, reorderTickers } from './tickers.js'
-import { getCommodity, vehicleByTicker, pickVehicle, commodityView } from './commodities.js'
+import { getCommodity, vehicleByTicker, pickVehicle, commodityView, vehicleToCommodity } from './commodities.js'
 import { eventsForTicker } from './events.js'
 import { ingestSignal } from './ingest-signal.js'
+import { addChartEvent } from './charts.js'
 import { ingestDiscussion, listDiscussions, getDiscussion } from './discussions.js'
 import { listIdeas } from './ideas.js'
 import { getQuotes, getHistory } from './price-provider.js'
@@ -17,6 +18,7 @@ import { synthesize } from './synthesize.js'
 import { streamChat, streamPortfolioChat, chatReady, missingKey } from './chat.js'
 import { screenTicker } from './sharia/screen.js'
 import { runAlerts } from './alerts/run.js'
+import { runDigest } from './alerts/digest.js'
 import { listAlerts } from './alerts/list.js'
 import { createCustomAlert, cancelCustomAlert, setMuted, armPlanAlerts, disarmPlanAlerts } from './alerts/custom.js'
 import { ALERTS_RUN_TOKEN } from './config.js'
@@ -207,6 +209,24 @@ app.post('/api/ingest', async (req, res) => {
   catch (e) { res.status(400).json({ error: e.message }) }
 })
 
+// Attach a chart image to a ticker. The server copies srcFile (an absolute path on
+// this machine) into its own MEDIA_DIR and appends a kind:'chart' event, so the image
+// always lands where /media serves it. Ensures the ticker exists first.
+app.post('/api/chart', async (req, res) => {
+  try {
+    const { symbol, name, asset_class, source = 'zero_live', srcFile, occurred_at = null, native_id = null, caption = null, levels = null } = req.body || {}
+    if (!symbol || !srcFile) throw new Error('symbol and srcFile are required')
+    // Vehicle-code guard (mirrors ingestSignal): a chart labelled with an ETC code
+    // (e.g. "SGLN") attaches to the canonical commodity ticker, not a duplicate.
+    const remap = vehicleToCommodity(symbol)
+    const t = remap
+      ? await upsertTicker(remap.symbol, { name: getCommodity(remap.key)?.label || name, asset_class: 'commodity' })
+      : await upsertTicker(symbol, { name, asset_class })
+    await addChartEvent({ symbol: t.symbol, source, srcFile, occurred_at, native_id, caption, levels })
+    res.json({ ok: true, symbol: t.symbol })
+  } catch (e) { res.status(400).json({ error: e.message }) }
+})
+
 // --- Feed (discussion digests) ---
 
 app.post('/api/discussions', async (req, res) => {
@@ -246,6 +266,17 @@ app.post('/api/alerts/run', async (req, res) => {
     return res.status(401).json({ error: 'unauthorized' })
   }
   try { res.json(await runAlerts()) }
+  catch (e) { res.status(500).json({ error: e.message }) }
+})
+
+// Twice-daily actionable digest (07:00 + 21:30 Europe/London). Builds + sends the
+// Telegram briefing; never records events. Same shared-secret guard; two Trigger.dev
+// schedules poke this.
+app.post('/api/alerts/digest', async (req, res) => {
+  if (!ALERTS_RUN_TOKEN || req.get('x-alerts-token') !== ALERTS_RUN_TOKEN) {
+    return res.status(401).json({ error: 'unauthorized' })
+  }
+  try { res.json(await runDigest()) }
   catch (e) { res.status(500).json({ error: e.message }) }
 })
 

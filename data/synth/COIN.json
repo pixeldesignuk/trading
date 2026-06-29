@@ -1,0 +1,37 @@
+{
+  "conviction": 2,
+  "contested": true,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": 162,
+    "entry_basis": "zero_live 2026-05-26 weekly chart — lower STRONG DEMAND band (~155-162, near the 162.66 axis level); a place to WATCH for a bounce only, not a confirmed buy",
+    "targets": [
+      { "price": 205, "basis": "zero_live 2026-05-26 chart — 205.39 reaction level overhead" },
+      { "price": 263, "basis": "zero_live 2026-05-26 chart — 3D/4D supply ~263-265 (the short/resistance zone)" }
+    ],
+    "invalidation": 142,
+    "stop_basis": "below the lower strong-demand band (~142.66 axis level on the 2026-05-26 weekly chart); losing it confirms the 'signs of weakness' read"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-26",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Weak grade-4 read: signs of weakness on the weekly, overhead supply around 263-265 treated as a short-only zone, no precise targets given."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-14",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Textbook grade-9 breakout: buy 256-260 through the order block, targets 310 / 328 / 350-360, fail if it closes below 186.29 — but price has since fallen to ~180, so this plan is already dead."
+    }
+  ],
+  "conflicts": [
+    "The two reads point opposite ways: the May-2025 call was a confident bullish breakout buy at 256-260, while the May-2026 weekly call flags weakness and treats the overhead supply near 265 as a place to short. The newer, higher-timeframe call takes priority.",
+    "Price has dropped to about 180 — below the May-2025 setup's own stop at 186.29 — so that bullish plan is already invalidated and should not be acted on.",
+    "Chart vs text: the newer weekly chart adds an overhead 3D/4D supply zone near 263-265 and a lower strong-demand band near 155-162 (with a deeper line near 142) that the extracted text did not specify."
+  ],
+  "plain_english": "A year ago this looked like a strong buy in the 256-260 area, but the price has since fallen all the way back to about 180 — well below the level that would have told you that older plan was wrong, so it no longer applies. The most recent weekly view calls it 'signs of weakness' and only looks to sell near resistance around 265, which the price isn't near right now. The two views disagree on direction and the recent one is weak with no firm targets, so there is no clean trade here. Stand aside; if you want to do anything, only watch for a possible bounce off the 155-162 support band and stay out below roughly 142."
+}

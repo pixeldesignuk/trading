@@ -1,0 +1,33 @@
+{
+  "conviction": 2,
+  "contested": false,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No ALGO entry price was ever stated. The only mention says 'already entered' as a risk-management teaching example (zero_live 2025-10-13), with no number.",
+    "targets": [],
+    "invalidation": null,
+    "stop_basis": "Zero referenced a structural stop ('breaker level') below the position but gave no price; the attached chart is DOGE, not ALGO, so no ALGO level can be read off it."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-10-13",
+      "stance": "neutral",
+      "timeframe": "context",
+      "summary": "ALGO is used only as a worked example of how to manage risk on a position already taken, graded weak; no entry, target, or stop price is given."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-10-13",
+      "stance": "neutral",
+      "timeframe": "context",
+      "summary": "The chart filed under ALGO is actually a Dogecoin chart shown as a general perspective on altcoins, so it carries no Algorand levels."
+    }
+  ],
+  "conflicts": [
+    "The chart image attached to this ticker is a Dogecoin (DOGE) chart, not Algorand (ALGO), so none of its price levels apply to ALGO.",
+    "Both ALGO mentions are educational (risk-management example), not a tradeable call, and neither carries an entry, target, or stop price."
+  ],
+  "plain_english": "There is no real Algorand trade here. Algorand was only brought up in a teaching clip on 13 October 2025 as an example of managing a position someone had already opened, and it was rated weak. No buy price, no profit target, and no stop price were ever given, and the chart saved with it is actually a Dogecoin chart, not Algorand. Do nothing on this one until a source gives an actual Algorand setup with real levels."
+}

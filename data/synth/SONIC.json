@@ -1,0 +1,31 @@
+{
+  "conviction": 2,
+  "contested": true,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": 0.31954,
+    "entry_basis": "Pivot 0.31954 — the reclaim high from the zero_live grade (2025-06-30) and the value in the chart's BUY/SELL boxes. NOT a committed entry: only a decisive daily close ABOVE it argues long, a clear rejection BELOW it argues short.",
+    "targets": [
+      { "price": 0.378, "basis": "zero_live: 0.37-0.38 intermediate TP; matches the 0.705-fib lower edge of the red supply zone on the chart" },
+      { "price": 0.46, "basis": "0.46$ horizontal resistance line drawn on the chart (chart level absent from the text target list)" },
+      { "price": 0.64, "basis": "zero_live: 0.64 'key TP if upside confirmed' — sits off the top of the chart, unverified against drawn levels" }
+    ],
+    "invalidation": 0.30,
+    "stop_basis": "Below the 0.705 'HTF demand' zone (~0.30-0.31) marked just under current price on the chart; losing it exposes the deeper ~0.27 demand block (the source's downside target)."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-30",
+      "stance": "neutral",
+      "timeframe": "daily",
+      "summary": "Coin-flip at 0.31954 after a bearish break of structure: short only if it stays below that level, long only after it reclaims and closes above. Graded weak (2)."
+    }
+  ],
+  "conflicts": [
+    "Only one source, and it is dated 2025-06-30 — roughly a year old; the levels may no longer reflect where price actually trades, so treat the whole read as possibly expired.",
+    "The setup is direction-undecided by design: it calls a short below 0.31954 and a long above it, so there is no committed bias until price picks a side.",
+    "The source's stated upside target of 0.64 skips the 0.46 resistance that is clearly drawn on the chart; the chart implies 0.46 is the first real obstacle, not a clean run to 0.64."
+  ],
+  "plain_english": "There is only one read on Sonic here, it is graded weak, and it is about a year old, so trust it very little. Even at the time it did not pick a direction — it said the coin price was balanced on the line around 0.32, and you should only go long if it clearly closes above that line, or short if it gets firmly rejected below it. With nothing fresh to confirm which way it broke, do not take a position: stand aside until you have a current chart showing whether 0.32 held or failed."
+}

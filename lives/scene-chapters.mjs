@@ -6,6 +6,7 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 
 // OCR the top header band (toolbar + chart title) and return a stable symbol
 // fingerprint. TradingView shows a search box "Q <TICKER>" and a title like
@@ -75,41 +76,28 @@ function similar(a, b) {
   return 1 - d[m][n] / Math.max(m, n)
 }
 
-// Sample frames across the video, OCR each header, collapse to segments.
-// Returns ordered [{ label, start_sec }] (same shape as parseCaptionChapters).
-export function detectChapters(video, durationSec, { interval = 15, minSegSec = 30, tmpDir } = {}) {
-  tmpDir = tmpDir || fs.mkdtempSync(path.join(os.tmpdir(), 'scenech-'))
-  const samples = []
-  for (let t = 5; t < durationSec; t += interval) {
-    const f = path.join(tmpDir, 'f.png')
-    try {
-      execFileSync('ffmpeg', ['-y', '-ss', String(t), '-i', video, '-frames:v', '1', '-q:v', '3', f], { stdio: 'ignore' })
-      samples.push({ t, sym: ocrSymbolHeader(f, tmpDir) })
-    } catch {
-      samples.push({ t, sym: '' })
-    }
-  }
-  // collapse consecutive same-asset samples into runs (group by normalized key so
-  // OCR variants merge; blank readings extend the current run rather than break it)
-  const runs = []
-  for (const s of samples) {
-    const last = runs[runs.length - 1]
-    const sameAsset = last && s.sym && (groupKey(last.sym) === groupKey(s.sym) || similar(last.sym, s.sym) >= 0.6)
-    if (last && (sameAsset || !s.sym)) {
-      last.end = s.t
-      if (s.sym && s.sym.length > last.sym.length) last.sym = s.sym // keep the fullest reading
-    } else {
-      runs.push({ sym: s.sym, start: s.t, end: s.t })
-    }
-  }
-  // keep runs that are a real chart (named + long enough), merge tiny ones forward
-  const chapters = runs
-    .filter((r) => r.sym && r.end - r.start >= minSegSec - interval)
-    .map((r) => ({ label: r.sym, start_sec: Math.max(0, r.start - Math.floor(interval / 2)) }))
-  // de-dup identical adjacent labels after filtering
-  const out = []
-  for (const c of chapters) {
-    if (!out.length || out[out.length - 1].label !== c.label) out.push(c)
-  }
-  return out
+// ffmpeg visual scene-cut timestamps (chart switches). Low threshold because
+// chart-to-chart on the same dark TradingView theme is a small pixel delta.
+export function sceneCuts(video, threshold = 0.1) {
+  // metadata=print:file=- writes pts_time lines to STDOUT; capture it.
+  const out = execFileSync('ffmpeg',
+    ['-i', video, '-vf', `select='gt(scene,${threshold})',metadata=print:file=-`, '-an', '-f', 'null', '-'],
+    { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 * 1024 * 1024 })
+  const cuts = [...out.matchAll(/pts_time:([0-9.]+)/g)].map((m) => Math.round(+m[1]))
+  return [...new Set(cuts)].sort((a, b) => a - b)
+}
+
+// Detect chart segments WITHOUT caption chapters via the Python image-change detector
+// (lives/detect_switches.py): it tracks change in the ticker-name region of the header
+// (dhash+absdiff+SSIM), which is invariant within a chart and spikes on a symbol switch
+// — far more reliable than OCR or raw scene-cuts on dark TradingView recordings. It is
+// tuned for high RECALL (never miss a switch); the resulting over-segmentation is merged
+// later by symbol via vision. Labels are left blank — the vision extraction step reads
+// each segment's frame for the real ticker. Returns ordered [{ label:'', start_sec }].
+export function detectChapters(video) {
+  const py = path.join(path.dirname(fileURLToPath(import.meta.url)), '.venv/bin/python')
+  const script = path.join(path.dirname(fileURLToPath(import.meta.url)), 'detect_switches.py')
+  const out = execFileSync(py, [script, video], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
+  const { boundaries } = JSON.parse(out)
+  return boundaries.map((start_sec) => ({ label: '', start_sec }))
 }

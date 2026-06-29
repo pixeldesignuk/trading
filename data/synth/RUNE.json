@@ -1,0 +1,30 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 1.55,
+    "entry_basis": "zero_live chart 'Best area where to long/spot' band 1.50-1.60 (0.618 fib, with 1.272 and 1.50 marked); midpoint taken. Text alt entry 1.697 (local order block) is shallower — image's pullback zone preferred.",
+    "targets": [
+      { "price": 2.47, "basis": "zero_live chart 'First key zone where to take profits' (2.47) — first TP" },
+      { "price": 4.0, "basis": "zero_live grade — '4.00 major key region' (second TP, not drawn on the visible chart, longer-horizon)" }
+    ],
+    "invalidation": 1.18,
+    "stop_basis": "zero_live: close below 1.18 (liquidity level). Note: the chart also labels 1.18 as a second buy zone, so a stop here sits right on a level the source treats as support — not a clean structural stop."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-26",
+      "stance": "bullish",
+      "timeframe": "daily / swing",
+      "summary": "Wants to buy a pullback into 1.50-1.60 (with a deeper add at 1.18) targeting 2.47 then 4.00; thesis breaks on a daily close under 1.18."
+    }
+  ],
+  "conflicts": [
+    "Only one source, dated 2025-05-26 — over 13 months stale; price is now ~1.99, already above the 1.50-1.60 buy zone, so the pullback entry never triggered and the original read may be obsolete.",
+    "The deeper buy zone at 1.18 is the same level the source names as the invalidation, so 1.18 is a knife-edge level (both a place to add and the line that breaks the thesis), not a clean stop.",
+    "Text alt entry 1.697 (order block) is higher than the chart's preferred 1.50-1.60 long zone — image wins, primary entry set to the 1.50-1.60 band."
+  ],
+  "plain_english": "A single, year-old trading note wanted to buy THORChain only on a dip back to the 1.50-1.60 area (with a deeper buy near 1.18), aiming for 2.47 then 4.00, and would give up the idea if it closed below 1.18. The price is now around 1.99 — above that buy zone — so the dip the plan needed never happened, and the note is too old to trust on its own. There is no second source to confirm any of it. Do not chase here; wait for a fresh read, and only consider buying if price actually pulls back into the 1.50-1.60 area."
+}

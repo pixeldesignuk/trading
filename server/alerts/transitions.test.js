@@ -40,8 +40,9 @@ test('formatLine omits context when grade/sharia absent or unknown', () => {
   assert.equal(formatLine(ticker, plan, 5, { kind: 'entered_buy' }), '🟢 FOO entered buy zone 5 · now 5')
 })
 
-test('buildMessage batches lines with header + disclaimer', () => {
+test('buildMessage batches lines under a header (no disclaimer)', () => {
   const msg = buildMessage(['🟢 A …', '🔴 B …'])
   assert.match(msg, /^🥷 Trading Hub alerts — 2 hit/)
-  assert.match(msg, /not financial advice$/)
+  assert.match(msg, /🟢 A …\n🔴 B …$/)
+  assert.doesNotMatch(msg, /not financial advice/)
 })

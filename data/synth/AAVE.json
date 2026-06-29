@@ -1,0 +1,37 @@
+{
+  "conviction": 2,
+  "contested": false,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": 195,
+    "entry_basis": "Lower edge of the purple 'area where I want to bet' zone on the 2025-05-23 zero_live chart (lines drawn at 195 and 202; grade text wrote '195-202 pullback to demand zone'). 195 is the safer fill of the two.",
+    "targets": [
+      { "price": 240, "basis": "zero_live grade target '240+'" },
+      { "price": 255, "basis": "Pink supply box / 256.44 SELL marker at top of the same chart (estimated)" }
+    ],
+    "invalidation": 128.77,
+    "stop_basis": "Explicit 'SET A STOP LOSS' line drawn at 128.77 on the chart, sitting below the 140-145 weekly-demand 'coverage' zone the source flags as the deeper long area."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-23",
+      "stance": "bullish",
+      "timeframe": "daily (with weekly demand reference)",
+      "summary": "Wants to buy a pullback into the 195-202 zone (and flags a deeper 140-145 demand area as another long), targeting 240+, stop at ~128.77."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-23",
+      "stance": "bullish",
+      "timeframe": "daily",
+      "summary": "Same setup graded WEAK (4/10): entry 195-202, target 240+, invalid below 140-145 — educational only, not a strong call."
+    }
+  ],
+  "conflicts": [
+    "The chart shows TWO separate buy zones but the extracted text only kept one: as well as the 195-202 'area where I want to bet', there is a deeper 140-145 zone ('weekly demand coverage, good for a long') with its own stop drawn at 128.77. The text collapsed 140-145 into a mere 'invalidation'.",
+    "The setup is over a year old (drawn 23 May 2025; today is 27 June 2026) and the right side of the chart has already rallied toward the 240+ target, so the 195-202 pullback entry has most likely played out and is stale.",
+    "No reliable live price was supplied, so it cannot be confirmed where price currently sits relative to any of these zones."
+  ],
+  "plain_english": "There is only one source on Aave here, and it is over a year old and was itself rated weak. It laid out a buy-the-dip plan: buy around 195-202 (or lower, into 140-145), aim for 240 and above, and get out if price falls under about 129. Since then the price has already climbed toward that 240 target on the chart, so the original entry is almost certainly gone, and there is no fresh, current read to replace it. Do nothing on this until there is a new, up-to-date analysis — stand aside."
+}

@@ -27,18 +27,23 @@ const THEME_TIER = { tech: 'moderate', em: 'moderate', commodities: 'lower', nic
 // columns (legacy truthy heuristic) OR a synthesised safest_plan that resolves to a
 // usable numeric stop below entry — so a freshly-synthesised pick auto-shows Trade
 // mode (R:R + sizing) without a manual toggle. An explicit `layer` still overrides.
+// The UNIVERSE decides 'hold': core long-term holdings (and commodities, by default)
+// are allocation-sized holds; everything else — satellite picks, crypto, stocks — is a
+// trade idea. A concrete setup (manual plan or synthesised stop<entry) is always a trade.
 function defaultLayer(ticker) {
   const ac = String(ticker?.asset_class || '').toLowerCase()
-  if (ac === 'crypto' || ac === 'commodity') return 'hold'
-  if (ticker?.invalidation && ticker?.entry_zone) return 'trade'
+  if (ticker?.role === 'core' || ticker?.core_type) return 'hold'  // core = allocation hold
+  if (ticker?.invalidation && ticker?.entry_zone) return 'trade'   // explicit setup
   const entry = entryPrice(ticker), stop = stopPrice(ticker)
-  return entry != null && stop != null && stop < entry ? 'trade' : 'hold'
+  if (entry != null && stop != null && stop < entry) return 'trade'
+  if (ac === 'commodity') return 'hold'                            // gold/silver etc. default to allocation
+  return 'trade'                                                    // satellite picks / crypto / stocks
 }
 
 export function defaultClassification(ticker) {
   const ac = String(ticker?.asset_class || '').toLowerCase()
-  if (ac === 'crypto') return { layer: 'hold', role: 'satellite', pyramidTier: 'high' }
-  if (ac === 'commodity') return { layer: 'hold', role: 'satellite', pyramidTier: 'lower' }
+  if (ac === 'crypto') return { layer: defaultLayer(ticker), role: 'satellite', pyramidTier: 'high' }
+  if (ac === 'commodity') return { layer: defaultLayer(ticker), role: 'satellite', pyramidTier: 'lower' }
   return { layer: defaultLayer(ticker), role: 'satellite', pyramidTier: tierFrom(ticker) }
 }
 

@@ -1,0 +1,31 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 1630,
+    "entry_basis": "zero_live 2025-06-09 chart — the deeper of two green demand zones (~1,630), which Zero explicitly favours as his point of reference for a trade because it has more liquidity. The shallower zone (~1,665–1,685, the 0.62 level) is the alternative. Price was ~1,744 at the time, so this is a buy-the-dip level, not a buy-now.",
+    "targets": [
+      { "price": 1880, "basis": "zero_live chart — labelled TP1 / 2nd-mitigation supply zone (red). NOTE: the extracted text said 1,800–1,850; the chart shows ~1,880, so the chart wins." },
+      { "price": 1960, "basis": "zero_live chart/grade — the 1,960 level Zero wanted to see a higher-timeframe close above to strengthen the bullish case." },
+      { "price": 2000, "basis": "zero_live chart — top of the upper supply zone (estimated upper extension of the same red block)." }
+    ],
+    "invalidation": 1600,
+    "stop_basis": "A close below ~1,600 breaks the higher-timeframe demand cluster the long sits on; below that the only support left is the deeper order block at ~1,480–1,520 (zero_live: 'put your eyes on the lower part of the HTF OB')."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-09",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Bullish but conditional — wait for a pullback into the 1,630–1,685 demand cluster, only take it if Bitcoin/major coins confirm, then aim for ~1,880 and 1,960+; a chart-only educational call graded 'partial' (6/10)."
+    }
+  ],
+  "conflicts": [
+    "Chart vs text: the earlier text extraction listed the second target as 1,800–1,850, but the chart's labelled second-mitigation supply zone sits at ~1,880 — using the chart figure.",
+    "Chart vs text: the text gave a single entry of 1,630–1,660, but the chart actually shows two stacked buy zones (~1,665–1,685 and ~1,630) plus a deeper fallback order block at ~1,480–1,520; all are included above.",
+    "These are extraction corrections, not source disagreements — there is only one source, so direction is not contested."
+  ],
+  "plain_english": "Only one source covers Maker — a single educational chart from 9 June 2025, graded as a partial setup, with no second opinion to cross-check it. It leans bullish but is heavily conditional: the plan is to wait for the price to pull back into a support shelf around 1,630–1,685 (with a deeper backup zone near 1,480–1,520), buy only if Bitcoin and the larger coins are also holding their own support, and then aim up toward roughly 1,880 and 1,960. The thesis breaks if Maker closes below about 1,600. Price was trading above the buy zones at the time, so there is nothing to do now — wait for the dip and for the broader market to confirm before acting."
+}

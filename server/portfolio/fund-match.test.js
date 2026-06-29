@@ -14,6 +14,19 @@ test('core fund → core bucket; London root+L resolves', () => {
   assert.equal(matchHeldSymbol('ISWDL', m).bucket, 'core')
 })
 
+test('t212 ticker keys an exact match for non-London venues (SKUKa_EQ → SKUKA)', () => {
+  // The Amsterdam line (a suffix) → hub form SKUKA, which the root+L heuristic
+  // (SKUK / SKUKL) would never produce. The explicit t212 key must catch it.
+  const m = buildMatchMap({ income: [{ symbol: 'SKUK', t212: 'SKUKa_EQ', income_kind: 'sukuk' }] })
+  assert.equal(matchHeldSymbol('SKUKA', m).bucket, 'core')
+  assert.equal(matchHeldSymbol('SKUKA', m).incomeKind, 'sukuk')
+})
+
+test('t212 London line still resolves via its hub form (ISWDl_EQ → ISWDL)', () => {
+  const m = buildMatchMap({ core: [{ symbol: 'ISWD.GB', t212: 'ISWDl_EQ', core_type: 'world' }] })
+  assert.equal(matchHeldSymbol('ISWDL', m).coreType, 'world')
+})
+
 test('gold → satellite/commodities/lower; EM → satellite/em/moderate', () => {
   const m = buildMatchMap(universe)
   assert.deepEqual(matchHeldSymbol('SGLNL', m), { bucket: 'satellite', theme: 'commodities', tier: 'lower', source: 'SGLN.GB' })

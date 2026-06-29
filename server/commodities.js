@@ -36,6 +36,33 @@ export function vehicleByTicker(key, ticker) {
   return m.vehicles.find((v) => v.ticker.toUpperCase() === t) || null
 }
 
+// Reverse index: a vehicle ETC ticker (SGLN, IAU, SGLP…) → its commodity key.
+// Built once from the same reference.
+const VEHICLE_INDEX = (() => {
+  const idx = new Map()
+  for (const [key, m] of Object.entries(REF)) {
+    if (!m || typeof m !== 'object' || !Array.isArray(m.vehicles)) continue
+    for (const v of m.vehicles) {
+      if (v?.ticker) idx.set(v.ticker.toUpperCase(), key)
+    }
+  }
+  return idx
+})()
+
+// Guard against an extractor stuffing a VEHICLE code into the symbol slot (e.g. a
+// gold live labelled "SGLN" instead of "GOLD"). Returns the canonical commodity
+// identity so ingestion lands on the real ticker (GOLD, vehicle = SGLN) rather
+// than minting a duplicate vehicle ticker. Null when `symbol` isn't a vehicle.
+export function vehicleToCommodity(symbol) {
+  if (!symbol) return null
+  const vehicle = String(symbol).toUpperCase()
+  const key = VEHICLE_INDEX.get(vehicle)
+  if (!key) return null
+  const canon = key.toUpperCase()
+  if (canon === vehicle) return null   // degenerate: code already the commodity symbol
+  return { key, symbol: canon, vehicle }
+}
+
 export function compliance(key) {
   const m = getCommodity(key)
   return m ? { ribawi: !!m.ribawi, note: m.compliance_note } : null

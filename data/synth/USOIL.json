@@ -1,59 +1,72 @@
 {
-  "conviction": 7,
+  "conviction": 5,
   "contested": false,
-  "action": "enter",
+  "action": "wait",
   "safest_plan": {
     "entry": 72,
-    "entry_basis": "zero_tg + zero_live: $70-74 discount buy zone = weekly breaker + breakout origin + point-of-control (high-volume node). Mid-zone 72; price has fallen into this area (2026-06-18 chart ~74.46). Zero (2026-06-22) says 'appealing even from here'.",
+    "entry_basis": "Discount buy zone ~70-74 from zero_live 2026-06-22 (\"key area ~70\") and zero_tg (\"$70-74 — discount + Weekly Bollinger Band + high-volume node\"); confirmed by the labelled discount/origin-of-breakout box on the 2026-06-18 daily chart (~72-74). 72 is the mid of that zone.",
     "targets": [
-      { "price": 83, "basis": "zero_live TP1 = gap fill; matches the 'GAP' label ~83-84 on the 2026-06-18 daily chart" },
-      { "price": 89, "basis": "zero_live TP2 = value-at-high (~89); VAH zone ~88-90 on charts and monthly main target 0.886 (~88-90)" },
-      { "price": 96, "basis": "POC on 2026-06-18 daily chart (~96) — stretch target if momentum continues (estimated as next structural level above 89)" }
+      { "price": 83, "basis": "First target = fill of the unfilled gap, labelled GAP ~83 on the 2026-06-18 daily chart; matches zero_live 2026-06-22 \"TP1 = the gap ~83\"." },
+      { "price": 89, "basis": "Second target = value-at-high / ~89 from zero_live 2026-06-22; aligns with the monthly chart's ~90 main target." }
     ],
-    "invalidation": 70,
-    "stop_basis": "Daily close below 70 (weekly breaker / discount low). Price may wick down to fill the monthly gap ~66-68 first, but Zero does not expect lower; a daily close under 70 breaks the setup."
+    "invalidation": 68,
+    "stop_basis": "Below the monthly gap (M GAP / M FVG ~68-70 on the 2026-06-18 chart) — Zero's stated stop zone; zero_tg notes a close below 70 may wick down to fill this gap first, so the structural stop sits under it at ~68."
   },
   "stance_by_source": [
     {
       "source": "zero_live",
       "as_of": "2026-06-22",
       "stance": "bullish",
-      "timeframe": "HTF",
-      "summary": "Inside the weekly breaker with a possible re-accumulation; long still valid, buy ~70 (stop = monthly gap just below), first target the gap ~83 then ~89 — appealing even at current price."
+      "timeframe": "LTF",
+      "summary": "Long still valid; buy the ~70 discount with a stop below the monthly gap, first target the ~83 gap then ~89. Says it's appealing even from here, and even on spot."
     },
     {
       "source": "zero_hub",
       "as_of": "2026-06-18",
       "stance": "bullish",
-      "timeframe": "HTF",
-      "summary": "Daily chart with price ~74.46 sitting right on the discount/breakout-origin zone; targets above are the gap ~83-84, then point-of-control ~96 and value-area-high ~100-104; monthly gap ~66-68 below as the floor."
+      "timeframe": "LTF",
+      "summary": "Daily chart at 74.46 marks a ~72-74 discount buy zone, a monthly gap stop area ~68-70, an unfilled gap at ~83, and value-at-high ~89-101 above."
     },
     {
       "source": "zero_hub",
       "as_of": "2026-06-10",
       "stance": "bullish",
-      "timeframe": "HTF",
-      "summary": "Earlier daily chart with price ~91; same map — supply ~104-108 above, value-area-high ~100, demand/discount ~76-80 below where price has since fallen into."
+      "timeframe": "LTF",
+      "summary": "Daily chart at ~91 looking to buy a pullback into value-low ~84-88 — now stale; price fell straight through it."
     },
     {
       "source": "zero_hub",
-      "as_of": "2026-06-10",
+      "as_of": "2025-12-24",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Monthly macro view: accumulate in the discounted 50s-70s, partial target ~70, value-area-high ~80, main target ~88-90, with an extended move toward ~110 the longer-run scenario."
+      "summary": "Monthly macro: accumulate in the ~48-54 discount/demand band, main upside target ~90 with an extended ~108 stretch goal."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-05",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Already long from value-low ~84-88 targeting 128-140, invalid below ~84 — that invalidation has since been breached, so this target set is dead."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-18",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Daily chart at ~104; buy zone then was the value-low ~84-88 — superseded as price fell."
     },
     {
       "source": "zero_tg",
       "as_of": null,
       "stance": "bullish",
-      "timeframe": "HTF",
-      "summary": "Buy $70-74 (discount + weekly breaker + point-of-control); invalidated on a close below $70, may wick to fill the monthly gap first. Flags this as 2x-leverage CFD (non-spot) — the halal version is the oil-company share COP."
+      "timeframe": "LTF",
+      "summary": "Buy $70-74 (discount + Weekly Bollinger Band + volume node), invalid on a close below $70. Flags this is a leveraged CFD (non-spot); the halal spot version is the COP equity."
     }
   ],
   "conflicts": [
-    "No directional disagreement — every source is bullish and points to the same 70-74 buy area and ~83 / ~89 targets, so this is genuinely aligned rather than contested.",
-    "Instrument caveat (not a directional conflict): Zero trades oil here as a leveraged CFD, which is not spot-owned and is the haram route; his clean/halal expression of this same view is buying the oil-company equity COP instead of the oil contract.",
-    "The June 10 charts showed price at ~91 and the June 18 chart at ~74 — this is the price falling INTO the intended discount buy zone, i.e. confirmation of the plan, not a contradiction."
+    "The 2026-06-05 long (targets 128-140, invalid below ~84) had its invalidation breached — price fell through ~84 to ~74 — so those high targets are off the table; the newer 2026-06-22 read re-establishes a fresh long from the deeper ~70 discount instead.",
+    "The buy zone moved down over time as price dropped: ~84-88 in mid-May/early June versus ~70-74 by 18-22 June. The newer, deeper zone is the valid one.",
+    "Instrument caveat (not a direction conflict): USOIL here is a leveraged CFD, flagged as non-spot/haram; Zero's halal spot expression is the COP equity, so treat this as education/sizing rather than a tradeable line."
   ],
-  "plain_english": "Every source here is on the same side: this is a buy. Oil has dropped into the 70-74 area that Zero flagged as his preferred buy zone — a long-term discount level where buyers stepped in before — and he says he'd add even at today's roughly 74 price. The plan only fails if oil closes below 70 (it might briefly dip toward a price gap around 66-68 first, but a daily close under 70 means step out); the first target is the price gap near 83, then the 88-90 area. One important caveat: Zero is trading oil here as a leveraged contract, which isn't actually owning the asset and isn't the halal route — his clean version of this trade is buying the oil-company share COP instead. If you can only trade spot/halal, treat this as a directional read and use COP, not the oil contract; otherwise the buy zone is 70-74 with a stop on a daily close below 70."
+  "plain_english": "Every source is betting oil goes up — they only disagree on the price to buy, because oil has fallen hard from about 104 to about 74 in a month. The earlier plan to buy near 84-88 and aim for 128+ has failed: price dropped straight through that floor, so those big targets are gone. The current valid plan is to buy lower, around 70-72, with a safety exit below the gap near 68, aiming first for about 83 and then about 89. Since price (~74) is still a touch above that ideal buy area and is falling fast, the patient move is to wait for it to reach roughly 70-72 before going long rather than chasing it here."
 }

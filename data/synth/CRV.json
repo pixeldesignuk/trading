@@ -1,0 +1,45 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.59,
+    "entry_basis": "Zero live 2025-06-30 (partial, 6): only enter on a confirmed daily close back above 0.59; the spot accumulation zone is 0.54-0.59. The chart marks an even better buy lower, at 0.49/0.50 (estimated as the stronger entry).",
+    "targets": [
+      { "price": 0.65, "basis": "Zero live 2025-06-30 — first internal target / supply band (0.65-0.68 on chart 07)" },
+      { "price": 1.00, "basis": "Zero live 2025-06-30 — next macro target" },
+      { "price": 1.85, "basis": "Zero live 2025-06-30 — stretch target (only on a clean reclaim; far above current range)" }
+    ],
+    "invalidation": 0.45,
+    "stop_basis": "Below the 0.45 support shelf (chart 07 deepest green zone); a daily close under 0.45 breaks the accumulation thesis. Stated in the 2025-06-30 call."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-30",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Cautious spot accumulation: buy the 0.54-0.59 zone or wait for a close back above 0.59, eyeing 0.65 then 1.00+, invalid below 0.45 — but only a 'partial' grade."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-16",
+      "stance": "bearish",
+      "timeframe": "LTF",
+      "summary": "Short from 0.65 if Bitcoin is falling and stablecoin dominance confirms, targeting 0.495 then 0.45 and below; invalid on a close above 0.70."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-23",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Short the 0.83 top (three-drives exhaustion into the 0.848 ceiling) down to the 0.67 demand zone; invalid on a weekly close above 0.86."
+    }
+  ],
+  "conflicts": [
+    "Direction is genuinely contested: the two older calls (23 May and 16 Jun) were bearish and aimed for a drop to 0.45-0.50, while the newest call (30 Jun) flipped to cautious accumulation. The newer call wins on recency, but it is only 'partial' grade and barely two weeks fresher, so conviction stays low and this is a wait, not a buy.",
+    "Chart correction: the chart marks the strongest buy ('best opportunity if provided') at 0.49/0.50 — deeper than the text's stated 0.54-0.59 spot zone — with a further support shelf at ~0.45. The best entry is lower than the headline number.",
+    "Poor reward-to-risk near term: from a 0.59 entry with a 0.45 stop, the first target at 0.65 is under 1:1. Only the 1.00+ targets give 2:1 or better, and a 'partial' grade does not strongly justify holding for those."
+  ],
+  "plain_english": "Curve's recent reads disagree: in May and mid-June the calls were to sell into weakness toward 0.45-0.50, but the latest read (end of June) switched to slowly buying in the 0.54-0.59 area. Because the direction genuinely flipped and even the bullish call is only a half-conviction one, this is not a clean entry. The chart itself points to the best buy being lower, around 0.49-0.50, with a hard line in the sand at 0.45. Sit on your hands: wait for price to either pull into the 0.49-0.59 zone and hold, or close firmly back above 0.59 before considering any small spot position."
+}

@@ -1,4 +1,5 @@
-import { upsertTicker } from './tickers.js'
+import { upsertTicker, setCommodityKey, setVehicle } from './tickers.js'
+import { vehicleToCommodity, getCommodity } from './commodities.js'
 import { appendEvent } from './events.js'
 import { recomputeRollup } from './rollup.js'
 import { enqueueSynth } from './synth-queue.js'
@@ -21,16 +22,34 @@ function hasSetupData(payload = {}) {
 // BRAND-NEW ticker arrives with setup data, it's queued for background AI
 // synthesis (serial, non-blocking — see synth-queue.js).
 export async function ingestSignal(signal) {
-  const { symbol, name, asset_class, source, kind, occurred_at, native_id, payload } = signal
+  let { symbol, name, asset_class } = signal
+  const { source, kind, occurred_at, native_id, payload } = signal
   if (!symbol || !source) throw new Error('ingestSignal: symbol and source are required')
+  // Vehicle-code guard: if a feeder labelled a commodity setup with its ETC code
+  // (e.g. gold as "SGLN"), remap onto the canonical commodity ticker so we never
+  // mint a duplicate vehicle ticker. The commodity reference owns the label.
+  const remap = vehicleToCommodity(symbol)
+  if (remap) {
+    symbol = remap.symbol
+    asset_class = 'commodity'
+    name = getCommodity(remap.key)?.label || name
+  }
   const ticker = await upsertTicker(symbol, { name, asset_class })
-  await appendEvent({ ticker: symbol, source, kind, occurred_at, native_id, payload })
-  await recomputeRollup(symbol)
+  // Use the CANONICAL symbol (upsertTicker may rewrite e.g. ETH.D→ETH-D, BRK.B→BRK-B)
+  // for the event + rollup, else the events.ticker FK won't match the tickers row.
+  const canon = ticker.symbol
+  if (remap) {
+    await setCommodityKey(canon, remap.key)
+    // Lock the read's vehicle only when none is set — never override a user lock.
+    if (!ticker.commodity_vehicle) await setVehicle(canon, remap.vehicle)
+  }
+  await appendEvent({ ticker: canon, source, kind, occurred_at, native_id, payload })
+  await recomputeRollup(canon)
 
   let synth_queued = false
   if (ticker.inserted && hasSetupData(payload)) {
-    enqueueSynth(symbol)
+    enqueueSynth(canon)
     synth_queued = true
   }
-  return { ok: true, symbol, inserted: Boolean(ticker.inserted), synth_queued }
+  return { ok: true, symbol: canon, inserted: Boolean(ticker.inserted), synth_queued }
 }

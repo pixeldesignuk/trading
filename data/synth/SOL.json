@@ -1,0 +1,37 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 150,
+    "entry_basis": "Top of Zero's buy zone, the 0.786+0.79 fib confluence at 148–150 (both 16 May and 2 Jun charts); a second, deeper buy sits at the 0.886 fib ~141–145 (estimated band off the chart's green zone, lower edge ~141.43)",
+    "targets": [
+      { "price": 196, "basis": "TP1 — 0.786 fib, labelled on both Zero charts" },
+      { "price": 211, "basis": "TP2 — 0.705 fib, labelled on the 2 Jun chart" }
+    ],
+    "invalidation": 140,
+    "stop_basis": "Daily close below 140, under the 0.886 fib / break-of-structure base (Zero's newest 2 Jun call; the older 16 May read used the 143.11 BOS level)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-02",
+      "stance": "bullish",
+      "timeframe": "daily",
+      "summary": "Buy the pullback into ~150, targets 196 then 211, but graded this setup 'weak' (4/10) with price slipping back to ~155 — conviction fading."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-16",
+      "stance": "bullish",
+      "timeframe": "daily",
+      "summary": "Buy the 148–150 pullback into the 0.886 fib / breaker, targets 196 (TP1) and 211 (TP2), stop on a close below 143.11; graded 'partial' (7/10)."
+    }
+  ],
+  "conflicts": [
+    "Both reads agree on direction (buy the dip to 148–150) but the newer 2 Jun read downgrades the setup to 'weak' (4/10) versus the older 16 May 'partial' (7/10) — Zero's own conviction is fading.",
+    "The stop level differs: the newer 2 Jun read uses a daily close below 140, the older 16 May read used 143.11 (the break-of-structure level); the more recent, lower 140 is used here per recency.",
+    "The chart shows a second, deeper buy zone at the 0.886 fib (~141–145) below the 148–150 zone that isn't in the headline entry text."
+  ],
+  "plain_english": "Both of Zero's reads point the same way — this is a buy-on-a-dip idea, not a chase. He wants to buy Solana on a pullback into roughly $148–150 (with a possible deeper buy around $141–145), aiming for $196 and then $211. But his most recent read on 2 June marked the setup as weak, and the price near $155 hasn't actually reached the buy zone yet. Wait for a dip into $148–150 before buying anything, and abandon the idea if it closes a day below $140."
+}

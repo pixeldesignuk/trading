@@ -1,38 +1,52 @@
 {
-  "conviction": 5,
+  "conviction": 4,
   "contested": false,
   "action": "wait",
   "safest_plan": {
-    "entry": 42,
-    "entry_basis": "No fresh entry stated. Only stated buy was zero_hub entry 25 (Sep–Nov 2025), now stale at +193%. A retest of the broken range high near ~42 (estimated from the prior consolidation on both charts) is the only lower-risk re-entry; otherwise stand aside.",
+    "entry": 56,
+    "entry_basis": "Breakout retest, NOT a chase at 60.84. Green range-high line ~56 on the 2026-06-22 daily chart (range high turned support); Zero's Q&A flagged a 'weekly retest' scenario. Deeper backup ~47 (red range-support line, same chart). (estimated as a pullback buy zone — no source named a 'buy now' level here.)",
     "targets": [
-      { "price": 68, "basis": "zero_hub grade TP1 68 — also a labelled supply line on the 2026-06-09 chart; near-term, price already approaching" },
-      { "price": 83, "basis": "zero_live scale-out 83 (2026-06-22) + zero_hub grade TP2 83" },
-      { "price": 95, "basis": "zero_live scale-out 95 + zero_hub grade TP3 95 — labelled band on chart" },
-      { "price": 105, "basis": "zero_live scale-out 105 + zero_hub grade TP4 105 — top labelled band (~105–110) on chart" }
+      { "price": 83, "basis": "83/85 supply zone — TP named in zero_live 2026-06-22 ('scale out into 83/85/95/105') and drawn on the 2026-06-09 weekly; also the old breakdown zone, so resistance as well as target" },
+      { "price": 95, "basis": "95 — TP named in zero_live 2026-06-22" },
+      { "price": 105, "basis": "105 supply zone — TP2 on zero_live 2025-05-21 and marked on the 2026-06-09 weekly" }
     ],
-    "invalidation": 38,
-    "stop_basis": "Weekly close back inside the prior consolidation range (~high-30s on both charts) — would void the weekly breakout. (estimated; no explicit stop given, holder is deep in profit)"
+    "invalidation": 47,
+    "stop_basis": "Loss of the breakout range — red support line ~47 on the 2026-06-22 daily. A weekly close back inside/below the range negates the +193% breakout. (The old '$105' invalidation from the May-2025 grade is stale and meaningless now — price is well below it.)"
   },
   "stance_by_source": [
+    {
+      "source": "community",
+      "as_of": "2026-06-26",
+      "stance": "neutral",
+      "timeframe": "n/a",
+      "summary": "Named the ticker with no levels — just flagging interest, carries no actionable read."
+    },
+    {
+      "source": "zero_hub",
+      "as_of": "2026-06-23",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "First profit target near $68 was hit; now scaling out and trailing the rest toward $83 and $95, with a weekly retest still possible."
+    },
     {
       "source": "zero_live",
       "as_of": "2026-06-22",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Confirmed weekly breakout, +193% from lows; holding his shares, took a partial, scaling out into 83 / 85 / 95 / 105 (more profit the higher it climbs)."
+      "summary": "Up about 193% from the lows on a valid weekly breakout; holding the spot bag, took a partial, and scaling out into 83/85, 95 and 105 (more sold the higher it goes)."
     },
     {
-      "source": "zero_hub",
-      "as_of": "2026-06-09",
+      "source": "zero_live",
+      "as_of": "2025-05-21",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Graded partial (6/10): bought near 25 in Sep–Nov 2025, targets stacked at 68 / 83 / 95 / 105; chart shows accumulation boxes ~25–40 and labelled supply bands above."
+      "summary": "Original buy call in the 'extreme discount' zone after a -95% drop; chart shows entry near $22-28 with targets 83/85 and 105. The extracted '155-170 entry, 250/350 targets, below-105 invalidation' do not match the chart and are treated as erroneous."
     }
   ],
   "conflicts": [
-    "Minor: the 2026-06-22 update lists targets 83/85/95/105 and omits the 68 level, but the 2026-06-09 chart and grade both mark 68 as the first target — price has simply already climbed near it, so 68 is the closest live target, not a contradiction.",
-    "The only explicit entry (25, Sep–Nov 2025) is stale — price is ~+193% above it, so it cannot be used as a fresh buy; there is no current low-risk entry on offer."
+    "The May-2025 grade text (entry 155-170, targets 250/350, invalidation below 105) contradicts its own chart, which shows price ~28 in an 'extreme discount' zone with targets 83/85 and 105 — the image wins; treat those text numbers as wrong.",
+    "All live sources are bullish, but there is no fresh low-risk entry: price has already run +193% to ~68 (first target hit) and pulled back to 60.84. Buying now puts the next major supply (83/85) only ~37% away with range support near 47 below — under 2:1 reward-to-risk.",
+    "The old '$105' invalidation is stale (price is already below it); the live structural stop is loss of the breakout range near 47."
   ],
-  "plain_english": "Moderna has already shot up about 193% from where Zero bought it near $25, and on the weekly chart it has confirmed a genuine breakout above its long base. He is holding his shares and selling small amounts into $83, $85, $95 and $105 — taking more off the higher it goes. The two reads are the same trader and fully agree, so direction isn't in doubt; the problem is there's no fresh, low-risk place to buy after a near-triple. If you don't already own it, wait for a real pullback (a dip back toward the low-40s breakout area) rather than chasing; if you already hold, just hold and trim into those higher prices."
+  "plain_english": "Moderna has already shot up about 193% from its lows to roughly $68 and has since eased back to about $61. Every recent Zero source is on the same side — bullish — and is now banking profit and letting the rest ride toward $83-85, then $95, then $105, where there is heavy overhead selling left from an earlier breakdown. The snag is that the cheap entry was down near $22-28 last year; buying now, after the big run, leaves only about a third of upside to the first wall while price could easily slip back toward $47 — poor reward for the risk. If you already hold, sell in pieces into $83-85, $95 and $105; if you are not in, wait for a pullback toward $52-56 (or deeper to $47) rather than chasing here."
 }

@@ -1,0 +1,30 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 18.55,
+    "entry_basis": "zero_live grade (2026-03-23): downside continuation from the 18.45–18.60 zone; 18.55 is the mid and matches the red breakdown level on the weekly chart, which is where price sits now",
+    "targets": [
+      { "price": 17.0, "basis": "zero_live grade: next key zone 16.50–17.00 (using the top of the zone); chart already wicked to 17.29 here once and bounced" },
+      { "price": 16.0, "basis": "zero_live grade: extension zone 15.50–16.00 (using the top of the zone)" }
+    ],
+    "invalidation": 19.5,
+    "stop_basis": "weekly close back above the 19.50 green supply band (stated invalidation); a weekly close there reclaims the broken range and kills the short"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-03-23",
+      "stance": "bearish",
+      "timeframe": "HTF",
+      "summary": "Weekly breakdown continuation lower: short the 18.45–18.60 zone toward 17.00 then 16.00, only wrong on a weekly close back above 19.50. Graded a partial (6/10)."
+    }
+  ],
+  "conflicts": [
+    "Only one source (a single Zero live chart + partial grade), so there is no second opinion to confirm the bearish call.",
+    "The chart shows a thick blue demand band at roughly 18.0–18.3 just under the entry that the extracted text leaves out — price has to break that before the 17.00 and 16.00 targets are in play.",
+    "Price action partly contradicts the thesis: the most recent weekly candle already dropped to ~17.29 (the first target area) and then bounced back to ~18.56, so the easy part of the move may already be done."
+  ],
+  "plain_english": "One source (a Zero teaching session from March) reads this UAE ETF as breaking down on the weekly chart and heading lower — selling from about 18.45–18.60 down toward 17.00 and then 16.00, with the idea only wrong if it climbs back and closes a week above 19.50. The catch: it's a lone, three-month-old call, there's a support band right under the current price around 18.0–18.3, and the price has already dipped to roughly 17.3 and bounced back to where it is now — so the drop it's pointing at has partly happened and then reversed. Don't chase a short here; wait for a clean break and hold below 18.0 (or a fresh signal) before acting, and treat 16.00 as a long way off rather than a sure thing."
+}

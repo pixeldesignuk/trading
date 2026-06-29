@@ -1,0 +1,30 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 85,
+    "entry_basis": "zero_live grade (2026-05-11): breakout above the double-weekly 'breaker' that forms the right shoulder of an inverse head-and-shoulders. No exact number given; placed just above the weekly high of 84.82 visible on the chart (estimated)",
+    "targets": [
+      { "price": 100, "basis": "zero_live: 'supply area above' = green horizontal line near 100 EUR on the weekly chart (estimated)" },
+      { "price": 110, "basis": "zero_live: 'untapped' levels higher, toward the top of the visible 112 axis (estimated)" }
+    ],
+    "invalidation": 72,
+    "stop_basis": "weekly close below the five-week demand zone / left shoulder of the inverse head-and-shoulders; sits near the 72.40 demand label visible on the chart (estimated)"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-11",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Weekly bottoming pattern: wants a breakout above resistance to trigger a long toward supply near 100, invalid on a weekly close back under the recent demand floor."
+    }
+  ],
+  "conflicts": [
+    "Only one source (a single Zero live mention), so there is no cross-source disagreement to resolve.",
+    "The chart could not be read precisely: a large indicators panel covers the centre of the image, hiding the drawn setup. Every price in the plan is estimated from the visible axis labels and the weekly candle, not stated by the source.",
+    "Zero graded this setup only 'partial' (5/10) and it has not triggered — the breakout has not happened, so it is a watch item, not an entry."
+  ],
+  "plain_english": "On the weekly chart Zero flagged Brunello Cucinelli as a possible bottoming pattern (a base that could turn up), but only as a half-formed, low-grade idea worth 5 out of 10. Nothing has actually triggered: it needs to push up and break above resistance (roughly 85 EUR) before there is any trade, with a first target around 100 and the idea being wrong if it closes back below about 72 on the weekly. Note the source chart was partly hidden, so these prices are estimates. Do nothing for now — just watch and wait for a clean weekly breakout before considering it."
+}

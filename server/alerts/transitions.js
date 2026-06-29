@@ -56,5 +56,5 @@ export function formatLine(ticker, plan, price, transition) {
 // One batched Telegram message for all fires in a run.
 export function buildMessage(lines = []) {
   const head = `🥷 Trading Hub alerts — ${lines.length} hit`
-  return [head, '', ...lines, '', 'not financial advice'].join('\n')
+  return [head, '', ...lines].join('\n')
 }

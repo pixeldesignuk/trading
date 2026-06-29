@@ -3,28 +3,34 @@
   "contested": false,
   "action": "wait",
   "safest_plan": {
-    "entry": 71.83,
-    "entry_basis": "zero_live 2026-06-05 chart — green demand zone at $71.83 (text mention said ~$71); the plan is sweep the low, reclaim, then long/spot ON confirmation only. Note: the chart also marks $78 as a first 'SD-gap rebalance minimum' before this deeper demand.",
+    "entry": 72,
+    "entry_basis": "zero_live 2026-06-05 — NOT a live limit. Wait for price to sweep the low near $71 then reclaim and accept above it; the buy zone is the $72 0.618 demand (labelled '$72' on the 09-NFLX chart), which sits just BELOW the prior ~$76 stop. The shallower $78 level (5D gap-fill 'minimum' from the chart annotation) is the first place price stalls, but the preferred entry is the deeper $71–72 reclaim.",
     "targets": [
-      { "price": 84, "basis": "near-term prior structure / recent range high on chart (estimated)" },
-      { "price": 100.05, "basis": "zero_live chart — '0.5 gap' / underside retest of value area at $100.05" },
-      { "price": 103.34, "basis": "zero_live chart — labelled resistance at $103.34" }
+      { "price": 82, "basis": "zero_live 2026-06-05 grade — lower bound of the '82–84+' target zone (back into prior value)" },
+      { "price": 84, "basis": "zero_live 2026-06-05 grade — '82–84+' target zone; chart green-arrow long projection off the $72 demand" }
     ],
-    "invalidation": 60,
-    "stop_basis": "Long is invalid if price loses the $71.83 demand zone without reclaiming structure; next major support is the '12M + multi HTF level' at roughly $56–60 on the chart (estimated stop placement below demand)."
+    "invalidation": 70,
+    "stop_basis": "A daily close below the swept low near $71 and below the $72 0.618 demand zone. Also macro-invalid if the S&P 500 breaks down hard (zero_live 2026-06-05) — at all-time highs the regime risk is elevated."
   },
   "stance_by_source": [
     {
       "source": "zero_live",
       "as_of": "2026-06-05",
       "stance": "neutral",
-      "timeframe": "HTF",
-      "summary": "Expects price to drop first — rebalancing a gap down to about $78, ideally sweeping the deeper demand near $71.83 — then wants to buy only if price reclaims structure on confirmation; warns the wider market (S&P 500 at record highs) makes this risky."
+      "timeframe": "daily / HTF",
+      "summary": "Down move has played out to ~82; expects further rebalance to $78 minimum (5D gap fill) with deeper demand at $71–72. Plan is to WAIT, then buy a sweep-and-reclaim of ~$71 for a long to 82–84+ — but only if the S&P 500 doesn't break down hard. Self-graded weak (4)."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-27",
+      "stance": "bearish",
+      "timeframe": "daily / HTF",
+      "summary": "Failed-breakout (IVB) short: needs price to spend time below the $100 key level (~99.3 breaker), then short on a retest, targeting the 72–78 gap-fill zone. Invalid on a close back above $100 with acceptance. Self-graded partial (5)."
     }
   ],
   "conflicts": [
-    "The chart shows a first downside target of $78 (a gap that needs filling) that the extracted text left out; the text only named the deeper $71.83 demand zone. Both are valid — $78 is the shallow target, $71.83 the deeper buy zone.",
-    "Same source is near-term bearish (waiting for a move lower) but sets up a longer-term long off the demand zone — so there is no trade to take now, only a level to watch."
+    "The long is conditional, not a clean buy: Zero requires price to first dip to ~$71, sweep the lows, then reclaim AND hold — and the whole idea only holds if the S&P 500 doesn't break down hard while it sits at record highs.",
+    "Stance evolved rather than agreed cleanly: the older 27-Apr read was a SHORT down into the 72–78 zone; the newer 5-Jun read treats that same 71–78 zone as a place to BUY. The 5-Jun (newer) view governs — short thesis has largely played out, now it's wait-to-buy at the target."
   ],
-  "plain_english": "Only one source covered Netflix, and it is telling you to wait, not buy. The view is that the price should fall first — down to around $78, and ideally as low as about $72 — before any buying opportunity appears. Even then, you would only buy if the price drops to that zone and then turns back up to prove itself, and there is added caution because the overall stock market is at record highs and could pull everything down. For now: do nothing, set an alert near $72, and only consider a long if it dips there and shows a clear bounce."
+  "plain_english": "Both of Zero's recent reads point the same way: Netflix is expected to fall further first — filling a price gap down to around $78, with a deeper buy area near $71–72. He is not buying now. The plan is to wait for price to dip to roughly $71, briefly spike below to grab the lows, then climb back and hold above that level — that reclaim would be the signal to go long toward $82–84. Even then it only makes sense if the wider US market (the S&P 500) doesn't crash, because the S&P is at record highs and adds risk. So do nothing yet: wait for price to reach ~$71–72 and confirm it reclaims before considering a buy."
 }

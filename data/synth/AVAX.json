@@ -1,0 +1,39 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 18.5,
+    "entry_basis": "Newer 2025-06-02 grade: '18-19 (spot or low leverage)'. Matches the HTF demand block drawn on both charts (19.50-19.70 on the 05-14 chart; 18-19 / 0.786 on the 06-02 chart). 18.5 is the midpoint of that fresh demand.",
+    "targets": [
+      { "price": 23.5, "basis": "Resistance shelf on both charts (23.50/23.75 on 05-14; ~23.33 on 06-02) — first realistic take-profit." },
+      { "price": 27.5, "basis": "27.50 HTF resistance / 'take profits, very HTF level' labelled on both charts; 27.21 is the structure-shift trigger just below it." },
+      { "price": 30, "basis": "Newer 2025-06-02 grade target (only reached if 27.21 is overtaken)." },
+      { "price": 34, "basis": "Newer 2025-06-02 grade target — aggressive extension, lowest confidence." }
+    ],
+    "invalidation": 17,
+    "stop_basis": "Below the 18$ demand floor and the ~17 (0.705) support shown on the 06-02 chart. Older read framed it as 'close below 19 = structural demand breach', but since the buy itself is at 18-19 the stop has to sit beneath the 18 floor; a daily close under ~17 opens the deeper 'still pending' 13-14 zone."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-02",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Still a buy but downgraded to 'weak' — price has slipped to ~20.7 below the prior demand; wants 18-19 on spot or low leverage, targets 30 then 34, invalid on a break of key demand."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-14",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "'Textbook' buy-the-pullback: 21-22 zone or deeper 19-19.70 demand, take-profits at 23.50 then 27.21/27.50, invalid on a daily close below 19."
+    }
+  ],
+  "conflicts": [
+    "The older 2025-05-14 'textbook' read said buy the 21-22 zone with invalidation on a close below 19. By 2025-06-02 price had already slipped to ~20.7, breaking that zone, and the same source cut the grade from 8 to 4 and moved the buy down to 18-19 — so the older 21-22 entry is stale and should not be acted on.",
+    "How deep the pullback runs is genuinely unsettled: the buyable demand is 18-19, but both charts also flag a much deeper 'still pending' zone around 13-14, so price could keep falling before it's actually buyable.",
+    "Chart vs extracted text: the images put the demand at 19.50-19.70 and an 18 level, slightly above the text's flat '18-19' — used the chart zone as the anchor."
+  ],
+  "plain_english": "Both of these reads want to BUY Avalanche on a dip, so they agree on direction. But the more recent one (early June) is much less convinced: the price has already fallen through the 21-22 area that was supposed to be the buy zone, the setup was downgraded from 'textbook' to 'weak', and the buy target was lowered to roughly 18-19. Right now the price (~20.7) is stuck in no-man's-land between that failed zone above and the next solid support below, and there's even a much deeper support around 13-14 that may come into play. Do not buy here — wait for price to reach the 18-19 area and show it holds; if it does, first profit-taking is around 23.5, then 27.5, and treat a daily close below ~17 as the setup being wrong."
+}

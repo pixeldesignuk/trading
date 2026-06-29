@@ -1,0 +1,30 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.18,
+    "entry_basis": "zero_live 2025-05-14 — 0.18-0.185 reversal/buy zone (chart 0.705 fib, light-green box). Note: current price ~0.219 is already above this, so the ideal entry has passed.",
+    "targets": [
+      { "price": 0.25, "basis": "zero_live TP1 (0.25$ on chart)" },
+      { "price": 0.31, "basis": "zero_live TP2 (0.31$ on chart, near 1.272 fib 0.32)" },
+      { "price": 0.378, "basis": "zero_live TP3 (0.37818 / 1.618 fib, labelled Potential +100%)" }
+    ],
+    "invalidation": 0.17,
+    "stop_basis": "Close below 0.17 — under the 0.17333-0.18447 support band; structure breached if lost."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-14",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy the 0.18-0.185 pullback into historic lows after a bullish reversal signal, targeting 0.25 / 0.31 / 0.378; invalid below 0.17. Self-graded 'weak'."
+    }
+  ],
+  "conflicts": [
+    "Only one source, dated 2025-05-14 — roughly 13 months old. The buy zone (0.18-0.185) has already been exceeded by the current ~0.219 price, so the setup as drawn is stale rather than actionable now.",
+    "Source self-graded this a 'weak 5' setup, which on its own caps conviction even before the staleness."
+  ],
+  "plain_english": "Only one read exists for Luna, from over a year ago, and the trader who made it rated it weak. The plan was to buy the 0.18-0.185 dip and aim for 0.25, then 0.31, then 0.378, cutting the trade if it closed below 0.17. Price has since climbed to about 0.219, so the cheap entry is gone and buying here means worse risk for the same targets. Wait for a fresh, current setup rather than chasing this old one."
+}

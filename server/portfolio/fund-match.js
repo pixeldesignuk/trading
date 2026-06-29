@@ -23,6 +23,16 @@ export function buildMatchMap(universe) {
             coreType: f.core_type || (section === 'income' ? 'quality_income' : 'world'),
             incomeKind: f.income_kind || undefined }
         : { bucket: 'satellite', theme, tier: tierForTheme(theme), source: f.symbol }
+      // Exact match key: the hub form of the real T212 ticker (strip at the first
+      // underscore, uppercase — mirrors brokerToHubSymbol). Authoritative, and it
+      // catches non-London venues the root+L heuristic misses (e.g. the Amsterdam
+      // line SKUKa_EQ → SKUKA, which would never match SKUK/SKUKL).
+      if (f.t212) {
+        const hub = String(f.t212).split('_')[0].toUpperCase()
+        if (hub && !map.has(hub)) map.set(hub, entry)
+      }
+      // Display-symbol fallback (covers entries without a t212 ticker): the bare
+      // root plus root+'L' for London (.GB/.L) lines.
       const root = String(f.symbol).toUpperCase().replace(/[^A-Z0-9].*$/, '')
       if (!root) continue
       for (const key of [root, root + 'L']) if (!map.has(key)) map.set(key, entry)

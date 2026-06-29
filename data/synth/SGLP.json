@@ -1,0 +1,29 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 55,
+    "entry_basis": "Midpoint of zero_live grade DCA zone 50.00–60.00 (2026-03-23). On the chart the upper bound (~60) aligns with the green support shelf; price is currently ~69, above this zone, so entry is not yet in play.",
+    "targets": [
+      { "price": 70, "basis": "zero_live grade target 70.00+ (prior higher-timeframe structure)" },
+      { "price": 85, "basis": "Prior consolidation/resistance shelf visible on chart (white line ~85) (estimated — not stated in text, read off the image)" }
+    ],
+    "invalidation": 45,
+    "stop_basis": "Below the 45.00 weekly-close level (zero_live); aligns with the 45.82 dashed line on the chart and sits just above the 40–42 blue accumulation band."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-03-23",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Accumulate silver gradually in the 50–60 area for a recovery back toward 70+, abandon if it closes a week below 45 — but graded only 'partial' and price is above the zone and still falling."
+    }
+  ],
+  "conflicts": [
+    "The chart shows price (~69) was just rejected from the ~75–76 resistance and is actively falling ('Silver extends losing'); the 50–60 buy zone is below current price, so the plan is to wait for the pullback, not to buy now.",
+    "The chart carries support levels the text omits: a green support shelf near 60 (top of the buy zone) and a deeper accumulation band at 40–42 just below the 45 invalidation — added to the plan from the image."
+  ],
+  "plain_english": "Silver rallied to about 118 earlier in the year and has been falling back; it now sits near 69 and is still dropping after being rejected at resistance around 75–76. The only source's plan is to wait and buy gradually in the 50–60 region, aiming for a recovery toward 70 and beyond, and to give up on the idea if silver closes a week below 45. Right now the price is above that buy zone and heading lower, so this is not a buy yet, and it rests on a single, only partly confirmed read. Wait for the price to fall into the 50–60 area before considering any small, staged purchase."
+}

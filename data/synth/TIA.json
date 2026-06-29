@@ -1,0 +1,38 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 2.50,
+    "entry_basis": "zero_live chart '2.50$' blue zone (prior buyers stepped in) and the grade's 2.00–3.00 discount/DCA zone — buy on a dip into this area, do not chase 2.91",
+    "targets": [
+      { "price": 3.05, "basis": "zero_live chart 0.62 fib cluster labelled 'to pay attention at..'" },
+      { "price": 3.64, "basis": "zero_live chart '3.64$' resistance / 1.272 fib extension" },
+      { "price": 3.95, "basis": "zero_live chart 1.618 fib, 'drive into the third area?' (estimated read off image)" }
+    ],
+    "invalidation": 2.28,
+    "stop_basis": "below the green 'Classic OB' order block (~2.30) on the zero_live chart; the grade's deeper 2.00 wedge low is the macro line-in-the-sand"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-23",
+      "stance": "bullish",
+      "timeframe": "daily/swing",
+      "summary": "Chart frames a discount accumulation zone (2.30–2.50 order block) with upside steps at ~3.05, 3.64 and a stretch toward 3.95."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-23",
+      "stance": "bullish",
+      "timeframe": "macro",
+      "summary": "Educational grade (partial, 5/10): buy the 2.00–3.00 discount, invalidate below 2.00, with long-term targets of 6.60–6.85 then 10.00+."
+    }
+  ],
+  "conflicts": [
+    "The written grade's targets (6.60–6.85, 10.00+) appear nowhere on the chart — the chart's drawn ceiling is ~3.95. Treat 6.60+ as long-term aspiration, not this setup's plan; the actionable targets are 3.05 / 3.64 / 3.95.",
+    "Invalidation differs: the chart's structure stop sits just below the ~2.30 order block, while the written note uses a deeper 2.00 wedge low. The 2.30 level is the nearer, structure-based stop.",
+    "Single educational source only, graded 'partial' (5/10), and at the current 2.91 the reward-for-risk to even the first target is poor — hence low conviction."
+  ],
+  "plain_english": "Only one source covers Celestia, and it's an educational note rather than a strong trade call. It marks a buying area roughly between 2.00 and 3.00, with the better spot around 2.50 where the chart shows buyers stepped in before. The price is now about 2.91 — already inside that zone but at the expensive end, so buying here gives a poor reward for the risk. The chart's own upside targets are around 3.05, then 3.64, with a stretch toward 3.95 — nowhere near the 6.60 and 10.00 figures in the written notes, which read as long-term hopes rather than this chart's plan. Wait for a dip toward 2.50 before buying, and step aside completely if it loses 2.00."
+}

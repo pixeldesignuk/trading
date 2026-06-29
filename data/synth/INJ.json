@@ -1,0 +1,53 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "Price trapped between two conflicting invalidation levels; no safe entry until resolution",
+    "targets": [
+      {
+        "price": 14.4,
+        "basis": "2025-05-14 Zero (grade 6) invalidation; break above confirms 06-09 bullish case"
+      },
+      {
+        "price": 15.7,
+        "basis": "2025-06-09 Zero (grade 8) textbook target if 14.4 breaks bullish"
+      },
+      {
+        "price": 10.2,
+        "basis": "2025-05-14 Zero (grade 6) short entry only; 'the only level I would use to short' per chart text"
+      }
+    ],
+    "invalidation": 12.264,
+    "stop_basis": "2025-06-09 Zero (grade 8) HTF demand breakdown; below this, both setups are void"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-09",
+      "stance": "bullish",
+      "timeframe": "12h",
+      "summary": "Textbook setup (grade 8): buy dips into 12.9–13.2 current zone, target 14k+ with 15.7 extended, stop below 12.264"
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-02",
+      "stance": "bullish",
+      "timeframe": "1D",
+      "summary": "Weak confluence (grade 4): demand buy 11–12 if confluent, vague targets, breaks on macro"
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-14",
+      "stance": "bearish",
+      "timeframe": "2D",
+      "summary": "Partial short (grade 6): enter only 10.2 (multibearish HTF level), target 8.9–8.0, stop above 14.4"
+    }
+  ],
+  "conflicts": [
+    "2025-06-09 bullish (grade 8, 12h) vs 2025-05-14 bearish (grade 6, 2D): buy 12.9–13.2 with stop 12.264 contradicts short 10.2 with stop 14.4. Newer and higher timeframe favour bullish, but price has not yet broken above 14.4 (bullish confirmation) nor fallen to 10.2 (bearish confirmation). Currently trapped mid-conflict.",
+    "Community mention (current ~4.39) does not match any chart or source; data quality poor, ignored."
+  ],
+  "plain_english": "Two conflicting Zero Trading setups are both live: a strong recent call (12 June, grade 8) says buy here at 12.9–13.2 targeting 14–17; an older call (14 May, grade 6) says short only at 10.2 if price drops there, with hard stop at 14.4. Price is at 12.95 right now, trapped between these two scenarios. Do not enter either until price either breaks above 14.4 (proving the bull case) or reverses below 12.26 (invalidating both). Wait for clarity."
+}

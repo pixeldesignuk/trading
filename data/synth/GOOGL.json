@@ -1,0 +1,31 @@
+{
+  "conviction": 3,
+  "contested": true,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 145,
+    "entry_basis": "zero_live chart 6D bounce zone $145 — multi-month demand + 1.454 fib retracement, annotated 'Eyes on this one' as the highest-conviction long. Image overrides the text's 158-165 zone, which the chart treats only as a way-station on the path down.",
+    "targets": [
+      { "price": 158, "basis": "zero_live chart $158 HTF / 0.5 fib zone — first reclaim level on the way back up" },
+      { "price": 178, "basis": "zero_live grade main target (swing resistance)" },
+      { "price": 200, "basis": "zero_live grade long-term extension (200+)" }
+    ],
+    "invalidation": 138,
+    "stop_basis": "below the 1M+2M demand block (~$140) drawn on the chart; a clean close under it removes the demand the bounce thesis relies on"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-28",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Mixed/cautious: the chart says the uptrend is compromised after losing 163.70 and warns of a pullback before more downside, while flagging deeper buy zones at 158 and especially 145 to go long again — the grade text frames it bullishly (buy 158-165 for 178/200) but scores it only 6/10 'partial'."
+    }
+  ],
+  "conflicts": [
+    "The chart annotation reads cautious-to-bearish ('Trend compromised by losing 163.70... likely pullback before continuation down'), but the extracted grade text reads it as a confident long (buy 158-165, target 178/200) — the picture is contested, so no high-conviction entry here.",
+    "The extracted buy zone (158-165) sits at/below its own stated invalidation (close below 163.70), which is internally incoherent; the chart's actual clean long is the deeper $145 bounce zone ('Eyes on this one'), not 158-165.",
+    "Single educational source from 2025-05-28 with no second confirmation, and price (172.90) is now above the retest zone, so the setup is not currently actionable."
+  ],
+  "plain_english": "All of this comes from one educational chart, and it contradicts itself: the notes on the chart say the trend has weakened after price lost the 163.70 line and could fall further, while the write-up tries to call it a buy toward 178 and 200. Right now the price (about 173) is above the spot where the chart wanted to buy, so there is nothing clean to do. The genuinely strong place the chart points to is much lower — a bounce zone around 145, backed by long-running demand — and only if price drops there and holds. Wait; do not chase a long up here, and only consider buying near 145 with a stop below about 138."
+}

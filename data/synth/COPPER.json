@@ -1,0 +1,39 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No source gave a numeric entry. zero_live 2026-05-18 described only a 'defined zone (swing failure recovery)' with no price; the chart attached to that idea is a crypto stablecoin-dominance chart, not copper, so a level cannot be estimated.",
+    "targets": [
+      {
+        "price": null,
+        "basis": "zero_live 2026-05-18 referenced a 'shared target box' but gave no number; not estimable from the supplied charts (neither shows copper price)."
+      }
+    ],
+    "invalidation": null,
+    "stop_basis": "zero_live 2026-05-18 invalidation is structural only — a close back below BOTH the high and the low of the previous trading range (dual breach of the prior value zone). No price was attached and the copper chart needed to read it off was not supplied."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-18",
+      "stance": "bullish",
+      "timeframe": "tactical",
+      "summary": "A buy idea betting that a failed breakdown reverses; graded 7/10 'partial' — promising if it plays out, but the chart shared with it is actually a crypto dominance chart, not copper."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-27",
+      "stance": "bullish",
+      "timeframe": "swing",
+      "summary": "No new trade — already holding copper, biased to keep holding as long as price stays above the prior fair-value zone; backed by a Commitments-of-Traders report showing large funds net long and adding."
+    }
+  ],
+  "conflicts": [
+    "The chart attached to the actionable 2026-05-18 buy idea is a crypto stablecoin-dominance chart (USDT.D+USDC.D on CRYPTOCAP), not copper — so the bullish entry cannot be verified against an actual copper price chart.",
+    "No source supplied any numeric price for entry, targets or invalidation, so no precise plan can be stated — all levels are structural prose only.",
+    "The Commitments-of-Traders report (2026-04-27) shows commercial producers heavily net short and adding shorts even as large speculators are net long and adding longs — a positioning split that tempers the bullish lean."
+  ],
+  "plain_english": "Both copper notes come from the same trader and both lean to the upside: a late-April note about holding an existing long, and a mid-May idea to buy a failed breakdown that he himself only graded as a partial, 'fine-if-it-works' setup. The catch is that no actual price was ever given for where to buy, where to take profit, or where the idea is wrong, and the chart shared with the buy idea is a crypto chart, not copper, so none of it can be checked. Positioning data backs the bullish bias but also shows the big commercial hedgers leaning short. With no verifiable levels and only one voice behind it, wait — keep copper on watch and do not enter until a real copper chart with defined levels confirms it."
+}

@@ -1,0 +1,33 @@
+{
+  "conviction": 2,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No IOTA-specific entry level exists. The only IOTA mention (zero_live, 2025-10-13) says 'accumulating spot' with no price. The attached chart is DOGE, not IOTA, so no level can be read for IOTA.",
+    "targets": [],
+    "invalidation": null,
+    "stop_basis": "No IOTA structure was given by any source — no level to place a stop against."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-10-13",
+      "stance": "neutral",
+      "timeframe": "spot / long-term",
+      "summary": "Just a passing 'accumulating spot' note on IOTA, graded weak (2/10), with no entry price, no targets and no invalidation."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-10-13",
+      "stance": "neutral",
+      "timeframe": "n/a",
+      "summary": "Chart attached to IOTA is actually a Dogecoin (DOGE) daily chart, so it carries no IOTA information."
+    }
+  ],
+  "conflicts": [
+    "The chart filed under IOTA is a Dogecoin (DOGE) chart, not IOTA — none of its levels (the ~0.18 and ~0.20 buy zones, the 0.32 supply cap) apply to IOTA, so the text levels could not be corrected against it.",
+    "The single IOTA note only says 'accumulating spot' with no entry, target or invalidation, so there is nothing concrete to act on."
+  ],
+  "plain_english": "There is only one weak, passing note on IOTA — that it is being slowly bought as a long-term spot holding — with no buy price, no profit target and no point at which the idea would be wrong. The price chart that came with it is actually a Dogecoin chart by mistake, so it gives no real information about IOTA. With nothing concrete to anchor a trade, do not buy yet — wait for an actual IOTA level or a fresh, clearer call before committing money."
+}

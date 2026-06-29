@@ -1,0 +1,29 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": 112,
+    "entry_basis": "zero_live 2025-05-28 — top of the 112–103 fresh demand band (112$ purple/0.5-fib zone on chart); deeper fill available into the 103$ green demand zone",
+    "targets": [
+      { "price": 146, "basis": "zero_live 2025-05-28 — red 'three-week supply' band labelled 146$ on chart" },
+      { "price": 166, "basis": "zero_live 2025-05-28 — handwritten 'previous ATH / potentially 166$' note on chart" }
+    ],
+    "invalidation": 100,
+    "stop_basis": "Just below the 103$ green demand floor on the chart (the deepest labelled demand). NOTE: the extracted text said 'close below 112' but the chart shows 103 as the structural floor, so a stop belongs below 103, not 112."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-28",
+      "stance": "bullish",
+      "timeframe": "daily swing",
+      "summary": "Bullish but wants a pullback first — buy the dip into the 112–103 demand zones, then aim for 146 and the old high near 166; monitor 130/132 on the way down."
+    }
+  ],
+  "conflicts": [
+    "Chart vs text: the extracted invalidation of 112 is shallower than the chart, which shows a deeper green demand floor at 103 — the real structural stop sits below 103, not 112.",
+    "Staleness: this is the only source and it is dated 2025-05-28, over a year old. NVDA has moved substantially since, the reference price (~135) is gone, and no fresh live price was supplied, so these levels should be treated as educational context rather than an actionable plan."
+  ],
+  "plain_english": "There is only one read here and it is bullish-with-patience: wait for the price to fall back into the 103-to-112 support area before buying, then look for a move up to 146 and possibly the old high around 166. The catch is that this view is from late May 2025 — more than a year old — so the prices on it are almost certainly out of date, and there is no current price to check it against. Do not act on these numbers; treat them as background only and re-check NVDA with fresh, current charts before considering any trade."
+}

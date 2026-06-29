@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { pickVehicle, getCommodity, recommendVehicle, compliance, vehicleByTicker, commodityView } from './commodities.js'
+import { pickVehicle, getCommodity, recommendVehicle, compliance, vehicleByTicker, commodityView, vehicleToCommodity } from './commodities.js'
 
 const vehicles = [
   { ticker: 'A', ter: 0.49, brokers: { hl: true, t212: true } },
@@ -38,6 +38,16 @@ test('getCommodity / recommendVehicle / vehicleByTicker resolve real reference d
   assert.equal(vehicleByTicker('palladium', 'phpd').ticker, 'PHPD')   // case-insensitive
   assert.equal(vehicleByTicker('palladium', 'NOPE'), null)
   assert.equal(getCommodity('xyz'), null)
+})
+
+test('vehicleToCommodity remaps a vehicle code to its canonical commodity ticker', () => {
+  // The bug that minted a duplicate SGLN ticker: a gold live labelled with its ETC.
+  assert.deepEqual(vehicleToCommodity('SGLN'), { key: 'gold', symbol: 'GOLD', vehicle: 'SGLN' })
+  assert.deepEqual(vehicleToCommodity('sglp'), { key: 'gold', symbol: 'GOLD', vehicle: 'SGLP' })   // case-insensitive
+  // A real commodity symbol, an equity, and junk are left alone.
+  assert.equal(vehicleToCommodity('GOLD'), null)
+  assert.equal(vehicleToCommodity('AAPL'), null)
+  assert.equal(vehicleToCommodity(null), null)
 })
 
 test('commodityView enriches with live prices, selection, recommendation and ratio', async () => {

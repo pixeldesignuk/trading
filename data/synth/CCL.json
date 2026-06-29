@@ -1,0 +1,29 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 26.5,
+    "entry_basis": "Chart 0.5 fib pullback (blue line labelled '0.5', image) with green demand line ~26.00 just below; deeper clean buy is the 'OK AREA' ~24.00 (image, estimated). Current price 28.97 is mid-range at the value area, not a low-risk entry.",
+    "targets": [
+      { "price": 30.0, "basis": "Green circled value-area rejection line ~30.00 (image) — first partial / supply check" },
+      { "price": 32.75, "basis": "Grey supply zone ~32.5–33.2 / previous swing high (image) — extended target, matches Zero grade 'supply zone above' + 'previous swing high'" }
+    ],
+    "invalidation": 25.85,
+    "stop_basis": "Below the green demand line ~26.00 (image). For a continuation entry at current price the source's stop is a close below the POC / value-area structure (~28.4, image)."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-20",
+      "stance": "bullish",
+      "timeframe": "daily (swing/tactical)",
+      "summary": "About a 27% bounce off the ~$24 lows is already captured; now cautiously managing continuation — wants the stock to hold the value area and push into the supply/previous swing high above, invalid on a close back below that value area."
+    }
+  ],
+  "conflicts": [
+    "The extracted text carried no numeric levels — all prices here are read off the chart image (value area ~28.5, 0.5 fib ~26.50, supply ~30 and ~32.5–33, OK buy ~24).",
+    "The chart's own hand-drawn projection expects a pullback toward ~26.50/26.00 before continuation, which argues against chasing the current ~$29 price even though the source's stance is bullish."
+  ],
+  "plain_english": "Carnival has already bounced about 27% off its lows near $24 and is now stalled around $29, where it keeps getting pushed back. The single source here is cautiously positive — but the easy move is done; it wants the stock to hold this area and grind toward the $30, then $32.50–33 resistance, and would be proven wrong if it falls back and closes under roughly $28.50. The lower-risk plan is to wait for a dip toward $26.50 (support at $26, deeper buy near $24) rather than buy here. Action: wait — either for a confirmed hold and push above $29, or for that pullback, before entering."
+}

@@ -1,0 +1,31 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 1420,
+    "entry_basis": "Top of the VAL buy zone on the chart (~1,400-1,440), matching zero_live grade entry '~1400 demand zone'. Price is currently 1,531 and just rejected from ~1,600, so this zone is not at price — it requires a pullback. A deeper SPOT buy zone sits at ~1,290 (estimated from the chart's 'SPOT' oval, omitted by the text) if the VAL fails.",
+    "targets": [
+      { "price": 1650, "basis": "Chart 'PARTIAL TP' / 6D red band (~1,640-1,660); zero_live noted 1700-1720 'partially taken'" },
+      { "price": 1700, "basis": "Chart 'FIRST IMPORTANT HTF TP' labelled 1.690/1.700; aligns with zero_live 1700-1720 resistance" },
+      { "price": 1850, "basis": "zero_live '1800-1900 future target if breaks structure' (estimated) — NOT marked anywhere on the chart; only valid on a clean break above 1,700" }
+    ],
+    "invalidation": 1400,
+    "stop_basis": "Daily close below the VAL demand zone (~1,400), per zero_live invalidation; below that the next support is the SPOT zone ~1,290"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-08",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Range-buy at the lower value zone (~1,400) targeting a move back up to the 1,650-1,700 resistance bands; graded a partial (7/10)."
+    }
+  ],
+  "conflicts": [
+    "Image vs text: the extracted 1,800-1,900 target does not appear on the chart — the highest marked take-profit is 1,690/1,700, so 1,800-1,900 is a speculative extension only valid if price breaks above 1,700.",
+    "The extracted ~1,400 entry is stale relative to price: the chart shows price already at 1,531 (well above the buy zone) and rejecting hard from ~1,600, so the clean entry is not currently available.",
+    "Text omitted a deeper buy zone the chart shows clearly: a 'SPOT' demand zone at ~1,280-1,300."
+  ],
+  "plain_english": "There is only one source here — a single Zero teaching chart from early April — and it leans bullish: the plan is to buy near the lower edge of the recent trading range (around 1,400) and ride a move back up toward the 1,650-1,700 resistance. The problem is the price has already run up to ~1,531 and just got slammed down 3% from near 1,600, so that buy zone is not at the price anymore — buying now means chasing into a rejection. Wait for the price to pull back to the ~1,400 zone (or the deeper ~1,290 zone the chart marks) before considering a buy, and treat a daily close below 1,400 as the plan being wrong. Do not trust the 1,800-1,900 target — it is not on the chart and only matters if price first clears 1,700."
+}

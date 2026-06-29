@@ -1,0 +1,30 @@
+{
+  "conviction": 4,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.0000118,
+    "entry_basis": "Zero live chart (2025-06-09) HTF demand band ~0.0000115-0.0000120, labelled 'interested in building a position here (spot)'. NOT the text-extracted 0.00001234-0.00001250, which the chart marks as a bearish breaker / resistance price is using to push lower.",
+    "targets": [
+      { "price": 0.0000135, "basis": "Zero grade HTF take-profit zone / the bearish-breaker supply band on the chart (~0.0000135-0.0000140) as first bounce target" },
+      { "price": 0.000015, "basis": "Zero live chart 0.786/0.79 fib zone (~0.0000150-0.0000155)" },
+      { "price": 0.000016, "basis": "Zero live chart 'first important HTF TP zone' (~0.0000160), only on a close back above the swing high" }
+    ],
+    "invalidation": 0.0000115,
+    "stop_basis": "12h/daily close below the HTF demand zone (the '1150s' SL Zero notes); a close below flips the read bearish toward the deeper 0.0000090-0.0000096 spot zone"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-09",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "A patient spot accumulator: expects price to dip into the demand zone around 0.0000115-0.0000120 first, wants to buy there (only if it lines up with his other charts), and would only chase higher if price closes back above the swing high near 0.0000160."
+    }
+  ],
+  "conflicts": [
+    "The earlier text extraction pulled a buy at roughly today's price (0.00001234-0.00001250), but the chart labels that exact area a 'bearish breaker' that price is leaning on to fall further — the genuine spot-buy band is the demand zone lower down at about 0.0000115-0.0000120.",
+    "The grade's take-profit (0.0000135) is well below the chart's drawn 'first important take-profit zone' near 0.0000160, so the chart implies more upside room than the text once a buy actually triggers."
+  ],
+  "plain_english": "Zero is in no rush here — he is a spot buyer waiting for a cheaper price, and his chart actually expects Shiba Inu to drift lower into a buy zone around 0.0000115 to 0.0000120 before he steps in. Buying at today's price (~0.0000124) goes against that, because the chart marks this area as a ceiling the price is using to push down, not a floor. The plan that respects the chart is to wait: let price fall into roughly 0.0000115-0.0000120 and buy there, treating a daily close below 0.0000115 as the signal to step aside (with an even deeper buy zone near 0.0000090-0.0000096 if that breaks). For now, do nothing and wait for the dip."
+}

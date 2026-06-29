@@ -1,0 +1,37 @@
+{
+  "conviction": 2,
+  "contested": false,
+  "action": "stand_aside",
+  "safest_plan": {
+    "entry": null,
+    "entry_basis": "No entry given — all three SPY mentions are educational slides (sector-rotation primer, passive/active framework, benchmark-return chart) with no price levels.",
+    "targets": [],
+    "invalidation": null,
+    "stop_basis": "No structure-based stop — the sources carry no SPY levels, only teaching content."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-14",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Educational 'Big 6' sector-rotation slide naming the SPDR sector ETFs and how money rotates between cyclical and defensive sectors — no SPY entry or level."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-14",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Passive-vs-active strategy framework arguing for a hybrid approach (stay invested in the index core, time only the satellite) — general method, not an SPY trade."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-14",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Performance-benchmark chart: over 2020–2025 the S&P 500 returned about +70% (~10–12% a year); the lesson is to beat the passive index, not a call to buy at a level."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Everything tagged to SPY here is teaching material from a Zero live session, not a trade idea: one slide explains how money rotates between stock-market sectors, one compares buy-and-hold versus active trading, and one shows that the S&P 500 grew about 70% over the last five years as a yardstick to measure your own returns against. None of them give a price to buy at, a target, or a level that would say the idea is wrong. There is nothing to act on — treat it as background education and stand aside."
+}

@@ -1,0 +1,29 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 3.67,
+    "entry_basis": "zero_live 2025-06-09 chart — upper of the two stacked higher-timeframe demand zones labelled '2 HTF DEMANDS' (3.67$ and 3.60$); price at 3.85 is above them, so this is a buy-on-pullback level, not a chase",
+    "targets": [
+      { "price": 4.30, "basis": "zero_live chart — '4.30$' level / 0.5 macro resistance" },
+      { "price": 4.65, "basis": "zero_live chart — 'Big cluster of supplies' band (0.618–0.705 fib, ~4.55–4.80, midpoint estimated)" }
+    ],
+    "invalidation": 3.45,
+    "stop_basis": "below the 0.00% range low at 3.48 on the chart (a clean break under the demand stack and range low voids the long); deeper structural demand sits at 3.20"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-09",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "A 12h Render chart marking two higher-timeframe demand zones at 3.67 and 3.60 below price, a range low at 3.48, and supply at 4.30 then a big cluster around 4.60–4.80 — but graded 'weak' (3) with no stated entry, targets or invalidation."
+    }
+  ],
+  "conflicts": [
+    "The earlier text extraction carried no entry, targets or invalidation; all levels here are read directly off the chart image.",
+    "Only one source exists and it was graded 'weak' — there is no second opinion to confirm direction, so treat this as a watch-list map, not a confirmed trade."
+  ],
+  "plain_english": "There is only one chart on Render and the analyst himself rated it weak, so this is a map to watch, not a trade to take now. Price is around 3.85, sitting in the middle of its recent range; the better buying interest is lower, in the 3.60–3.67 band the chart marks as demand, with the trade idea breaking down if price falls and holds below about 3.45. If it does bounce, the first ceilings to watch are roughly 4.30 and then the heavy supply around 4.60–4.80. Wait for a pullback into the 3.60–3.67 zone before considering anything, and keep size small given how thin the evidence is."
+}

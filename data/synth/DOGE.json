@@ -1,33 +1,74 @@
 {
-  "conviction": 3,
-  "contested": false,
+  "conviction": 2,
+  "contested": true,
   "action": "wait",
   "safest_plan": {
-    "entry": 0.06,
-    "entry_basis": "Deeper green accumulation zone on the weekly chart (~0.05–0.065). The image shows this buy band below the current price; the text's 0.14 is Zero's existing average, not a fresh entry (estimated mid of band).",
+    "entry": 0.088,
+    "entry_basis": "Weekly demand zone price is currently resting on (zero_hub 2026-06-16 1W chart, close 0.08839). This is NOT one of Zero's published buy levels — those are all stale; it is the only fresh structure. A deeper weekly demand band sits ~0.055-0.065 (estimated, read off the same chart) as a second accumulation zone.",
     "targets": [
-      { "price": 0.14, "basis": "chart 'Avg entry' band ~0.14 — first reclaim level above current price (image)" },
-      { "price": 0.20, "basis": "chart 'STRONG' resistance ~0.19–0.20 / Zero grade TP1 0.20" },
-      { "price": 0.25, "basis": "chart resistance zone ~0.22–0.25 / Zero grade TP2 0.25" },
-      { "price": 0.32, "basis": "chart resistance zone ~0.30–0.33 / Zero grade TP3 0.32" },
-      { "price": 0.58, "basis": "chart 'Final target' green band ~0.55–0.60 / Zero grade TP5 0.58" }
+      { "price": 0.20, "basis": "'STRONG' resistance band on the 2026-06-16 weekly chart; also the old 0.2028-0.205 breaker from zero_live 2025-08-04 — now overhead supply, not entry" },
+      { "price": 0.32, "basis": "0.32$ supply line marked on the 2026-06-16 weekly chart" },
+      { "price": 0.55, "basis": "Persistent macro HTF target repeated since 2025 (zero_live 2025-08-04 '0.55-0.58 never deleted since Nov', 2025-06-16 '0.55 macro, 85% scale-out', and 07-DOGE chart text 'HTF target remains 0.55$')" }
     ],
-    "invalidation": 0.05,
-    "stop_basis": "Below the weekly accumulation zone (~0.05) (estimated). Zero stated no stop — it is a long-term spot hold, so there is no real structural invalidation; a weekly close under the bottom green band is the only structure break."
+    "invalidation": 0.07,
+    "stop_basis": "Weekly close below the demand zone price is sitting on, i.e. losing the ~0.055-0.07 deeper support shelf on the 2026-06-16 weekly (estimated). Zero's older published stops (close below 0.16 / 0.195 / 0.12) have ALL already been breached."
   },
   "stance_by_source": [
     {
       "source": "zero_hub",
       "as_of": "2026-06-16",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Weekly chart, no commentary: price has collapsed to ~0.088 and is resting on a weekly demand zone, with huge overhead supply (0.20, 0.32) and the old 0.55+ extension target still drawn far above."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-11",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Generic 'buy the pullback to the breaker, target the supply above' note — but the attached chart is actually SUIUSDT, not DOGE, so it carries no real DOGE levels."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-01-05",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Long-term spot bag — convinced Dogecoin eventually reaches 0.58; averaged in at 0.14, currently underwater, and willing to add more at lower key levels."
+      "summary": "Wanted to buy 0.12-0.14 for a run to 0.23-0.30, invalid below 0.12 — price is now 0.088, so this idea is already dead."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-10-13",
+      "stance": "neutral",
+      "timeframe": "HTF",
+      "summary": "Thin context-only mention with no levels."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-08-04",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy 0.2028-0.205 for 0.26-0.27 then 0.55-0.58, invalid below ~0.195 — that stop has long since been blown."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-16",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy 0.185-0.189 for 0.20/0.215 then macro 0.55, invalid below 0.16 — stop already broken."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-06-02",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy ~0.18 for 0.28 then 0.58, but explicitly 'structure stays bearish until 0.2865 is reclaimed' — that reclaim never happened."
     }
   ],
   "conflicts": [
-    "The 0.14 'entry' is Zero's existing average buy price, not a fresh level — price is now ~0.079, well below it, so buying at 0.14 would be chasing into a loss.",
-    "The weekly chart shows a deeper accumulation zone around 0.05–0.065 below current price that the text leaves out — a more honest place to add than 0.14.",
-    "Zero graded his own setup a fail (4/10) and gave no invalidation/stop because it is a long-term spot hold, so the higher targets are aspirational rather than a high-conviction trade."
+    "Price has crashed to about 0.088, which is below EVERY buy level and EVERY stop-loss Zero ever published for DOGE (0.18, 0.20, 0.12, 0.14; stops at 0.16, 0.195, 0.12). All of those tactical long setups are invalidated and must not be acted on.",
+    "Direction is contested: market structure is clearly broken/bearish (a chain of lower lows down to 0.088, every stop hit), while Zero's long-term thesis is still bullish accumulation toward 0.55 — these point opposite ways over different horizons.",
+    "The mention dated 2026-05-11 captioned 'DOGE' is actually a SUIUSDT chart, so it gives no usable DOGE levels despite being one of the more recent items.",
+    "The only fresh DOGE data (2026-06-16 weekly) is a chart with no written entry/target/stop, so the actionable levels here are read off the image, not stated by Zero in text."
   ],
-  "plain_english": "This is a long-term hold idea, not a quick trade. The trader behind it believes Dogecoin will eventually climb back toward 58 cents and has been buying, but his average buy price of about 14 cents sits well above today's price of roughly 8 cents, so he is currently losing money on it. The chart points to a cheaper buy area around 5 to 6.5 cents if the price keeps falling. Don't pay 14 cents — wait for a dip into that lower zone before adding a small amount, and treat the higher targets as a slow, long-term hope rather than a sure thing."
+  "plain_english": "Dogecoin has fallen hard to roughly 0.088, which is below every single price Zero ever told you to buy at and below every price he told you to bail at — so all of his older trade ideas are off the table, not opportunities. The chart trend is firmly down, yet Zero's long-term plan has always been to slowly buy dips and hold for around 0.55, so the long-term and short-term pictures disagree. The price is currently sitting on a weekly support shelf, but with no fresh confirmation and a wall of resistance overhead, this is not a confident buy. Do not chase it: wait for the weekly support around 0.088 to clearly hold (or only scale in tiny accumulation amounts), and treat a weekly close under roughly 0.07 as the sign to stop."
 }

@@ -3,27 +3,36 @@
   "contested": true,
   "action": "wait",
   "safest_plan": {
-    "entry": 43,
-    "entry_basis": "zero_live 5-Jun: wait for absorption in the low $40s multi-month demand (price now ~43.62); only go long AFTER buyers hold AND a breakout-retest confirms — number is the $40s zone (estimated mid-point).",
+    "entry": 50,
+    "entry_basis": "Zero live 2026-06-05 (grade) — the safest documented long is ONLY after a body-close breakout above ~50 (value-area-low / psychological, the red supply band on the weekly chart) followed by a successful retest. Not yet triggered. An aggressive accumulation entry in the low-40s demand (community ~45 / current ~43.6) exists but is unconfirmed.",
     "targets": [
-      { "price": 50, "basis": "zero_live 5-Jun: value-area-low / ~$50 psychological — first hurdle and also the risk level where it may bounce then 'melt'." },
-      { "price": 130, "basis": "Chart long-term target band ~$130-138, labelled '? Long term target ?' — explicitly unconfirmed (estimated)." }
+      { "price": 52, "basis": "Zero live 2026-06-05 grade — first target band above the breakout (stated '50, 52+')" },
+      { "price": 134, "basis": "Chart 2 mini-live '? Long term target ?' red band ~134-140 (estimated midpoint); matches Zero mention's long-term recovery ~130+ (explicitly unconfirmed)" }
     ],
-    "invalidation": 38,
-    "stop_basis": "Below the multi-month demand zone in the $40s (zero_live); a clean break targets the ~$20 macro point-of-control / heavy-volume node (estimated stop just under the demand zone)."
+    "invalidation": 40,
+    "stop_basis": "A weekly close below the multi-month demand zone (low 40s, the green 'Multi month' band ~36-48 on the weekly chart) — Zero. A close below opens the deeper ~20-24 re-accumulation area ('Big opportunity if presented' / macro point-of-control)."
   },
   "stance_by_source": [
+    {
+      "source": "community",
+      "as_of": "2026-06-25",
+      "stance": "bullish",
+      "timeframe": "daily / tactical",
+      "summary": "'Time to pay attention' — sees a buy zone around 45 with a gap to fill toward 48-50; a thin, near-term bullish call with no stated invalidation."
+    },
     {
       "source": "zero_live",
       "as_of": "2026-06-05",
       "stance": "neutral",
-      "timeframe": "macro/weekly",
-      "summary": "Down ~77% from 2021 and now at a multi-month buying zone in the discount, but bearish China/tariff news is intensifying — wait for buyers to hold and a breakout-retest before going long; if the zone breaks, next real support is ~$20."
+      "timeframe": "HTF / macro",
+      "summary": "Down ~77% from 2021 and sitting in multi-month demand in the discount, but graded only 'weak (4)': wait for absorption in the 40s, then a body-close breakout above 50 with retest before going long — and if demand breaks it melts toward ~20. Brand seen as cyclical, not dying."
     }
   ],
   "conflicts": [
-    "The single call is two-sided: price sits at a multi-month buying zone (constructive) yet bearish China-sales and tariff news is intensifying and Zero flags it could bounce to ~$50 then 'melt' lower toward ~$20 (bearish) — so there is no confirmed entry, only a wait-for-proof rule.",
-    "The chart's long-term recovery target (~$130-138) is far above the current ~$44 and is labelled with question marks / unconfirmed, so it cannot be treated as a reliable objective."
+    "Timing disagreement: the newest community note (2026-06-25) flags a tactical buy around 45 for a quick move to 48-50, while the older but more structured Zero read (2026-06-05) says do NOT buy the 40s blind — only go long after a confirmed close above 50 and a retest.",
+    "Zero's own read is two-sided: a bullish multi-month re-accumulation base case versus a bearish scenario where the ~50 value-area-low melts and the demand zone breaks, dropping toward ~20-24 — and Zero grades the whole setup only 'weak (4)'.",
+    "The newer community call is the more bullish one but is also the thinner one (no structure, no invalidation), so recency does not lift conviction here; the structured Zero read still governs the safest plan.",
+    "Chart correction: the weekly chart shows price (~43.6) already INSIDE the multi-month demand (~36-48) with supply at ~48-52, and the mini-live chart confirms a real long-term target band at ~134-140 ('? Long term target ?') — supporting Zero's otherwise-vague ~130+ recovery idea."
   ],
-  "plain_english": "Nike has fallen roughly 77% from its 2021 peak and is now sitting in the low $40s, a price area where heavy buying has occurred before. Zero is not saying buy yet: bad news on China sales and tariffs keeps piling up, so the rule is to wait until buyers clearly step in and hold this area, then wait for the price to push up and successfully retest before going long. If this zone gives way instead, the next real support is much lower, around $20. For now, stand back and wait for proof that buyers are defending the $40s."
+  "plain_english": "Nike has fallen hard (down roughly 77% from its 2021 high on China and tariff worries) and is now sitting in a long-term support area in the low-to-mid 40s, but the read is genuinely split. The newest community note says it's worth buying around 45 for a quick bounce toward 48-50, while the more detailed Zero analysis says don't buy yet: wait until the price climbs above 50, holds, and comes back to test it before going long — because if this support gives way the stock could slide toward the low 20s. The setup is rated weak and the recovery is unconfirmed. The honest move is to wait for that confirmation rather than buy into a still-falling stock now."
 }

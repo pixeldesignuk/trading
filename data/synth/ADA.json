@@ -1,0 +1,30 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 0.69,
+    "entry_basis": "Chart 'HTF DEMAND' zone (~0.68-0.70), lined up with the 0.786 fib and the chart's own note 'this whole area is valid for a spot buy if we get hit' (zero_live 2025-05-23 chart). The earlier text extraction gave a shallower 0.74 medium/lower-term demand level instead — see conflicts.",
+    "targets": [
+      { "price": 0.81, "basis": "Current 0.81-0.82 resistance/supply band where price now sits (0.786 fib + 1.618 local extension on chart) — first level to clear on the way up." },
+      { "price": 0.86, "basis": "0.86 supply zone marked near the top of the chart (chart)." },
+      { "price": 0.91, "basis": "0.91 major resistance — the grade's stated target and the chart's top reference (zero_live grade + chart)." }
+    ],
+    "invalidation": 0.64,
+    "stop_basis": "Below the 0.65/0.64 'Classic OB' and refined-demand zones — a break there fails the high-timeframe demand structure (chart). The text's shallower 0.72 stop belongs to the shallower 0.74 entry, not this deeper buy."
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-23",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy Cardano only on a pullback into the lower demand zones (the chart marks 0.68-0.70 as the spot-buy area), aiming back up toward 0.86-0.91 — not a buy at the ~0.81 resistance where price currently sits."
+    }
+  ],
+  "conflicts": [
+    "The text extraction said buy at 0.74 with a stop below 0.72, but the chart's explicit 'valid for a spot buy if we get hit' label sits lower, on the 0.68-0.70 high-timeframe demand zone — the deeper, stronger level the chart actually highlights, with structural support down to 0.64-0.65. The image wins, so the safest plan uses the lower zone.",
+    "Only one source, and it is from 23 May 2025 — over a year old. Cardano's price has almost certainly moved well away from these 2025 levels, so the whole plan must be re-checked against a fresh chart before it is acted on."
+  ],
+  "plain_english": "The one source here (a Zero live chart from May 2025) is bullish on Cardano, but only as a 'buy the dip' plan — it wants to buy on a pullback into the lower support area around 0.68 to 0.70, not at the current price, which is bumping right up against a ceiling near 0.81 to 0.82. If that buy zone is reached, the idea is a move back up toward 0.86 and 0.91, with the plan failing if price drops under about 0.64 to 0.65. Two big caveats: this read is a single source and it is over a year old, so the exact levels are likely stale. Do not chase a buy here — wait, and re-check today's chart before committing to anything."
+}

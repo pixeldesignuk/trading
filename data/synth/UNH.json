@@ -3,16 +3,14 @@
   "contested": false,
   "action": "wait",
   "safest_plan": {
-    "entry": 320,
-    "entry_basis": "Zero's stated buy: $320 (zero_hub grade + zero_tg) = the 'compound/accumulation area' on the weekly chart. NOTE: this level is now stale — live price is ~406, well above it — so it is only valid on a pullback into the 320–340 demand zone, not at current price.",
+    "entry": 340,
+    "entry_basis": "Upper 'Positive gap' zone on the 2026-06-10 hub weekly chart (~330-345), the continuation pull-back entry the 2026-05-11 live grade calls for ('pullback to VAH retest for continuation'). Exact level not stated by any source (estimated). Price is currently ~413, well above this, so this is a wait-for-pullback entry, not a buy-now level.",
     "targets": [
-      { "price": 381, "basis": "TP1 — 'TP LEVEL' on the weekly chart (zero_hub grade). Already hit per zero_tg." },
-      { "price": 412, "basis": "TP2 — the 412/0.5 cluster at current price (zero_hub grade). Already hit/tagged per zero_tg." },
-      { "price": 490, "basis": "TP3 — 0.786 fib / lower edge of the HTF supply band (zero_hub chart + grade). Remaining upside." },
-      { "price": 514, "basis": "TP4 — 517.42 line inside the HTF supply zone (zero_hub chart + grade). Remaining upside; chart marks a sell/short reaction here." }
+      { "price": 490, "basis": "490$ on the hub chart — the 0.705 fib marked as a magnet; also the 2025-05-21 primary TP (490)" },
+      { "price": 514, "basis": "514$ HTF SUPPLY on the hub and 2025-05-21 charts; the 2025-05-21 secondary TP (514)" }
     ],
-    "invalidation": 277,
-    "stop_basis": "Below 277.69 — the floor of the compound/accumulation area on the weekly chart. A weekly close under it breaks the HTF discount thesis (next supports 255.79, then ~195)."
+    "invalidation": 320,
+    "stop_basis": "Below the positive gap / value-area-low support; aligns with the 2025-05-21 invalidation ('sustained close below the double weekly order block ~320') and the 2026-05-11 'close below positive gap or VAL'."
   },
   "stance_by_source": [
     {
@@ -20,26 +18,41 @@
       "as_of": "2026-06-10",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Weekly chart: buy the discounted compound zone (~320) aiming up through the 381/412 levels toward the 490–517 supply band."
+      "summary": "Weekly chart: price has rallied off the 277-300 compound area up to ~413, right at the 412 halfway-resistance; 490 (magnet) and 514 supply are the next upside targets."
     },
     {
-      "source": "zero_hub",
-      "as_of": "2026-06-10",
+      "source": "zero_live",
+      "as_of": "2026-05-11",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Opening-gap longs already filled; now waiting for a pull-back to the top of the range to add for continuation toward the daily high and ~500 best case."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-20",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Five-day-breaker long with a compound zone around 290-300 and previous swing highs as targets — but the attached chart image is actually an NVDA chart, so its levels can't be verified for UNH."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2025-05-21",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Graded setup, score 7 (partial): entry 320 on HTF discount + defensive-sector thesis; targets 381 / 412 / 490 / 514."
+      "summary": "After a ~60% crash on the CEO-resignation and DOJ Medicare-fraud news, flagged 'discount among peak fear'; cautious entry 350-380 on a pullback, targets 464/490/514, invalid below ~320 (weak grade)."
     },
     {
       "source": "zero_tg",
-      "as_of": "2026-06-10",
+      "as_of": "2025",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Trade is working — first two targets (381, 412) hit, running to 490. But flags: avoid the underlying as a conventional health insurer (not Sharia-clean) despite the trade's performance."
+      "summary": "Long from $320 on the discount + defensive-sector thesis is working — TP1 and TP2 hit, running to TP3 — but explicitly says AVOID owning the underlying on Sharia grounds (conventional health insurer)."
     }
   ],
   "conflicts": [
-    "Timing, not direction: the stated buy at 320 has already played out — price is now ~406, so the planned entry is stale and buying here means chasing into the next resistance rather than entering at the discount.",
-    "Sharia caveat from the source itself: Zero notes the trade is performing but says to AVOID owning UnitedHealth because a conventional health insurer is not Sharia-clean — so the working chart setup and the ownership decision point opposite ways."
+    "The chart image for the 2026-04-20 mention (09-UNH.png) is actually an NVDA chart, not UNH (header reads 'NVIDIA Corporation', price 201.02) — that mention's levels are unverifiable and were excluded from the plan.",
+    "Entry timing, not direction: the cheap entries Zero named ($320, then $350-$380) are all behind us, and the newest weekly chart shows price already at the 412/0.5 resistance — so there is no fresh discounted entry on offer and buying at 413 conflicts with Zero's own buy-the-discount/pullback structure.",
+    "Sharia: zero_tg says the trade is performing but to AVOID owning the underlying (conventional insurer = gharar/riba), so the working long does not translate into a halal hold for the account."
   ],
-  "plain_english": "Everything here comes from one source (Zero) and it all points the same way: this was a longer-term buy from around $320, aiming up toward $490 and then $514. The first two profit targets ($381 and $412) have already been hit, so the trade has done its job — but the price is now about $406, far above the original $320 buy area, so jumping in here means chasing rather than buying the discount. On top of that, Zero himself flags that UnitedHealth is a conventional health insurer and not Sharia-compliant to own. Wait for a pullback into the $320–340 zone before considering anything, treat a weekly close below ~$277 as the point the idea is wrong, and given the Sharia flag, lean toward leaving this one alone."
+  "plain_english": "Every source here is on the same side — this has been a recovery bet that worked, climbing from the low-$300s peak-fear lows up to about $413 today, with the first two profit targets already hit. The problem is that $413 sits right on a known ceiling (the halfway point of the earlier crash, around $412), and all the cheap entry prices Zero flagged ($320, then $350-$380) are already behind us, so buying now means chasing into resistance for a small reward versus the risk. The cleaner move is to wait for a pull-back toward the unfilled gap around $340 and only then look to ride a continuation up toward roughly $490 and $514, with the idea cancelled if it closes back below about $320. Also note Zero's own warning that the underlying isn't Sharia-clean (a conventional health insurer), so for this account this is a watch-and-wait, not a buy."
 }

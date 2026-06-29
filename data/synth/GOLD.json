@@ -1,16 +1,17 @@
 {
-  "conviction": 5,
+  "conviction": 6,
   "contested": false,
   "action": "wait",
   "safest_plan": {
-    "entry": null,
-    "entry_basis": "Zero (zero_tg, 5 Jun): no precise number — entry is a confirmation trigger, not a level. SAFER: a body close ABOVE the value-area high it was rejected from, then a successful retest → long. AGGRESSIVE: a sweep of the value-area low ~4,300 that reclaims and gets acceptance back above, then breaks the high. The exact flip-high price was not stated, so no number is given.",
+    "entry": 4600,
+    "entry_basis": "Break of the rejected value-area-high (the ~4,600 'flip-high' / white level marked 'Easiest setup' on the 4H chart gold-1879.png) with a body close ABOVE, then a retest back to it — Zero TG 6 Jun scenario 1 (the 'easiest' / safer path). Price on the 5 Jun chart was ~4,419, below this level, so it is NOT yet triggered.",
     "targets": [
-      { "price": 4800, "basis": "Zero (zero_tg, 5 Jun) — first target" },
-      { "price": 5000, "basis": "Zero (zero_tg, 5 Jun) — second target" }
+      { "price": 4800, "basis": "POC / TP1 (white POC line on the 4H chart; Zero live 6 Jun TP 4,800)" },
+      { "price": 4840, "basis": "VAH / TP2 (green value-area-high band on the 4H chart; Zero live 11 May 'value at high' ~4,823, rounded to the charted band)" },
+      { "price": 4960, "basis": "Full rotation — chart label 'Full rotation implies $4,960 as technical target' near the 5,000 round number (Zero TG 6 Jun targets 4,800 / 5,000)" }
     ],
-    "invalidation": 4300,
-    "stop_basis": "Zero (zero_tg, 5 Jun): an ACCEPTED close below the higher-timeframe demand zone. Price has held above demand (no close below it, not even below the mid/equilibrium). The 4,300 value-area-low is the line in the sand — a sweep that RECLAIMS keeps the long valid; an accepted close that stays below ~4,300 / the demand below it kills the thesis. 4,300 is the explicit VAL; the demand floor itself sits just under it (estimated)."
+    "invalidation": 4350,
+    "stop_basis": "An accepted close below the HTF demand zone (~4,350, green band on the 4H chart). Zero stressed price held above demand and 'didn't even close below the EQ' — a close below this band kills the long thesis. A clean sweep of the deeper VAL ~4,303 that RECLAIMS keeps it valid; an accepted close below 4,300 is the harder backstop."
   },
   "stance_by_source": [
     {
@@ -18,9 +19,49 @@
       "as_of": "2026-06-05",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Higher-timeframe demand test held with a strong reaction and no close below demand; 4-hour chart looks like accumulation, not topping. Setup is valid but has NOT triggered — wait for either a confirmed break-and-retest of the rejected high, or a dip that sweeps ~4,300 and reclaims, before going long toward 4,800/5,000."
+      "summary": "Demand test held with a strong reaction; 4H reads accumulatory and COT skew still long. Setup valid but untriggered — buy only on a break+retest of the ~4,600 flip-high, or a sweep of ~4,300 that reclaims; otherwise skip. Targets 4,800 / 4,960 / 5,000."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-06-05",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Same two-path long: break value-area-high with body close then retest 4,800/5,000, OR sweep the value-area-low ~4,300, reclaim and resume up. Invalidation: a close below ~4,300."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-11",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Graded textbook — already long from the value-area-low flip (~4,650-4,680), aiming for 4,823 then a full rotation to 5,000; wrong on a close below the value-area-low. (Stale anchor: a month older than the June read.)"
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-27",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Patience for a retest of the value-area-low (~4,600-4,620) before longing toward the value-area-high. (Older, levels since superseded.)"
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-20",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy the value-area-low rotation zone ~4,600-4,700 targeting 5,000-5,200. (Older; the 5,200 target is stale vs the current structure.)"
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-03-23",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Earliest read — accumulate 3,600-3,900 on a retest, target 4,200-4,500, weekly close below 3,500 invalidates. Now well below market; superseded by the higher June structure."
     }
   ],
-  "conflicts": [],
-  "plain_english": "Only one source covers gold here (Zero, from early June), and it leans bullish: the support area he was watching held firmly and the bigger-picture structure looks like buyers quietly building positions rather than a top forming. But the trade has not actually started — he wants to see either a confirmed push above the level price was recently rejected at (then a successful pullback to it), OR a quick dip that grabs the ~4,300 floor and then snaps back above it. If price instead settles and stays below that ~4,300 area, the idea is dead. The call is also about three weeks old and gives no exact entry price, so treat it as a setup to watch, not one to chase. Action: WAIT for one of those two confirmations before buying; do nothing until then."
+  "conflicts": [
+    "No directional disagreement — every source is bullish/accumulatory; the contest is about timing, not direction.",
+    "The latest read is explicitly UNTRIGGERED and forks two ways: a direct break-up from here, OR a dip to sweep ~4,300 first then reclaim. Because the entry is conditional, do not treat ~4,600 as a live buy until price actually breaks and retests it.",
+    "Two different 'VAL' levels appear: the 4H chart labels a previous value-area-low band at ~4,690, while the text's 'VAL ~4,300' is the deeper macro support line (4,303 on the chart). The 4,300 sweep zone is the deep one — don't confuse it with the 4,690 band.",
+    "Older April/March levels (DCA 3,600-3,900; targets 5,200 and 4,200-4,500) are stale relative to the June structure now centred ~4,400-4,800; the newer HTF read supersedes them."
+  ],
+  "plain_english": "Every analysis of gold points the same way — up — and the most recent one (5 June) says gold is quietly building a base and held the support that mattered. But it has NOT given a green light yet. You only buy if one of two things happens first: price breaks above roughly 4,600 and then comes back to touch that level and holds, OR it dips to about 4,300, holds there, and recovers. Until one of those triggers, do nothing. If it does trigger, the upside targets are around 4,800, then 4,840, then 4,960-5,000; the idea is wrong if gold closes below about 4,350."
 }

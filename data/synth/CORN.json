@@ -1,46 +1,44 @@
 {
-  "conviction": 5,
+  "conviction": 6,
   "contested": false,
   "action": "wait",
   "safest_plan": {
-    "entry": 410,
-    "entry_basis": "Top of the chart's accumulation band — cyan line ~410 (labelled 0.618 / 'Whole DCA area for me'), with deeper adds marked at 399 and 393; confirmed by zero_live Jun 15 'spot re-accumulation zone'. NOT 430, which the grade mislabelled as entry but the live note and chart treat as resistance.",
+    "entry": 419,
+    "entry_basis": "zero_hub chart (2026-06-10): top of the green 'Whole DCA area' buy zone at $419; patient scale-in adds lower at $399 (0.618 fib) and $393, with deeper averaging into the $350 (PDB) and $330 demand blocks if reached",
     "targets": [
-      { "price": 480, "basis": "zero_hub grade TP1 / chart red line ~480" },
-      { "price": 590, "basis": "zero_hub grade TP2 (lower edge of chart take-profit zone)" },
-      { "price": 607, "basis": "zero_hub grade TP3 / chart 0.5 fib ~607" },
-      { "price": 635, "basis": "zero_hub grade TP4" },
-      { "price": 650, "basis": "zero_hub grade TP5 / chart 0.618 fib ~650" }
+      { "price": 475, "basis": "zero_hub chart: 0.79 retracement shelf, first take-profit level (~$475)" },
+      { "price": 600, "basis": "zero_hub chart: 0.5 level, mid of the labelled 'TAKE PROFIT ZONE' (~$600)" },
+      { "price": 650, "basis": "zero_hub chart: 0.618 level, top of the 'TAKE PROFIT ZONE' (~$650)" }
     ],
     "invalidation": 330,
-    "stop_basis": "Below the ~350-330 point-of-balance band on the chart; a daily close under 330 breaks the accumulation structure (next reference is the ~290 untested breaker)."
+    "stop_basis": "below the $330 demand block / PDB structure on the zero_hub chart — the deepest support before the low-probability 2004 HTF breaker; a clean break there negates the accumulation thesis"
   },
   "stance_by_source": [
     {
       "source": "zero_live",
       "as_of": "2026-06-15",
       "stance": "bullish",
-      "timeframe": "HTF",
-      "summary": "Accumulate patiently in the re-accumulation zone; 430 is overhead resistance to clear, not a buy level."
+      "timeframe": "tactical/spot",
+      "summary": "Accumulate spot patiently; near-term resistance sits around 430."
     },
     {
       "source": "zero_hub",
       "as_of": "2026-06-10",
       "stance": "bullish",
       "timeframe": "HTF",
-      "summary": "Daily chart marks a buy/DCA zone at 410/399/393 below price, deeper balance band at 350-330, and a take-profit zone from ~480 up to 650."
+      "summary": "Stagger spot buys across the $393-419 zone (deeper to $350/$330) and take profit up at $475, $600 and $650."
     },
     {
-      "source": "zero_hub",
-      "as_of": "2026-06-10",
-      "stance": "bullish",
-      "timeframe": "HTF",
-      "summary": "Graded setup (partial, 6/10): targets 480, 590, 607, 635, 650; entry field read as 430 but no invalidation given."
+      "source": "zero_live",
+      "as_of": "2026-05-18",
+      "stance": "neutral",
+      "timeframe": "context",
+      "summary": "Positioning table (COT, as of 2026-05-12) — context only, no trade levels; commercials cut shorts heavily."
     }
   ],
   "conflicts": [
-    "The earlier grade lists 430 as the entry, but the newer Jun 15 live note and the chart both treat 430 as overhead resistance — the actual buy area is the 410/399/393 DCA zone below the current price (image wins).",
-    "The grade gives no invalidation; the chart's structural stop sits below the 350-330 balance band, far under the buy zone, so reward-to-risk to the first target (480) is under 1:1 — only the deeper 590-650 targets justify the risk on a long hold."
+    "The newer 06-15 note caps near-term resistance at ~430, while the 06-10 chart's broader fair-value/resistance sits higher (~$462-475) — agree on direction but the near-term move is capped tighter than the longer-range targets imply.",
+    "Current price (~422.75) is sitting just above the top of the buy zone ($419), so this is not yet an at-entry setup — you are waiting for price to come into the zone, not buying here."
   ],
-  "plain_english": "Everyone here is on the same side: corn is in a slow buying/accumulation phase, not a fast trade. The chart marks the place to buy as the 410-393 area just below today's price of about 423, with a much deeper backup band around 350-330. The 430 level above is a ceiling to push through, not an entry — an earlier note got that backwards. Since price is currently above the buy zone and the guidance is to be patient, the move is to wait for a dip into 410-393 to start buying in pieces, aiming up toward 480 first and 590-650 over time, and treating a daily close below 330 as the sign the plan is wrong."
+  "plain_english": "Every source points the same way on corn: buy slowly into weakness, don't chase. The plan is to add in stages as price drops into roughly the $393-$419 area (and average lower toward $350-$330 if it keeps falling), aiming to sell back out into the $475-$650 range over time. The thesis only breaks if price falls cleanly below $330. Price right now is just above the buy zone and capped near $430 in the short term, so the action is to wait for it to dip into the zone rather than buy at the current level."
 }

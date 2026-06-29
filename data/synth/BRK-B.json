@@ -3,16 +3,14 @@
   "contested": false,
   "action": "wait",
   "safest_plan": {
-    "entry": 6580,
-    "entry_basis": "Zero (zero_live, 5 Jun): 're-accumulate ~20% lower into a sensible demand area'. ~20% below the 8,228 MXN price ≈ 6,580 MXN, which lands in the 0.786-fib blue demand zone (~6,400–6,800 MXN) drawn on the weekly chart (estimated; midpoint of that zone, BMV price in MXN).",
+    "entry": 6600,
+    "entry_basis": "Zero live 5 Jun: 're-accumulate ~20% lower into a sensible demand area' (20% below the ~8,228 last ≈ 6,580); the chart pins this to the deeper green demand zone ~6,600–6,900 and the 0.786 fib band ~6,500. Note: chart is the Mexican-peso (BMV) listing, so the level is in MXN, not the USD NYSE quote.",
     "targets": [
-      {
-        "price": 9200,
-        "basis": "Lower edge of the overhead supply band drawn on the chart (~9,200–9,573 MXN). Zero gave no explicit target (estimated)."
-      }
+      { "price": 9200, "basis": "Lower edge of the overhead red supply zone on the chart (~9,200) — first target on a successful re-accumulation (estimated; Zero gave no explicit targets)" },
+      { "price": 9645, "basis": "Top of the range / upper supply line labelled on the chart (9,645; ~9,572 in the second frame) (estimated)" }
     ],
-    "invalidation": 5900,
-    "stop_basis": "Below the deepest demand band on the weekly chart (~5,900–6,100 MXN). Zero stated only 'no bullish structure break yet; supply overhead' with no price, so this is structure-based and estimated."
+    "invalidation": 6400,
+    "stop_basis": "Below the 0.786 fib band (~6,500) and the deeper demand zone (~6,600–6,900); losing ~6,400 breaks the re-accumulation thesis and confirms the downtrend continuing (estimated — Zero gave no explicit stop)"
   },
   "stance_by_source": [
     {
@@ -20,14 +18,13 @@
       "as_of": "2026-06-05",
       "stance": "bearish",
       "timeframe": "HTF",
-      "summary": "Weekly downtrend with lower highs and lower lows and supply overhead; nothing to trade yet — would only buy spot ~20% lower into a deeper demand area if the fall continues."
+      "summary": "Clean downtrend with lower highs and lower lows, supply overhead, no break of structure — nothing to trade now; would only add ~20% lower into a demand area to re-accumulate spot/long. Track, don't trade."
     }
   ],
   "conflicts": [
-    "Single source only (Zero, 5 Jun) — no cross-source disagreement, but Zero himself says it is not tradeable now, which is why conviction is low and the action is wait.",
-    "Chart correction: the prices are quoted in Mexican pesos (MXN) on the BMV exchange, not US dollars — treat all levels as MXN.",
-    "Chart adds a level the text omits: a shallow demand band sits just under the current price (~8,000–8,400 MXN); Zero is choosing to ignore it and wait for the much deeper ~20%-lower zone instead.",
-    "Chart clarifies the vague '~20% lower' in the text: it corresponds to the 0.786-fib blue demand zone at roughly 6,400–6,800 MXN."
+    "The chart is the Mexican Bolsa (BMV) listing priced in pesos (~8,228 MXN), not the USD NYSE quote BRK-B normally trades at (~$480) — all levels here are in MXN and must not be read as dollar prices.",
+    "The two chart frames label the overhead supply line slightly differently (9,645 vs ~9,572) — same red supply band ~9,200–9,650, treat as a zone not a single price.",
+    "The Zero text only said 'a sensible demand area ~20% lower' with no number; the concrete buy zone (~6,600–6,900) and 0.786 fib (~6,500) were added from the chart, which is why the entry is marked as inferred."
   ],
-  "plain_english": "Berkshire B (shown here in Mexican pesos on the Mexican exchange) is in a steady downtrend — each bounce is making a lower high and there is selling pressure sitting above the price, with no sign yet that the trend has turned up. Zero is clear this is one to watch, not buy: he would only step in to buy and hold the shares if it drops roughly 20% further into a much deeper support area around 6,400–6,800 pesos. There is no clean trade right now, so do nothing and just keep it on the watchlist; only consider buying if it falls into that deeper zone and shows signs of steadying."
+  "plain_english": "On the chart Zero used (Berkshire's Mexico listing, in pesos), the stock has been falling in steady steps since early 2025 — each bounce peaks lower than the last — and there's a wall of selling overhead around 9,200–9,650. Zero's own call on 5 June was blunt: nothing to trade here yet, just watch it. His only plan is to buy back in if it drops roughly 20% more into a deeper support area near 6,500–6,900. Do nothing for now: keep this on a watchlist and only consider buying if and when it reaches that lower zone and stops falling."
 }

@@ -1,0 +1,59 @@
+{
+  "conviction": 7,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 4680,
+    "entry_basis": "zero_live 2026-05-11 (textbook 9): scalp entry on a retest of the value-area-low (4,650-4,680). Levels are dollar gold-per-ounce as Zero charted them, NOT SGLN's GBP share price.",
+    "targets": [
+      { "price": 4823, "basis": "zero_live 2026-05-11: TP1 = value at high (4,823)" },
+      { "price": 5000, "basis": "zero_live 2026-05-11 'full rotation' + zero_live 2026-04-20 POC / value-area-high confluence (5,000)" }
+    ],
+    "invalidation": 4620,
+    "stop_basis": "below the value-area-low boundary (~4,600-4,620, zero_live 2026-04-27 'close below value at low'); deeper structural break is the largest volume-profile low in the ~4,500s"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-11",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Textbook continuation: already long from the value-area-low flip; buy retests of 4,650-4,680, first target the value-area-high 4,823, then a full rotation to 5,000; invalid on a close back below the value area."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-27",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Be patient for a pullback to the value-area-low at 4,600-4,620 to buy, aiming at the value-area-high; setup fails on a break and hold below the heavy-volume low in the 4,500s."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-20",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy the 4,600-4,700 rotation zone, targeting 5,000 (point of control / value-area-high) then 5,200 (top of the value area); invalid on a close below the value-area-low."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-04-08",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Older, lower read: accumulate gold in the 3,600-3,900 zone on a correction, targets 4,900-5,000; price has since rallied well above this, so the entry is stale."
+    },
+    {
+      "source": "zero_live",
+      "as_of": "2026-03-23",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Earliest read: average in around 3,600-3,900, targeting 4,200-4,500, with a weekly close below 3,500 as the line in the sand. Fully played out and well below current price."
+    }
+  ],
+  "conflicts": [
+    "Only one source (Zero's live sessions) drives the entire read — there is no second, independent opinion to confirm it, so conviction is capped below the top band.",
+    "The two oldest reads (March 23 and April 8) quote gold buy zones of 3,600-3,900 and targets of 4,200-4,500 / 4,900-5,000; gold has since rallied to ~4,700-4,800, so those entries are stale and are superseded by the newer 4,600-4,700 value-area zone. Same direction, just outdated levels.",
+    "The charts behind the two oldest dates are actually SILVER charts, while their text describes gold — the gold levels there were spoken commentary, not drawn levels, so treat them as soft.",
+    "All levels here are dollar gold-per-ounce (what Zero charted on the Gold CFD), not SGLN's own GBP/pence share price, and live price is null, so the numbers cannot be mapped directly onto an SGLN order ticket without converting."
+  ],
+  "plain_english": "Every read from this source points the same way: gold is in an uptrend and the play is to buy dips back into a support band rather than chase. The most recent and best-rated call (top marks) says: if price pulls back to roughly the 4,650-4,680 zone, buy it, aim first at about 4,823 and then a fuller move toward 5,000, and abandon the trade if it closes back below about 4,620. Two things keep this from being a high-confidence green light: it all comes from one source with no second opinion, and the price numbers are dollar gold-per-ounce, not SGLN's own pound-based share price, which we don't have here. With price already above the buy zone, the honest action is to wait for the pullback into 4,650-4,680 before entering — don't chase it higher."
+}

@@ -1,0 +1,31 @@
+{
+  "conviction": 5,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 1.08,
+    "entry_basis": "Zero live chart 2026-05-11 — blue breaker-block buy zone ~1.08-1.18 (chart shows entry at the lower breaker, not the text's 'below 1.31')",
+    "targets": [
+      { "price": 1.6477, "basis": "Zero live chart — 0.705 fib level, explicitly labelled 'Main target for the setup'" },
+      { "price": 1.55, "basis": "Zero live chart — 0.618 fib (interim target; matches the text's 1.56-1.63 main TP)" },
+      { "price": 2.10, "basis": "Zero live chart — upper resistance line / projection (text TP 2.00, 'if closure above first TP')" },
+      { "price": 3.00, "basis": "Zero live grade — optimistic extended target; consistent with the chart's 22.55 risk/reward (estimated extension)" }
+    ],
+    "invalidation": 0.99,
+    "stop_basis": "below the breaker block / green support ~0.99, the chart stop at 8.2% below entry; a daily close below this voids the long"
+  },
+  "stance_by_source": [
+    {
+      "source": "zero_live",
+      "as_of": "2026-05-11",
+      "stance": "bullish",
+      "timeframe": "HTF",
+      "summary": "Buy on a pullback into the ~1.08-1.18 support zone, first goal ~1.65, stretch goals 2.10 and 3.00, exit if it closes below ~0.99 — graded only a partial (6/10) setup."
+    }
+  ],
+  "conflicts": [
+    "The extracted text put the entry 'below 1.31', but the chart's actual buy zone is the deeper breaker block at ~1.08-1.18 — image wins, the entry sits well below current price.",
+    "The extracted text capped the main target at 1.56-1.63, but the chart explicitly labels the 0.705 fib at ~1.6477 as the main target — the chart goal is higher."
+  ],
+  "plain_english": "Only one source covers Sui — Zero's live chart from mid-May, and even he graded it just a partial setup. The plan is a buy-the-dip: wait for the price to fall back into the roughly $1.08-$1.18 support shelf before buying, then aim first for about $1.65, with bigger stretch goals at $2.10 and $3.00, and bail if a day closes below about $0.99. Right now the price (~$1.32) is sitting above that buy zone, so the trade isn't ready and there's no fresh confirmation. Wait for the pullback into support rather than chasing here, and keep size modest given it rests on a single, ageing call."
+}
