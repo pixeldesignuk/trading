@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
 import { init, query } from './db.js'
-import { listTickers, getTicker, setStatus, setPlan, setVehicle, setClassification, setCommodityKey, upsertTicker, setActioned, reorderTickers } from './tickers.js'
+import { listTickers, getTicker, setStatus, setPlan, setVehicle, setClassification, setCommodityKey, upsertTicker, setActioned, reorderTickers, markSourcesSeen } from './tickers.js'
 import { getCommodity, vehicleByTicker, pickVehicle, commodityView, vehicleToCommodity } from './commodities.js'
 import { eventsForTicker } from './events.js'
 import { ingestSignal } from './ingest-signal.js'
@@ -102,7 +102,19 @@ app.get('/api/tickers/:symbol', async (req, res) => {
   const commodity = ticker.asset_class === 'commodity' && ticker.commodity_key
     ? await commodityView(ticker, { getQuotes, heldBrokers: HELD_BROKERS })
     : null
-  res.json({ ticker, events: await eventsForTicker(req.params.symbol), commodity })
+  const events = await eventsForTicker(req.params.symbol)
+  // "unread" for the Sources-tab dot: any event captured after the last time the
+  // Sources tab was opened (sources_seen_at). Cleared by POST …/seen.
+  const seenAt = ticker.sources_seen_at ? new Date(ticker.sources_seen_at).getTime() : 0
+  const unread = events.some((e) => e.captured_at && new Date(e.captured_at).getTime() > seenAt)
+  res.json({ ticker, events, commodity, unread })
+})
+
+// Mark a ticker's sources as read (clears the unread badge). Called when the
+// user opens the Sources tab.
+app.post('/api/tickers/:symbol/seen', async (req, res) => {
+  await markSourcesSeen(req.params.symbol)
+  res.json({ ok: true })
 })
 
 app.get('/api/tickers/:symbol/history', async (req, res) => {

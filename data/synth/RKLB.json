@@ -1,0 +1,23 @@
+{
+  "conviction": 3,
+  "contested": false,
+  "action": "wait",
+  "safest_plan": {
+    "entry": 87.5,
+    "entry_basis": "community idea (2026-05-22): 'looking to buy ~$85/90 depending on how we approach this level' — midpoint of the stated $85–90 zone (estimated)",
+    "targets": [],
+    "invalidation": null,
+    "stop_basis": "no structure-based stop was given by any source; the trader only flagged a buy zone, not a level that would invalidate the idea"
+  },
+  "stance_by_source": [
+    {
+      "source": "community",
+      "as_of": "2026-05-22",
+      "stance": "bullish",
+      "timeframe": "tactical",
+      "summary": "After a strong push a few days earlier, this person wants to buy the dip back into roughly $85–90 and has set a price alert; the plan isn't finalised."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one person has weighed in here, and they're cautiously bullish: after Rocket Lab made a sharp move up, they want to buy on a pull-back into the $85–90 area but haven't committed yet — they've just set a price alert and said they'll update once they see how the price behaves there. There are no profit targets, no point at which they'd admit the idea is wrong, and no chart to confirm any of it, so this is a single thin opinion rather than a tested plan. Don't treat it as a signal to buy now — wait for the price to actually reach that zone and for a clearer plan with a stop-loss before acting."
+}

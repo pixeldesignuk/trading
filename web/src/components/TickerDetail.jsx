@@ -383,6 +383,7 @@ function SourceCard({ e, i }) {
           {p.entry && <Row k="Entry" v={p.entry} />}
           {targets.length > 0 && <Row k="Targets" v={targets.join(' · ')} />}
           {p.invalidation && <Row k="Invalid" v={p.invalidation} />}
+          {Array.isArray(p.levels) && p.levels.length > 0 && <Row k="Levels" v={p.levels.join(' · ')} />}
           {p.note && <Row k="Note" v={p.note} />}
         </div>
         {sharia && (
@@ -848,11 +849,12 @@ function ActionPill({ action }) {
 function DetailTabs({ view, setView, tabs }) {
   return (
     <nav className="mb-5 flex gap-1 border-b border-zinc-800">
-      {tabs.map(({ key, label, badge }) => (
+      {tabs.map(({ key, label, badge, dot }) => (
         <button key={key} onClick={() => setView(key)}
           className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors ${view === key ? 'border-b-2 border-emerald-500 text-zinc-100' : 'text-zinc-500 hover:text-zinc-300'}`}>
           {label}
           {badge ? <span className="rounded bg-zinc-800 px-1.5 py-0.5 font-mono text-[10px] tabular text-zinc-400">{badge}</span> : null}
+          {dot ? <span className="dot-live h-1.5 w-1.5 rounded-full bg-emerald-400" title="New source update since you last looked" /> : null}
         </button>
       ))}
     </nav>
@@ -871,6 +873,7 @@ export default function TickerDetail({ symbol, onBack }) {
   const [levels, setLevels] = useUrlState('levels', 'cfd')   // commodity CFD↔ETC level basis
   const [chatOpen, setChatOpen] = useState(false)            // study-desk slide-over (mobile)
   const [view, setView] = useUrlState('view', 'overview')    // detail tab (URL state)
+  const [sourcesSeen, setSourcesSeen] = useState(false)      // cleared the unread dot this visit
   const [alerts, setAlerts] = useState(null)                 // alerts payload (for the header chip)
   const load = () => api.ticker(symbol).then(setData)
   const loadAlerts = () => api.alerts().then(setAlerts).catch(() => {})
@@ -900,6 +903,7 @@ export default function TickerDetail({ symbol, onBack }) {
     load()
     loadAlerts()
     setHistory(null)
+    setSourcesSeen(false)   // re-evaluate the unread dot for the new ticker
     api.quotes().then((q) => { setPrice(q[symbol]?.price ?? null); setChange(q[symbol]?.changePct ?? null) })
     api.history(symbol).then(setHistory)
     // Live position for this ticker, scoped to the personal book (owner 'me') so a
@@ -919,6 +923,16 @@ export default function TickerDetail({ symbol, onBack }) {
       })
     }).catch(() => setHolding(null))
   }, [symbol])
+
+  // Opening the Sources tab marks this ticker's sources read → clears the unread
+  // badge (here and in the lists on their next load).
+  useEffect(() => {
+    if (view === 'sources' && data?.unread && !sourcesSeen) {
+      setSourcesSeen(true)
+      api.markSeen(symbol).catch(() => {})
+    }
+  }, [view, data?.unread, sourcesSeen, symbol])
+
   if (!data?.ticker) return <div className="p-8 text-center text-sm text-zinc-600">Loading…</div>
 
   const t = data.ticker
@@ -951,7 +965,7 @@ export default function TickerDetail({ symbol, onBack }) {
   const tabs = [
     { key: 'overview', label: 'Overview' },
     { key: 'verdict', label: 'Verdict' },
-    { key: 'sources', label: 'Sources', badge: notes.length + charts.length },
+    { key: 'sources', label: 'Sources', badge: notes.length + charts.length, dot: data.unread && !sourcesSeen },
   ]
 
   return (

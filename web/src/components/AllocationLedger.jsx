@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { api } from '../api.js'
+import { UnreadBadge } from './TickerList.jsx'
 import { useUrlState } from '../useUrlState.js'
 // Pure shared model math (constants + derivePyramid). Imported from the server
 // package; Vite bundles it for the client (see vite.config.js fs.allow).
@@ -157,6 +158,7 @@ function Row({ r, holding, bookValue = 0, onOpen }) {
       <div className="flex min-w-0 items-center gap-2">
         <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: tier.c }} title={`${tier.label} tier`} />
         <span className="font-mono text-[13px] font-semibold tracking-tight text-zinc-100">{r.symbol}</span>
+        {r.unread && <UnreadBadge className="shrink-0" />}
         <span className="truncate font-mono text-[10px] text-zinc-600">{r.name || ''}</span>
         {r.pinned && <span className="shrink-0 text-[10px] text-violet-300" title="pinned target">📌</span>}
         {isTrade && !isPending && <span className="shrink-0 rounded bg-amber-500/10 px-1.5 py-0.5 font-mono text-[8px] uppercase tracking-wider text-amber-300">trade</span>}
@@ -676,6 +678,7 @@ export default function AllocationLedger({ onOpen }) {
   const [owners, setOwners] = useState([])
   const [households, setHouseholds] = useState([])
   const [led, setLed] = useState(null)
+  const [unread, setUnread] = useState(() => new Set())
   const [targets, setTargets] = useState(null)
   const [rot, setRot] = useState(null)
   const [holdings, setHoldings] = useState([])
@@ -704,6 +707,8 @@ export default function AllocationLedger({ onOpen }) {
   useEffect(() => {
     api.rotation().then(setRot).catch(() => {})
     api.accounts().then((d) => { setOwners(d.owners || []); setHouseholds(d.households || []) }).catch(() => {})
+    // Symbols with an unread source update (e.g. a fresh Zero live) — for the row badge.
+    api.tickers().then((rows) => setUnread(new Set(rows.filter((t) => t.unread).map((t) => t.symbol)))).catch(() => {})
   }, [])
 
   // Once owners load, snap an unknown URL scope to the first owner.
@@ -729,7 +734,9 @@ export default function AllocationLedger({ onOpen }) {
   // Regime label: prefer the one the API now returns on the ledger; fall back to the rotation endpoint.
   const regimeLabel = led?.regime?.label || rot?.label || null
 
-  const grouped = useMemo(() => (led ? groupRows(led.rows || []) : { core: [], satellites: [], picks: [], cash: [] }), [led])
+  const grouped = useMemo(() => (led
+    ? groupRows((led.rows || []).map((r) => ({ ...r, unread: unread.has(r.symbol) })))
+    : { core: [], satellites: [], picks: [], cash: [] }), [led, unread])
 
   return (
     <div>

@@ -3,6 +3,18 @@ import React, { useMemo } from 'react'
 // Shared ticker list — the quant-terminal row (identity + plan rail + data
 // cluster) used by both the Tickers tab and the Portfolio tab so they match.
 
+// "new source" badge — shown when a ticker has an event captured after the user
+// last opened its Sources tab (t.unread from the API). Cleared by opening the
+// Sources tab. Reused across the Tickers, Portfolio and Allocation lists.
+export function UnreadBadge({ className = '' }) {
+  return (
+    <span title="New source update — open the Sources tab to clear"
+      className={`inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-1.5 py-px font-mono text-[8px] font-semibold uppercase tracking-[0.12em] text-emerald-300 ${className}`}>
+      <span className="dot-live h-1 w-1 rounded-full bg-emerald-400" />new
+    </span>
+  )
+}
+
 const num = (v) => {
   const m = String(v ?? '').match(/-?\d+(\.\d+)?/)
   return m ? Number(m[0]) : null
@@ -216,6 +228,7 @@ function Row({ t, quote, i, onOpen }) {
         <div className="flex items-center gap-1.5">
           <span className="font-mono text-[15px] font-semibold leading-tight tracking-tight text-zinc-100">{t.symbol}</span>
           <AssetIcon type={type} />
+          {t.unread && <UnreadBadge />}
         </div>
         <div className="truncate text-[11px] leading-tight text-zinc-500">
           {t.name}{veh && <span className="text-zinc-600"> · via {veh.ticker}</span>}

@@ -1,0 +1,96 @@
+{
+  "discussion": {
+    "slug": "feed-2026-06-29T2033Z",
+    "date": "2026-06-29",
+    "generated": "2026-06-29T20:33:25Z",
+    "since": "since last check · 06-26→06-29",
+    "tldr": "The room is fixated on whether BTC has bottomed: a 7th daily wick under 60k, with the camp split between F25 (58k was just a sweep, real HTF interest sits at 44–46k and the prior lows) and OxAdam9, who posted several on-chain charts (USDC/USDT supply vs price) arguing we're at mid-cycle-bottom-equivalent discount levels and is DCAing alts rather than timing the exact low. Heavy sub-thread on MiCA killing EU access to futures venues (Bybit EU / MEXC / Gate out; OKX & Kraken approved) — reinforcing the spot-first stance. Zero confirmed a new market-update video tonight (no live — vacation season) and a Weekly Market Update article dropped in the app. Lighter stock chatter on MRNA (holding under 70 supply), Nike (absorption) and XLM (into weekly BB). Condolences flowed to EJ, who lost someone.",
+    "stats": {
+      "messages": 107,
+      "channels": [
+        {"title": "Discussion area", "count": 106},
+        {"title": "Stock trades", "count": 0},
+        {"title": "Zero's Dojo", "count": 1}
+      ],
+      "ideas": 3,
+      "signals": 0
+    },
+    "topics": [
+      {
+        "group": "Discussion area",
+        "topic": "BTC bottom debate — sweep or real low?",
+        "summary": "BTC printed a 7th daily wick under 60k. F25 reads 58k as just a sweep of the latest low, with the genuinely interesting HTF levels at 44/46k and the two prior lows. OxAdam9 counters that on-chain stablecoin-supply ratios put us at July-2021 mid-cycle-bottom-equivalent discount, expecting a bottom to form 'very soon' with Saylor-selling bad news already priced in. Members planning DCA from ~50k stepping down toward 35k.",
+        "participants": ["F25", "@OxAdam9", "@ZeroIkaa", "@Daishoninn", "Vinni", "@KonigNeit"],
+        "tickers": ["BTC"]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "DOGE / LINK on-chain comparison",
+        "summary": "OxAdam9: LINK has already taken its 2022-bottom liquidity relative to rising USDC supply while DOGE hasn't — if DOGE mirrors it, ~0.065 is the implied level. Zero agreed 0.06 DOGE is 'extremely likely' if BTC tags 50k. dindoobs weighing cutting a % of DOGE now to redeploy into BTC at lower prices; Zero endorsed cutting a slice and re-adding later.",
+        "participants": ["@OxAdam9", "@dindoobs", "@ZeroIkaa"],
+        "tickers": ["DOGE", "LINK"]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "MiCA locks EU traders out of futures",
+        "summary": "Long thread on MiCA regulation: Bybit EU, MEXC and Gate reportedly losing the right to serve EU customers for futures/perps (needs MiFID II), while OKX and Kraken hold approval. Members floating bitunix and the hyperliquid DEX as workarounds. Net effect for the EU crowd: spot-only — reinforcing the desk's spot-first bias.",
+        "participants": ["Cosmo", "Maniek", "@Oakensoul", "@GuybrushThreepwoodSan", "@FruitCake16"],
+        "tickers": []
+      },
+      {
+        "group": "Stock trades",
+        "topic": "Stock setups: MRNA, Nike, XLM",
+        "summary": "KonigNeit and Zero tracking MRNA holding just under the 68–70 supply — Zero wants another range to form before expansion, no bad sign yet. albertg955 flags Nike showing absorption. ManniOntheMap eyes XLM into the weekly BB / monthly OB; Studentoffew cautions majors are in no-man's-land so wait for the lower, more optimal level (~0.14) or risk very little.",
+        "participants": ["@KonigNeit", "@ZeroIkaa", "@albertg955", "@ManniOntheMap", "@Studentoffew", "@Dheerane"],
+        "tickers": ["MRNA", "NKE", "XLM"]
+      },
+      {
+        "group": "Discussion area",
+        "topic": "Web app vs Telegram — where the HTF thesis should live",
+        "summary": "EnadNos, notkingML and tomsuchanek asked for Zero's macro/HTF thesis to be quickly findable — ideally in both the web app and a TG channel, not just one. Zero is considering a dedicated macro / 'static update' section in the terminal (he built the platform precisely so everything lives in one place).",
+        "participants": ["@EnadNos", "@notkingML", "@tomsuchanek", "@ZeroIkaa"],
+        "tickers": []
+      },
+      {
+        "group": "Zero's Dojo",
+        "topic": "New live session — Weekly Market Update (29-06)",
+        "summary": "Zero uploaded this week's live session to the app terminal (LIVE SESSIONS) — recording-only this week with chapters + subtitles (no live stream, vacation season). Chapters: BTC (0:00) · USDT.D + USDC.D stablecoin dominance (7:53) · VIX (11:07) · US Oil + USO (15:37) · Metals — Silver, Gold, Palladium (21:40) · WMT setup continuation (31:25) · NFLX setup continuation (34:12).",
+        "participants": ["@ZeroIkaa"],
+        "tickers": ["BTC", "VIX", "USOIL", "USO", "SILVER", "GOLD", "PALLADIUM", "WMT", "NFLX"]
+      }
+    ]
+  },
+  "ideas": [
+    {
+      "symbol": "NKE",
+      "name": "Nike, Inc.",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-29T20:00:00Z",
+      "native_id": "tg-disc-336781",
+      "author": {"handle": "@albertg955", "name": "albertg955"},
+      "note": "Asked if anyone's watching Nike — 'looks like there's absorption taking place.' Echoes Spaceloonie's earlier NKE flag; continued community interest in the name.",
+      "url": "https://t.me/c/1899385205/336781"
+    },
+    {
+      "symbol": "XLM",
+      "name": "Stellar Lumens",
+      "asset_class": "crypto",
+      "occurred_at": "2026-06-29T20:00:00Z",
+      "native_id": "tg-disc-336833",
+      "author": {"handle": "@ManniOntheMap", "name": "ManniOntheMap"},
+      "note": "'Anyone watching Xlm? Coming into weekly BB and monthly OB.' Studentoffew noted the more optimal level sits lower (~0.14) and would only take it with majors and a tight stop.",
+      "url": "https://t.me/c/1899385205/336833"
+    },
+    {
+      "symbol": "UNG",
+      "name": "United States Natural Gas Fund (natural gas)",
+      "asset_class": "stock",
+      "occurred_at": "2026-06-29T20:00:00Z",
+      "native_id": "tg-disc-336876",
+      "author": {"handle": "@genuinegenius", "name": "genuinegenius"},
+      "note": "Requested natural gas coverage; Zero said he'll add a static natgas setup to the terminal. Resolved to UNG as the investable natural-gas expression.",
+      "url": "https://t.me/c/1899385205/336876"
+    }
+  ],
+  "signals": []
+}

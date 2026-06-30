@@ -40,7 +40,12 @@ export async function listTickers({ status, exclude } = {}) {
   if (status) { params.push(status); where = `WHERE t.status = $${params.length}` }
   else if (exclude?.length) { params.push(exclude); where = `WHERE t.status <> ALL($${params.length})` }
   const r = await query(
-    `SELECT t.*, COALESCE(array_agg(DISTINCT e.source) FILTER (WHERE e.source IS NOT NULL), '{}') AS sources
+    `SELECT t.*, COALESCE(array_agg(DISTINCT e.source) FILTER (WHERE e.source IS NOT NULL), '{}') AS sources,
+            MAX(e.captured_at) AS last_event_at,
+            -- "unread": a source event landed after the user last opened the
+            -- Sources tab (sources_seen_at). null seen → unread if any event.
+            (MAX(e.captured_at) IS NOT NULL
+             AND MAX(e.captured_at) > COALESCE(t.sources_seen_at, '-infinity'::timestamptz)) AS unread
        FROM tickers t LEFT JOIN events e ON e.ticker = t.symbol
        ${where}
        GROUP BY t.symbol
@@ -56,6 +61,12 @@ export async function listTickers({ status, exclude } = {}) {
 
 export async function setStatus(symbol, status) {
   await query('UPDATE tickers SET status=$2, updated_at=now() WHERE symbol=$1', [symbol, status])
+}
+
+// Mark this ticker's sources as read — called when the user opens its Sources
+// tab. Clears the "unread" badge by advancing the watermark to now().
+export async function markSourcesSeen(symbol) {
+  await query('UPDATE tickers SET sources_seen_at = now() WHERE symbol = $1', [canonicalSymbol(symbol)])
 }
 
 // Persist manual board order: sort_order = the symbol's index in `symbols`. One

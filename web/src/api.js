@@ -43,6 +43,8 @@ export const api = {
     return fetch('/api/tickers' + q).then(j)
   },
   ticker: (symbol) => fetch(`/api/tickers/${symbol}`).then(j),
+  // Mark a ticker's sources as read (clears the unread badge) — on Sources-tab open.
+  markSeen: (symbol) => fetch(`/api/tickers/${symbol}/seen`, { method: 'POST' }).then(j),
   history: (symbol) => fetch(`/api/tickers/${symbol}/history`).then(j),
   setStatus: (symbol, status) =>
     fetch(`/api/tickers/${symbol}/status`, {

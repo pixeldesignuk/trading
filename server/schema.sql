@@ -44,6 +44,11 @@ ALTER TABLE tickers ADD COLUMN IF NOT EXISTS satellite_theme TEXT;  -- tech|em|c
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS sort_order   INTEGER;  -- manual Portfolio board order within a status group (null = unset)
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS quote_symbol TEXT;     -- yahoo symbol override (e.g. broker line HIESL → HIES.L) when the bare symbol won't resolve
 ALTER TABLE tickers ADD COLUMN IF NOT EXISTS instrument   TEXT;     -- etf|equity|crypto|commodity (from yahoo quoteType) — distinguishes ETFs from single stocks
+-- "Sources read" watermark: when the user last opened this ticker's Sources tab.
+-- A ticker is "unread" (badge shown) when it has any event captured after this.
+-- null = never opened → unread if it has any event. Baselined to now() on add so
+-- the existing book doesn't all flood as unread.
+ALTER TABLE tickers ADD COLUMN IF NOT EXISTS sources_seen_at TIMESTAMPTZ;
 
 -- Book each synced account belongs to
 ALTER TABLE broker_accounts ADD COLUMN IF NOT EXISTS book TEXT NOT NULL DEFAULT 'personal'; -- personal|kids

@@ -32,8 +32,28 @@ export function normalizeTickerLabel(raw) {
   return head.toUpperCase().replace(/\s+/g, '')
 }
 
-// Parse `## TICKER` prose sections. Returns [{ticker, prose, chartFile}].
-// chartFile is the screenshots/<name> path referenced by the section image (or null).
+// Pull a `**Label:** value` line out of a section body (first match wins).
+// `labels` is an alternation, e.g. 'Entry|Add'. Returns the trimmed, emoji-free
+// value or null.
+function grabField(body, labels) {
+  const m = body.match(new RegExp(`^\\s*\\*\\*(?:${labels}):?\\*\\*\\s*(.+?)\\s*$`, 'im'))
+  return m ? stripEmoji(m[1]).trim() : null
+}
+
+// Split a "TP1 · TP2 · TP3" / comma list into a clean array, preserving levels.
+export function splitLevels(v) {
+  if (!v) return []
+  return String(v).split(/\s*[·;]\s*|\s*,\s+/).map((s) => s.trim()).filter(Boolean)
+}
+
+// Labels we lift out of the prose into structured fields (kept in sync with grabField).
+const FIELD_LABELS = 'Entry|Add|Targets|TPs|Target|Invalidation|Invalid|Stop|Levels|Key levels|Bias|Spot|Sharia'
+
+// Parse `## TICKER` prose sections. Returns
+//   [{ticker, prose, chartFile, entry, targets, invalidation, levels, bias, spot, sharia_text}].
+// `prose` is the narrative with the **Label:** lines and the image stripped out;
+// the labelled lines become structured fields so the Sources card renders
+// Entry / Targets / Invalid / Levels rows instead of a bare blurb.
 export function parseLiveSections(md, knownSymbols = null) {
   const out = []
   const re = /^##\s+(.+?)\s*$/gm
@@ -45,9 +65,20 @@ export function parseLiveSections(md, knownSymbols = null) {
     const end = i + 1 < heads.length ? heads[i + 1].index : md.length
     const body = md.slice(start, end)
     const img = body.match(/!\[[^\]]*\]\(([^)]*screenshots\/[^)]+)\)/)
-    const prose = stripEmoji(body.replace(/!\[[^\]]*\]\([^)]*\)/g, '')).trim()
-    if (!prose && !img) continue
-    out.push({ ticker: symbol, prose, chartFile: img ? img[1] : null })
+    const entry = grabField(body, 'Entry|Add')
+    const targets = grabField(body, 'Targets|TPs|Target')
+    const invalidation = grabField(body, 'Invalidation|Invalid|Stop')
+    const levels = grabField(body, 'Levels|Key levels')
+    const bias = grabField(body, 'Bias')
+    const spot = grabField(body, 'Spot')
+    const sharia_text = grabField(body, 'Sharia')
+    const prose = stripEmoji(
+      body
+        .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+        .replace(new RegExp(`^\\s*\\*\\*(?:${FIELD_LABELS}):?\\*\\*.*$`, 'gim'), ''),
+    ).trim()
+    if (!prose && !img && !entry && !targets) continue
+    out.push({ ticker: symbol, prose, chartFile: img ? img[1] : null, entry, targets, invalidation, levels, bias, spot, sharia_text })
   }
   return out
 }
@@ -92,7 +123,11 @@ export function parseLiveSummary(md, knownSymbols = null) {
   const table = parseSpotSnapshot(md, knownSymbols)
   const merged = {}
   for (const s of sections) {
-    merged[s.ticker] = { prose: s.prose, chartFile: s.chartFile, ...(table[s.ticker] || {}) }
+    // Section structured fields win; the table fills any gaps (e.g. sharia_text).
+    // Drop null section fields so they don't clobber a value the table provided.
+    const { ticker, ...fields } = s
+    const defined = Object.fromEntries(Object.entries(fields).filter(([, v]) => v != null))
+    merged[ticker] = { ...(table[ticker] || {}), ...defined }
   }
   for (const [sym, row] of Object.entries(table)) {
     if (!merged[sym]) merged[sym] = { prose: null, chartFile: null, ...row }

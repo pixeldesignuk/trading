@@ -24,8 +24,18 @@ import { DatabaseSync } from 'node:sqlite'
 import { TRADING, MEDIA_DIR } from './config.js'
 import { addChartEvent } from './charts.js'
 import { appendEvent } from './events.js'
-import { listTickers } from './tickers.js'
-import { parseLiveSummary } from './lives-parse.js'
+import { listTickers, upsertTicker } from './tickers.js'
+import { parseLiveSummary, normalizeTickerLabel, splitLevels } from './lives-parse.js'
+
+// Confluence / macro labels are NOT tradeable tickers — dominance, totals,
+// volatility, stablecoins, DXY, comparison overlays. They never become a hub
+// ticker (mirrors seed-zero-live's CONFLUENCE rule).
+const CONFLUENCE_LABEL = /^(TOTAL\d*|OTHERS\d*|ALT\w*CAP|CRYPTOCAP|DXY|VIX|SPX|SP500.*|.*\.D|.*-D|.*DOMINANCE.*|.*RATIO|.*VOL|.*VS.*)$/i
+
+// A plausible ticker symbol: 2–10 chars, letter-led, optional single-letter
+// class suffix. Covers PALLADIUM (9) while excluding longer prose labels
+// ("MARKETOVERVIEW" = 14) and confluence indices.
+const PLAUSIBLE_SYMBOL = /^[A-Z][A-Z0-9]{1,9}(\.[A-Z])?$/
 
 /**
  * Build a faithful per-ticker mention payload from a parsed live record.
@@ -38,7 +48,17 @@ import { parseLiveSummary } from './lives-parse.js'
 export function liveMentionPayload(record, fallback) {
   if (!record) return { text: fallback }
   const payload = { text: record.prose || record.zeros_read || fallback }
-  if (record.spot_action) payload.note = `Spot: ${record.spot_action}`
+  // Structured plan fields → render as Entry / Targets / Invalid / Levels rows.
+  if (record.entry) payload.entry = record.entry
+  if (record.targets) payload.targets = splitLevels(record.targets)
+  if (record.invalidation) payload.invalidation = record.invalidation
+  if (record.levels) payload.levels = splitLevels(record.levels)
+  // Note line carries the spot action + bias (whichever the read gave).
+  const noteBits = []
+  if (record.spot) noteBits.push(`Spot: ${record.spot}`)
+  else if (record.spot_action) noteBits.push(`Spot: ${record.spot_action}`)
+  if (record.bias) noteBits.push(`Bias: ${record.bias}`)
+  if (noteBits.length) payload.note = noteBits.join(' · ')
   if (record.sharia_status && record.sharia_status !== 'unknown') payload.sharia_status = record.sharia_status
   if (record.sharia_text) payload.sharia_note = record.sharia_text
   return payload
@@ -48,11 +68,30 @@ const SIGNALS_DB = path.resolve(TRADING, 'signals-web', 'data', 'signals.db')
 const SIGNALS_MEDIA = path.resolve(TRADING, 'signals-web', 'media')
 
 /**
- * Parse a ticker symbol from a live_shots label.
- * Accepts only uppercase tokens (2–6 chars) that exist in knownSymbols.
+ * Resolve a live_shots label to a tradeable ticker symbol — or null for
+ * confluence/macro/prose labels. Two passes:
+ *   1. Normalize the whole label (strip bold/parens/tagline, drop spaces,
+ *      uppercase) — handles "US OIL" → "USOIL", "PALLADIUM", "NFLX (cont.)".
+ *   2. Fallback: first UPPERCASE token in the raw label — handles
+ *      "XPEV weekly demand" → "XPEV", "MOS SOL compare" → "MOS".
+ * Confluence labels (USDT.D, VIX, SP500 vs VIX, dominance…) resolve to null.
  *
- * Strategy: extract all \b[A-Z]{2,6}\b tokens, return the first that's known.
- * Labels like "XPEV weekly demand" → "XPEV", "Market overview" → null.
+ * @param {string} label
+ * @returns {string|null}
+ */
+export function shotLabelToSymbol(label) {
+  const raw = String(label ?? '')
+  const norm = normalizeTickerLabel(raw)
+  if (norm && !CONFLUENCE_LABEL.test(norm) && PLAUSIBLE_SYMBOL.test(norm)) return norm
+  const tokens = raw.match(/\b[A-Z][A-Z0-9.\-]{1,11}\b/g) ?? []
+  return tokens.find(t => !CONFLUENCE_LABEL.test(t) && PLAUSIBLE_SYMBOL.test(t)) ?? null
+}
+
+/**
+ * Parse a ticker symbol from a live_shots label, gated to existing tickers.
+ * Used for chart attachment: only returns a symbol the hub already tracks
+ * (run() auto-creates plausible charted symbols first, so by the time this
+ * runs the touched tickers all exist).
  *
  * @param {{ ord: number, label: string, file: string }} shot
  * @param {string} liveSlug
@@ -60,8 +99,8 @@ const SIGNALS_MEDIA = path.resolve(TRADING, 'signals-web', 'media')
  * @returns {{ symbol: string|null, srcFile: string, native_id: string, occurred_at: string|null }}
  */
 export function liveShotToChart(shot, liveSlug, knownSymbols) {
-  const tokens = (shot.label ?? '').match(/\b[A-Z]{2,6}\b/g) ?? []
-  const symbol = tokens.find(t => knownSymbols.has(t)) ?? null
+  const candidate = shotLabelToSymbol(shot.label)
+  const symbol = candidate && knownSymbols.has(candidate) ? candidate : null
 
   return {
     symbol,
@@ -106,11 +145,24 @@ async function copyLiveShot(file) {
 /**
  * Main runner — idempotent.
  */
-export async function run() {
+// Parenthetical annotations that are NOT a company name — don't stamp them as
+// the ticker's name when auto-creating ("WMT (continuation)" → no name).
+const NAME_ANNOTATION = /^(continuation|cont\.?|new setup|setup|update|demand|supply|breaker|weekly|daily|monthly|spot|long|short)$/i
+
+/**
+ * @param {object} [opts]
+ * @param {string[]|null} [opts.createForSlugs]  Live slugs allowed to auto-create
+ *   missing tickers. null/empty = never auto-create (preserve old behavior for
+ *   the historical archive, whose summaries use messy full-word labels). /feed
+ *   passes ONLY the freshly-transcribed live's slug so just its touched tickers
+ *   are created — never the back-catalogue.
+ */
+export async function run({ createForSlugs = null } = {}) {
   if (!fs.existsSync(SIGNALS_DB)) {
     console.error(`signals.db not found at ${SIGNALS_DB}`)
     process.exit(1)
   }
+  const createSet = createForSlugs?.length ? new Set(createForSlugs) : null
 
   // Load known ticker symbols from the live Postgres DB
   const tickers = await listTickers()
@@ -134,6 +186,27 @@ export async function run() {
     liveCount++
     const occurred_at = slugToDate(live.slug)
     const shots = shotsByLive[live.id] ?? []
+
+    // Auto-create any plausible charted asset the hub doesn't track yet, so a
+    // ticker Zero showed a chart for never gets silently dropped (e.g. USO,
+    // WMT). Only for the freshly-processed live (createSet) — the historical
+    // archive used messy full-word labels ("Walmart") that would create junk
+    // dupes. Further gated to assets in the summary's Spot Snapshot table (the
+    // strong signal it's a real tradeable asset). Confluence labels resolve to
+    // null and are skipped. Name = the label's parenthetical when it's a real
+    // name ("USO (US Oil Fund)"), not an annotation ("(continuation)").
+    if (createSet?.has(live.slug)) {
+      const tableSyms = new Set(Object.keys(parseLiveSummary(live.summary_md || '', null)))
+      for (const shot of shots) {
+        const sym = shotLabelToSymbol(shot.label)
+        if (!sym || knownSymbols.has(sym) || !tableSyms.has(sym)) continue
+        const paren = String(shot.label ?? '').match(/\(([^)]+)\)/)
+        const name = paren && !NAME_ANNOTATION.test(paren[1].trim()) ? paren[1].trim() : null
+        await upsertTicker(sym, { name })
+        knownSymbols.add(sym)
+        console.log(`  [live ticker] ${live.slug} created ${sym}${name ? ` (${name})` : ''}`)
+      }
+    }
 
     // Collect matched symbols for this live (deduped)
     const matchedSymbols = new Set()
@@ -191,11 +264,17 @@ export async function run() {
   return { liveCount, chartEvents, mentionEvents }
 }
 
-// CLI guard
+// CLI guard.  --create-slug <slug> (repeatable) allows auto-creating missing
+// tickers for just that freshly-processed live; omit it to import charts onto
+// existing tickers only (safe default for the historical archive).
 if (process.argv[1] === new URL(import.meta.url).pathname) {
   const { pool } = await import('./db.js')
+  const createForSlugs = process.argv.reduce((acc, a, i) => {
+    if (a === '--create-slug' && process.argv[i + 1]) acc.push(process.argv[i + 1])
+    return acc
+  }, [])
   try {
-    await run()
+    await run({ createForSlugs })
   } finally {
     await pool.end()
   }

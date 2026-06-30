@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { api } from '../api.js'
 import { useUrlState } from '../useUrlState.js'
-import { planView, Rail, STATE, positionView, PositionRail, POS_STATE, posLabelParts } from './TickerList.jsx'
+import { planView, Rail, STATE, positionView, PositionRail, POS_STATE, posLabelParts, UnreadBadge } from './TickerList.jsx'
 // Pure server modules (Vite bundles them; see AllocationLedger). Importing the
 // SAME state + posture rules the chat/scan use keeps the page's "at risk"
 // judgement identical to the agent's — one source of truth.
@@ -265,6 +265,7 @@ function ListRow({ t, quote, holding, led, draggable, onOpen, onDragStart, onDra
       <div className="flex min-w-0 items-center gap-2">
         <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: dot }} />
         <span className="shrink-0 whitespace-nowrap font-mono text-[13px] font-semibold tracking-tight text-zinc-100">{t.symbol}</span>
+        {t.unread && <UnreadBadge className="shrink-0" />}
         {isRecent(t.first_seen) && <span className="shrink-0 rounded bg-emerald-500/15 px-1 py-0.5 text-[8px] font-semibold uppercase tracking-wider text-emerald-300">New</span>}
         {layer && <span className="shrink-0 rounded px-1 py-0.5 text-[8px] font-semibold uppercase tracking-wider" style={{ color: layer.c, background: layer.c + '1a' }}>{layer.label}</span>}
         <span className="truncate text-[11px] text-zinc-500">{t.name || ''}</span>

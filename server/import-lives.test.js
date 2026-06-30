@@ -1,8 +1,8 @@
 import { strict as assert } from 'node:assert'
 import { describe, it } from 'node:test'
-import { liveShotToChart, liveMentionPayload } from './import-lives.js'
+import { liveShotToChart, liveMentionPayload, shotLabelToSymbol } from './import-lives.js'
 
-const KNOWN = new Set(['XPEV', 'MSTR', 'BTC', 'MOS', 'SOL', 'MRNA', 'SILVER', 'WMT', 'NFLX', 'UBER', 'COIN'])
+const KNOWN = new Set(['XPEV', 'MSTR', 'BTC', 'MOS', 'SOL', 'MRNA', 'SILVER', 'GOLD', 'PALLADIUM', 'USOIL', 'USO', 'WMT', 'NFLX', 'UBER', 'COIN'])
 
 describe('liveMentionPayload', () => {
   it('stamps the per-ticker read, not the global tldr', () => {
@@ -72,10 +72,38 @@ describe('liveShotToChart', () => {
     assert.equal(result.symbol, null)
   })
 
-  it('returns null for "Gold" (no uppercase token)', () => {
+  it('resolves "Gold" → GOLD (case-insensitive normalize)', () => {
     const shot = { ord: 5, label: 'Gold', file: 'media/lives/test/gold.png' }
     const result = liveShotToChart(shot, 'test-slug', KNOWN)
-    assert.equal(result.symbol, null)
+    assert.equal(result.symbol, 'GOLD')
+  })
+
+  it('resolves "PALLADIUM" (>6 chars) → PALLADIUM', () => {
+    const shot = { ord: 9, label: 'PALLADIUM', file: 'media/lives/test/pall.png' }
+    assert.equal(liveShotToChart(shot, 'test-slug', KNOWN).symbol, 'PALLADIUM')
+  })
+
+  it('resolves "US OIL" → USOIL (spaces collapsed)', () => {
+    const shot = { ord: 5, label: 'US OIL', file: 'media/lives/test/oil.png' }
+    assert.equal(liveShotToChart(shot, 'test-slug', KNOWN).symbol, 'USOIL')
+  })
+
+  it('resolves "USO (US Oil Fund)" → USO', () => {
+    const shot = { ord: 6, label: 'USO (US Oil Fund)', file: 'media/lives/test/uso.png' }
+    assert.equal(liveShotToChart(shot, 'test-slug', KNOWN).symbol, 'USO')
+  })
+
+  it('skips confluence labels — "SP500 vs VIX (245-day cycle)" → null', () => {
+    const shot = { ord: 4, label: 'SP500 vs VIX (245-day cycle)', file: 'media/lives/test/spx.png' }
+    assert.equal(liveShotToChart(shot, 'test-slug', KNOWN).symbol, null)
+  })
+
+  it('shotLabelToSymbol skips confluence even when not gated by knownSymbols', () => {
+    assert.equal(shotLabelToSymbol('USDT.D + USDC.D'), null)
+    assert.equal(shotLabelToSymbol('VIX'), null)
+    assert.equal(shotLabelToSymbol('Market overview'), null)
+    assert.equal(shotLabelToSymbol('USO (US Oil Fund)'), 'USO')
+    assert.equal(shotLabelToSymbol('PALLADIUM'), 'PALLADIUM')
   })
 
   it('extracts COIN from "COIN (Coinbase)"', () => {
