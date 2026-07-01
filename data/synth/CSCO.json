@@ -1,0 +1,25 @@
+{
+  "conviction": 6,
+  "contested": false,
+  "action": "enter",
+  "safest_plan": {
+    "entry": 114,
+    "entry_basis": "moneytaur 2026-06-26 — 4H demand reaction line at ~114 (price tapping it)",
+    "targets": [
+      { "price": 127, "basis": "moneytaur 2026-06-26 — lower edge of the 127–128.50 supply zone (0.786 retracement)" },
+      { "price": 128.5, "basis": "moneytaur 2026-06-26 — upper edge of the 127–128.50 supply zone (0.786 retracement)" }
+    ],
+    "invalidation": 113,
+    "stop_basis": "below ~113, the loss of the 4H demand line moneytaur entered against"
+  },
+  "stance_by_source": [
+    {
+      "source": "moneytaur",
+      "as_of": "2026-06-26",
+      "stance": "bullish",
+      "timeframe": "LTF",
+      "summary": "Buy the bounce off the ~114 support area on the 4-hour chart, aiming for the 127–128.50 resistance band, with a tight stop just under 113."
+    }
+  ],
+  "conflicts": [],
+  "plain_english": "Only one source covers Cisco, and it is a clean, recent bullish setup: buy near 114 where the price is reacting off support, aim for 127–128.50, and cut the trade if it closes below about 113. The risk is small relative to the potential reward, which is why it grades well, but bear in mind no second source confirms it — it rests on a single chart-based call. You can take the entry near 114 with a stop under 113, keeping the position size modest given there is no corroborating opinion." }

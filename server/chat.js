@@ -15,6 +15,7 @@ import { commodityView, getCommodity } from './commodities.js'
 import { getHoldings, getFunds } from './brokers/funds.js'
 import { getTargets } from './portfolio/targets.js'
 import { buildLedger } from './portfolio/ledger.js'
+import { formatAllocation } from './portfolio/alloc-summary.js'
 import { computeRotation, BIG6 } from './portfolio/rotation.js'
 import { benchmarkSymbol, trailingReturn, bookReturn } from './portfolio/benchmark.js'
 import { listAlerts } from './alerts/list.js'
@@ -256,7 +257,7 @@ async function bookLedger() {
     const bars = sym ? await getHistory(sym, 'stock') : null
     benchmark = { label: targets.benchmark, return1y: bars ? trailingReturn(bars.map((b) => b.c).filter((c) => c != null), 252) : null }
   } catch { /* benchmark best-effort */ }
-  _ledgerMemo = { at: Date.now(), led, regime, favorTiers, benchmark, bookReturnPct: bookReturn(funds) }
+  _ledgerMemo = { at: Date.now(), led, targets, regime, favorTiers, benchmark, bookReturnPct: bookReturn(funds) }
   return _ledgerMemo
 }
 
@@ -714,6 +715,12 @@ Every row is tagged TRADE or HOLD. They are managed completely differently:
 
 Mistaking a hold ETF for a planless trade is the #1 error here — do not make it.
 
+## Sizing — read the ALLOCATION block, don't invent a generic %
+Each turn you also get an **# ALLOCATION** block: his real bucket structure (Core / Satellites / Picks / Cash held vs target, with £ room), the satellite pyramid, and the per-theme budgets (incl. commodities) with £ room. USE IT — never answer a sizing question with a generic "2% risk ÷ stop = X% of capital" when the name is a HOLD.
+- A **HOLD** (core/satellite ETF, a spot metal, a crypto/commodity hold) is sized by ALLOCATION: how much room is left in its bucket and theme. A spot metal (gold, silver, palladium) is a COMMODITIES-theme satellite — size it from the commodities theme room, and if he's eyeing several metals, split that one theme budget across them rather than giving each a full position.
+- A **PICK** (active trade) is the only thing sized by risk ÷ stop, and even then it's capped by the Picks budget shown in the block.
+- Always ground £ figures in his actual book value and the room shown — don't quote a bare % of capital.
+
 Your job:
 - Flag ACTIVE TRADES AT RISK first — held TRADE names at/near invalidation, or trades missing plan levels. Then HOLDS in heavy drawdown or with a degraded thesis.
 - Surface STANDOUTS worth a closer look: strong grade + (for trades) a valid/approaching setup + conviction; say why in one line each.
@@ -839,10 +846,14 @@ async function buildTickerScope(symbol, { ack }) {
 
 async function buildPortfolioScope(book, { ack }) {
   const roster = await portfolioRoster(book)
+  let allocation = ''
+  if (!ack) {
+    try { allocation = formatAllocation(await bookLedger()) } catch { /* allocation best-effort */ }
+  }
   return {
     label: 'your portfolio roster',
     context: PORTFOLIO_CONTEXT,
-    live: ack ? '' : formatRoster(roster),
+    live: ack ? '' : [formatRoster(roster), allocation].filter(Boolean).join('\n\n'),
     tools: PORTFOLIO_TOOLS,
     ctx: { book, roster: roster.bySymbol },
   }

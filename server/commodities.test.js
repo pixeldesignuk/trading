@@ -50,6 +50,18 @@ test('vehicleToCommodity remaps a vehicle code to its canonical commodity ticker
   assert.equal(vehicleToCommodity(null), null)
 })
 
+test('vehicleToCommodity folds the T212 London + yahoo forms of a vehicle', () => {
+  // The held-silver bug: T212's SSLNl_EQ → brokerToHubSymbol → "SSLNL", which must
+  // still resolve to SILVER (vehicle SSLN) rather than mint a dead standalone line.
+  const silver = { key: 'silver', symbol: 'SILVER', vehicle: 'SSLN' }
+  assert.deepEqual(vehicleToCommodity('SSLN'), silver)    // bare ticker
+  assert.deepEqual(vehicleToCommodity('SSLNL'), silver)   // T212 London hub form
+  assert.deepEqual(vehicleToCommodity('SSLN.L'), silver)  // yahoo symbol
+  assert.deepEqual(vehicleToCommodity('ssln.l'), silver)  // case-insensitive
+  // The canonical `vehicle` is always the bare ticker, whatever form came in.
+  assert.equal(vehicleToCommodity('SSLNL').vehicle, 'SSLN')
+})
+
 test('commodityView enriches with live prices, selection, recommendation and ratio', async () => {
   // fake getQuotes: spot PA=F = 1000, ETC prices per yahoo symbol
   const prices = { 'PA=F': 1000, 'SPAL.L': 90, 'SPDM.L': 95, 'PHPD.L': 120 }

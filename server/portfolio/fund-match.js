@@ -19,10 +19,10 @@ export function buildMatchMap(universe) {
       const isCore = section === 'core' || section === 'income'
       const theme = isCore ? null : (f.theme || (section === 'crypto' ? 'crypto' : 'tech'))
       const entry = isCore
-        ? { bucket: 'core', theme: null, tier: 'lower', source: f.symbol,
+        ? { bucket: 'core', theme: null, tier: 'lower', source: f.symbol, yahoo: f.yahoo || null,
             coreType: f.core_type || (section === 'income' ? 'quality_income' : 'world'),
             incomeKind: f.income_kind || undefined }
-        : { bucket: 'satellite', theme, tier: tierForTheme(theme), source: f.symbol }
+        : { bucket: 'satellite', theme, tier: tierForTheme(theme), source: f.symbol, yahoo: f.yahoo || null }
       // Exact match key: the hub form of the real T212 ticker (strip at the first
       // underscore, uppercase — mirrors brokerToHubSymbol). Authoritative, and it
       // catches non-London venues the root+L heuristic misses (e.g. the Amsterdam

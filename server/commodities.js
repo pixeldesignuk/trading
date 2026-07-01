@@ -36,31 +36,45 @@ export function vehicleByTicker(key, ticker) {
   return m.vehicles.find((v) => v.ticker.toUpperCase() === t) || null
 }
 
-// Reverse index: a vehicle ETC ticker (SGLN, IAU, SGLP…) → its commodity key.
-// Built once from the same reference.
+// Reverse index: any form a vehicle ETC can arrive as → { key (commodity), vehicle
+// (canonical ticker) }. The SAME physical line reaches us three ways: the bare
+// ticker (SSLN), the T212 London hub form (SSLNL — brokerToHubSymbol collapses the
+// `l` venue suffix, dropping the dot), and the yahoo symbol (SSLN.L). All three
+// must fold onto the commodity, so we index every alias. Built once from the registry.
 const VEHICLE_INDEX = (() => {
   const idx = new Map()
+  const add = (alias, rec) => { const a = alias?.toUpperCase(); if (a && !idx.has(a)) idx.set(a, rec) }
   for (const [key, m] of Object.entries(REF)) {
     if (!m || typeof m !== 'object' || !Array.isArray(m.vehicles)) continue
     for (const v of m.vehicles) {
-      if (v?.ticker) idx.set(v.ticker.toUpperCase(), key)
+      if (!v?.ticker) continue
+      const canon = v.ticker.toUpperCase()
+      const rec = { key, vehicle: canon }
+      add(canon, rec)            // SSLN
+      add(canon + 'L', rec)      // SSLNL — T212 London hub form (mirrors fund-match's root+'L')
+      if (v.yahoo) {
+        add(v.yahoo, rec)                       // SSLN.L
+        add(v.yahoo.replace(/\./g, ''), rec)    // SSLNL (yahoo, dot stripped)
+      }
     }
   }
   return idx
 })()
 
-// Guard against an extractor stuffing a VEHICLE code into the symbol slot (e.g. a
-// gold live labelled "SGLN" instead of "GOLD"). Returns the canonical commodity
-// identity so ingestion lands on the real ticker (GOLD, vehicle = SGLN) rather
-// than minting a duplicate vehicle ticker. Null when `symbol` isn't a vehicle.
+// Guard against a VEHICLE code landing in the symbol slot — whether an extractor
+// stuffs "SGLN" where "GOLD" belongs, or a broker sync hands us a held ETC line
+// ("SSLN", "SSLNL", "SSLN.L"). Returns the canonical commodity identity so it folds
+// onto the real ticker (GOLD/SILVER, vehicle = SGLN/SSLN) instead of minting a dead
+// duplicate. `vehicle` is always the canonical ticker, regardless of input form.
+// Null when `symbol` isn't a known vehicle.
 export function vehicleToCommodity(symbol) {
   if (!symbol) return null
-  const vehicle = String(symbol).toUpperCase()
-  const key = VEHICLE_INDEX.get(vehicle)
-  if (!key) return null
-  const canon = key.toUpperCase()
-  if (canon === vehicle) return null   // degenerate: code already the commodity symbol
-  return { key, symbol: canon, vehicle }
+  const input = String(symbol).toUpperCase()
+  const rec = VEHICLE_INDEX.get(input)
+  if (!rec) return null
+  const canon = rec.key.toUpperCase()
+  if (canon === input) return null   // degenerate: code already the commodity symbol
+  return { key: rec.key, symbol: canon, vehicle: rec.vehicle }
 }
 
 export function compliance(key) {

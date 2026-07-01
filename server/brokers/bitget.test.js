@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { fetchSnapshot, sign, STABLES } from './bitget.js'
+import { fetchSnapshot, sign, STABLES, avgCostFromFills, fetchAllFills } from './bitget.js'
 
 const creds = { apiKey: 'k', apiSecret: 'sosecret', passphrase: 'pp' }
 
@@ -92,6 +92,85 @@ test('fetchSnapshot sends signed auth headers', async () => {
   assert.equal(h['ACCESS-PASSPHRASE'], 'pp')
   assert.equal(h['ACCESS-TIMESTAMP'], '1700000000000')
   assert.equal(h['ACCESS-SIGN'], sign('1700000000000', 'GET', '/api/v2/spot/account/assets', '', 'sosecret'))
+})
+
+test('avgCostFromFills weights buys and is order-independent', () => {
+  const rec = avgCostFromFills([
+    { side: 'buy', size: '1', priceAvg: '200', cTime: '2' },
+    { side: 'buy', size: '1', priceAvg: '100', cTime: '1' },
+  ])
+  assert.equal(rec.qty, 2)
+  assert.equal(rec.avgPriceUsd, 150)
+})
+
+test('avgCostFromFills keeps the remainder average across a partial sell', () => {
+  const rec = avgCostFromFills([
+    { side: 'buy', size: '2', priceAvg: '100', cTime: '1' },
+    { side: 'sell', size: '1', priceAvg: '400', cTime: '2' }, // realises profit, basis unchanged
+  ])
+  assert.equal(rec.qty, 1)
+  assert.equal(rec.avgPriceUsd, 100)
+})
+
+test('avgCostFromFills returns null when nothing remains or there are no buys', () => {
+  assert.equal(avgCostFromFills([]), null)
+  assert.equal(avgCostFromFills([{ side: 'sell', size: '1', priceAvg: '100', cTime: '1' }]), null)
+  assert.equal(avgCostFromFills([
+    { side: 'buy', size: '1', priceAvg: '100', cTime: '1' },
+    { side: 'sell', size: '1', priceAvg: '200', cTime: '2' },
+  ]), null)
+})
+
+test('fetchAllFills pages via idLessThan until a short page', async () => {
+  const pages = [
+    { code: '00000', data: Array.from({ length: 100 }, (_, i) => ({ tradeId: String(200 - i), symbol: 'BTCUSDT', side: 'buy', size: '0.01', priceAvg: '50000', cTime: String(200 - i) })) },
+    { code: '00000', data: [{ tradeId: '99', symbol: 'BTCUSDT', side: 'buy', size: '0.01', priceAvg: '40000', cTime: '99' }] },
+  ]
+  let call = 0
+  const getSigned = async (path) => {
+    const body = call === 0 ? pages[0] : pages[1]
+    // second page must be requested with the last tradeId of the first as cursor
+    if (call === 1) assert.match(path, /idLessThan=101/)
+    call++
+    return body.data
+  }
+  const all = await fetchAllFills(getSigned)
+  assert.equal(all.length, 101)
+  assert.equal(call, 2)
+})
+
+test('fetchSnapshot reconstructs cost basis + pnl from fills, cost-less coins stay null', async () => {
+  const { fetch } = stubFetch([
+    ['/spot/account/assets', ASSETS],
+    ['/spot/market/tickers', TICKERS],
+    ['/spot/trade/fills', { code: '00000', data: [
+      { symbol: 'BTCUSDT', side: 'buy', size: '0.5', priceAvg: '40000', tradeId: '1', cTime: '1' },
+      // ETH & SOL have no fills → no reconstructed basis
+    ] }],
+  ])
+  const snap = await fetchSnapshot(creds, { fetch, usdGbp: 0.8, now: () => 1700000000000 })
+  const bySym = Object.fromEntries(snap.holdings.map((h) => [h.symbol, h]))
+  // BTC: entry 40000 USD, held 0.5 → cost 0.5*40000*0.8 = 16000 GBP
+  assert.equal(bySym.BTC.cost, 16000)
+  // value 24000 - cost 16000 = 8000 pnl
+  assert.equal(bySym.BTC.pnl, 8000)
+  // coins without fills carry no basis (not a false zero)
+  assert.equal(bySym.ETH.cost, undefined)
+  assert.equal(bySym.ETH.pnl, undefined)
+  // account-level pnl stays null (partial/unknown basis across coins)
+  assert.equal(snap.pnl, null)
+})
+
+test('fetchSnapshot survives a failing fills call — costs stay unknown', async () => {
+  const { fetch } = stubFetch([
+    ['/spot/account/assets', ASSETS],
+    ['/spot/market/tickers', TICKERS],
+    // no /spot/trade/fills route → 404 → caught, snapshot still builds
+  ])
+  const snap = await fetchSnapshot(creds, { fetch, usdGbp: 0.8, now: () => 1700000000000 })
+  const btc = snap.holdings.find((h) => h.symbol === 'BTC')
+  assert.equal(btc.value, 24000) // balances untouched
+  assert.equal(btc.cost, undefined)
 })
 
 test('a non-zero Bitget code throws', async () => {

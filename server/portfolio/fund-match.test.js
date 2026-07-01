@@ -29,14 +29,14 @@ test('t212 London line still resolves via its hub form (ISWDl_EQ → ISWDL)', ()
 
 test('gold → satellite/commodities/lower; EM → satellite/em/moderate', () => {
   const m = buildMatchMap(universe)
-  assert.deepEqual(matchHeldSymbol('SGLNL', m), { bucket: 'satellite', theme: 'commodities', tier: 'lower', source: 'SGLN.GB' })
+  assert.deepEqual(matchHeldSymbol('SGLNL', m), { bucket: 'satellite', theme: 'commodities', tier: 'lower', source: 'SGLN.GB', yahoo: null })
   assert.equal(matchHeldSymbol('HIESL', m).theme, 'em')
   assert.equal(matchHeldSymbol('HIESL', m).tier, 'moderate')
 })
 
 test('crypto → satellite/crypto/high; CASH and unknowns do not match', () => {
   const m = buildMatchMap(universe)
-  assert.deepEqual(matchHeldSymbol('BTC', m), { bucket: 'satellite', theme: 'crypto', tier: 'high', source: 'BTC' })
+  assert.deepEqual(matchHeldSymbol('BTC', m), { bucket: 'satellite', theme: 'crypto', tier: 'high', source: 'BTC', yahoo: null })
   assert.equal(matchHeldSymbol('CASH', m), null)
   assert.equal(matchHeldSymbol('NVDA', m), null)
 })

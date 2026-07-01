@@ -1,0 +1,48 @@
+{
+  "discussion": null,
+  "ideas": [],
+  "signals": [
+    {
+      "symbol": "CSCO",
+      "name": "Cisco Systems",
+      "asset_class": "stock",
+      "source": "moneytaur",
+      "kind": "grade",
+      "occurred_at": "2026-06-26T22:48:00Z",
+      "native_id": "2070625147095015462",
+      "payload": {
+        "entry": "~114 (4H demand line — price tapping it)",
+        "targets": ["127–128.50 (supply / 0.786 retracement)"],
+        "invalidation": "below ~113 (loss of the demand line)",
+        "grade_score": 7,
+        "grade_verdict": "solid",
+        "sharia_status": "questionable",
+        "sharia_note": "Cisco — networking hardware; verify interest-bearing debt vs market cap and interest income (Zoya/Musaffa) before treating as compliant.",
+        "note": "Spot-first: long CSCO shares (cash equity). ~12:1 R:R per the setup (114 → 127/128.5 vs stop ~113). 4H structure; chart-only call.",
+        "url": "https://x.com/Moneytaur_/status/2070625147095015462",
+        "text": "CSCO — 4H long. Demand reaction at ~114 targeting the 127–128.50 supply (0.786 retracement). Subscribers post (chart only, ticker = 'CSCO'); crowd replies peg it ~12:1 R:R."
+      }
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir Technologies",
+      "asset_class": "stock",
+      "source": "moneytaur",
+      "kind": "grade",
+      "occurred_at": "2026-06-28T03:32:00Z",
+      "native_id": "2071059134229643767",
+      "payload": {
+        "entry": "2W demand zone ~100–112 (0.705 / 0.5; price in it now ~110)",
+        "targets": ["137–140 (0.5 / 0.618)", "then prior highs ~160 / ~190"],
+        "invalidation": "below ~100 (loss of the 2W demand)",
+        "grade_score": 6,
+        "grade_verdict": "partial",
+        "sharia_status": "questionable",
+        "sharia_note": "Palantir — software; relatively low debt but verify interest income / debt ratios per Zoya/Musaffa.",
+        "note": "Spot-first: accumulate PLTR shares at the 3D / 2W demand. HTF accumulation, broad zone. The caption was a Jim Cramer jab — the chart itself shows the 2W demand reaction.",
+        "url": "https://x.com/Moneytaur_/status/2071059134229643767",
+        "text": "PLTR — 3D long. Price tapping the 2W demand ~100–112 (0.705 / 0.5), targeting 137–140 (0.5 / 0.618) then the 160 / 190 highs. Invalid below 100."
+      }
+    }
+  ]
+}

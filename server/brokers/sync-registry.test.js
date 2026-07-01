@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { syncAccount, syncAll } from './sync.js'
+import { syncAccount, syncAll, quoteSymbolFor } from './sync.js'
 
 // A fake query that records writes and serves no rows.
 function fakeQuery() {
@@ -34,6 +34,66 @@ test('syncAccount dispatches to the account provider, decrypting its credentials
   const insert = calls.find((c) => /INSERT INTO broker_accounts/.test(c.text))
   assert.ok(insert)
   assert.equal(insert.params[1], 'bitget')
+})
+
+test('syncAccount folds a held commodity ETC onto its commodity ticker, not a standalone line', async () => {
+  const { q, calls } = fakeQuery()
+  const upserts = []
+  const registry = {
+    trading212: {
+      fetchSnapshot: async () => ({
+        totalValue: 500, currency: 'GBP', cash: 0, invested: 500, pnl: null,
+        // T212's London silver ETC line — brokerToHubSymbol collapses it to SSLNL.
+        holdings: [{ symbol: 'SSLNl_EQ', name: 'SSLNl', quantity: 11.8, value: 500, currency: 'GBP' }],
+      }),
+    },
+  }
+  const account = { id: 't1', provider: 'trading212', label: 'T212', credentials_enc: {} }
+  const held = await syncAccount(account, {
+    q, registry, decryptCreds: () => ({}),
+    upsert: async (sym, opts) => { upserts.push({ sym, opts }) },
+  })
+
+  // Held set + ticker upsert use the commodity ticker, never the SSLNL vehicle code.
+  assert.deepEqual(held, ['SILVER'])
+  assert.deepEqual(upserts, [{ sym: 'SILVER', opts: { name: null, asset_class: 'commodity' } }])
+  // The commodity key + actually-held vehicle are locked on the SILVER ticker.
+  const lock = calls.find((c) => /UPDATE tickers SET commodity_key/.test(c.text))
+  assert.ok(lock, 'locks commodity_key/vehicle')
+  assert.deepEqual(lock.params, ['SILVER', 'silver', 'SSLN'])
+  // The holdings row keeps the raw broker symbol but files under SILVER.
+  const ins = calls.find((c) => /INSERT INTO holdings/.test(c.text))
+  assert.equal(ins.params[1], 'SSLNl_EQ')  // broker_symbol (audit trail)
+  assert.equal(ins.params[2], 'SILVER')    // ticker (folded)
+})
+
+test('quoteSymbolFor resolves an LSE yahoo symbol from the fund universe or the L suffix', () => {
+  // Curated fund-universe line (authoritative).
+  assert.equal(quoteSymbolFor('ISWDl_EQ'), 'ISWD.L')
+  assert.equal(quoteSymbolFor('HIESl_EQ'), 'HIES.L')
+  // Unknown London line → derived from the lowercase-l venue suffix.
+  assert.equal(quoteSymbolFor('ZZZZl_EQ'), 'ZZZZ.L')
+  // A US line (no London suffix) gets no override — priced off its bare root.
+  assert.equal(quoteSymbolFor('AAPL_US_EQ'), null)
+})
+
+test('syncAccount gives a synced LSE line a resolvable yahoo quote_symbol', async () => {
+  const { q, calls } = fakeQuery()
+  const registry = {
+    trading212: {
+      fetchSnapshot: async () => ({
+        totalValue: 100, currency: 'GBP', cash: 0, invested: 100, pnl: null,
+        holdings: [{ symbol: 'ISWDl_EQ', name: 'iShares World', quantity: 2, value: 100, currency: 'GBP' }],
+      }),
+    },
+  }
+  const account = { id: 't2', provider: 'trading212', label: 'T212', credentials_enc: {} }
+  const held = await syncAccount(account, { q, registry, decryptCreds: () => ({}), upsert: async () => {} })
+
+  assert.deepEqual(held, ['ISWDL'])
+  const setQs = calls.find((c) => /SET quote_symbol/.test(c.text))
+  assert.ok(setQs, 'sets quote_symbol on the LSE line')
+  assert.deepEqual(setQs.params, ['ISWDL', 'ISWD.L'])
 })
 
 test('an unknown provider is reported as a per-account error, not a crash', async () => {

@@ -8,6 +8,7 @@ import { upsertTicker, setClassification } from '../tickers.js'
 import { REGISTRY } from './registry.js'
 import { decrypt, hasKey } from './secrets.js'
 import { fundMatchMap, matchHeldSymbol } from '../portfolio/fund-match.js'
+import { vehicleToCommodity } from '../commodities.js'
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
@@ -41,6 +42,29 @@ export function brokerToHubSymbol(brokerSymbol) {
   return (brokerSymbol.split('_')[0] || brokerSymbol).toUpperCase()
 }
 
+// Resolve a broker line to the hub ticker it belongs under. A held commodity ETC
+// (the T212 London silver line SSLNl_EQ → SSLNL) folds onto its commodity ticker
+// (SILVER) so it lands as that commodity's held vehicle — priced via the registry's
+// yahoo symbol (SSLN.L) — instead of minting a dead standalone SSLNL line with no
+// price. Everything else keeps its bare hub symbol. Returns { symbol, commodity? }.
+export function hubTickerFor(brokerSymbol) {
+  const hub = brokerToHubSymbol(brokerSymbol)
+  const v = vehicleToCommodity(hub)
+  return v ? { symbol: v.symbol, commodity: { key: v.key, vehicle: v.vehicle } } : { symbol: hub }
+}
+
+// Yahoo price symbol for a held broker line, when we can infer one: the curated
+// fund-universe `yahoo` (authoritative, verified) else a London `.L` derivation
+// from T212's lowercase-`l` venue suffix (ISWDl_EQ → ISWD.L). Without this a synced
+// LSE line is priced off its dead bare root (ISWDL) and shows no price. Null when
+// unknown — leaves quote_symbol unset rather than guessing a bad symbol.
+export function quoteSymbolFor(brokerSymbol, map = fundMatchMap()) {
+  const fromUniverse = matchHeldSymbol(brokerToHubSymbol(brokerSymbol), map)?.yahoo
+  if (fromUniverse) return fromUniverse
+  const m = /^([A-Z0-9]+)l$/.exec(String(brokerSymbol).split('_')[0]) // London venue: root + lowercase l
+  return m ? `${m[1]}.L` : null
+}
+
 // Held tickers become Active ('in'); any ticker currently 'in' but no longer
 // held in any account is demoted to 'closed' (auto-exit mirror rule).
 export async function reconcileStages(heldSymbols, { q = query } = {}) {
@@ -67,10 +91,23 @@ export async function syncAccount(account, deps = {}) {
   const snap = snapshot ? await snapshot(account) : await registrySnapshot(account, { registry, decryptCreds })
   const provider = account.provider || 'trading212'
   const held = []
-  for (const h of snap.holdings) {
-    const symbol = brokerToHubSymbol(h.symbol)
-    await upsert(symbol, { name: h.name || null })
-    held.push(symbol)
+  // Resolve each line's hub ticker once (folding commodity ETC vehicles onto their
+  // commodity), then reuse it for both the ticker upsert and the holdings insert.
+  const lines = snap.holdings.map((h) => ({ h, hub: hubTickerFor(h.symbol) }))
+  for (const { h, hub } of lines) {
+    await upsert(hub.symbol, { name: hub.commodity ? null : (h.name || null), asset_class: hub.commodity ? 'commodity' : null })
+    if (hub.commodity) {
+      // Lock the commodity's key + the actually-held vehicle so commodityView prices
+      // and shows the line you own (COALESCE in upsert preserves any existing synth).
+      await q('UPDATE tickers SET commodity_key=COALESCE(commodity_key,$2), commodity_vehicle=$3, updated_at=now() WHERE symbol=$1',
+        [hub.symbol, hub.commodity.key, hub.commodity.vehicle])
+    } else {
+      // Give an LSE line a resolvable yahoo symbol (ISWDL → ISWD.L) so it prices.
+      // COALESCE keeps any manual quote_symbol override the user set by hand.
+      const qs = quoteSymbolFor(h.symbol)
+      if (qs) await q('UPDATE tickers SET quote_symbol=COALESCE(quote_symbol,$2), updated_at=now() WHERE symbol=$1', [hub.symbol, qs])
+    }
+    held.push(hub.symbol)
   }
   // Upsert only the snapshot fields — owner_id, credentials_enc, book, account_type
   // are owned by the account record and preserved across syncs.
@@ -85,12 +122,14 @@ export async function syncAccount(account, deps = {}) {
   )
   // Replace this account's holdings (delete-then-insert keeps it a clean mirror).
   await q('DELETE FROM holdings WHERE account_id=$1', [account.id])
-  for (const h of snap.holdings) {
+  for (const { h, hub } of lines) {
     await q(
       `INSERT INTO holdings (account_id, broker_symbol, ticker, name, quantity, avg_price, value, pnl, currency, synced_at)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,now())`,
-      [account.id, h.symbol, brokerToHubSymbol(h.symbol), h.name || null, h.quantity,
-       h.quantity ? (h.cost ?? 0) / h.quantity : null, h.value, h.pnl ?? null, h.currency || snap.currency],
+      // avg_price stays null when the provider has no cost basis — never coerce a
+      // missing cost to 0, which would render a false "@ 0.00 / +£0" entry.
+      [account.id, h.symbol, hub.symbol, h.name || null, h.quantity,
+       h.quantity && h.cost != null ? h.cost / h.quantity : null, h.value, h.pnl ?? null, h.currency || snap.currency],
     )
   }
   return held

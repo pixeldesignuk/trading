@@ -4,20 +4,20 @@
   "action": "wait",
   "safest_plan": {
     "entry": 5,
-    "entry_basis": "moneytaur grade (2026-06-20), entry $5, verdict pass (score 8)",
+    "entry_basis": "moneytaur grade (2026-06-20), stated entry $5",
     "targets": [],
     "invalidation": null,
-    "stop_basis": "No structure-based invalidation stated by any source — no level to anchor a stop, so risk is undefined"
+    "stop_basis": "No source gave a structure-based invalidation, so no stop can be placed safely (estimated: none available)"
   },
   "stance_by_source": [
     {
       "source": "moneytaur",
       "as_of": "2026-06-20",
       "stance": "bullish",
-      "timeframe": "unspecified",
-      "summary": "Rates the setup a pass (8/10) with a buy around $5; gives no targets and no level that would prove the idea wrong."
+      "timeframe": "unknown",
+      "summary": "Passed moneytaur's grade (score 8) with a buy entry around $5, but no price targets or exit level were given."
     }
   ],
   "conflicts": [],
-  "plain_english": "Only one source has weighed in: Moneytaur likes this around $5 and gives it a passing grade. But there are no profit targets and no price that would tell you the idea has failed, so you can't size a sensible risk on it. Wait — either for a clear level to fail/hold or a second opinion — before committing money here."
+  "plain_english": "Only one source has spoken on Zed: moneytaur, who rated it a buy around $5 back on 20 June. That is a single, thin mention — there are no price targets and no level that would tell you the trade has failed, so there is no way to size the risk or plan an exit. Because you cannot define where you'd get out, hold off and wait for a clearer setup or a second source before committing money."
 }
